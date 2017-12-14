@@ -103,6 +103,18 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>copy "$(TargetPath)" "$(GameInstallDir)$(TargetFileName)" /y</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Copying $(GameName) Executable</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(GameInstallDir)$(TargetFileName)</Outputs>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Inputs>$(TargetPath)</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -117,6 +129,18 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>copy "$(TargetPath)" "$(GameInstallDir)$(TargetFileName)" /y</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Copying $(GameName) Executable</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(GameInstallDir)$(TargetFileName)</Outputs>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Inputs>$(TargetPath)</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -135,6 +159,18 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>copy "$(TargetPath)" "$(GameInstallDir)$(TargetFileName)" /y</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Copying $(GameName) Executable</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(GameInstallDir)$(TargetFileName)</Outputs>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Inputs>$(TargetPath)</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -153,6 +189,18 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>copy "$(TargetPath)" "$(GameInstallDir)$(TargetFileName)" /y</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Copying $(GameName) Executable</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(GameInstallDir)$(TargetFileName)</Outputs>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Inputs>$(TargetPath)</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
