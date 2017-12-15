@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}</ProjectGuid>
+    <ProjectGuid>{324D6383-463F-4176-97A1-4ACA3FB6DC61}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>AssetBuilder</RootNamespace>
+    <RootNamespace>BuildExampleGameAssets</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -60,18 +60,22 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\ExampleGame.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -99,6 +103,15 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>"$(OutputDir)AssetBuilder.exe"</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Building $(GameName) Assets</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>ALWAYS_RUN</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -113,6 +126,15 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>"$(OutputDir)AssetBuilder.exe"</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Building $(GameName) Assets</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>ALWAYS_RUN</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -131,6 +153,15 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>"$(OutputDir)AssetBuilder.exe"</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Building $(GameName) Assets</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>ALWAYS_RUN</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -149,9 +180,17 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <CustomBuildStep>
+      <Command>"$(OutputDir)AssetBuilder.exe"</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Message>Building $(GameName) Assets</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>ALWAYS_RUN</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="EntryPoint.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
