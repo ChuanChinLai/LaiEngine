@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExampleGame", "ExampleGame"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExampleGame", "ExampleGame_\ExampleGame\ExampleGame.vcxproj", "{3730FAF2-4695-41BF-A1C8-71E2F2D0751B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{D7E7E8C7-83DA-474E-94B5-4AD7042ED9DA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssetBuilder", "Tools\AssetBuilder\AssetBuilder.vcxproj", "{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -25,12 +29,21 @@ Global
 		{3730FAF2-4695-41BF-A1C8-71E2F2D0751B}.Release|x64.Build.0 = Release|x64
 		{3730FAF2-4695-41BF-A1C8-71E2F2D0751B}.Release|x86.ActiveCfg = Release|Win32
 		{3730FAF2-4695-41BF-A1C8-71E2F2D0751B}.Release|x86.Build.0 = Release|Win32
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Debug|x64.ActiveCfg = Debug|x64
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Debug|x64.Build.0 = Debug|x64
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Debug|x86.ActiveCfg = Debug|Win32
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Debug|x86.Build.0 = Debug|Win32
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Release|x64.ActiveCfg = Release|x64
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Release|x64.Build.0 = Release|x64
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Release|x86.ActiveCfg = Release|Win32
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3730FAF2-4695-41BF-A1C8-71E2F2D0751B} = {8CFD9E7E-25B1-489C-A725-C4EEFFE0E84A}
+		{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF} = {D7E7E8C7-83DA-474E-94B5-4AD7042ED9DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF7EB555-DE90-443E-9226-38579C9AA7CC}
