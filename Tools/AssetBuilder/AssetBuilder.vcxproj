@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{FC96D899-35BB-45E8-9A41-EA7BDAEB07CF}</ProjectGuid>
+    <ProjectGuid>{5D44A4F2-0F6B-4AF3-BF9B-496436C97773}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>AssetBuilder</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
@@ -63,15 +63,12 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\Engine\EngineDefaults.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\Engine\EngineDefaults.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\Engine\EngineDefaults.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -152,6 +149,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EntryPoint.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="AssetBuildFunctions.lua">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(OutputDir)luac.exe" -o "$(OutputDir)%(Identity)" "%(FullPath)" </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compiling %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputDir)%(Identity)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(OutputDir)luac.exe</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(OutputDir)luac.exe" -o "$(OutputDir)%(Identity)" "%(FullPath)" </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compiling %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputDir)%(Identity)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(OutputDir)luac.exe</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(OutputDir)luac.exe" -o "$(OutputDir)%(Identity)" "%(FullPath)" </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compiling %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputDir)%(Identity)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(OutputDir)luac.exe</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(OutputDir)luac.exe" -o "$(OutputDir)%(Identity)" "%(FullPath)" </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compiling %(Identity)</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputDir)%(Identity)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(OutputDir)luac.exe</AdditionalInputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\External\Lua\LuaLib.vcxproj">
+      <Project>{a506e35d-bb34-468d-82cd-112386be29d1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
