@@ -15,11 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EntryPoint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <CustomBuild Include="AssetBuildFunctions.lua" />
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="AssetBuildFunctions.lua" />
+    <ClCompile Include="EntryPoint.cpp" />
   </ItemGroup>
 </Project>

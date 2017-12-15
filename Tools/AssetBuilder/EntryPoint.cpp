@@ -11,7 +11,9 @@ The main() function is where the program starts execution
 #include <cassert>
 #include <filesystem>
 #include <string>
-
+#include <cstring>
+#include <windows.h>
+#include <direct.h>
 // Helper Function Declarations
 //=============================
 
@@ -38,14 +40,14 @@ namespace
 
 int main(int i_argumentCount, char** i_arguments)
 {
-	std::string s1 = "C:\\Users/u1070737/Desktop/TowerDefenseGame/temp/x86/Debug/output/123.txt";
-	std::string s2 = "C:\\Users/u1070737/Desktop/TowerDefenseGame/temp/x86/Debug/output/234.txt";
+	//std::string s1 = "C:\\Users/u1070737/Desktop/TowerDefenseGame/temp/x86/Debug/output/123.txt";
+	//std::string s2 = "C:\\Users/u1070737/Desktop/TowerDefenseGame/temp/x86/Debug/output/234.txt";
 
 
-	if (!std::experimental::filesystem::exists(s2))
-	{
-		std::experimental::filesystem::copy(s1, s2);
-	}
+	//if (!std::experimental::filesystem::exists(s2))
+	//{
+	//	std::experimental::filesystem::copy(s1, s2);
+	//}
 
 
 	int exitCode = EXIT_SUCCESS;
@@ -80,7 +82,15 @@ int main(int i_argumentCount, char** i_arguments)
 	{
 		 //If you set breakpoints in the registered C/C++ functions
 		 //before executing the Lua script you will be able to watch them get called
-		const auto result = luaL_dofile(luaState, "AssetBuildFunctions.lua");
+
+		constexpr DWORD maxCharacterCount = MAX_PATH;
+		char buffer[MAX_PATH];
+		const auto characterCount = ::GetEnvironmentVariable("OutputDir", buffer, maxCharacterCount);
+
+		std::string path(buffer);
+		path += "AssetBuildFunctions.lua";
+
+		const auto result = luaL_dofile(luaState, path.c_str());
 		if (result != LUA_OK)
 		{
 			const auto* const errorMessage = lua_tostring(luaState, -1);
@@ -90,6 +100,7 @@ int main(int i_argumentCount, char** i_arguments)
 			exitCode = EXIT_FAILURE;
 			goto OnExit;
 		}
+
 	}
 
 OnExit:
