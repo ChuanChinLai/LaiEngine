@@ -20,13 +20,10 @@ namespace Engine
 		~GameEngine();
 
 		bool _InitSystem(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN);
-		void _FreeSystem();
 		void _Loop();
-		void _End();
+		void _Release();
 
 		virtual bool _Init();
-		virtual void _Update();
-		virtual void _Free();
 
 		Audio*    _GetAudio();
 		Graphics* _GetGraphics();
@@ -36,6 +33,8 @@ namespace Engine
 		Resource::SceneManager* _GetSceneManager();
 
 	private:
+
+		void _FreeSystem();
 
 		Audio*    m_pAudio;
 		Graphics* m_pGraphics;

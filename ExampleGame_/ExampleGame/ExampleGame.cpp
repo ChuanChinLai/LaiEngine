@@ -11,19 +11,9 @@ bool Engine::GameDemo::_Init()
 	}
 
 
-	Engine::Resource::IGameScene* S1 = new Engine::Resource::IGameScene(_GetSceneManager());
+//	Engine::Resource::IGameScene* S1 = new Engine::Resource::IGameScene(_GetSceneManager());
 
-	_GetSceneManager()->_SetGameScene(S1);
+//	_GetSceneManager()->_SetGameScene(S1);
 
 	return true;
-}
-
-void Engine::GameDemo::_Free()
-{
-
-}
-
-void Engine::GameDemo::_Update()
-{
-
 }

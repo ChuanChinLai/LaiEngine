@@ -4,6 +4,7 @@
 #include <Engine\Input\Input.h>
 #include <Engine\Timer\Timer.h>
 #include <Engine\Scene\SceneManager.h>
+#include <Engine\SmartPointer\SharedPointer.h>
 
 #include <External\SDL2\Includes.h>
 
@@ -14,10 +15,10 @@ namespace Engine
 		if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 			return false;
 
-		m_pAudio = new Audio();
-		m_pGraphics = new Graphics();
-		m_pInput = new Input();
-		m_pTimer = new Timer();
+		m_pAudio	= new Audio(this);
+		m_pGraphics = new Graphics(this);
+		m_pInput	= new Input(this);
+		m_pTimer	= new Timer(this);
 
 		m_pSceneManager = new Engine::Resource::SceneManager();
 
@@ -38,13 +39,6 @@ namespace Engine
 
 	void GameEngine::_FreeSystem()
 	{
-		delete m_pAudio;
-		delete m_pGraphics;
-		delete m_pInput;
-		delete m_pTimer;
-
-		delete m_pSceneManager;
-
 		TTF_Quit();
 		SDL_Quit();
 	}
@@ -79,13 +73,19 @@ namespace Engine
 			m_pTimer->_Update();
 		}
 
-		_Free();
 		_FreeSystem();
 	}
 
-	void GameEngine::_End()
+	void GameEngine::_Release()
 	{
-		GameIsRunning = false;
+		delete m_pAudio;
+		delete m_pGraphics;
+		delete m_pInput;
+		delete m_pTimer;
+
+		delete m_pSceneManager;
+
+		_FreeSystem();
 	}
 
 	bool GameEngine::_Init()
@@ -93,13 +93,8 @@ namespace Engine
 		return _InitSystem("Game", 800, 600, false);
 	}
 
-	void GameEngine::_Free()
-	{
 
-	}
 
-	void GameEngine::_Update()
-	{
+	Engine::Memory::shared_ptr<Audio> s_Audio;
 
-	}
 }

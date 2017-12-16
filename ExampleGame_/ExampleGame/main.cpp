@@ -17,11 +17,13 @@ int main(int argc, char *args[])
 {
 
 	Engine::UserInput::GetKEY();
+	
 
 	Engine::GameDemo Game;
 
 	if (!Game._Init())
 	{
+		Game._Release();
 		return 0;
 	}
 
