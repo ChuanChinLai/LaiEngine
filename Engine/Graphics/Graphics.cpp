@@ -20,6 +20,7 @@ namespace Engine
 		if (m_pWindow == nullptr)
 		{
 			std::cout << "Window could not be created! SDL Error!\n" << SDL_GetError();
+			assert(false);
 			return false;
 		}
 
@@ -29,6 +30,7 @@ namespace Engine
 		if (m_pRenderer == nullptr)
 		{
 			std::cout << "Renderer could not be created! SDL Error!\n" << SDL_GetError();
+			assert(false);
 			return false;
 		}
 

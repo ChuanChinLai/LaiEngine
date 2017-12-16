@@ -12,7 +12,6 @@
 
 int main(int argc, char *args[])
 {
-
 	Engine::Graphics g;
 
 	g._Init("TEST", 800, 600);
