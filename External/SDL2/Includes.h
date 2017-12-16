@@ -5,3 +5,5 @@
 #pragma once
 
 #include "src/SDL.h"
+#include "src/SDL_mixer.h"
+#include "src/SDL_ttf.h"

@@ -7,17 +7,15 @@
 #include <fstream>
 #include <filesystem>
 
-#include <Engine\Graphics\Graphics.h>
-
+#include <Engine\GameEngine\GameEngine.h>
 
 int main(int argc, char *args[])
 {
-	Engine::Graphics g;
+	Engine::GameEngine GE;
 
-	g._Init("TEST", 800, 600);
-	g._Update();
+	GE._Init();
 
-	system("pause");
+	GE._Loop();
 
 	return 0;
 }
