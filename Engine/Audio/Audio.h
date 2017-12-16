@@ -2,9 +2,16 @@
 
 namespace Engine
 {
+	class GameEngine;
+
 	class Audio
 	{
 	public:
+
+		Audio(GameEngine* i_Engine) : m_Engine(i_Engine)
+		{
+
+		};
 
 		~Audio();
 
@@ -19,6 +26,9 @@ namespace Engine
 
 		inline void _Stop();
 		inline void _StopChannel(int i_Channel);
+
+	private:
+		GameEngine* m_Engine;
 	};
 }
 

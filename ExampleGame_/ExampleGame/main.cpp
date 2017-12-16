@@ -8,6 +8,7 @@
 #include <filesystem>
 
 #include <Engine\GameEngine\GameEngine.h>
+#include <Engine\Input\Input.h>
 #include <ExampleGame\ExampleGame.h>
 #include <Engine\SmartPointer\SharedPointer.h>
 #include <Engine\SmartPointer\WeakPointer.h>
@@ -15,11 +16,12 @@
 int main(int argc, char *args[])
 {
 
+	Engine::UserInput::GetKEY();
+
 	Engine::GameDemo Game;
 
 	if (!Game._Init())
 	{
-		Game._Free();
 		return 0;
 	}
 

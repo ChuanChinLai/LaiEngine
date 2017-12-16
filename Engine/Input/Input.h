@@ -4,11 +4,17 @@
 
 namespace Engine
 {
+	class GameEngine;
+
 	class Input
 	{
 	public:
 
-		Input();
+		Input(GameEngine* i_Engine): m_Engine(i_Engine), m_pKeyCode(nullptr), m_pPrevKeyCode(nullptr), m_NumKeyCode(0), m_MousePositionX(0), m_MousePositionY(0)
+		{
+
+		};
+
 		~Input();
 
 		static const int MOUSE_LEFT = SDL_BUTTON_LEFT;
@@ -35,6 +41,7 @@ namespace Engine
 		inline void _HideCursor(bool Hide = true);
 
 	private:
+		GameEngine* m_Engine;
 
 		uint8_t* m_pKeyCode;
 		uint8_t* m_pPrevKeyCode;
@@ -45,6 +52,13 @@ namespace Engine
 		bool	 m_MouseKeyCode[3];
 		bool	 m_PrevMouseKeyCode[3];
 	};
+
+
+
+	namespace UserInput
+	{
+		void GetKEY();
+	}
 }
 
 #include "Input_inline.h"

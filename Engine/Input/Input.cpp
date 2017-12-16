@@ -1,5 +1,7 @@
 #include "Input.h"
 
+#include <iostream>
+
 namespace Engine
 {
 	bool Input::_Init()
@@ -47,6 +49,15 @@ namespace Engine
 		{
 			m_PrevMouseKeyCode[i] = m_MouseKeyCode[i];
 			m_MouseKeyCode[i] = SDL_GetMouseState(NULL, NULL) & SDL_BUTTON(i);
+		}
+	}
+
+
+	namespace UserInput
+	{
+		void GetKEY()
+		{
+			std::cout << "TEST" << std::endl;
 		}
 	}
 }

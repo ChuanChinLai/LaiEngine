@@ -9,7 +9,5 @@ namespace Engine
 	public:
 
 		bool _Init()	override;
-		void _Update()	override;
-		void _Free()	override;
 	};
 }

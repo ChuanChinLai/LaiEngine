@@ -4,11 +4,16 @@
 
 namespace Engine
 {
+	class GameEngine;
+
 	class Timer
 	{
 	public:
 
-		Timer(uint32_t i_FPS = 60);
+		Timer(GameEngine* i_Engine): m_Engine(i_Engine), FPS(60), m_LastFrameTime(0), m_StartTicks(0), m_PausedTicks(0), IsStarted(false), IsPaused(false)
+		{
+
+		}
 
 		inline void		_Start();
 		inline void		_Stop();
@@ -21,6 +26,7 @@ namespace Engine
 		int				_GetFPS();
 
 	private:
+		GameEngine* m_Engine;
 
 		uint32_t FPS;
 		uint32_t m_LastFrameTime;

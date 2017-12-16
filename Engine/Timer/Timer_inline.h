@@ -7,11 +7,6 @@
 
 namespace Engine
 {
-	inline Timer::Timer(uint32_t i_FPS) : FPS(i_FPS), m_LastFrameTime(0), m_StartTicks(0), m_PausedTicks(0), IsStarted(false), IsPaused(false)
-	{
-		assert(i_FPS >= 0);
-	}
-
 	inline void Timer::_Start()
 	{
 		IsStarted = true;

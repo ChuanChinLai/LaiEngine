@@ -4,11 +4,6 @@
 
 namespace Engine
 {
-	inline Input::Input() : m_pKeyCode(nullptr), m_pPrevKeyCode(nullptr), m_NumKeyCode(0), m_MousePositionX(0), m_MousePositionY(0)
-	{
-
-	}
-
 	inline Input::~Input()
 	{
 		_Free();

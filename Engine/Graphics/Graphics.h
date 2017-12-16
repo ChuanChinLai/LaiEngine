@@ -5,9 +5,16 @@
 
 namespace Engine
 {
+	class GameEngine;
+
 	class Graphics
 	{
 	public:
+
+		Graphics(GameEngine* i_Engine): m_Engine(i_Engine)
+		{
+
+		}
 
 		bool _Init(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN = false);
 		inline void _Update() const;
@@ -17,7 +24,10 @@ namespace Engine
 		inline int _GetHeight() const;
 
 		inline SDL_Renderer* _GetRenderer() const;
+
 	private:
+
+		GameEngine* m_Engine;
 
 		SDL_Window*		m_pWindow = nullptr;
 		SDL_Renderer*	m_pRenderer = nullptr;
