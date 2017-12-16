@@ -11,9 +11,7 @@ The main() function is where the program starts execution
 #include <cassert>
 #include <filesystem>
 #include <string>
-#include <cstring>
 #include <windows.h>
-#include <direct.h>
 // Helper Function Declarations
 //=============================
 
@@ -33,6 +31,11 @@ namespace
 	int ExampleStats(lua_State* io_luaState);
 	int ExampleError(lua_State* io_luaState);
 	int ExampleErrorChecking(lua_State* io_luaState);
+
+	int LuaGetEnvironmentVariable(lua_State* io_luaState);
+	int LuaCopyFile(lua_State* io_luaState);
+	int LuaGetFilesInDirectory(lua_State* io_luaState);
+	int LuaOutputMessage(lua_State* io_luaState);
 }
 
 // Entry Point
@@ -40,16 +43,6 @@ namespace
 
 int main(int i_argumentCount, char** i_arguments)
 {
-	//std::string s1 = "C:\\Users/u1070737/Desktop/TowerDefenseGame/temp/x86/Debug/output/123.txt";
-	//std::string s2 = "C:\\Users/u1070737/Desktop/TowerDefenseGame/temp/x86/Debug/output/234.txt";
-
-
-	//if (!std::experimental::filesystem::exists(s2))
-	//{
-	//	std::experimental::filesystem::copy(s1, s2);
-	//}
-
-
 	int exitCode = EXIT_SUCCESS;
 
 	// Create a new Lua state
@@ -76,6 +69,11 @@ int main(int i_argumentCount, char** i_arguments)
 		lua_register(luaState, "ExampleStats", ExampleStats);
 		lua_register(luaState, "ExampleError", ExampleError);
 		lua_register(luaState, "ExampleErrorChecking", ExampleErrorChecking);
+
+		lua_register(luaState, "GetEnvironmentVariable", LuaGetEnvironmentVariable);
+		lua_register(luaState, "CopyFile", LuaCopyFile);
+		lua_register(luaState, "GetFilesInDirectory", LuaGetFilesInDirectory);
+		lua_register(luaState, "OutputMessage", LuaOutputMessage);
 	}
 
 	// Load and run the Lua script that calls the functions
@@ -96,7 +94,6 @@ int main(int i_argumentCount, char** i_arguments)
 			const auto* const errorMessage = lua_tostring(luaState, -1);
 			std::cerr << errorMessage << std::endl;
 			lua_pop(luaState, 1);
-			assert(0);
 			exitCode = EXIT_FAILURE;
 			goto OnExit;
 		}
@@ -136,20 +133,6 @@ namespace
 
 	int ExamplePrint(lua_State* io_luaState)
 	{
-		// This function expects a single input parameter.
-
-		// Every argument that the Lua script provides as input to the function
-		// is available to us here in our C/C++ function
-		// as values pushed on the stack in the provided lua_State.
-		// These values have _positive_ indices.
-		// For example, if a function were called from Lua like this:
-		//	* SomeFunction( argument1, argument2, argument3 )
-		// Then in the SomeFunction() C/C++ code argument1 would be index 1,
-		// argument2 would be index 2, and argument3 would be index 3.
-
-		// In the case of this specific function, then,
-		// we expect that the caller has provided a single argument,
-		// and that argument should be at index 1:
 		const auto* const i_value = lua_tostring(io_luaState, 1);
 
 		std::cout << "The input parameter to ExamplePrint() is " << i_value << std::endl;
@@ -262,6 +245,167 @@ namespace
 			// but if you step through the code in a debugger
 			// you will see that the function doesn't actually return.
 		}
+
+		constexpr int returnValueCount = 0;
+		return returnValueCount;
+	}
+
+	int LuaGetEnvironmentVariable(lua_State* io_luaState)
+	{
+		// Argument #1: The key
+		const char* i_key;
+		if (lua_isstring(io_luaState, 1))
+		{
+			i_key = lua_tostring(io_luaState, 1);
+		}
+		else
+		{
+			return luaL_error(io_luaState, "Argument #1 must be a string (instead of a %s)", luaL_typename(io_luaState, 1));
+		}
+
+
+		constexpr DWORD maxCharacterCount = MAX_PATH;
+		char buffer[MAX_PATH];
+
+		if (::GetEnvironmentVariable(i_key, buffer, maxCharacterCount))
+		{
+			lua_pushstring(io_luaState, buffer);
+			constexpr int returnValueCount = 1;
+			return returnValueCount;
+		}
+		else
+		{
+			std::string error = "GetEnvironmentVariable Error: ";
+			error += i_key;
+
+			lua_pushnil(io_luaState);
+			lua_pushstring(io_luaState, error.c_str());
+
+			constexpr int returnValueCount = 2;
+			return returnValueCount;
+		}
+	}
+
+	int LuaCopyFile(lua_State* io_luaState)
+	{
+		// Argument #1: The source path
+		const char* i_path_source;
+
+		if (lua_isstring(io_luaState, 1))
+		{
+			i_path_source = lua_tostring(io_luaState, 1);
+		}
+		else
+		{
+			return luaL_error(io_luaState, "Argument #1 must be a string (instead of a %s)", luaL_typename(io_luaState, 1));
+		}
+
+		// Argument #2: The target path
+		const char* i_path_target;
+
+		if (lua_isstring(io_luaState, 2))
+		{
+			i_path_target = lua_tostring(io_luaState, 2);
+		}
+		else
+		{
+			return luaL_error(io_luaState, "Argument #2 must be a string (instead of a %s)", luaL_typename(io_luaState, 2));
+		}
+
+		// Copy the file
+		{
+			if (std::experimental::filesystem::exists(i_path_source))
+			{
+				std::experimental::filesystem::copy(i_path_source, i_path_target, std::experimental::filesystem::copy_options::overwrite_existing);
+				lua_pushboolean(io_luaState, true);
+				constexpr int returnValueCount = 1;
+				return returnValueCount;
+			}
+			else
+			{
+				std::string errorMessage = "File Not exists: ";
+				errorMessage += i_path_source;
+
+				lua_pushboolean(io_luaState, false);
+				lua_pushstring(io_luaState, errorMessage.c_str());
+				constexpr int returnValueCount = 2;
+				return returnValueCount;
+			}
+		}
+	}
+
+	int LuaGetFilesInDirectory(lua_State* io_luaState)
+	{
+		// Argument #1: The path
+		const char* i_path;
+		if (lua_isstring(io_luaState, 1))
+		{
+			i_path = lua_tostring(io_luaState, 1);
+		}
+		else
+		{
+			return luaL_error(io_luaState, "Argument #1 must be a string (instead of a %s)", luaL_typename(io_luaState, 1));
+		}
+		// Argument #2: An optional indication of whether the directory's subdirectories should be searched recursively
+		bool i_shouldSubdirectoriesBeSearchedRecursively = true;
+		if (!lua_isnoneornil(io_luaState, 2))
+		{
+			if (lua_isboolean(io_luaState, 2))
+			{
+				i_shouldSubdirectoriesBeSearchedRecursively = lua_toboolean(io_luaState, 2) != 0;
+			}
+			else
+			{
+				return luaL_error(io_luaState, "Argument #2 must be a boolean (instead of a %s)", luaL_typename(io_luaState, 2));
+			}
+		}
+
+		std::vector<std::string> paths;
+
+		if (std::experimental::filesystem::exists(i_path))
+		{
+			if (i_shouldSubdirectoriesBeSearchedRecursively)
+			{
+				for (auto & p : std::experimental::filesystem::recursive_directory_iterator(i_path))
+				{
+					paths.push_back(p.path().string());
+				}
+			}
+			else
+			{
+				for (auto & p : std::experimental::filesystem::directory_iterator(i_path))
+				{
+					paths.push_back(p.path().string());
+				}
+			}
+
+			const auto arraySize = paths.size();
+			constexpr int noDictionaryEntries = 0;
+			lua_createtable(io_luaState, static_cast<int>(arraySize), noDictionaryEntries);
+
+			for (size_t i = 0; i < arraySize; ++i)
+			{
+				lua_pushinteger(io_luaState, i + 1);
+				lua_pushstring(io_luaState, paths[i].c_str());
+				lua_settable(io_luaState, -3);
+			}
+
+			constexpr int returnValueCount = 1;
+			return returnValueCount;
+		}
+		else
+		{
+			std::string errorMessage = "File Not exists: ";
+			errorMessage += i_path;
+			return luaL_error(io_luaState, "Error");
+		}
+	}
+
+	int LuaOutputMessage(lua_State* io_luaState)
+	{
+		const auto* const i_value = lua_tostring(io_luaState, 1);
+
+		std::cout << "LOG: " << i_value << std::endl;
 
 		constexpr int returnValueCount = 0;
 		return returnValueCount;
