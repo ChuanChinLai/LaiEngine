@@ -33,4 +33,8 @@ namespace Engine
 	{
 		return m_pTimer;
 	}
+	inline Resource::SceneManager * GameEngine::_GetSceneManager()
+	{
+		return m_pSceneManager;
+	}
 }

@@ -8,25 +8,28 @@
 #include <filesystem>
 
 #include <Engine\GameEngine\GameEngine.h>
+#include <ExampleGame\ExampleGame.h>
 #include <Engine\SmartPointer\SharedPointer.h>
 #include <Engine\SmartPointer\WeakPointer.h>
 
 int main(int argc, char *args[])
 {
 
+	Engine::GameDemo Game;
+
+	if (!Game._Init())
 	{
-		Engine::Memory::shared_ptr<int> a(new int(5));
-		Engine::Memory::weak_ptr<int> b = a;
+		Game._Free();
+		return 0;
 	}
 
+	Game._Loop();
 
+#if defined _DEBUG
+	_CrtDumpMemoryLeaks();
+#endif // _DEBUG
 
-
-	Engine::GameEngine GE;
-
-	GE._Init();
-
-	GE._Loop();
+	system("pause");
 
 	return 0;
 }

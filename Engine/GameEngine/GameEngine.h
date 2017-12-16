@@ -7,6 +7,11 @@ namespace Engine
 	class Input;
 	class Timer;
 
+	namespace Resource
+	{
+		class SceneManager;
+	}
+
 	class GameEngine
 	{
 	public:
@@ -20,15 +25,15 @@ namespace Engine
 		void _End();
 
 		virtual bool _Init();
-		virtual void _Free();
-
 		virtual void _Update();
-		virtual void _Display();
+		virtual void _Free();
 
 		Audio*    _GetAudio();
 		Graphics* _GetGraphics();
 		Input*	  _GetInput();
 		Timer*	  _GetTimer();
+
+		Resource::SceneManager* _GetSceneManager();
 
 	private:
 
@@ -36,6 +41,8 @@ namespace Engine
 		Graphics* m_pGraphics;
 		Input*	  m_pInput;
 		Timer*	  m_pTimer;
+
+		Resource::SceneManager* m_pSceneManager;
 
 		bool	  GameIsRunning;
 	};

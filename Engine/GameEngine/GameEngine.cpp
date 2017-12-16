@@ -3,6 +3,7 @@
 #include <Engine\Graphics\Graphics.h>
 #include <Engine\Input\Input.h>
 #include <Engine\Timer\Timer.h>
+#include <Engine\Scene\SceneManager.h>
 
 #include <External\SDL2\Includes.h>
 
@@ -18,13 +19,15 @@ namespace Engine
 		m_pInput = new Input();
 		m_pTimer = new Timer();
 
-		if (m_pAudio == nullptr || !m_pAudio->_Init())
+		m_pSceneManager = new Engine::Resource::SceneManager();
+
+		if (m_pAudio == nullptr || m_pAudio->_Init() == false)
 			return false;
 
-		if (m_pGraphics == nullptr || !m_pGraphics->_Init(i_TITLE, i_SCREEN_WIDTH, i_SCREEN_HEIGHT))
+		if (m_pGraphics == nullptr || m_pGraphics->_Init(i_TITLE, i_SCREEN_WIDTH, i_SCREEN_HEIGHT) == false)
 			return false;
 
-		if (m_pInput == nullptr || m_pInput->_Init())
+		if (m_pInput == nullptr || m_pInput->_Init() == false)
 			return false;
 
 		if (TTF_Init() == -1)
@@ -35,6 +38,13 @@ namespace Engine
 
 	void GameEngine::_FreeSystem()
 	{
+		delete m_pAudio;
+		delete m_pGraphics;
+		delete m_pInput;
+		delete m_pTimer;
+
+		delete m_pSceneManager;
+
 		TTF_Quit();
 		SDL_Quit();
 	}
@@ -58,11 +68,11 @@ namespace Engine
 
 			m_pInput->_Update();
 
-			_Update();
+			m_pSceneManager->_Update();
 
 			m_pGraphics->_Clear();
 
-			_Display();
+			m_pSceneManager->_Display();
 
 			m_pGraphics->_Update();
 
@@ -85,19 +95,11 @@ namespace Engine
 
 	void GameEngine::_Free()
 	{
-		delete m_pAudio;
-		delete m_pGraphics;
-		delete m_pInput;
-		delete m_pTimer;
+
 	}
 
 	void GameEngine::_Update()
 	{
 
-	}
-
-	void GameEngine::_Display()
-	{
-		m_pGraphics->_Clear();
 	}
 }

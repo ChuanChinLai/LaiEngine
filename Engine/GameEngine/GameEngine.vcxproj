@@ -167,6 +167,9 @@
     <ProjectReference Include="..\Input\Input.vcxproj">
       <Project>{5409d9d3-32bc-45c8-9607-08d1c0a254b6}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\Scene\Scene.vcxproj">
+      <Project>{e9150ce2-6501-4978-ae7e-0a5accc90e93}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Timer\Timer.vcxproj">
       <Project>{c13fe652-9348-4ea4-87db-349bd64be476}</Project>
     </ProjectReference>
