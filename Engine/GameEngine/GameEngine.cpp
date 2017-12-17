@@ -13,10 +13,10 @@
 
 namespace Engine
 {
-	Engine::Memory::weak_ptr<Audio>		s_pAudio;
-	Engine::Memory::weak_ptr<Graphics>	s_pGraphics;
-	Engine::Memory::weak_ptr<Input>		s_pInput;
-	Engine::Memory::weak_ptr<Timer>		s_pTimer;
+	Audio*		s_pAudio;
+	Graphics*	s_pGraphics;
+	Input*		s_pInput;
+	Timer*		s_pTimer;
 
 
 	GameEngine::GameEngine() : GameIsRunning(true)
@@ -36,10 +36,10 @@ namespace Engine
 			m_pSceneManager = Engine::Memory::shared_ptr<Engine::Resource::SceneManager>(new Engine::Resource::SceneManager());
 
 			{
-				s_pAudio	= m_pAudio;
-				s_pGraphics = m_pGraphics;
-				s_pInput	= m_pInput;
-				s_pTimer	= m_pTimer;
+				s_pAudio	= m_pAudio._Get();
+				s_pGraphics = m_pGraphics._Get();
+				s_pInput	= m_pInput._Get();
+				s_pTimer	= m_pTimer._Get();
 			}
 		}
 
@@ -121,42 +121,37 @@ namespace Engine
 {
 	Audio* _Audio()
 	{
-		if (!s_pAudio._IsValid())
+		if (s_pAudio == nullptr)
 		{
 			assert(false);
-			return nullptr;
 		}
-
-		return s_pAudio._Get();
+		return s_pAudio;
 	}
 
 	Graphics* _Graphics()
 	{
-		if (!s_pGraphics._IsValid())
+		if (s_pGraphics)
 		{
 			assert(false);
-			return nullptr;
 		}
-		return s_pGraphics._Get();
+		return s_pGraphics;
 	}
 
 	Input* _Input()
 	{
-		if (!s_pInput._IsValid())
+		if (!s_pInput)
 		{
 			assert(false);
-			return nullptr;
 		}
-		return s_pInput._Get();
+		return s_pInput;
 	}
 
 	Timer* _Timer()
 	{
-		if (!s_pInput._IsValid())
+		if (!s_pTimer)
 		{
 			assert(false);
-			return nullptr;
 		}
-		return s_pTimer._Get();
+		return s_pTimer;
 	}
 }
