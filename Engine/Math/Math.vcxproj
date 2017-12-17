@@ -153,6 +153,8 @@
   <ItemGroup>
     <ClInclude Include="Matrix4x4.h" />
     <ClInclude Include="Matrix4x4_inline.h" />
+    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="Vector2D_inline.h" />
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="Vector3D_inline.h" />
     <ClInclude Include="Vector4D.h" />

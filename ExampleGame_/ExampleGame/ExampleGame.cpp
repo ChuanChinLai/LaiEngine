@@ -10,9 +10,9 @@ bool Engine::GameDemo::_Init()
 		return false;
 	}
 
-	Engine::Resource::IGameScene* S1 = new Engine::Resource::IGameScene(_GetSceneManager());
+//	Engine::Resource::IGameScene* S1 = new Engine::Resource::IGameScene(_GetSceneManager());
 
-	_GetSceneManager()->_SetGameScene(S1);
+//	_GetSceneManager()->_SetGameScene(S1);
 
 	return true;
 }

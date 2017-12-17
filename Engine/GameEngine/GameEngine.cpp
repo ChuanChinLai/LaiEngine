@@ -21,25 +21,29 @@ namespace Engine
 
 	GameEngine::GameEngine() : GameIsRunning(true)
 	{
-		m_pAudio	= Engine::Memory::shared_ptr<Audio>(new Audio(this));
-		m_pGraphics = Engine::Memory::shared_ptr<Graphics>(new Graphics(this));
-		m_pInput	= Engine::Memory::shared_ptr<Input>(new Input(this));
-		m_pTimer	= Engine::Memory::shared_ptr<Timer>(new Timer(this));
 
-		m_pSceneManager = Engine::Memory::shared_ptr<Engine::Resource::SceneManager>(new Engine::Resource::SceneManager());
-
-		{
-			s_pAudio	= m_pAudio;
-			s_pGraphics = m_pGraphics;
-			s_pInput	= m_pInput;
-			s_pTimer	= m_pTimer;
-		}
 	}
-
-
 
 	bool GameEngine::_InitSystem(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN)
 	{
+
+		{
+			m_pAudio	= Engine::Memory::shared_ptr<Audio>(new Audio(this));
+			m_pGraphics = Engine::Memory::shared_ptr<Graphics>(new Graphics(this));
+			m_pInput	= Engine::Memory::shared_ptr<Input>(new Input(this));
+			m_pTimer	= Engine::Memory::shared_ptr<Timer>(new Timer(this));
+
+			m_pSceneManager = Engine::Memory::shared_ptr<Engine::Resource::SceneManager>(new Engine::Resource::SceneManager());
+
+			{
+				s_pAudio	= m_pAudio;
+				s_pGraphics = m_pGraphics;
+				s_pInput	= m_pInput;
+				s_pTimer	= m_pTimer;
+			}
+		}
+
+
 		if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 			return false;
 
@@ -106,8 +110,53 @@ namespace Engine
 	{
 		return _InitSystem("Game", 800, 600, false);
 	}
+
 	Resource::SceneManager * GameEngine::_GetSceneManager()
 	{
 		return m_pSceneManager._Get();
+	}
+}
+
+namespace Engine 
+{
+	Audio* _Audio()
+	{
+		if (!s_pAudio._IsValid())
+		{
+			assert(false);
+			return nullptr;
+		}
+
+		return s_pAudio._Get();
+	}
+
+	Graphics* _Graphics()
+	{
+		if (!s_pGraphics._IsValid())
+		{
+			assert(false);
+			return nullptr;
+		}
+		return s_pGraphics._Get();
+	}
+
+	Input* _Input()
+	{
+		if (!s_pInput._IsValid())
+		{
+			assert(false);
+			return nullptr;
+		}
+		return s_pInput._Get();
+	}
+
+	Timer* _Timer()
+	{
+		if (!s_pInput._IsValid())
+		{
+			assert(false);
+			return nullptr;
+		}
+		return s_pTimer._Get();
 	}
 }

@@ -12,6 +12,7 @@
 #include <ExampleGame\ExampleGame.h>
 #include <Engine\SmartPointer\SharedPointer.h>
 #include <Engine\SmartPointer\WeakPointer.h>
+#include <Engine\Math\Vector2D.h>
 #include <Engine\Math\Vector3D.h>
 #include <Engine\Math\Vector4D.h>
 
@@ -33,7 +34,9 @@ int main(int argc, char *args[])
 			int a = 0;
 		}
 
-
+		{
+			Engine::Math::Vector2D<float> v1(1, 0);
+		}
 
 		int z = 0;
 	}
