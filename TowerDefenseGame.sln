@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{90AF76B1-37E5-425D-A748-54F71C361DA4}"
 EndProject
@@ -45,6 +45,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SmartPointer", "Engine\SmartPointer\SmartPointer.vcxproj", "{BF5439D7-55AF-4133-8B79-0E936F535712}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", "Engine\Scene\Scene.vcxproj", "{E9150CE2-6501-4978-AE7E-0A5ACCC90E93}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "Engine\Math\Math.vcxproj", "{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -158,6 +160,14 @@ Global
 		{E9150CE2-6501-4978-AE7E-0A5ACCC90E93}.Release|x64.Build.0 = Release|x64
 		{E9150CE2-6501-4978-AE7E-0A5ACCC90E93}.Release|x86.ActiveCfg = Release|Win32
 		{E9150CE2-6501-4978-AE7E-0A5ACCC90E93}.Release|x86.Build.0 = Release|Win32
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Debug|x64.ActiveCfg = Debug|x64
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Debug|x64.Build.0 = Debug|x64
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Debug|x86.ActiveCfg = Debug|Win32
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Debug|x86.Build.0 = Debug|Win32
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Release|x64.ActiveCfg = Release|x64
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Release|x64.Build.0 = Release|x64
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Release|x86.ActiveCfg = Release|Win32
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -177,6 +187,7 @@ Global
 		{7A2EBB1B-1144-4624-B918-B8F7AE673191} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
 		{BF5439D7-55AF-4133-8B79-0E936F535712} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
 		{E9150CE2-6501-4978-AE7E-0A5ACCC90E93} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
+		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF7EB555-DE90-443E-9226-38579C9AA7CC}
