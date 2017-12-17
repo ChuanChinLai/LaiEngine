@@ -52,13 +52,6 @@ namespace Engine
 		bool	 m_MouseKeyCode[3];
 		bool	 m_PrevMouseKeyCode[3];
 	};
-
-
-
-	namespace UserInput
-	{
-		void GetKEY();
-	}
 }
 
 #include "Input_inline.h"

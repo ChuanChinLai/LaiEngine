@@ -16,18 +16,17 @@
 int main(int argc, char *args[])
 {
 
-	Engine::UserInput::GetKEY();
-	
+	Engine::GameDemo* Game = new Engine::GameDemo();
 
-	Engine::GameDemo Game;
-
-	if (!Game._Init())
+	if (!Game->_Init())
 	{
-		Game._Release();
+		Game->_Release();
 		return 0;
 	}
 
-	Game._Loop();
+	Game->_Loop();
+
+	delete Game;
 
 #if defined _DEBUG
 	_CrtDumpMemoryLeaks();

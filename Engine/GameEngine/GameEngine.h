@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Engine\SmartPointer\SharedPointer.h>
+
 namespace Engine
 {
 	class Audio;
@@ -17,7 +19,6 @@ namespace Engine
 	public:
 
 		GameEngine();
-		~GameEngine();
 
 		bool _InitSystem(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN);
 		void _Loop();
@@ -25,26 +26,19 @@ namespace Engine
 
 		virtual bool _Init();
 
-		Audio*    _GetAudio();
-		Graphics* _GetGraphics();
-		Input*	  _GetInput();
-		Timer*	  _GetTimer();
-
 		Resource::SceneManager* _GetSceneManager();
 
 	private:
 
 		void _FreeSystem();
 
-		Audio*    m_pAudio;
-		Graphics* m_pGraphics;
-		Input*	  m_pInput;
-		Timer*	  m_pTimer;
+		Engine::Memory::shared_ptr<Audio>	 m_pAudio;
+		Engine::Memory::shared_ptr<Graphics> m_pGraphics;
+		Engine::Memory::shared_ptr<Input>	 m_pInput;
+		Engine::Memory::shared_ptr<Timer>	 m_pTimer;
 
-		Resource::SceneManager* m_pSceneManager;
+		Engine::Memory::shared_ptr<Resource::SceneManager>	m_pSceneManager;
 
 		bool	  GameIsRunning;
 	};
 }
-
-#include "GameEngine_inline.h"

@@ -16,6 +16,11 @@ namespace Engine
 
 		}
 
+		~Graphics()
+		{
+
+		}
+
 		bool _Init(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN = false);
 		inline void _Update() const;
 		inline void _Clear(uint8_t = 255, uint8_t = 255, uint8_t = 255, uint8_t = 255) const;

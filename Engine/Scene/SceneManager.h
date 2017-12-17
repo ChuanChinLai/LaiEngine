@@ -12,7 +12,11 @@ namespace Engine
 		{
 		public:
 
-			SceneManager();
+			SceneManager() : m_pCurrentScene(nullptr), m_bRunBegin(false)
+			{
+
+			};
+
 			~SceneManager();
 
 			void _SetGameScene(IGameScene* i_Scene, std::string i_Name = "Default");

@@ -1,34 +1,55 @@
 #include "GameEngine.h"
+
 #include <Engine\Audio\Audio.h>
 #include <Engine\Graphics\Graphics.h>
 #include <Engine\Input\Input.h>
 #include <Engine\Timer\Timer.h>
 #include <Engine\Scene\SceneManager.h>
+
 #include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\SmartPointer\WeakPointer.h>
 
 #include <External\SDL2\Includes.h>
 
 namespace Engine
 {
+	Engine::Memory::weak_ptr<Audio>		s_pAudio;
+	Engine::Memory::weak_ptr<Graphics>	s_pGraphics;
+	Engine::Memory::weak_ptr<Input>		s_pInput;
+	Engine::Memory::weak_ptr<Timer>		s_pTimer;
+
+
+	GameEngine::GameEngine() : GameIsRunning(true)
+	{
+		m_pAudio	= Engine::Memory::shared_ptr<Audio>(new Audio(this));
+		m_pGraphics = Engine::Memory::shared_ptr<Graphics>(new Graphics(this));
+		m_pInput	= Engine::Memory::shared_ptr<Input>(new Input(this));
+		m_pTimer	= Engine::Memory::shared_ptr<Timer>(new Timer(this));
+
+		m_pSceneManager = Engine::Memory::shared_ptr<Engine::Resource::SceneManager>(new Engine::Resource::SceneManager());
+
+		{
+			s_pAudio	= m_pAudio;
+			s_pGraphics = m_pGraphics;
+			s_pInput	= m_pInput;
+			s_pTimer	= m_pTimer;
+		}
+	}
+
+
+
 	bool GameEngine::_InitSystem(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN)
 	{
 		if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 			return false;
 
-		m_pAudio	= new Audio(this);
-		m_pGraphics = new Graphics(this);
-		m_pInput	= new Input(this);
-		m_pTimer	= new Timer(this);
-
-		m_pSceneManager = new Engine::Resource::SceneManager();
-
-		if (m_pAudio == nullptr || m_pAudio->_Init() == false)
+		if (m_pAudio._Get() == nullptr || m_pAudio->_Init() == false)
 			return false;
 
-		if (m_pGraphics == nullptr || m_pGraphics->_Init(i_TITLE, i_SCREEN_WIDTH, i_SCREEN_HEIGHT) == false)
+		if (m_pGraphics._Get() == nullptr || m_pGraphics->_Init(i_TITLE, i_SCREEN_WIDTH, i_SCREEN_HEIGHT) == false)
 			return false;
 
-		if (m_pInput == nullptr || m_pInput->_Init() == false)
+		if (m_pInput._Get() == nullptr || m_pInput->_Init() == false)
 			return false;
 
 		if (TTF_Init() == -1)
@@ -73,18 +94,11 @@ namespace Engine
 			m_pTimer->_Update();
 		}
 
-		_FreeSystem();
+		_Release();
 	}
 
 	void GameEngine::_Release()
 	{
-		delete m_pAudio;
-		delete m_pGraphics;
-		delete m_pInput;
-		delete m_pTimer;
-
-		delete m_pSceneManager;
-
 		_FreeSystem();
 	}
 
@@ -92,9 +106,8 @@ namespace Engine
 	{
 		return _InitSystem("Game", 800, 600, false);
 	}
-
-
-
-	Engine::Memory::shared_ptr<Audio> s_Audio;
-
+	Resource::SceneManager * GameEngine::_GetSceneManager()
+	{
+		return m_pSceneManager._Get();
+	}
 }

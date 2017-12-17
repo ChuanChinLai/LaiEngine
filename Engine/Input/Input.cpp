@@ -52,14 +52,6 @@ namespace Engine
 		}
 	}
 
-
-	namespace UserInput
-	{
-		void GetKEY()
-		{
-			std::cout << "TEST" << std::endl;
-		}
-	}
 }
 
 

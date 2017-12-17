@@ -3,11 +3,6 @@
 #include "SceneManager.h"
 #include "IGameScene.h"
 
-inline Engine::Resource::SceneManager::SceneManager() : m_pCurrentScene(nullptr), m_bRunBegin(false)
-{
-	
-}
-
 inline Engine::Resource::SceneManager::~SceneManager()
 {
 	if (m_pCurrentScene != nullptr)

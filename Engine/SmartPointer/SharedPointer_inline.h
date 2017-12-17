@@ -1,7 +1,15 @@
 #pragma once
 
 #include "SharedPointer.h"
+
+#include <Engine\Audio\Audio.h>
+#include <Engine\Graphics\Graphics.h>
+#include <Engine\Input\Input.h>
+#include <Engine\Timer\Timer.h>
+#include <Engine\Scene\SceneManager.h>
+
 #include <cassert>
+
 namespace Engine
 {
 	namespace Memory
