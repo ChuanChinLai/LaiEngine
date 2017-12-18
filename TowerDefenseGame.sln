@@ -48,6 +48,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", "Engine\Scene\Scene
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Math", "Engine\Math\Math.vcxproj", "{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MainMenuScene", "ExampleGame_\MainMenuScene\MainMenuScene.vcxproj", "{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -168,6 +170,14 @@ Global
 		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Release|x64.Build.0 = Release|x64
 		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Release|x86.ActiveCfg = Release|Win32
 		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB}.Release|x86.Build.0 = Release|Win32
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Debug|x64.ActiveCfg = Debug|x64
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Debug|x64.Build.0 = Debug|x64
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Debug|x86.ActiveCfg = Debug|Win32
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Debug|x86.Build.0 = Debug|Win32
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Release|x64.ActiveCfg = Release|x64
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Release|x64.Build.0 = Release|x64
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Release|x86.ActiveCfg = Release|Win32
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -188,6 +198,7 @@ Global
 		{BF5439D7-55AF-4133-8B79-0E936F535712} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
 		{E9150CE2-6501-4978-AE7E-0A5ACCC90E93} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
 		{3A6EBED0-7B55-4D6D-B083-A0607881B5FB} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
+		{9CF5CAE1-F7AE-4B97-B046-5CDA92B81B4D} = {8CFD9E7E-25B1-489C-A725-C4EEFFE0E84A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF7EB555-DE90-443E-9226-38579C9AA7CC}

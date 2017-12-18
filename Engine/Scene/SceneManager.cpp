@@ -14,6 +14,18 @@ void Engine::Resource::SceneManager::_SetGameScene(IGameScene * i_Scene, std::st
 	m_pCurrentScene->SetName(i_Name);
 }
 
+void Engine::Resource::SceneManager::_SetGameScene(IGameScene * i_Scene)
+{
+	m_bRunBegin = false;
+
+	if (m_pCurrentScene != nullptr)
+	{
+		m_pCurrentScene->_Release();
+	}
+
+	m_pCurrentScene = i_Scene;
+}
+
 void Engine::Resource::SceneManager::_Update()
 {
 	if (m_pCurrentScene != nullptr && m_bRunBegin == false)

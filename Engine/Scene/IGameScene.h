@@ -38,7 +38,7 @@ namespace Engine
 			inline void SetName(std::string i_Name);
 			inline std::string ToString();
 
-		private:
+		protected:
 			SceneManager* m_pSceneManager;
 			std::string m_Name;
 		};

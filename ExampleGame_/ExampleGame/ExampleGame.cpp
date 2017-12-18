@@ -1,7 +1,7 @@
 #include "ExampleGame.h"
 #include <Engine\GameEngine\GameEngine.h>
 #include <Engine\Scene\SceneManager.h>
-#include <Engine\Scene\IGameScene.h>
+#include <ExampleGame_\MainMenuScene\MainMenuScene.h>
 
 bool Engine::GameDemo::_Init()
 {
@@ -10,9 +10,9 @@ bool Engine::GameDemo::_Init()
 		return false;
 	}
 
-//	Engine::Resource::IGameScene* S1 = new Engine::Resource::IGameScene(_GetSceneManager());
+	Engine::Resource::MainMenuScene* S1 = new Engine::Resource::MainMenuScene(_GetSceneManager());
 
-//	_GetSceneManager()->_SetGameScene(S1);
+	_GetSceneManager()->_SetGameScene(S1);
 
 	return true;
 }

@@ -7,9 +7,9 @@ namespace Engine
 {
 	namespace Resource
 	{
-		inline IGameScene::IGameScene(SceneManager * i_pSceneManager)
+		inline IGameScene::IGameScene(SceneManager * i_pSceneManager) : m_pSceneManager(i_pSceneManager)
 		{
-			m_pSceneManager = i_pSceneManager;
+
 		}
 
 		inline void IGameScene::SetName(std::string i_Name)

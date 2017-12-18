@@ -19,7 +19,8 @@ namespace Engine
 
 			~SceneManager();
 
-			void _SetGameScene(IGameScene* i_Scene, std::string i_Name = "Default");
+			void _SetGameScene(IGameScene* i_Scene, std::string i_Name);
+			void _SetGameScene(IGameScene* i_Scene);
 			void _Update();
 			void _Display();
 			void _Release();
