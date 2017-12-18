@@ -350,7 +350,12 @@ namespace
 			return luaL_error(io_luaState, "Argument #1 must be a string (instead of a %s)", luaL_typename(io_luaState, 1));
 		}
 
-		if (std::experimental::filesystem::exists(i_path) || std::experimental::filesystem::create_directory(i_path))
+		if (std::experimental::filesystem::exists(i_path) && std::experimental::filesystem::is_directory(i_path))
+		{
+			constexpr int returnValueCount = 0;
+			return returnValueCount;
+		}
+		else if (std::experimental::filesystem::create_directory(i_path))
 		{
 			constexpr int returnValueCount = 0;
 			return returnValueCount;

@@ -8,6 +8,6 @@ namespace Engine
 	{
 	public:
 
-		bool _Init()	override;
+		bool _Init() override;
 	};
 }

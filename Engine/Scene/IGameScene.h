@@ -15,26 +15,14 @@ namespace Engine
 
 			IGameScene(SceneManager* i_pSceneManager);
 
-			virtual inline void _Init()
-			{
-				std::cout << "Init " << m_Name << std::endl;
-			};
+			void SubmitBackgroundColor(uint8_t R, uint8_t G, uint8_t B, uint8_t A);
 
-			virtual inline void _Update() 
-			{
-				std::cout << "Update " << m_Name << std::endl;
-			};
 
-			virtual inline void _Display()
-			{
-				std::cout << "Display " << m_Name << std::endl;
-			}
-
-			virtual inline void _Release()
-			{
-				std::cout << "Release " << m_Name << std::endl;
-			};
-
+			virtual void _Init() = 0;
+			virtual void _Update() = 0;
+			virtual void _Release() = 0;
+			virtual void _SubmitDataToBeRendered() = 0;
+				
 			inline void SetName(std::string i_Name);
 			inline std::string ToString();
 

@@ -21,8 +21,8 @@ namespace Engine
 
 			void _Init()	override;
 			void _Update()	override;
-			void _Display() override;
 			void _Release() override;
+			void _SubmitDataToBeRendered() override;
 		};
 	}
 }

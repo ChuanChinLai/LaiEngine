@@ -12,10 +12,17 @@ namespace Engine
 		SDL_RenderPresent(m_pRenderer);
 	}
 
-	inline void Graphics::_Clear(uint8_t R, uint8_t G, uint8_t B, uint8_t Alpha) const
+	inline void Graphics::_Clear(SDL_Color i_Color) const
 	{
 		assert(m_pRenderer != nullptr);
-		SDL_SetRenderDrawColor(m_pRenderer, R, G, B, Alpha);
+		SDL_SetRenderDrawColor(m_pRenderer, i_Color.r, i_Color.g, i_Color.b, i_Color.a);
+		SDL_RenderClear(m_pRenderer);
+	}
+
+	inline void Graphics::_Clear(uint8_t R, uint8_t G, uint8_t B, uint8_t A) const
+	{
+		assert(m_pRenderer != nullptr);
+		SDL_SetRenderDrawColor(m_pRenderer, R, G, B, A);
 		SDL_RenderClear(m_pRenderer);
 	}
 

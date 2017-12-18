@@ -89,9 +89,9 @@ namespace Engine
 
 			m_pSceneManager->_Update();
 
-			m_pGraphics->_Clear();
+			m_pGraphics->_Clear(m_pSceneManager->_GetBackgroundColor());
 
-			m_pSceneManager->_Display();
+			m_pSceneManager->_Render();
 
 			m_pGraphics->_Update();
 
