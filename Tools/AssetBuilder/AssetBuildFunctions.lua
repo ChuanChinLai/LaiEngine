@@ -50,6 +50,7 @@ do
 
 			for i, File in ipairs( Files ) do
 				local sourceFileName = File:sub( #SDLBinDir + 1 )
+
 				local targetPath = GameInstallDir .. sourceFileName
 				
 				local result, errorMessage = CopyFile(File, targetPath)
@@ -63,6 +64,30 @@ do
 		end
 	end
 
+	--Copy Font
+	do
+		local errorMessage
+
+		local sourceFilePath = EngineSourceContentDir .. "Fonts\\"
+		local builtPath = GameInstallDir .. "Fonts\\"
+
+		CreateDirectoryIfItDoesntExist( builtPath )
+
+		local Files = GetFilesInDirectory( sourceFilePath )
+
+		for i, File in ipairs( Files ) do
+			local sourceFileName = File:sub( #sourceFilePath + 1 )
+			local targetPath = builtPath .. sourceFileName
+				
+			local result, errorMessage = CopyFile(File, targetPath)
+
+			if result then
+				print( "Copied " .. sourceFileName )
+			else
+				OutputMessage( "The file couldn't be copied to \"" .. targetPath .. "\": " .. errorMessage )
+			end
+		end
+	end
 end
 
 
