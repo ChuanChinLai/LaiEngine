@@ -18,6 +18,7 @@ namespace Engine
 	Input*		s_pInput;
 	Timer*		s_pTimer;
 
+	Resource::SceneManager* s_pSceneManager;
 
 	GameEngine::GameEngine() : GameIsRunning(true)
 	{
@@ -40,6 +41,8 @@ namespace Engine
 				s_pGraphics = m_pGraphics._Get();
 				s_pInput	= m_pInput._Get();
 				s_pTimer	= m_pTimer._Get();
+
+				s_pSceneManager = m_pSceneManager._Get();
 			}
 		}
 
@@ -110,11 +113,6 @@ namespace Engine
 	{
 		return _InitSystem("Game", 800, 600, false);
 	}
-
-	Resource::SceneManager * GameEngine::_GetSceneManager()
-	{
-		return m_pSceneManager._Get();
-	}
 }
 
 namespace Engine 
@@ -153,5 +151,14 @@ namespace Engine
 			assert(false);
 		}
 		return s_pTimer;
+	}
+
+	Resource::SceneManager * _SceneManager()
+	{
+		if (!s_pSceneManager)
+		{
+			assert(false);
+		}
+		return s_pSceneManager;
 	}
 }

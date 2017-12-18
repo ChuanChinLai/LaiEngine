@@ -22,7 +22,7 @@ namespace Engine
 			m_Name = i_Name;
 		}
 
-		inline std::string IGameScene::ToString()
+		inline std::string IGameScene::ToString() const
 		{
 			return m_Name;
 		}

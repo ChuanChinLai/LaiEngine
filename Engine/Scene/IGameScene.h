@@ -24,7 +24,7 @@ namespace Engine
 			virtual void _SubmitDataToBeRendered() = 0;
 				
 			inline void SetName(std::string i_Name);
-			inline std::string ToString();
+			inline std::string ToString() const;
 
 		protected:
 			SceneManager* m_pSceneManager;

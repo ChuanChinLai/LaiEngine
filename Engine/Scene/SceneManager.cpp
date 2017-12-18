@@ -20,6 +20,7 @@ void Engine::Resource::SceneManager::_SetGameScene(IGameScene * i_Scene, std::st
 	if (m_pCurrentScene != nullptr)
 	{
 		m_pCurrentScene->_Release();
+		delete m_pCurrentScene;
 	}
 
 	m_pCurrentScene = i_Scene;

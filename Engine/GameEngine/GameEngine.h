@@ -26,13 +26,12 @@ namespace Engine
 
 		virtual bool _Init();
 
-		Resource::SceneManager* _GetSceneManager();
-
 		inline Engine::Memory::weak_ptr<Audio>		_GetAudio();
 		inline Engine::Memory::weak_ptr<Graphics>	_GetGraphics();
 		inline Engine::Memory::weak_ptr<Input>		_GetInput();
 		inline Engine::Memory::weak_ptr<Timer>		_GetTimer();
 
+		inline Engine::Memory::weak_ptr<Resource::SceneManager> _GetSceneManager();
 
 	private:
 
@@ -56,6 +55,8 @@ namespace Engine
 	Graphics*	_Graphics();
 	Input*		_Input();
 	Timer*		_Timer();
+
+	Resource::SceneManager* _SceneManager();
 }
 
 #include "GameEngine_inline.h"

@@ -8,13 +8,13 @@ namespace Engine
 	{
 		class SceneManager;
 
-		class MainMenuScene : public IGameScene
+		class GamingScene : public IGameScene
 		{
 		public:
 
-			MainMenuScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
+			GamingScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
 			{
-				m_Name = "MainMenu";
+				m_Name = "GamingScene";
 			};
 
 			void _Init()	override;

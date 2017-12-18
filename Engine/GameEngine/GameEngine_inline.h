@@ -3,20 +3,28 @@
 
 namespace Engine
 {
-	Engine::Memory::weak_ptr<Audio>		GameEngine::_GetAudio()
+	inline Memory::weak_ptr<Audio>		GameEngine::_GetAudio()
 	{
 		return m_pAudio;
 	}
-	Engine::Memory::weak_ptr<Graphics>	GameEngine::_GetGraphics()
+
+	inline Memory::weak_ptr<Graphics>	GameEngine::_GetGraphics()
 	{
 		return m_pGraphics;
 	}
-	Engine::Memory::weak_ptr<Input>		GameEngine::_GetInput()
+
+	inline Memory::weak_ptr<Input>		GameEngine::_GetInput()
 	{
 		return m_pInput;
 	}
-	Engine::Memory::weak_ptr<Timer>		GameEngine::_GetTimer()
+
+	inline Memory::weak_ptr<Timer>		GameEngine::_GetTimer()
 	{
 		return m_pTimer;
+	}
+
+	inline Memory::weak_ptr<Resource::SceneManager> GameEngine::_GetSceneManager()
+	{
+		return m_pSceneManager;
 	}
 }
