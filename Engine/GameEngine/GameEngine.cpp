@@ -18,7 +18,7 @@ namespace Engine
 	Input*		s_pInput;
 	Timer*		s_pTimer;
 
-	Resource::SceneManager* s_pSceneManager;
+	SceneManager* s_pSceneManager;
 
 	GameEngine::GameEngine() : GameIsRunning(true)
 	{
@@ -34,7 +34,7 @@ namespace Engine
 			m_pInput	= Engine::Memory::shared_ptr<Input>(new Input(this));
 			m_pTimer	= Engine::Memory::shared_ptr<Timer>(new Timer(this));
 
-			m_pSceneManager = Engine::Memory::shared_ptr<Engine::Resource::SceneManager>(new Engine::Resource::SceneManager());
+			m_pSceneManager = Engine::Memory::shared_ptr<Engine::SceneManager>(new Engine::SceneManager());
 
 			{
 				s_pAudio	= m_pAudio._Get();
@@ -153,7 +153,7 @@ namespace Engine
 		return s_pTimer;
 	}
 
-	Resource::SceneManager * _SceneManager()
+	SceneManager * _SceneManager()
 	{
 		if (!s_pSceneManager)
 		{

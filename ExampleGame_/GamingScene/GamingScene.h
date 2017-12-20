@@ -4,23 +4,20 @@
 
 namespace Engine
 {
-	namespace Resource
+	class SceneManager;
+
+	class GamingScene : public IGameScene
 	{
-		class SceneManager;
+	public:
 
-		class GamingScene : public IGameScene
+		GamingScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
 		{
-		public:
-
-			GamingScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
-			{
-				m_Name = "GamingScene";
-			};
-
-			void _Init()	override;
-			void _Update()	override;
-			void _Release() override;
-			void _SubmitDataToBeRendered() override;
+			m_Name = "GamingScene";
 		};
-	}
+
+		void _Init()	override;
+		void _Update()	override;
+		void _Release() override;
+		void _SubmitDataToBeRendered() override;
+	};
 }

@@ -2,7 +2,7 @@
 #include "IGameScene.h"
 
 
-Engine::Resource::SceneManager::~SceneManager()
+Engine::SceneManager::~SceneManager()
 {
 	if (m_pCurrentScene != nullptr)
 	{
@@ -13,7 +13,14 @@ Engine::Resource::SceneManager::~SceneManager()
 }
 
 
-void Engine::Resource::SceneManager::_SetGameScene(IGameScene * i_Scene, std::string i_Name)
+void Engine::SceneManager::_SetGameScene(IGameScene * i_Scene, std::string i_Name)
+{	
+	_SetGameScene(i_Scene);
+
+	m_pCurrentScene->SetName(i_Name);
+}
+
+void Engine::SceneManager::_SetGameScene(IGameScene * i_Scene)
 {
 	m_bRunBegin = false;
 
@@ -24,23 +31,10 @@ void Engine::Resource::SceneManager::_SetGameScene(IGameScene * i_Scene, std::st
 	}
 
 	m_pCurrentScene = i_Scene;
-	m_pCurrentScene->SetName(i_Name);
-}
-
-void Engine::Resource::SceneManager::_SetGameScene(IGameScene * i_Scene)
-{
-	m_bRunBegin = false;
-
-	if (m_pCurrentScene != nullptr)
-	{
-		m_pCurrentScene->_Release();
-	}
-
-	m_pCurrentScene = i_Scene;
 }
 
 
-void Engine::Resource::SceneManager::_Update()
+void Engine::SceneManager::_Update()
 {
 	if (m_pCurrentScene != nullptr && m_bRunBegin == false)
 	{
@@ -54,7 +48,7 @@ void Engine::Resource::SceneManager::_Update()
 	}
 }
 
-void Engine::Resource::SceneManager::_Render()
+void Engine::SceneManager::_Render()
 {
 	if (m_pCurrentScene != nullptr)
 	{
@@ -62,7 +56,7 @@ void Engine::Resource::SceneManager::_Render()
 	}
 }
 
-void Engine::Resource::SceneManager::_Release()
+void Engine::SceneManager::_Release()
 {
 	if (m_pCurrentScene != nullptr)
 	{

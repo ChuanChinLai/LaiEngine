@@ -23,7 +23,7 @@ namespace Engine
 		return m_pTimer;
 	}
 
-	inline Memory::weak_ptr<Resource::SceneManager> GameEngine::_GetSceneManager()
+	inline Memory::weak_ptr<SceneManager> GameEngine::_GetSceneManager()
 	{
 		return m_pSceneManager;
 	}

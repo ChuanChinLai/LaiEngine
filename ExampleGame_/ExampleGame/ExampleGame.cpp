@@ -10,7 +10,7 @@ bool Engine::GameDemo::_Init()
 		return false;
 	}
 
-	Engine::Resource::MainMenuScene* S1 = new Engine::Resource::MainMenuScene(_GetSceneManager()._Get());
+	Engine::MainMenuScene* S1 = new Engine::MainMenuScene(_GetSceneManager()._Get());
 
 	_GetSceneManager()->_SetGameScene(S1);
 

@@ -4,23 +4,23 @@
 
 #include <iostream>
 
-void Engine::Resource::MainMenuScene::_Init()
+void Engine::MainMenuScene::_Init()
 {
 	std::cout << "_Init: " << m_Name << std::endl;
 }
 
-void Engine::Resource::MainMenuScene::_Update()
+void Engine::MainMenuScene::_Update()
 {
 
 	static int i = 0;
-
 
 	i++;
 
 	if (i >= 50)
 	{
-		Engine::Resource::GamingScene* S1 = new Engine::Resource::GamingScene(m_pSceneManager);
+		Engine::GamingScene* S1 = new Engine::GamingScene(m_pSceneManager);
 		Engine::_SceneManager()->_SetGameScene(S1);
+		return;
 	}
 
 
@@ -29,12 +29,12 @@ void Engine::Resource::MainMenuScene::_Update()
 }
 
 
-void Engine::Resource::MainMenuScene::_Release()
+void Engine::MainMenuScene::_Release()
 {
 	std::cout << "_Release: " << m_Name << std::endl;
 }
 
-void Engine::Resource::MainMenuScene::_SubmitDataToBeRendered()
+void Engine::MainMenuScene::_SubmitDataToBeRendered()
 {
 	SubmitBackgroundColor(0, 0, 0, 0);
 }

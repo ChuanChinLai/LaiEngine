@@ -4,23 +4,20 @@
 
 namespace Engine
 {
-	namespace Resource
+	class SceneManager;
+
+	class MainMenuScene : public IGameScene
 	{
-		class SceneManager;
+	public:
 
-		class MainMenuScene : public IGameScene
+		MainMenuScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
 		{
-		public:
-
-			MainMenuScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
-			{
-				m_Name = "MainMenu";
-			};
-
-			void _Init()	override;
-			void _Update()	override;
-			void _Release() override;
-			void _SubmitDataToBeRendered() override;
+			m_Name = "MainMenu";
 		};
-	}
+
+		void _Init()	override;
+		void _Update()	override;
+		void _Release() override;
+		void _SubmitDataToBeRendered() override;
+	};
 }

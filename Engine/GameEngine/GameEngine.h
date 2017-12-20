@@ -8,11 +8,8 @@ namespace Engine
 	class Graphics;
 	class Input;
 	class Timer;
+	class SceneManager;
 
-	namespace Resource
-	{
-		class SceneManager;
-	}
 
 	class GameEngine
 	{
@@ -31,7 +28,7 @@ namespace Engine
 		inline Engine::Memory::weak_ptr<Input>		_GetInput();
 		inline Engine::Memory::weak_ptr<Timer>		_GetTimer();
 
-		inline Engine::Memory::weak_ptr<Resource::SceneManager> _GetSceneManager();
+		inline Engine::Memory::weak_ptr<SceneManager> _GetSceneManager();
 
 	private:
 
@@ -42,7 +39,7 @@ namespace Engine
 		Engine::Memory::shared_ptr<Input>	 m_pInput;
 		Engine::Memory::shared_ptr<Timer>	 m_pTimer;
 
-		Engine::Memory::shared_ptr<Resource::SceneManager>	m_pSceneManager;
+		Engine::Memory::shared_ptr<SceneManager> m_pSceneManager;
 
 		bool	  GameIsRunning;
 	};
@@ -56,7 +53,7 @@ namespace Engine
 	Input*		_Input();
 	Timer*		_Timer();
 
-	Resource::SceneManager* _SceneManager();
+	SceneManager* _SceneManager();
 }
 
 #include "GameEngine_inline.h"
