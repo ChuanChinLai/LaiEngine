@@ -1,6 +1,8 @@
 #pragma once
 
+#include <External\SDL2\Includes.h>
 #include <string>
+#include <vector>
 #include <iostream>
 
 namespace Engine
@@ -8,6 +10,8 @@ namespace Engine
 	namespace Asset
 	{
 		class GameObject;
+		class TextObject;
+		class SpriteObject;
 	}
 
 
@@ -16,6 +20,14 @@ namespace Engine
 	class IGameScene
 	{
 	public:
+
+		struct sDataRequiredToRenderAFrame
+		{
+			SDL_Color BackgroundColor;
+			std::vector<Engine::Asset::TextObject*>		TextObjects;
+			std::vector<Engine::Asset::SpriteObject*> SpriteObjects;
+		};
+
 
 		IGameScene(SceneManager* i_pSceneManager);
 
@@ -27,12 +39,11 @@ namespace Engine
 		virtual void _Release() = 0;
 		virtual void _SubmitDataToBeRendered() = 0;
 
-		inline void SetName(std::string i_Name);
-		inline std::string ToString() const;
+		sDataRequiredToRenderAFrame m_RenderedData;
 
 	protected:
-		SceneManager * m_pSceneManager;
-		std::string m_Name;
+		SceneManager *	m_pSceneManager;
+		std::string		m_Name;
 	};
 }
 

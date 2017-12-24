@@ -1,7 +1,6 @@
 #include "SceneManager.h"
 #include "IGameScene.h"
 
-
 Engine::SceneManager::~SceneManager()
 {
 	if (m_pCurrentScene != nullptr)
@@ -10,14 +9,6 @@ Engine::SceneManager::~SceneManager()
 		delete m_pCurrentScene;
 		m_pCurrentScene = nullptr;
 	}
-}
-
-
-void Engine::SceneManager::_SetGameScene(IGameScene * i_Scene, std::string i_Name)
-{	
-	_SetGameScene(i_Scene);
-
-	m_pCurrentScene->SetName(i_Name);
 }
 
 void Engine::SceneManager::_SetGameScene(IGameScene * i_Scene)
@@ -31,6 +22,11 @@ void Engine::SceneManager::_SetGameScene(IGameScene * i_Scene)
 	}
 
 	m_pCurrentScene = i_Scene;
+}
+
+Engine::IGameScene * Engine::SceneManager::_GetGameScene()
+{
+	return m_pCurrentScene;
 }
 
 

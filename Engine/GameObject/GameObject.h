@@ -10,12 +10,11 @@ namespace Engine
 	{
 		struct Component_Renderable
 		{
-			Component_Renderable() : pRenderer(nullptr), pTexture(nullptr), w(0), h(0)
+			Component_Renderable() : pTexture(nullptr), w(0), h(0)
 			{
 
 			}
 
-			SDL_Renderer* pRenderer;
 			SDL_Texture*  pTexture;
 
 			int w;
@@ -38,6 +37,19 @@ namespace Engine
 			~TextObject();
 
 			bool _Create(std::string i_Text, SDL_Color i_Color, int i_Size, std::string i_FilePath);
+			void _Release();
+
+			Component_Renderable m_RenderComponent;
+		};
+
+		class SpriteObject : public GameObject
+		{
+		public:
+
+			SpriteObject();
+			~SpriteObject();
+
+			bool _Create(std::string i_FilePath);
 			void _Release();
 
 			Component_Renderable m_RenderComponent;

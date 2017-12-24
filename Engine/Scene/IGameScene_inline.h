@@ -14,20 +14,18 @@ namespace Engine
 
 	inline void IGameScene::SubmitBackgroundColor(uint8_t R, uint8_t G, uint8_t B, uint8_t A)
 	{
-		m_pSceneManager->_SetBackgroundColor(R, G, B, A);
+		m_RenderedData.BackgroundColor.r = R;
+		m_RenderedData.BackgroundColor.g = G;
+		m_RenderedData.BackgroundColor.b = B;
+		m_RenderedData.BackgroundColor.a = A;
 	}
 
 	inline void IGameScene::SubmitGameObject(Asset::GameObject * i_Object)
 	{
-	}
 
-	inline void IGameScene::SetName(std::string i_Name)
-	{
-		m_Name = i_Name;
-	}
 
-	inline std::string IGameScene::ToString() const
-	{
-		return m_Name;
+//		Engine::Asset::SpriteObject* s = dynamic_cast<Engine::Asset::SpriteObject*>(i_Object);
+
+
 	}
 }

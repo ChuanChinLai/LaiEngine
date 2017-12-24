@@ -92,7 +92,7 @@ namespace Engine
 
 			m_pSceneManager->_Update();
 
-			m_pGraphics->_Clear(m_pSceneManager->_GetBackgroundColor());
+			m_pGraphics->_Clear(m_pSceneManager->_GetGameScene()->m_RenderedData.BackgroundColor);
 
 			m_pSceneManager->_Render();
 
