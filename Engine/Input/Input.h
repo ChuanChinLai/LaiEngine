@@ -24,7 +24,7 @@ namespace Engine
 		bool _Init();
 		void _Update();
 
-		inline void _Free();
+		inline void _Release();
 
 		inline bool _GetKey(int i_Key) const;
 		inline bool _GetKeyUp(int i_Key) const;

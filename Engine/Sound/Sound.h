@@ -17,7 +17,7 @@ namespace Engine
 			inline bool _IsLoaded();
 
 			inline int  _Play(int i_Loops = 0);
-			inline void _Free();
+			inline void _Release();
 
 		private:
 			Mix_Chunk* m_pSound;

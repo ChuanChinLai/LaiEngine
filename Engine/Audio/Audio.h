@@ -16,7 +16,7 @@ namespace Engine
 		~Audio();
 
 		bool _Init();
-		inline void _Free();
+		inline void _Release();
 
 		inline bool _IsPlaying();
 		inline bool _IsPaused();

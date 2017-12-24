@@ -18,7 +18,7 @@ namespace Engine
 			inline bool _IsLoaded();
 
 			inline void _Play(int i_Loops = 0);
-			inline void _Free();
+			inline void _Release();
 
 		private:
 			Mix_Music* m_pMusic;

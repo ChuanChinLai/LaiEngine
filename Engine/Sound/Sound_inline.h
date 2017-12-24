@@ -15,7 +15,7 @@ namespace Engine
 
 		inline Sound::~Sound()
 		{
-			_Free();
+			_Release();
 		}
 
 		inline bool Sound::_Load(std::string i_Name)
@@ -37,7 +37,7 @@ namespace Engine
 			return (m_pSound != nullptr) ? Mix_PlayChannel(-1, m_pSound, i_Loops) : -1;
 		}
 
-		inline void Sound::_Free()
+		inline void Sound::_Release()
 		{
 			if (m_pSound != nullptr)
 			{

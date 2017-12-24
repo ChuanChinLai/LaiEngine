@@ -128,7 +128,7 @@ namespace Engine
 
 	Graphics* _Graphics()
 	{
-		if (s_pGraphics)
+		if (s_pGraphics == nullptr)
 		{
 			assert(false);
 		}
@@ -137,7 +137,7 @@ namespace Engine
 
 	Input* _Input()
 	{
-		if (!s_pInput)
+		if (s_pInput == nullptr)
 		{
 			assert(false);
 		}
@@ -146,7 +146,7 @@ namespace Engine
 
 	Timer* _Timer()
 	{
-		if (!s_pTimer)
+		if (s_pTimer == nullptr)
 		{
 			assert(false);
 		}
@@ -155,7 +155,7 @@ namespace Engine
 
 	SceneManager * _SceneManager()
 	{
-		if (!s_pSceneManager)
+		if (s_pSceneManager == nullptr)
 		{
 			assert(false);
 		}

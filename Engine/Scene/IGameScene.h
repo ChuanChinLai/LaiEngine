@@ -5,6 +5,12 @@
 
 namespace Engine
 {
+	namespace Asset
+	{
+		class GameObject;
+	}
+
+
 	class SceneManager;
 
 	class IGameScene
@@ -14,7 +20,7 @@ namespace Engine
 		IGameScene(SceneManager* i_pSceneManager);
 
 		void SubmitBackgroundColor(uint8_t R, uint8_t G, uint8_t B, uint8_t A);
-
+		void SubmitGameObject(Asset::GameObject* i_Object);
 
 		virtual void _Init() = 0;
 		virtual void _Update() = 0;

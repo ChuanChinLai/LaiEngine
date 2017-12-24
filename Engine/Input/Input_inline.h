@@ -6,10 +6,10 @@ namespace Engine
 {
 	inline Input::~Input()
 	{
-		_Free();
+		_Release();
 	}
 
-	inline void Input::_Free()
+	inline void Input::_Release()
 	{
 		delete[] m_pKeyCode;
 		delete[] m_pPrevKeyCode;

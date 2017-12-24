@@ -14,7 +14,7 @@ namespace Engine
 
 		inline Music::~Music()
 		{
-			_Free();
+			_Release();
 		}
 
 		inline bool Music::_Load(std::string i_Name)
@@ -39,7 +39,7 @@ namespace Engine
 			}
 		}
 
-		inline void Music::_Free()
+		inline void Music::_Release()
 		{
 			if (m_pMusic != nullptr)
 			{

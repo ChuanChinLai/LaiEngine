@@ -8,10 +8,10 @@ namespace Engine
 {
 	inline Audio::~Audio()
 	{
-		_Free();
+		_Release();
 	}
 
-	inline void Audio::_Free()
+	inline void Audio::_Release()
 	{
 		Mix_CloseAudio();
 	}
