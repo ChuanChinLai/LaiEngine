@@ -20,12 +20,14 @@ namespace Engine
 		m_RenderedData.BackgroundColor.a = A;
 	}
 
-	inline void IGameScene::SubmitGameObject(Asset::GameObject * i_Object)
+	inline void IGameScene::SubmitTextObject(Asset::TextObject * i_object)
 	{
-
-
-//		Engine::Asset::SpriteObject* s = dynamic_cast<Engine::Asset::SpriteObject*>(i_Object);
-
-
+		m_RenderedData.TextObjects.push_back(i_object);
 	}
+
+	inline void IGameScene::SubmitSpriteObject(Asset::SpriteObject * i_object)
+	{
+		m_RenderedData.SpriteObjects.push_back(i_object);
+	}
+
 }

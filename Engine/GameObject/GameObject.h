@@ -23,7 +23,7 @@ namespace Engine
 
 		class GameObject
 		{
-		protected:
+		public:
 			
 			Math::Vector4D<int> m_Position;
 		};
