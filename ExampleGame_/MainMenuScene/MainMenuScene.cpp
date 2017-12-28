@@ -32,6 +32,8 @@ void Engine::MainMenuScene::_Init()
 
 void Engine::MainMenuScene::_Update()
 {
+	std::cout << "_Update: " << m_Name << std::endl;
+
 	SDL_Color red;
 	red.r = 255;
 	red.g = 0;
@@ -39,17 +41,11 @@ void Engine::MainMenuScene::_Update()
 
 	text->_Create(std::to_string(Engine::_Timer()->_GetFPS()), red, 24, "Fonts/Font.ttf");
 
-	if (sprite->m_Position.x > 200)
-	{
-		sprite->m_Position.x = 0;
-	}
-	else
-	{
-		sprite->m_Position.x += 1;
-	}
-	
-	std::cout << "_Update: " << m_Name << std::endl;
 
+	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_RETURN))
+	{
+		m_pSceneManager->_SetGameScene(new GamingScene(m_pSceneManager));
+	}
 }
 
 
