@@ -31,10 +31,6 @@ namespace Engine
 
 		IGameScene(SceneManager* i_pSceneManager);
 
-		inline void SubmitBackgroundColor(uint8_t R, uint8_t G, uint8_t B, uint8_t A);
-		inline void SubmitTextObject(Asset::TextObject* i_object);
-		inline void SubmitSpriteObject(Asset::SpriteObject* i_object);
-
 		virtual void _Init() = 0;
 		virtual void _Update() = 0;
 		virtual void _Release() = 0;
@@ -46,6 +42,12 @@ namespace Engine
 		SceneManager *	m_pSceneManager;
 		std::string		m_Name;
 	};
+
+
+	inline void SubmitBackgroundColor(IGameScene* i_scene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
+	inline void SubmitTextObject(IGameScene* i_scene, Asset::TextObject* i_object);
+	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::SpriteObject* i_object);
+
 }
 
 #include "IGameScene_inline.h"

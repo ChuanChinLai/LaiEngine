@@ -62,7 +62,7 @@ void Engine::MainMenuScene::_Release()
 
 void Engine::MainMenuScene::_SubmitDataToBeRendered()
 {
-	SubmitBackgroundColor(0, 0, 0, 0);
-	SubmitSpriteObject(sprite);
-	SubmitTextObject(text);
+	SubmitBackgroundColor(this, 0, 0, 0, 0);
+	SubmitSpriteObject(this, sprite);
+	SubmitTextObject(this, text);
 }

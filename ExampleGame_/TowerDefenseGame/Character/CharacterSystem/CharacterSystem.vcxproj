@@ -160,6 +160,11 @@
   <ItemGroup>
     <ClCompile Include="CharacterSystem.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ICharacter\ICharacter.vcxproj">
+      <Project>{14f88147-2765-4c3e-8f73-97005b63329e}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -160,6 +160,11 @@
   <ItemGroup>
     <ClCompile Include="GamingScene.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TowerDefenseGame\TowerDefenseGame.vcxproj">
+      <Project>{7d5b6ba3-4591-4d48-9c16-6fff9b7d75ba}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

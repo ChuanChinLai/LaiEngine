@@ -1,6 +1,6 @@
 #pragma once
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IGameSystem\IGameSystem.h>
-#include <vector>
+#include <list>
 
 namespace Gameplay
 {
@@ -19,12 +19,15 @@ namespace Gameplay
 
 		void _Update() override;
 
-		const std::vector<ICharacter*>& _GetSoldiers();
+
+		void AddSoldier(ICharacter* i_Soldier);
+		void AddEnemy(ICharacter* i_Enemy);
+
+		std::list<ICharacter*> m_Soldiers;
+		std::list<ICharacter*> m_Enemies;
 
 	private:
 
 		void _UpdateCharacter();
-
-		std::vector<ICharacter*> m_Soldiers;
 	};
 }

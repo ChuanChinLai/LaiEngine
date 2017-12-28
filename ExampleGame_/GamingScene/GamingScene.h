@@ -2,6 +2,11 @@
 
 #include <Engine\Scene\IGameScene.h>
 
+namespace Gameplay
+{
+	class TowerDefenseGame;
+}
+
 namespace Engine
 {
 	class SceneManager;
@@ -10,7 +15,7 @@ namespace Engine
 	{
 	public:
 
-		GamingScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
+		GamingScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager), m_TowerDefenseGame(nullptr)
 		{
 			m_Name = "GamingScene";
 		};
@@ -19,5 +24,9 @@ namespace Engine
 		void _Update()	override;
 		void _Release() override;
 		void _SubmitDataToBeRendered() override;
+
+	private:
+
+		Gameplay::TowerDefenseGame* m_TowerDefenseGame;
 	};
 }

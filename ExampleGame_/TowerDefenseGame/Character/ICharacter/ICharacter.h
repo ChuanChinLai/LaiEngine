@@ -16,8 +16,10 @@ namespace Gameplay
 		ICharacter();
 		~ICharacter();
 
+		Engine::Asset::SpriteObject* _GetGameObject();
+
 	protected:
-		Engine::Asset::SpriteObject* m_GameObject;
+		Engine::Asset::SpriteObject* m_pGameObject;
 	private:
-	}
+	};
 }

@@ -1,8 +1,12 @@
 #pragma once
 
+namespace Engine
+{
+	class IGameScene;
+}
+
 namespace Gameplay
 {
-
 	class CharacterSystem;
 
 	class TowerDefenseGame
@@ -15,14 +19,15 @@ namespace Gameplay
 		void _Init();
 		void _Update();
 		void _Release();
+		void _RenderObjects(Engine::IGameScene* i_scene);
+
+		CharacterSystem* m_CharacterSystem = nullptr;
 
 	private:
-		TowerDefenseGame();
+		TowerDefenseGame() {};
 		TowerDefenseGame(const TowerDefenseGame& i_Game);
 		TowerDefenseGame& operator = (const TowerDefenseGame& i_Game);
 
 		static TowerDefenseGame* s_pTowerDefenseGame;
-
-		CharacterSystem* m_CharacterSystem = nullptr;
 	};
 }

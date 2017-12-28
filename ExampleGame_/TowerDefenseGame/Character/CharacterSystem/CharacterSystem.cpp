@@ -7,9 +7,14 @@ void Gameplay::CharacterSystem::_Update()
 	_UpdateCharacter();
 }
 
-const std::vector<Gameplay::ICharacter*>& Gameplay::CharacterSystem::_GetSoldiers()
+void Gameplay::CharacterSystem::AddSoldier(ICharacter * i_Soldier)
 {
-	return m_Soldiers;
+	m_Soldiers.push_back(i_Soldier);
+}
+
+void Gameplay::CharacterSystem::AddEnemy(ICharacter * i_Enemy)
+{
+	m_Enemies.push_back(i_Enemy);
 }
 
 void Gameplay::CharacterSystem::_UpdateCharacter()

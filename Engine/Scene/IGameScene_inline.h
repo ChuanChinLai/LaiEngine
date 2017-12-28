@@ -12,22 +12,22 @@ namespace Engine
 
 	}
 
-	inline void IGameScene::SubmitBackgroundColor(uint8_t R, uint8_t G, uint8_t B, uint8_t A)
+	inline void SubmitBackgroundColor(IGameScene* i_scene, uint8_t R, uint8_t G, uint8_t B, uint8_t A)
 	{
-		m_RenderedData.BackgroundColor.r = R;
-		m_RenderedData.BackgroundColor.g = G;
-		m_RenderedData.BackgroundColor.b = B;
-		m_RenderedData.BackgroundColor.a = A;
+		i_scene->m_RenderedData.BackgroundColor.r = R;
+		i_scene->m_RenderedData.BackgroundColor.g = G;
+		i_scene->m_RenderedData.BackgroundColor.b = B;
+		i_scene->m_RenderedData.BackgroundColor.a = A;
 	}
 
-	inline void IGameScene::SubmitTextObject(Asset::TextObject * i_object)
+	inline void SubmitTextObject(IGameScene* i_scene, Asset::TextObject * i_object)
 	{
-		m_RenderedData.TextObjects.push_back(i_object);
+		i_scene->m_RenderedData.TextObjects.push_back(i_object);
 	}
 
-	inline void IGameScene::SubmitSpriteObject(Asset::SpriteObject * i_object)
+	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::SpriteObject * i_object)
 	{
-		m_RenderedData.SpriteObjects.push_back(i_object);
+		i_scene->m_RenderedData.SpriteObjects.push_back(i_object);
 	}
 
 }
