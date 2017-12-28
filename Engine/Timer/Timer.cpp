@@ -1,24 +1,19 @@
 #include "Timer.h"
 
-
-
 namespace Engine
 {
+	int FPS = 0;
+	int LastTime = 0;
+
 	int Timer::_GetFPS()
 	{
-		static int FPS = 0;
-		static int LastTime = _GetTicks();
-		static int FrameCount = 0;
+		++m_FrameCount;
 
-		++FrameCount;
-
-		int CurrentTime = _GetTicks();
-
-		if (CurrentTime - LastTime > 1000)
+		if (_GetTicks() - LastTime >= 1000)
 		{
-			FPS = FrameCount;
-			FrameCount = 0;
-			LastTime = CurrentTime;
+			FPS = m_FrameCount;
+			m_FrameCount = 0;
+			LastTime = _GetTicks();
 		}
 
 		return FPS;

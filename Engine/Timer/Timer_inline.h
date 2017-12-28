@@ -50,15 +50,14 @@ namespace Engine
 	{
 		m_LastFrameTime = _GetTicks() - m_StartTicks;
 
-		int DelayTime = (1000 / FPS) - m_LastFrameTime;
+		int DelayTime = (1000 / m_FPS) - m_LastFrameTime;
 
 		_Delay(DelayTime);
 	}
 
 	inline void Timer::_Delay(int i_ms)
 	{
-		if (i_ms > 0)
-			SDL_Delay(i_ms);
+		if (i_ms > 0) SDL_Delay(i_ms);
 	}
 
 	inline uint32_t Timer::_GetTicks()

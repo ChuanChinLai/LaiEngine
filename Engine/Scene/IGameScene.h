@@ -35,7 +35,6 @@ namespace Engine
 		inline void SubmitTextObject(Asset::TextObject* i_object);
 		inline void SubmitSpriteObject(Asset::SpriteObject* i_object);
 
-
 		virtual void _Init() = 0;
 		virtual void _Update() = 0;
 		virtual void _Release() = 0;

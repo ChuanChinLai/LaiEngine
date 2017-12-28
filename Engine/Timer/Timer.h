@@ -10,7 +10,7 @@ namespace Engine
 	{
 	public:
 
-		Timer(GameEngine* i_Engine): m_Engine(i_Engine), FPS(60), m_LastFrameTime(0), m_StartTicks(0), m_PausedTicks(0), IsStarted(false), IsPaused(false)
+		Timer(GameEngine* i_Engine): m_Engine(i_Engine), m_FPS(60), m_LastFrameTime(0), m_FrameCount(0), m_StartTicks(0), m_PausedTicks(0), IsStarted(false), IsPaused(false)
 		{
 
 		}
@@ -28,8 +28,9 @@ namespace Engine
 	private:
 		GameEngine* m_Engine;
 
-		uint32_t FPS;
+		uint32_t m_FPS;
 		uint32_t m_LastFrameTime;
+		uint32_t m_FrameCount;
 		uint32_t m_StartTicks;
 		uint32_t m_PausedTicks;
 

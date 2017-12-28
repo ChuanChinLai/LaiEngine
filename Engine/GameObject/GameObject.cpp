@@ -30,6 +30,7 @@ bool Engine::Asset::TextObject::_Create(std::string i_Text, SDL_Color i_Color, i
 	m_RenderComponent.h = pSurface->h;
 
 	SDL_FreeSurface(pSurface);
+	TTF_CloseFont(pFontStyle);
 
 	return true;
 }
