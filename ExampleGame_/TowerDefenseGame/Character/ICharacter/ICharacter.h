@@ -16,6 +16,10 @@ namespace Gameplay
 		ICharacter();
 		~ICharacter();
 
+		virtual void _Init();
+		virtual void _Update();
+		virtual void _Release();
+
 		Engine::Asset::SpriteObject* _GetGameObject();
 
 	protected:

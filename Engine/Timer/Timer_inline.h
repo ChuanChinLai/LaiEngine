@@ -64,4 +64,8 @@ namespace Engine
 	{
 		return SDL_GetTicks();
 	}
+	inline uint32_t Timer::_GetLastFrameTime()
+	{
+		return m_LastFrameTime;
+	}
 }

@@ -1,6 +1,7 @@
 #include "TowerDefenseGame.h"
 
 #include <Engine\Scene\IGameScene.h>
+#include <Engine\GameEngine\GameEngine.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterSystem\CharacterSystem.h>
 
@@ -28,19 +29,32 @@ void Gameplay::TowerDefenseGame::_Init()
 
 void Gameplay::TowerDefenseGame::_Update()
 {
+	InputProcess();
+
 	m_CharacterSystem->_Update();
 }
 
 void Gameplay::TowerDefenseGame::_Release()
 {
+	m_CharacterSystem->_Release();
 	delete m_CharacterSystem;
 }
 
 void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_scene)
 {
-	for (auto i : m_CharacterSystem->m_Soldiers)
+	for (const auto i : m_CharacterSystem->_GetSoldiers())
 	{
 		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
 	}
 
+}
+
+void Gameplay::TowerDefenseGame::InputProcess()
+{
+	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_Q))
+	{
+		ICharacter* character = new ICharacter();
+		character->_Init();
+		m_CharacterSystem->AddSoldier(character);
+	}
 }

@@ -23,6 +23,7 @@ namespace Engine
 		inline void		_Delay(int i_ms);
 
 		inline uint32_t _GetTicks();
+		inline uint32_t _GetLastFrameTime();
 		int				_GetFPS();
 
 	private:

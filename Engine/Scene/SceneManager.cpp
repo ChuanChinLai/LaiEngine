@@ -56,7 +56,7 @@ void Engine::SceneManager::_Render()
 			for (size_t i = 0; i < m_pCurrentScene->m_RenderedData.SpriteObjects.size(); i++)
 			{
 				Asset::SpriteObject* s = m_pCurrentScene->m_RenderedData.SpriteObjects[i];
-				SDL_Rect DestRect = { s->m_Position.x, s->m_Position.y, s->m_RenderComponent.w, s->m_RenderComponent.h };
+				SDL_Rect DestRect = { static_cast<int>(s->m_Position.x), static_cast<int>(s->m_Position.y), s->m_RenderComponent.w, s->m_RenderComponent.h };
 				SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), s->m_RenderComponent.pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
 			}
 
@@ -67,7 +67,7 @@ void Engine::SceneManager::_Render()
 			for (size_t i = 0; i < m_pCurrentScene->m_RenderedData.TextObjects.size(); i++)
 			{
 				Asset::TextObject* t = m_pCurrentScene->m_RenderedData.TextObjects[i];
-				SDL_Rect DestRect = { t->m_Position.x, t->m_Position.y, t->m_RenderComponent.w, t->m_RenderComponent.h };
+				SDL_Rect DestRect = { static_cast<int>(t->m_Position.x), static_cast<int>(t->m_Position.y), t->m_RenderComponent.w, t->m_RenderComponent.h };
 				SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), t->m_RenderComponent.pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
 			}
 

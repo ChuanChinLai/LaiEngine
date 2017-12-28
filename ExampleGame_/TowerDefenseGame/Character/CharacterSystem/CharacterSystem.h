@@ -18,16 +18,19 @@ namespace Gameplay
 		}
 
 		void _Update() override;
-
+		void _Release() override;
 
 		void AddSoldier(ICharacter* i_Soldier);
 		void AddEnemy(ICharacter* i_Enemy);
 
-		std::list<ICharacter*> m_Soldiers;
-		std::list<ICharacter*> m_Enemies;
+
+		const std::list<ICharacter*>& _GetSoldiers();
 
 	private:
 
 		void _UpdateCharacter();
+
+		std::list<ICharacter*> m_Soldiers;
+		std::list<ICharacter*> m_Enemies;
 	};
 }

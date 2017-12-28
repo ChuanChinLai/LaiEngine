@@ -28,6 +28,8 @@ namespace Gameplay
 		TowerDefenseGame(const TowerDefenseGame& i_Game);
 		TowerDefenseGame& operator = (const TowerDefenseGame& i_Game);
 
+		void InputProcess();
+
 		static TowerDefenseGame* s_pTowerDefenseGame;
 	};
 }

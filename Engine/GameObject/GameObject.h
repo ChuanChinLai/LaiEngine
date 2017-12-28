@@ -25,7 +25,7 @@ namespace Engine
 		{
 		public:
 			
-			Math::Vector4D<int> m_Position;
+			Math::Vector4D<float> m_Position;
 		};
 
 
