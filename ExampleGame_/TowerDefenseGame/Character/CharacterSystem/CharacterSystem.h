@@ -7,6 +7,7 @@ namespace Gameplay
 
 	class TowerDefenseGame;
 	class ICharacter;
+	class Enemy;
 
 	class CharacterSystem : public IGameSystem
 	{

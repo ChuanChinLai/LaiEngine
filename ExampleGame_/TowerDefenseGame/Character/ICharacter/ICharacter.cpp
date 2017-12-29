@@ -14,22 +14,6 @@ Gameplay::ICharacter::~ICharacter()
 	delete m_pGameObject;
 }
 
-void Gameplay::ICharacter::_Init()
-{
-	m_pGameObject->_Create("Textures/Dot_B.png");
-}
-
-void Gameplay::ICharacter::_Update()
-{
-	Engine::Math::Vector4D<float> Position(300, 400, 0);
-	_MoveTo(Position);
-}
-
-void Gameplay::ICharacter::_Release()
-{
-	m_pGameObject->_Release();
-}
-
 void Gameplay::ICharacter::_MoveTo(const Engine::Math::Vector4D<float>& i_Position)
 {
 	if (Engine::Math::distance(m_pGameObject->m_Position, i_Position) < 0.01f)

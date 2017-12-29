@@ -3,6 +3,8 @@
 #include <Engine\Scene\IGameScene.h>
 #include <Engine\GameEngine\GameEngine.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Enemy\Enemy.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Soldier\Soldier.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterSystem\CharacterSystem.h>
 
 Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::s_pTowerDefenseGame = nullptr;
@@ -57,14 +59,14 @@ void Gameplay::TowerDefenseGame::InputProcess()
 {
 	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_Q))
 	{
-		ICharacter* character = new ICharacter();
+		ICharacter* character = new Soldier();
 		character->_Init();
 		m_CharacterSystem->AddSoldier(character);
 	}
 
 	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_P))
 	{
-		ICharacter* character = new ICharacter();
+		ICharacter* character = new Enemy();
 		character->_Init();
 		m_CharacterSystem->AddEnemy(character);
 	}

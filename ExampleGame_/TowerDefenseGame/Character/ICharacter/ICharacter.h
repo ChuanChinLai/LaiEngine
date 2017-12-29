@@ -18,20 +18,17 @@ namespace Gameplay
 		ICharacter();
 		~ICharacter();
 
-		virtual void _Init();
-		virtual void _Update();
-		virtual void _Release();
-
+		virtual void _Init()	= 0;
+		virtual void _Update()	= 0;
+		virtual void _Release() = 0;
 
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_Position);
 
 		Engine::Asset::SpriteObject* _GetGameObject();
 
 	protected:
-
-		
-
 		Engine::Asset::SpriteObject* m_pGameObject;
+
 	private:
 	};
 }
