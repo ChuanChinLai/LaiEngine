@@ -50,6 +50,8 @@ namespace Engine
 			inline Vector4D<T> operator / (const T i_sv) const;
 			inline Vector4D<T> operator - () const;
 
+			inline void normalize();
+
 		public: 
 			T x, y, z, w;
 		};
@@ -57,6 +59,9 @@ namespace Engine
 		// Allows us to use V = M * V (i.e. column vector)
 		template <class T, class S>
 		inline Vector4D<T> operator * (const Matrix_4x4<S>& i_mat, const Vector4D<T>& i_vec);
+
+		template <class T>
+		inline T distance (const Vector4D<T>& v1, const Vector4D<T>& v2);
 	}
 }
 

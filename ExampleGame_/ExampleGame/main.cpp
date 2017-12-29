@@ -1,10 +1,11 @@
 #include <stdlib.h>
 
 #include <ExampleGame_\ExampleGame\EngineDemo.h>
-
+#include <Engine\Math\Vector4D.h>
 
 int main(int argc, char *args[])
 {
+
 	Engine::EngineDemo* Game = new Engine::EngineDemo();
 
 	if (!Game->_Init())

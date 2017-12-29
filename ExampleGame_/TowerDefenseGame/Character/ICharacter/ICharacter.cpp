@@ -21,18 +21,28 @@ void Gameplay::ICharacter::_Init()
 
 void Gameplay::ICharacter::_Update()
 {
-	float v = 10.0f;
-	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
-
-	if (m_pGameObject)
-	{
-		m_pGameObject->m_Position.x += v * t;
-	}
+	Engine::Math::Vector4D<float> Position(300, 400, 0);
+	_MoveTo(Position);
 }
 
 void Gameplay::ICharacter::_Release()
 {
 	m_pGameObject->_Release();
+}
+
+void Gameplay::ICharacter::_MoveTo(const Engine::Math::Vector4D<float>& i_Position)
+{
+	if (Engine::Math::distance(m_pGameObject->m_Position, i_Position) < 0.01f)
+		return;
+
+
+	Engine::Math::Vector4D<float> dir = i_Position - m_pGameObject->m_Position;
+	dir.normalize();
+	
+	float v = 100.0f;
+	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
+
+	m_pGameObject->m_Position += dir * v * t;
 }
 
 Engine::Asset::SpriteObject* Gameplay::ICharacter::_GetGameObject()

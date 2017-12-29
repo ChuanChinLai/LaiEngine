@@ -27,6 +27,8 @@ namespace Engine
 			w = i_vec.w;
 		}
 
+
+
 		template<class T>
 		inline Vector4D<T>::Vector4D(const Vector3D<T>& i_vec, T i_w)
 		{
@@ -170,6 +172,21 @@ namespace Engine
 			return Vector4D(-x, -y, -z, -w);
 		}
 
+		template<class T>
+		inline void Vector4D<T>::normalize()
+		{
+			float magSq = x * x + y * y + z * z;
+
+			if (magSq > 0.0f)
+			{
+				float OneOverMag = 1.0f / sqrtf(magSq);
+
+				x *= OneOverMag;
+				y *= OneOverMag;
+				z *= OneOverMag;
+			}
+		}
+
 		template<class T, class S>
 		inline Vector4D<T> operator*(const Matrix_4x4<S>& i_mat, const Vector4D<T>& i_vec)
 		{
@@ -182,6 +199,16 @@ namespace Engine
 			T o_4 = T(i_mat.m_41 * i_vec.m_x + i_mat.m_42 * i_vec.m_y + i_mat.m_43 * i_vec.m_z + i_mat.m_44 * i_vec.m_w);
 
 			return Vector4D<T>(o_1, o_2, o_3, o_4);
+		}
+
+		template<class T>
+		inline T distance(const Vector4D<T>& v1, const Vector4D<T>& v2)
+		{
+			float dx = v1.x - v2.x;
+			float dy = v1.y - v2.y;
+			float dz = v1.z - v2.z;
+
+			return sqrt(dx * dx + dy * dy + dz * dz);
 		}
 
 	}
