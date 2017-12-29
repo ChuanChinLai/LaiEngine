@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Engine\Math\Vector4D.h>
+#include <list>
 
 namespace Engine
 {
@@ -18,11 +19,12 @@ namespace Gameplay
 		ICharacter();
 		~ICharacter();
 
-		virtual void _Init()	= 0;
-		virtual void _Update()	= 0;
-		virtual void _Release() = 0;
+		virtual void _Init();
+		virtual void _Update();
+		virtual void _Release();
 
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_Position);
+		void _UpdateAI(const std::list<ICharacter*>& i_Target);
 
 		Engine::Asset::SpriteObject* _GetGameObject();
 

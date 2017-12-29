@@ -31,6 +31,8 @@ namespace Gameplay
 	private:
 
 		void _UpdateCharacter();
+		void _UpdateAI();
+		void _UpdateAI(const std::list<ICharacter*>& i_Characters, const std::list<ICharacter*>& i_Targets);
 
 		std::list<ICharacter*> m_Soldiers;
 		std::list<ICharacter*> m_Enemies;

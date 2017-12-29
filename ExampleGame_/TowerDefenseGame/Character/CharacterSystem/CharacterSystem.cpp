@@ -5,6 +5,7 @@
 void Gameplay::CharacterSystem::_Update()
 {
 	_UpdateCharacter();
+	_UpdateAI();
 }
 
 void Gameplay::CharacterSystem::_Release()
@@ -60,5 +61,18 @@ void Gameplay::CharacterSystem::_UpdateCharacter()
 	for (const auto enemy : m_Enemies)
 	{
 		enemy->_Update();
+	}
+}
+
+void Gameplay::CharacterSystem::_UpdateAI()
+{
+	_UpdateAI(m_Soldiers, m_Enemies);
+}
+
+void Gameplay::CharacterSystem::_UpdateAI(const std::list<ICharacter*>& i_Characters, const std::list<ICharacter*>& i_Targets)
+{
+	for (const auto character : i_Characters)
+	{
+		character->_UpdateAI(i_Targets);
 	}
 }

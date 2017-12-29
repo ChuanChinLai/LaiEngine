@@ -16,8 +16,6 @@ void Gameplay::Soldier::_Init()
 
 void Gameplay::Soldier::_Update()
 {
-	Engine::Math::Vector4D<float> Position(300, 400, 0);
-	_MoveTo(Position);
 }
 
 void Gameplay::Soldier::_Release()

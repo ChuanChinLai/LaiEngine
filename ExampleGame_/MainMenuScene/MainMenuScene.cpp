@@ -25,7 +25,7 @@ void Engine::MainMenuScene::_Init()
 	text->m_Position.y = 200;
 
 	sprite = new Asset::SpriteObject();
-	sprite->_Create("Textures/box.png");
+	sprite->_Create("Textures/Dot_Y.png");
 	sprite->m_Position.x = 100;
 	sprite->m_Position.y = 100;
 }
