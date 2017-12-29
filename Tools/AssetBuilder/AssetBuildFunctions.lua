@@ -88,6 +88,33 @@ do
 			end
 		end
 	end
+
+
+	--Copy Textures
+	do
+		local errorMessage
+
+		local sourceFilePath = EngineSourceContentDir .. "Textures\\"
+		local builtPath = GameInstallDir .. "Textures\\"
+
+		CreateDirectoryIfItDoesntExist( builtPath )
+
+		local Files = GetFilesInDirectory( sourceFilePath )
+
+		for i, File in ipairs( Files ) do
+			local sourceFileName = File:sub( #sourceFilePath + 1 )
+			local targetPath = builtPath .. sourceFileName
+				
+			local result, errorMessage = CopyFile(File, targetPath)
+
+			if result then
+				print( "Copied " .. sourceFileName )
+			else
+				OutputMessage( "The file couldn't be copied to \"" .. targetPath .. "\": " .. errorMessage )
+			end
+		end
+	end
+
 end
 
 

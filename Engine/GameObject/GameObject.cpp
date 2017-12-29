@@ -70,7 +70,7 @@ bool Engine::Asset::SpriteObject::_Create(std::string i_FilePath)
 	}
 
 
-	SDL_SetColorKey(pSurface, SDL_TRUE, SDL_MapRGB(pSurface->format, 0, 0xFF, 0xFF));
+	SDL_SetColorKey(pSurface, SDL_TRUE, SDL_MapRGB(pSurface->format, 0xFF, 0xFF, 0xFF));
 
 	SDL_Texture *pTexture = SDL_CreateTextureFromSurface(Engine::_Graphics()->_GetRenderer(), pSurface);
 	assert(pTexture != nullptr);

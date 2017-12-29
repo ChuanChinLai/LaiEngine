@@ -18,6 +18,16 @@ void Gameplay::CharacterSystem::_Release()
 			soldier = nullptr;
 		}
 	}
+
+	for (auto enemy : m_Enemies)
+	{
+		if (enemy != nullptr)
+		{
+			enemy->_Release();
+			delete enemy;
+			enemy = nullptr;
+		}
+	}
 }
 
 void Gameplay::CharacterSystem::AddSoldier(ICharacter * i_Soldier)
@@ -35,10 +45,20 @@ const std::list<Gameplay::ICharacter*>& Gameplay::CharacterSystem::_GetSoldiers(
 	return m_Soldiers;
 }
 
+const std::list<Gameplay::ICharacter*>& Gameplay::CharacterSystem::_GetEnemies()
+{
+	return m_Enemies;
+}
+
 void Gameplay::CharacterSystem::_UpdateCharacter()
 {
 	for (const auto soldier : m_Soldiers)
 	{
 		soldier->_Update();
+	}
+
+	for (const auto enemy : m_Enemies)
+	{
+		enemy->_Update();
 	}
 }

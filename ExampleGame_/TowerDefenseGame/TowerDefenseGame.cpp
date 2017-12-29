@@ -47,6 +47,10 @@ void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_scene)
 		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
 	}
 
+	for (const auto i : m_CharacterSystem->_GetEnemies())
+	{
+		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
+	}
 }
 
 void Gameplay::TowerDefenseGame::InputProcess()
@@ -56,5 +60,12 @@ void Gameplay::TowerDefenseGame::InputProcess()
 		ICharacter* character = new ICharacter();
 		character->_Init();
 		m_CharacterSystem->AddSoldier(character);
+	}
+
+	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_P))
+	{
+		ICharacter* character = new ICharacter();
+		character->_Init();
+		m_CharacterSystem->AddEnemy(character);
 	}
 }

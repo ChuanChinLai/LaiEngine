@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{90AF76B1-37E5-425D-A748-54F71C361DA4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example", "Example", "{8CFD9E7E-25B1-489C-A725-C4EEFFE0E84A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntryProject", "EntryProject", "{8CFD9E7E-25B1-489C-A725-C4EEFFE0E84A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExampleGame", "ExampleGame_\ExampleGame\ExampleGame.vcxproj", "{3730FAF2-4695-41BF-A1C8-71E2F2D0751B}"
 EndProject

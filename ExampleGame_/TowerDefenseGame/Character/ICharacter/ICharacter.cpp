@@ -16,7 +16,7 @@ Gameplay::ICharacter::~ICharacter()
 
 void Gameplay::ICharacter::_Init()
 {
-	m_pGameObject->_Create("Textures/box.png");
+	m_pGameObject->_Create("Textures/Dot_B.png");
 }
 
 void Gameplay::ICharacter::_Update()

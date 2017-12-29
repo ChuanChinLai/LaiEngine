@@ -25,6 +25,7 @@ namespace Gameplay
 
 
 		const std::list<ICharacter*>& _GetSoldiers();
+		const std::list<ICharacter*>& _GetEnemies();
 
 	private:
 
