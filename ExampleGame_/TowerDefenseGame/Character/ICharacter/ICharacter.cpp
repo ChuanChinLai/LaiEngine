@@ -35,7 +35,6 @@ void Gameplay::ICharacter::_MoveTo(const Engine::Math::Vector4D<float>& i_Positi
 {
 	if (Engine::Math::distance(m_pGameObject->m_Position, i_Position) < 48.0f)
 	{
-		m_bKilled = true;
 		return;
 	}
 
@@ -48,12 +47,18 @@ void Gameplay::ICharacter::_MoveTo(const Engine::Math::Vector4D<float>& i_Positi
 	m_pGameObject->m_Position += dir * v * t;
 }
 
-void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Target)
+void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Targets)
 {
+	if (m_pAttribute->_GetHP() <= 0)
+	{
+		m_bKilled = true;
+		return;
+	}
+
 	float min_distance = 1000.0f;
 	ICharacter* min_character = nullptr;
 
-	for (const auto target : i_Target)
+	for (const auto target : i_Targets)
 	{
 		float d = Engine::Math::distance(m_pGameObject->m_Position, target->m_pGameObject->m_Position);
 
@@ -64,8 +69,15 @@ void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Target)
 		}
 	}
 
-	if(min_character)
+	if (min_character)
+	{
 		_MoveTo(min_character->m_pGameObject->m_Position);
+
+		if (Engine::Math::distance(m_pGameObject->m_Position, min_character->m_pGameObject->m_Position) < 48.0f)
+		{
+			m_pAttribute->_CallDamageValue(min_character);
+		}
+	}
 }
 
 bool Gameplay::ICharacter::_IsKilled()

@@ -5,7 +5,7 @@
 
 Gameplay::Enemy::Enemy()
 {
-	m_pAttribute = new CharacterAttr(15, 3, 5);
+	m_pAttribute = new CharacterAttr(50, 1, 5);
 }
 
 Gameplay::Enemy::~Enemy()
@@ -23,11 +23,19 @@ void Gameplay::Enemy::_Init()
 	Y.b = 0;
 	Y.a = 0;
 
-	m_pTextObject_HP->_Create("20", Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(m_pAttribute->_GetHP()), Y, 40, "Fonts/Font.ttf");
 }
 
 void Gameplay::Enemy::_Update()
 {
+	SDL_Color Y;
+	Y.r = 0;
+	Y.g = 0;
+	Y.b = 0;
+	Y.a = 0;
+
+	m_pTextObject_HP->_Create(std::to_string(m_pAttribute->_GetHP()), Y, 40, "Fonts/Font.ttf");
+
 	m_pTextObject_HP->m_Position = m_pGameObject->m_Position;
 
 	//float v = 5.0f;

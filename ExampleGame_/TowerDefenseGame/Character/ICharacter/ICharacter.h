@@ -27,7 +27,7 @@ namespace Gameplay
 		virtual void _Release();
 
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_Position);
-		void _UpdateAI(const std::list<ICharacter*>& i_Target);
+		void _UpdateAI(const std::list<ICharacter*>& i_Targets);
 		bool _IsKilled();
 
 		int  _GetATK();
