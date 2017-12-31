@@ -25,6 +25,7 @@ namespace Gameplay
 
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_Position);
 		void _UpdateAI(const std::list<ICharacter*>& i_Target);
+		bool _IsKilled();
 
 		Engine::Asset::SpriteObject* _GetGameObject();
 
@@ -32,5 +33,6 @@ namespace Gameplay
 		Engine::Asset::SpriteObject* m_pGameObject;
 
 	private:
+		bool m_bKilled;
 	};
 }

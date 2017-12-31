@@ -4,7 +4,7 @@
 #include <Engine\Math\Vector4D.h>
 #include <Engine\GameObject\GameObject.h>
 
-Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr)
+Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_bKilled(false)
 {
 	m_pGameObject = new Engine::Asset::SpriteObject();
 }
@@ -29,8 +29,12 @@ void Gameplay::ICharacter::_Release()
 
 void Gameplay::ICharacter::_MoveTo(const Engine::Math::Vector4D<float>& i_Position)
 {
-	if (Engine::Math::distance(m_pGameObject->m_Position, i_Position) < 0.01f)
+	if (Engine::Math::distance(m_pGameObject->m_Position, i_Position) < 48.0f)
+	{
+		m_bKilled = true;
 		return;
+	}
+
 
 
 	Engine::Math::Vector4D<float> dir = i_Position - m_pGameObject->m_Position;
@@ -58,7 +62,13 @@ void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Target)
 		}
 	}
 
-	_MoveTo(min_character->m_pGameObject->m_Position);
+	if(min_character)
+		_MoveTo(min_character->m_pGameObject->m_Position);
+}
+
+bool Gameplay::ICharacter::_IsKilled()
+{
+	return m_bKilled;
 }
 
 Engine::Asset::SpriteObject* Gameplay::ICharacter::_GetGameObject()

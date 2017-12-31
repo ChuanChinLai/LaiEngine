@@ -24,6 +24,8 @@ namespace Gameplay
 		void AddSoldier(ICharacter* i_Soldier);
 		void AddEnemy(ICharacter* i_Enemy);
 
+		void RemoveCharacter();
+		void RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents);
 
 		const std::list<ICharacter*>& _GetSoldiers();
 		const std::list<ICharacter*>& _GetEnemies();
