@@ -80,6 +80,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Enemy", "ExampleGame_\Tower
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Soldier", "ExampleGame_\TowerDefenseGame\Character\ICharacter\Soldier\Soldier.vcxproj", "{9D89DA2C-6010-44FF-A420-D4DCC2730086}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CharacterAttr", "ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.vcxproj", "{4511D094-73F4-42E5-A404-DD6715AAD6CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -288,6 +290,14 @@ Global
 		{9D89DA2C-6010-44FF-A420-D4DCC2730086}.Release|x64.Build.0 = Release|x64
 		{9D89DA2C-6010-44FF-A420-D4DCC2730086}.Release|x86.ActiveCfg = Release|Win32
 		{9D89DA2C-6010-44FF-A420-D4DCC2730086}.Release|x86.Build.0 = Release|Win32
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Debug|x64.ActiveCfg = Debug|x64
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Debug|x64.Build.0 = Debug|x64
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Debug|x86.ActiveCfg = Debug|Win32
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Debug|x86.Build.0 = Debug|Win32
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Release|x64.ActiveCfg = Release|x64
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Release|x64.Build.0 = Release|x64
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Release|x86.ActiveCfg = Release|Win32
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -323,6 +333,7 @@ Global
 		{D7422E95-17A1-487F-A23E-2882DEDEE163} = {AF0F0701-AF25-435B-B941-5E07C4C73F28}
 		{61BB9E7E-EDC7-425A-8586-6EFDEF51BA97} = {D7422E95-17A1-487F-A23E-2882DEDEE163}
 		{9D89DA2C-6010-44FF-A420-D4DCC2730086} = {50B1DAC3-7CAA-47D8-865F-0A887FEEE73D}
+		{4511D094-73F4-42E5-A404-DD6715AAD6CA} = {AF0F0701-AF25-435B-B941-5E07C4C73F28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF7EB555-DE90-443E-9226-38579C9AA7CC}

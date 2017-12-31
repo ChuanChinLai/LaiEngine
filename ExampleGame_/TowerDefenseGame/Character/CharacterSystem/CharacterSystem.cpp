@@ -44,6 +44,7 @@ void Gameplay::CharacterSystem::AddEnemy(ICharacter * i_Enemy)
 void Gameplay::CharacterSystem::RemoveCharacter()
 {
 	RemoveCharacter(m_Soldiers, m_Enemies);
+	RemoveCharacter(m_Enemies, m_Soldiers);
 }
 
 void Gameplay::CharacterSystem::RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents)
@@ -92,7 +93,7 @@ void Gameplay::CharacterSystem::_UpdateCharacter()
 void Gameplay::CharacterSystem::_UpdateAI()
 {
 	_UpdateAI(m_Soldiers, m_Enemies);
-
+	_UpdateAI(m_Enemies, m_Soldiers);
 	RemoveCharacter();
 }
 

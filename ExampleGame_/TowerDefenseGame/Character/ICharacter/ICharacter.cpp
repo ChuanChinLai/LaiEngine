@@ -3,15 +3,18 @@
 #include <Engine\GameEngine\GameEngine.h>
 #include <Engine\Math\Vector4D.h>
 #include <Engine\GameObject\GameObject.h>
+#include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 
-Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_bKilled(false)
+Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pTextObject_HP(nullptr), m_pAttribute(nullptr), m_bKilled(false)
 {
 	m_pGameObject = new Engine::Asset::SpriteObject();
+	m_pTextObject_HP = new Engine::Asset::TextObject();
 }
 
 Gameplay::ICharacter::~ICharacter()
 {
 	delete m_pGameObject;
+	delete m_pTextObject_HP;
 }
 
 void Gameplay::ICharacter::_Init()
@@ -20,6 +23,7 @@ void Gameplay::ICharacter::_Init()
 
 void Gameplay::ICharacter::_Update()
 {
+
 }
 
 void Gameplay::ICharacter::_Release()
@@ -34,8 +38,6 @@ void Gameplay::ICharacter::_MoveTo(const Engine::Math::Vector4D<float>& i_Positi
 		m_bKilled = true;
 		return;
 	}
-
-
 
 	Engine::Math::Vector4D<float> dir = i_Position - m_pGameObject->m_Position;
 	dir.normalize();
@@ -71,7 +73,17 @@ bool Gameplay::ICharacter::_IsKilled()
 	return m_bKilled;
 }
 
+int Gameplay::ICharacter::_GetATK()
+{
+	return m_pAttribute->_GetATK();
+}
+
 Engine::Asset::SpriteObject* Gameplay::ICharacter::_GetGameObject()
 {
 	return m_pGameObject;
+}
+
+Engine::Asset::TextObject* Gameplay::ICharacter::_GetTextObject_HP()
+{
+	return m_pTextObject_HP;
 }
