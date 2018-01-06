@@ -24,6 +24,8 @@ public:
 	{
 		std::cout << "base vcall" << std::endl;
 	}
+
+	int par;
 };
 
 
@@ -57,6 +59,7 @@ void test(void* par)
 	base* c = static_cast<base*>(par);
 	c->call();
 	c->vcall();
+	std::cout << c->par << std::endl;
 }
 
 
@@ -73,7 +76,7 @@ int main(int argc, char *args[])
 			base* b = new derived();
 			b->call();
 			b->vcall();
-
+			b->par = 20;
 			test(b);
 
 

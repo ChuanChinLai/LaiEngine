@@ -10,7 +10,7 @@ namespace Engine
 	{
 	public:
 
-		Timer(GameEngine* i_Engine): m_Engine(i_Engine), m_FPS(30), m_LastFrameTime(0), m_FrameCount(0), m_StartTicks(0), m_PausedTicks(0), IsStarted(false), IsPaused(false)
+		Timer(GameEngine* i_Engine): m_Engine(i_Engine), m_FPS(60), m_LastFrameTime(0), m_FrameCount(0), m_StartTicks(0), m_PausedTicks(0), IsStarted(false), IsPaused(false)
 		{
 
 		}

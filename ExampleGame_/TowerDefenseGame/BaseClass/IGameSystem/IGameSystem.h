@@ -12,6 +12,11 @@ namespace Gameplay
 		{
 			m_TDGame = TDGame;
 		}
+		
+		virtual ~IGameSystem()
+		{
+
+		}
 
 		virtual void _Init() {};
 		virtual void _Update() {};
