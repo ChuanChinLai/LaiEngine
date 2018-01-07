@@ -94,6 +94,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEventObserver", "Exampl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameEventSubject", "ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\GameEventSubject.vcxproj", "{F1715C4E-6E64-44CC-A730-19B08F14EAD8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ICharacterAI", "ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.vcxproj", "{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -334,6 +336,14 @@ Global
 		{F1715C4E-6E64-44CC-A730-19B08F14EAD8}.Release|x64.Build.0 = Release|x64
 		{F1715C4E-6E64-44CC-A730-19B08F14EAD8}.Release|x86.ActiveCfg = Release|Win32
 		{F1715C4E-6E64-44CC-A730-19B08F14EAD8}.Release|x86.Build.0 = Release|Win32
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Debug|x64.ActiveCfg = Debug|x64
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Debug|x64.Build.0 = Debug|x64
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Debug|x86.ActiveCfg = Debug|Win32
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Debug|x86.Build.0 = Debug|Win32
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Release|x64.ActiveCfg = Release|x64
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Release|x64.Build.0 = Release|x64
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Release|x86.ActiveCfg = Release|Win32
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -376,6 +386,7 @@ Global
 		{24F5DD2E-D4F3-46F5-BE7C-EAE356D9D4D9} = {1119C124-E0A1-497C-A308-B1D516EAABC8}
 		{A5EC0E7F-E74A-47D3-966F-D9AD42ED4C0B} = {24F5DD2E-D4F3-46F5-BE7C-EAE356D9D4D9}
 		{F1715C4E-6E64-44CC-A730-19B08F14EAD8} = {F98CF157-6530-426E-BDBC-F09CCF5F4E27}
+		{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE} = {AF0F0701-AF25-435B-B941-5E07C4C73F28}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF7EB555-DE90-443E-9226-38579C9AA7CC}

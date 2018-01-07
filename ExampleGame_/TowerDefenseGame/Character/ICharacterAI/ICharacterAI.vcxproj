@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{14F88147-2765-4C3E-8F73-97005B63329E}</ProjectGuid>
+    <ProjectGuid>{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ICharacter</RootNamespace>
+    <RootNamespace>ICharacterAI</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -155,15 +155,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ICharacter.h" />
+    <ClInclude Include="ICharacterAI.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ICharacter.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ICharacterAI\ICharacterAI.vcxproj">
-      <Project>{07e94c5d-9aff-4b5f-852a-e9fa74ec64be}</Project>
-    </ProjectReference>
+    <ClCompile Include="ICharacterAI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
