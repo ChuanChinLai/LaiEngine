@@ -5,7 +5,7 @@
 #include <Engine\GameObject\GameObject.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 
-Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pTextObject_HP(nullptr), m_pAttribute(nullptr), m_bKilled(false)
+Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pTextObject_HP(nullptr), m_pAttribute(nullptr), m_bKilled(false), m_bCheckKilled(false)
 {
 	m_pGameObject = new Engine::Asset::SpriteObject();
 	m_pTextObject_HP = new Engine::Asset::TextObject();
@@ -84,6 +84,17 @@ bool Gameplay::ICharacter::_IsKilled()
 {
 	return m_bKilled;
 }
+
+bool Gameplay::ICharacter::_CheckKilledEvent()
+{
+	if (m_bCheckKilled)
+		return true;
+
+	m_bCheckKilled = true;
+
+	return false;
+}
+
 
 int Gameplay::ICharacter::_GetATK()
 {

@@ -1,27 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="SoldierKilledSubject">
+      <UniqueIdentifier>{0f1f40a1-1632-4ae0-95b9-be10594748c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    <Filter Include="EnemyKilledSubject">
+      <UniqueIdentifier>{0dac8e0e-d178-4143-8867-4ebd90ddd166}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IGameEventSubject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SoldierKilledSubject.h">
+      <Filter>SoldierKilledSubject</Filter>
     </ClInclude>
-    <ClInclude Include="IGameEventSubject_inline.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="SoldierKilledSubject_inline.h">
+      <Filter>SoldierKilledSubject</Filter>
     </ClInclude>
     <ClInclude Include="EnemyKilledSubject.h">
-      <Filter>Header Files</Filter>
+      <Filter>EnemyKilledSubject</Filter>
     </ClInclude>
     <ClInclude Include="EnemyKilledSubject_inline.h">
-      <Filter>Header Files</Filter>
+      <Filter>EnemyKilledSubject</Filter>
     </ClInclude>
+    <ClInclude Include="IGameEventSubject.h" />
+    <ClInclude Include="IGameEventSubject_inline.h" />
   </ItemGroup>
 </Project>

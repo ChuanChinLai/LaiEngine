@@ -1,5 +1,7 @@
 #pragma once
+
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IGameSystem\IGameSystem.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
 #include <list>
 
 namespace Gameplay
@@ -25,7 +27,7 @@ namespace Gameplay
 		void AddEnemy(ICharacter* i_Enemy);
 
 		void RemoveCharacter();
-		void RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents);
+		void RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent);
 
 		const std::list<ICharacter*>& _GetSoldiers();
 		const std::list<ICharacter*>& _GetEnemies();

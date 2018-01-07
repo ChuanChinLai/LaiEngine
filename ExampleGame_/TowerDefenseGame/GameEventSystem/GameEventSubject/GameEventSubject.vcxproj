@@ -159,6 +159,8 @@
     <ClInclude Include="EnemyKilledSubject_inline.h" />
     <ClInclude Include="IGameEventSubject.h" />
     <ClInclude Include="IGameEventSubject_inline.h" />
+    <ClInclude Include="SoldierKilledSubject.h" />
+    <ClInclude Include="SoldierKilledSubject_inline.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

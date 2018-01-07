@@ -158,6 +158,8 @@
     <ClInclude Include="EnemyKilledObserverUI.h" />
     <ClInclude Include="EnemyKilledObserverUI_inline.h" />
     <ClInclude Include="IGameEventObserver.h" />
+    <ClInclude Include="SoldierKilledObserverUI.h" />
+    <ClInclude Include="SoldierKilledObserverUI_inline.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

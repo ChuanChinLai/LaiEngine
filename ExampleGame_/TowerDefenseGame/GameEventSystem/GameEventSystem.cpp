@@ -2,6 +2,7 @@
 
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\IGameEventSubject.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\EnemyKilledSubject.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\SoldierKilledSubject.h>
 
 void Gameplay::GameEventSystem::_Release()
 {
@@ -42,8 +43,13 @@ Gameplay::IGameEventSubject * Gameplay::GameEventSystem::GetGameEventSubject(ENU
 
 	switch (emGameEvnet)
 	{
+
 	case ENUM_GameEvent::EnemyKilled:
 		pSubject = new EnemyKilledSubject();
+		break;
+
+	case ENUM_GameEvent::SoldierKilled:
+		pSubject = new SoldierKilledSubject();
 		break;
 
 	default:

@@ -3,11 +3,14 @@
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\EnemyKilledObserverUI.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\SoldierKilledObserverUI.h>
+
 #include <vector>
 
 void Gameplay::CharacterSystem::_Init()
 {
 	m_TDGame->_RegisterGameEvent(ENUM_GameEvent::EnemyKilled, new Gameplay::EnemyKilledObserverUI());
+	m_TDGame->_RegisterGameEvent(ENUM_GameEvent::SoldierKilled, new Gameplay::SoldierKilledObserverUI());
 }
 
 void Gameplay::CharacterSystem::_Update()
@@ -47,17 +50,15 @@ void Gameplay::CharacterSystem::AddSoldier(ICharacter * i_Soldier)
 void Gameplay::CharacterSystem::AddEnemy(ICharacter * i_Enemy)
 {
 	m_Enemies.push_back(i_Enemy);
-
-	m_TDGame->_NotifyGameEvent(ENUM_GameEvent::EnemyKilled, nullptr);
 }
 
 void Gameplay::CharacterSystem::RemoveCharacter()
 {
-	RemoveCharacter(m_Soldiers, m_Enemies);
-	RemoveCharacter(m_Enemies, m_Soldiers);
+	RemoveCharacter(m_Soldiers, m_Enemies, ENUM_GameEvent::SoldierKilled);
+	RemoveCharacter(m_Enemies, m_Soldiers, ENUM_GameEvent::EnemyKilled);
 }
 
-void Gameplay::CharacterSystem::RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents)
+void Gameplay::CharacterSystem::RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent)
 {
 	std::list<ICharacter*> CanRemoves;
 
@@ -65,6 +66,9 @@ void Gameplay::CharacterSystem::RemoveCharacter(std::list<ICharacter*>& i_Charac
 	{
 		if (character->_IsKilled() == false)
 			continue;
+
+		if (character->_CheckKilledEvent() == false)
+			m_TDGame->_NotifyGameEvent(emEvent, character);
 
 		CanRemoves.push_back(character);
 	}
