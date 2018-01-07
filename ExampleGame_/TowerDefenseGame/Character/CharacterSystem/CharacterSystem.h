@@ -17,7 +17,7 @@ namespace Gameplay
 		{
 
 		}
-
+		void _Init() override;
 		void _Update() override;
 		void _Release() override;
 

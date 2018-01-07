@@ -6,7 +6,7 @@ namespace Gameplay
 {
 	class Enemy;
 
-	class EnemyKilledSubject : IGameEventSubject
+	class EnemyKilledSubject : public IGameEventSubject
 	{
 	public:
 		EnemyKilledSubject(): m_KilledCount(0), m_Enemy(nullptr)
@@ -14,8 +14,8 @@ namespace Gameplay
 
 		}
 
-		Enemy*		_GetEnemy();
-		inline int	_GetKilledCount();
+		inline Enemy*	_GetEnemy();
+		inline int		_GetKilledCount();
 		inline virtual void _SetParameter(void* i_Parameter) override;
 
 	private:

@@ -157,6 +157,9 @@
   <ItemGroup>
     <ClInclude Include="GameEventSystem.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameEventSystem.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

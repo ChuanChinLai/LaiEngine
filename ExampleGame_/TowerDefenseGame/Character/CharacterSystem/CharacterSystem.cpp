@@ -1,6 +1,14 @@
 #include "CharacterSystem.h"
+
+#include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\EnemyKilledObserverUI.h>
 #include <vector>
+
+void Gameplay::CharacterSystem::_Init()
+{
+	m_TDGame->_RegisterGameEvent(ENUM_GameEvent::EnemyKilled, new Gameplay::EnemyKilledObserverUI());
+}
 
 void Gameplay::CharacterSystem::_Update()
 {
@@ -39,6 +47,8 @@ void Gameplay::CharacterSystem::AddSoldier(ICharacter * i_Soldier)
 void Gameplay::CharacterSystem::AddEnemy(ICharacter * i_Enemy)
 {
 	m_Enemies.push_back(i_Enemy);
+
+	m_TDGame->_NotifyGameEvent(ENUM_GameEvent::EnemyKilled, nullptr);
 }
 
 void Gameplay::CharacterSystem::RemoveCharacter()

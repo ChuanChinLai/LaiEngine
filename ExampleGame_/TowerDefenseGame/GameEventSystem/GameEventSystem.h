@@ -34,8 +34,6 @@ namespace Gameplay
 	private:
 
 		IGameEventSubject* GetGameEventSubject(ENUM_GameEvent emGameEvnet);
-
-
 		std::unordered_map<ENUM_GameEvent, IGameEventSubject*> m_GameEvents;
 	};
 }

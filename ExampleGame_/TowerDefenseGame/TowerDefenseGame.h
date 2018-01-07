@@ -1,5 +1,7 @@
 #pragma once
 
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
+
 namespace Engine
 {
 	class IGameScene;
@@ -8,6 +10,9 @@ namespace Engine
 namespace Gameplay
 {
 	class CharacterSystem;
+	class GameEventSystem;
+	class IGameEventObserver;
+
 
 	class TowerDefenseGame
 	{
@@ -21,7 +26,11 @@ namespace Gameplay
 		void _Release();
 		void _RenderObjects(Engine::IGameScene* i_scene);
 
-		CharacterSystem* m_CharacterSystem = nullptr;
+		void _RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver* i_Observer);
+		void _NotifyGameEvent(ENUM_GameEvent emGameEvent, void* i_Parameter);
+
+		GameEventSystem*	m_GameEventSystem = nullptr;
+		CharacterSystem*	m_CharacterSystem = nullptr;
 
 	private:
 		TowerDefenseGame() {};

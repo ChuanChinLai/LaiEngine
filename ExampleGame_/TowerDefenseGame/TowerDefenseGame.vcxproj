@@ -164,6 +164,9 @@
     <ProjectReference Include="Character\CharacterSystem\CharacterSystem.vcxproj">
       <Project>{b1ce78c6-7029-4a06-af03-0b288d64897c}</Project>
     </ProjectReference>
+    <ProjectReference Include="GameEventSystem\GameEventSystem.vcxproj">
+      <Project>{430e1ed2-f760-4ff3-880a-e0d7c12334a9}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

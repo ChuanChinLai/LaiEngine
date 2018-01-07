@@ -3,4 +3,7 @@
   <ItemGroup>
     <ClInclude Include="GameEventSystem.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameEventSystem.cpp" />
+  </ItemGroup>
 </Project>

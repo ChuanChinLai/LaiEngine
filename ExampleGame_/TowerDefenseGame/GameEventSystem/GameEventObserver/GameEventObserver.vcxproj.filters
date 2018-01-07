@@ -14,5 +14,11 @@
     <ClInclude Include="IGameEventObserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EnemyKilledObserverUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyKilledObserverUI_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

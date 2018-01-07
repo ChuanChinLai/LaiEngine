@@ -3,7 +3,7 @@
 #include "EnemyKilledSubject.h"
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Enemy\Enemy.h>
 
-Gameplay::Enemy* Gameplay::EnemyKilledSubject::_GetEnemy()
+inline Gameplay::Enemy* Gameplay::EnemyKilledSubject::_GetEnemy()
 {
 	m_Enemy;
 }

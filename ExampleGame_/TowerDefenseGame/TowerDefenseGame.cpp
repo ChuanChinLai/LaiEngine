@@ -6,6 +6,10 @@
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Enemy\Enemy.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Soldier\Soldier.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterSystem\CharacterSystem.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\IGameEventObserver.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\IGameEventSubject.h>
+
 
 Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::s_pTowerDefenseGame = nullptr;
 
@@ -26,18 +30,27 @@ Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::_Get()
 
 void Gameplay::TowerDefenseGame::_Init()
 {
+	m_GameEventSystem = new GameEventSystem(this);
+	m_GameEventSystem->_Init();
+
+
 	m_CharacterSystem = new CharacterSystem(this);
+	m_CharacterSystem->_Init();
 }
 
 void Gameplay::TowerDefenseGame::_Update()
 {
 	InputProcess();
 
+	m_GameEventSystem->_Update();
 	m_CharacterSystem->_Update();
 }
 
 void Gameplay::TowerDefenseGame::_Release()
 {
+	m_GameEventSystem->_Release();
+	delete m_GameEventSystem;
+
 	m_CharacterSystem->_Release();
 	delete m_CharacterSystem;
 }
@@ -56,6 +69,17 @@ void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_scene)
 		Engine::SubmitTextObject(i_scene, i->_GetTextObject_HP());
 	}
 }
+
+void Gameplay::TowerDefenseGame::_RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver * i_Observer)
+{
+	m_GameEventSystem->_RegisterObserver(emGameEvent, i_Observer);
+}
+
+void Gameplay::TowerDefenseGame::_NotifyGameEvent(ENUM_GameEvent emGameEvent, void * i_Parameter)
+{
+	m_GameEventSystem->_NotifySubject(emGameEvent, i_Parameter);
+}
+
 
 void Gameplay::TowerDefenseGame::InputProcess()
 {

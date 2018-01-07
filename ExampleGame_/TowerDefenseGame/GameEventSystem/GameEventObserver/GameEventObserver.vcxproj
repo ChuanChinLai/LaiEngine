@@ -155,6 +155,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="EnemyKilledObserverUI.h" />
+    <ClInclude Include="EnemyKilledObserverUI_inline.h" />
     <ClInclude Include="IGameEventObserver.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
