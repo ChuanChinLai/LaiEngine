@@ -3,6 +3,15 @@
 #include "IGameEventSubject.h"
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\IGameEventObserver.h>
 
+inline Gameplay::IGameEventSubject::~IGameEventSubject()
+{
+	for (auto observer : m_Observers)
+	{
+		if (observer != nullptr)
+			delete observer;
+	}
+}
+
 inline void Gameplay::IGameEventSubject::_Attach(IGameEventObserver * i_Observer)
 {
 	m_Observers.push_back(i_Observer);

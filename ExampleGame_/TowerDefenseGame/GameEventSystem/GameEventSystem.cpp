@@ -2,8 +2,15 @@
 
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\IGameEventSubject.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\EnemyKilledSubject.h>
+
 void Gameplay::GameEventSystem::_Release()
 {
+	for (auto Event : m_GameEvents)
+	{
+		if (Event.second != nullptr)
+			delete Event.second;
+	}
+
 	m_GameEvents.clear();
 }
 
