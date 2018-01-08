@@ -30,7 +30,7 @@ inline void Gameplay::IGameEventSubject::_Notify()
 	}
 }
 
-inline void Gameplay::IGameEventSubject::_SetParameter(void * i_Parameter)
+inline void Gameplay::IGameEventSubject::_SetData(void * i_pData)
 {
-	m_Parameter = i_Parameter;
+	m_pData = i_pData;
 }

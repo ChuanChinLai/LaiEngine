@@ -31,7 +31,7 @@ void Gameplay::GameEventSystem::_NotifySubject(ENUM_GameEvent emGameEvnet, void 
 	if (m_GameEvents.count(emGameEvnet) == 0)
 		return;
 
-	m_GameEvents[emGameEvnet]->_SetParameter(Parameter);
+	m_GameEvents[emGameEvnet]->_SetData(Parameter);
 }
 
 Gameplay::IGameEventSubject * Gameplay::GameEventSystem::GetGameEventSubject(ENUM_GameEvent emGameEvnet)

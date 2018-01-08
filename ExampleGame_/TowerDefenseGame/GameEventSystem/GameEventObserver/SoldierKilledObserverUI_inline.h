@@ -12,5 +12,5 @@ void Gameplay::SoldierKilledObserverUI::_Update()
 
 inline void Gameplay::SoldierKilledObserverUI::_SetSubject(IGameEventSubject * i_Subject)
 {
-	m_Subject = dynamic_cast<SoldierKilledSubject *>(i_Subject);
+	m_pSubject = dynamic_cast<SoldierKilledSubject *>(i_Subject);
 }

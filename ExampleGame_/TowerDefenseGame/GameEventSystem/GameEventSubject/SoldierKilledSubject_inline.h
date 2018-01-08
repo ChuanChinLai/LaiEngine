@@ -6,7 +6,7 @@
 
 inline Gameplay::Soldier* Gameplay::SoldierKilledSubject::_GetSoldier()
 {
-	return m_Soldier;
+	return m_pSoldier;
 }
 
 inline int Gameplay::SoldierKilledSubject::_GetKilledCount()
@@ -14,11 +14,11 @@ inline int Gameplay::SoldierKilledSubject::_GetKilledCount()
 	return m_KilledCount;
 }
 
-inline void Gameplay::SoldierKilledSubject::_SetParameter(void * i_Parameter)
+inline void Gameplay::SoldierKilledSubject::_SetData(void * i_pData)
 {
-	m_Parameter = i_Parameter;
+	m_pData = i_pData;
 
-	m_Soldier = static_cast<Soldier*>(i_Parameter);
+	m_pSoldier = static_cast<Soldier*>(i_pData);
 
 	m_KilledCount++;
 

@@ -28,7 +28,7 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Posi
 	Engine::Math::Vector4D<float> dir = i_Position - m_Character->_GetGameObject()->m_Position;
 	dir.normalize();
 
-	float v = 100.0f;
+	float v = m_Character->_GetAttribute()->_GetSpeed();
 	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
 
 	m_Character->_GetGameObject()->m_Position += dir * v * t;
@@ -37,7 +37,7 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Posi
 void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)
 {
 	float min_distance = 1000.0f;
-	ICharacter* min_character = nullptr;
+	ICharacter* nearest_character = nullptr;
 
 	for (const auto target : i_Targets)
 	{
@@ -45,20 +45,18 @@ void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)
 
 		if (d < min_distance)
 		{
-			min_character = target;
+			nearest_character = target;
 			min_distance = d;
 		}
 	}
 
-	if (min_character)
+	if (nearest_character)
 	{
-		_MoveTo(min_character->_GetGameObject()->m_Position);
+		_MoveTo(nearest_character->_GetGameObject()->m_Position);
 
-		if (Engine::Math::distance(m_Character->_GetGameObject()->m_Position, min_character->_GetGameObject()->m_Position) < 48.0f)
+		if (Engine::Math::distance(m_Character->_GetGameObject()->m_Position, nearest_character->_GetGameObject()->m_Position) < 48.0f)
 		{
-			m_Character->_GetAttribute()->_CallDamageValue(min_character);
+			m_Character->_GetAttribute()->_CallDamageValue(nearest_character);
 		}
 	}
-
-
 }

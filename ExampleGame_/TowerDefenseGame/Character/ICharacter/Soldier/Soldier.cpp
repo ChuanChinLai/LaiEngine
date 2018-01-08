@@ -7,7 +7,7 @@
 
 Gameplay::Soldier::Soldier()
 {
-	m_pAttribute = new CharacterAttr(50, 1, 5);
+	m_pAttribute = new CharacterAttr(50, 1.5f, 1.3f, 100);
 }
 
 Gameplay::Soldier::~Soldier()
@@ -25,7 +25,7 @@ void Gameplay::Soldier::_Init()
 	Y.b = 0;
 	Y.a = 0;
 	
-	m_pTextObject_HP->_Create(std::to_string(m_pAttribute->_GetHP()), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
 }
 
 void Gameplay::Soldier::_Update()
@@ -36,7 +36,7 @@ void Gameplay::Soldier::_Update()
 	Y.b = 0;
 	Y.a = 0;
 
-	m_pTextObject_HP->_Create(std::to_string(m_pAttribute->_GetHP()), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
 
 	m_pTextObject_HP->m_Position = m_pGameObject->m_Position;
 }

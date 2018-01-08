@@ -12,5 +12,5 @@ void Gameplay::EnemyKilledObserverUI::_Update()
 
 inline void Gameplay::EnemyKilledObserverUI::_SetSubject(IGameEventSubject * i_Subject)
 {
-	m_Subject = dynamic_cast<EnemyKilledSubject *>(i_Subject);
+	m_pSubject = dynamic_cast<EnemyKilledSubject *>(i_Subject);
 }

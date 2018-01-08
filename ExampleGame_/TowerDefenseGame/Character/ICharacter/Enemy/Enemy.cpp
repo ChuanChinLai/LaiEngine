@@ -5,7 +5,7 @@
 
 Gameplay::Enemy::Enemy()
 {
-	m_pAttribute = new CharacterAttr(50, 1, 5);
+	m_pAttribute = new CharacterAttr(50, 2.0f, 1.0f, 100);
 }
 
 Gameplay::Enemy::~Enemy()
@@ -23,7 +23,7 @@ void Gameplay::Enemy::_Init()
 	Y.b = 0;
 	Y.a = 0;
 
-	m_pTextObject_HP->_Create(std::to_string(m_pAttribute->_GetHP()), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
 }
 
 void Gameplay::Enemy::_Update()
@@ -34,7 +34,7 @@ void Gameplay::Enemy::_Update()
 	Y.b = 0;
 	Y.a = 0;
 
-	m_pTextObject_HP->_Create(std::to_string(m_pAttribute->_GetHP()), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
 
 	m_pTextObject_HP->m_Position = m_pGameObject->m_Position;
 

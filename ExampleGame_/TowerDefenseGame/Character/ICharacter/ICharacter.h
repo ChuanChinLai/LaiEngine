@@ -32,7 +32,7 @@ namespace Gameplay
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 
-		int  _GetATK();
+		float  _GetATK();
 
 		Engine::Asset::SpriteObject* _GetGameObject();
 		Engine::Asset::TextObject*	 _GetTextObject_HP();

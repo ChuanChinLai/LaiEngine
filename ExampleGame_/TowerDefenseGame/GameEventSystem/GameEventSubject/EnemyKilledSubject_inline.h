@@ -5,7 +5,7 @@
 
 inline Gameplay::Enemy* Gameplay::EnemyKilledSubject::_GetEnemy()
 {
-	m_Enemy;
+	m_pEnemy;
 }
 
 inline int Gameplay::EnemyKilledSubject::_GetKilledCount()
@@ -13,11 +13,11 @@ inline int Gameplay::EnemyKilledSubject::_GetKilledCount()
 	return m_KilledCount;
 }
 
-inline void Gameplay::EnemyKilledSubject::_SetParameter(void * i_Parameter)
+inline void Gameplay::EnemyKilledSubject::_SetData(void * i_pData)
 {
-	m_Parameter = i_Parameter;
+	m_pData = i_pData;
 
-	m_Enemy = static_cast<Enemy*>(i_Parameter);
+	m_pEnemy = static_cast<Enemy*>(i_pData);
 
 	m_KilledCount++;
 

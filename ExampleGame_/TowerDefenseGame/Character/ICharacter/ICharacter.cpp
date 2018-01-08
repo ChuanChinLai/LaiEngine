@@ -63,7 +63,7 @@ bool Gameplay::ICharacter::_CheckKilledEvent()
 }
 
 
-int Gameplay::ICharacter::_GetATK()
+float Gameplay::ICharacter::_GetATK()
 {
 	return m_pAttribute->_GetATK();
 }

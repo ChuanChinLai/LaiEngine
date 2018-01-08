@@ -9,18 +9,18 @@ namespace Gameplay
 	class SoldierKilledSubject : public IGameEventSubject
 	{
 	public:
-		SoldierKilledSubject() : m_KilledCount(0), m_Soldier(nullptr)
+		SoldierKilledSubject() : m_pSoldier(nullptr), m_KilledCount(0)
 		{
 
 		}
 
 		inline Soldier*	_GetSoldier();
 		inline int		_GetKilledCount();
-		inline virtual void _SetParameter(void* i_Parameter) override;
+		inline virtual void _SetData(void* i_pData) override;
 
 	private:
 
-		Soldier* m_Soldier;
+		Soldier* m_pSoldier;
 		int		 m_KilledCount;
 
 	};

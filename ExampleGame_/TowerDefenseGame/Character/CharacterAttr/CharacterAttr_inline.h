@@ -3,14 +3,19 @@
 #include "CharacterAttr.h"
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 
-inline int Gameplay::CharacterAttr::_GetHP() const
+inline float Gameplay::CharacterAttr::_GetHP() const
 {
 	return m_NowHP;
 }
 
-inline int Gameplay::CharacterAttr::_GetATK() const
+inline float Gameplay::CharacterAttr::_GetATK() const
 {
 	return m_ATK;
+}
+
+inline float Gameplay::CharacterAttr::_GetDEF() const
+{
+	return m_DEF;
 }
 
 inline float Gameplay::CharacterAttr::_GetSpeed() const
@@ -20,6 +25,8 @@ inline float Gameplay::CharacterAttr::_GetSpeed() const
 
 inline void Gameplay::CharacterAttr::_CallDamageValue(ICharacter * Attacker)
 {
-	int AtkValue = Attacker->_GetATK();
-	m_NowHP -= AtkValue;
+	float Damage = Attacker->_GetATK() - m_DEF;
+
+	if(Damage > 0.0f)
+		m_NowHP -= Damage;
 }

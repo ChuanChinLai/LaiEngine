@@ -21,11 +21,11 @@ namespace Gameplay
 		inline void _Attach(IGameEventObserver* i_Observer);
 		inline void _Detach(IGameEventObserver* i_Observer);
 		inline void _Notify();
-		inline virtual void _SetParameter(void* i_Parameter);
+		inline virtual void _SetData(void* i_pData);
 
 	protected:
 
-		void* m_Parameter = nullptr;
+		void* m_pData = nullptr;
 		std::list<IGameEventObserver*> m_Observers;
 	};
 }

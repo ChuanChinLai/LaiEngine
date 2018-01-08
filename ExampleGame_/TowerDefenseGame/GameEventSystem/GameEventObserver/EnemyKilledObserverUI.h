@@ -14,7 +14,7 @@ namespace Gameplay
 
 	private:
 
-		EnemyKilledSubject * m_Subject = nullptr;
+		EnemyKilledSubject * m_pSubject = nullptr;
 	};
 }
 
