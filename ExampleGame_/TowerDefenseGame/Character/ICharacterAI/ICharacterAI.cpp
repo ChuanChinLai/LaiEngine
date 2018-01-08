@@ -2,25 +2,44 @@
 
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\IAIState\AttackState.h>
 #include <Engine\GameEngine\GameEngine.h>
 #include <Engine\Math\Vector4D.h>
 
-Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_Character)
+Engine::Math::Vector4D<float> zero(0.0f, 0.0f, 0.0f);
+
+Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_Character): m_Character(i_Character), m_AIState(nullptr)
 {
-	m_Character = i_Character;
+	m_AIState = new AttackState();
+	m_AIState->_SetCharacterAI(this);
+	m_AIState->_SetAttackPosition(zero);
 }
 
 Gameplay::ICharacterAI::~ICharacterAI()
 {
+	delete m_AIState;
 }
 
 void Gameplay::ICharacterAI::ChangeAIState(IAIState * NewAIState)
 {
+	if (m_AIState != nullptr)
+	{
+		delete m_AIState;
+	}
+
+	m_AIState = NewAIState;
+	m_AIState->_SetCharacterAI(this);
+	m_AIState->_SetAttackPosition(zero);
+}
+
+void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)
+{
+	m_AIState->_Update(i_Targets);
 }
 
 void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Position)
 {
-	if (Engine::Math::distance(m_Character->_GetGameObject()->m_Position, i_Position) < 48.0f)
+	if (Engine::Math::distance(m_Character->_GetGameObject()->m_Position, i_Position) < 0.01f)
 	{
 		return;
 	}
@@ -34,29 +53,13 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Posi
 	m_Character->_GetGameObject()->m_Position += dir * v * t;
 }
 
-void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)
+void Gameplay::ICharacterAI::_Attack(ICharacter * i_Target)
 {
-	float min_distance = 1000.0f;
-	ICharacter* nearest_character = nullptr;
+	i_Target->_GetAttribute()->_CallDamageValue(m_Character);
+}
 
-	for (const auto target : i_Targets)
-	{
-		float d = Engine::Math::distance(m_Character->_GetGameObject()->m_Position, target->_GetGameObject()->m_Position);
 
-		if (d < min_distance)
-		{
-			nearest_character = target;
-			min_distance = d;
-		}
-	}
-
-	if (nearest_character)
-	{
-		_MoveTo(nearest_character->_GetGameObject()->m_Position);
-
-		if (Engine::Math::distance(m_Character->_GetGameObject()->m_Position, nearest_character->_GetGameObject()->m_Position) < 48.0f)
-		{
-			m_Character->_GetAttribute()->_CallDamageValue(nearest_character);
-		}
-	}
+const Engine::Math::Vector4D<float>& Gameplay::ICharacterAI::_GetPosition()
+{
+	return m_Character->_GetGameObject()->m_Position;
 }

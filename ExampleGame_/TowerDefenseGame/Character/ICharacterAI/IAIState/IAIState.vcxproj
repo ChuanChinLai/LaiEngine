@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{07E94C5D-9AFF-4B5F-852A-E9FA74EC64BE}</ProjectGuid>
+    <ProjectGuid>{CEAE5E3D-7AC1-48A3-B2E9-EFAD8775C2ED}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ICharacterAI</RootNamespace>
+    <RootNamespace>IAIState</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -59,23 +59,23 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\..\..\ExampleGame.props" />
+    <Import Project="..\..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\..\..\ExampleGame.props" />
+    <Import Project="..\..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\..\..\ExampleGame.props" />
+    <Import Project="..\..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\..\..\ExampleGame.props" />
+    <Import Project="..\..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\..\ExampleGame.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -155,15 +155,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ICharacterAI.h" />
+    <ClInclude Include="AttackHeartState.h" />
+    <ClInclude Include="AttackState.h" />
+    <ClInclude Include="IAIState.h" />
+    <ClInclude Include="IAIState_inline.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ICharacterAI.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="IAIState\IAIState.vcxproj">
-      <Project>{ceae5e3d-7ac1-48a3-b2e9-efad8775c2ed}</Project>
-    </ProjectReference>
+    <ClCompile Include="AttackHeartState.cpp" />
+    <ClCompile Include="AttackState.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
