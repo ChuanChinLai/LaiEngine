@@ -13,7 +13,7 @@ namespace Gameplay
 	{
 	public:
 		ICharacterAI(ICharacter* i_Character);
-		~ICharacterAI();
+		virtual ~ICharacterAI();
 
 		virtual void ChangeAIState(IAIState* NewAIState);
 

@@ -155,10 +155,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\ICharacterAI\EnemyAI.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="EnemyAI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\ICharacterAI\EnemyAI.cpp" />
     <ClCompile Include="Enemy.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

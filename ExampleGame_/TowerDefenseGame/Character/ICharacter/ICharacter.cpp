@@ -11,7 +11,7 @@ Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pTextObject_HP(nu
 	m_pGameObject = new Engine::Asset::SpriteObject();
 	m_pTextObject_HP = new Engine::Asset::TextObject();
 
-	m_pAI = new ICharacterAI(this);
+//	m_pAI = new ICharacterAI(this);
 }
 
 Gameplay::ICharacter::~ICharacter()
@@ -19,7 +19,7 @@ Gameplay::ICharacter::~ICharacter()
 	delete m_pGameObject;
 	delete m_pTextObject_HP;
 
-	delete m_pAI;
+//	delete m_pAI;
 }
 
 void Gameplay::ICharacter::_Init()

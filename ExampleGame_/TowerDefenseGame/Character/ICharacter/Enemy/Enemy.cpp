@@ -2,15 +2,18 @@
 #include <Engine\GameObject\GameObject.h>
 #include <Engine\GameEngine\GameEngine.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\EnemyAI.h>
 
 Gameplay::Enemy::Enemy()
 {
 	m_pAttribute = new CharacterAttr(50, 2.0f, 1.0f, 100);
+	m_pAI = new EnemyAI(this);
 }
 
 Gameplay::Enemy::~Enemy()
 {
 	delete m_pAttribute;
+	delete m_pAI;
 }
 
 void Gameplay::Enemy::_Init()

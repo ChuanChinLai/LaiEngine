@@ -155,9 +155,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\ICharacterAI\SoldierAI.h" />
     <ClInclude Include="Soldier.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\ICharacterAI\SoldierAI.cpp" />
     <ClCompile Include="Soldier.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

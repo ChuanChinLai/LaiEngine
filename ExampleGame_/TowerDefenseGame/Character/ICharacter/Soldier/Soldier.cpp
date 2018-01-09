@@ -1,18 +1,20 @@
 #include "Soldier.h"
 #include <Engine\GameObject\GameObject.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
-
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\SoldierAI.h>
 #include <cassert>
 #include <stdio.h>
 
 Gameplay::Soldier::Soldier()
 {
 	m_pAttribute = new CharacterAttr(50, 1.5f, 1.3f, 100);
+	m_pAI = new SoldierAI(this);
 }
 
 Gameplay::Soldier::~Soldier()
 {
 	delete m_pAttribute;
+	delete m_pAI;
 }
 
 void Gameplay::Soldier::_Init()

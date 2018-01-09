@@ -6,13 +6,12 @@
 #include <Engine\GameEngine\GameEngine.h>
 #include <Engine\Math\Vector4D.h>
 
-Engine::Math::Vector4D<float> zero(0.0f, 0.0f, 0.0f);
+Engine::Math::Vector4D<float> zz(0.0f, 0.0f, 0.0f);
 
 Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_Character): m_Character(i_Character), m_AIState(nullptr)
 {
 	m_AIState = new AttackState();
 	m_AIState->_SetCharacterAI(this);
-	m_AIState->_SetAttackPosition(zero);
 }
 
 Gameplay::ICharacterAI::~ICharacterAI()
@@ -29,7 +28,7 @@ void Gameplay::ICharacterAI::ChangeAIState(IAIState * NewAIState)
 
 	m_AIState = NewAIState;
 	m_AIState->_SetCharacterAI(this);
-	m_AIState->_SetAttackPosition(zero);
+	m_AIState->_SetAttackPosition(zz);
 }
 
 void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)
