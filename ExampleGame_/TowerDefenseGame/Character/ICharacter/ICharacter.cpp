@@ -47,6 +47,14 @@ void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Targets)
 	m_pAI->_Update(i_Targets);
 }
 
+void Gameplay::ICharacter::_Killed()
+{
+	if (m_bKilled == true)
+		return;
+
+	m_bKilled = true;
+}
+
 bool Gameplay::ICharacter::_IsKilled()
 {
 	return m_bKilled;

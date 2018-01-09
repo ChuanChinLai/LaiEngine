@@ -28,7 +28,7 @@ namespace Gameplay
 		virtual void _Release();
 
 		void _UpdateAI(const std::list<ICharacter*>& i_Targets);
-
+		void _Killed();
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 

@@ -24,9 +24,9 @@ void Gameplay::AttackHeartState::_Update(const std::list<ICharacter*>& i_Targets
 	{
 		float d = Engine::Math::distance(m_CharacterAI->_GetPosition(), m_AttackPosition);
 
-		if (d < 1.5f)
+		if (d < 1.0f)
 		{
-			printf("TEST");
+			m_CharacterAI->_Killed();
 		}
 	}
 

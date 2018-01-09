@@ -57,17 +57,7 @@ void Gameplay::TowerDefenseGame::_Release()
 
 void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_scene)
 {
-	for (const auto i : m_CharacterSystem->_GetSoldiers())
-	{
-		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
-		Engine::SubmitTextObject(i_scene, i->_GetTextObject_HP());
-	}
-
-	for (const auto i : m_CharacterSystem->_GetEnemies())
-	{
-		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
-		Engine::SubmitTextObject(i_scene, i->_GetTextObject_HP());
-	}
+	m_CharacterSystem->_RenderObjects(i_scene);
 }
 
 void Gameplay::TowerDefenseGame::_RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver * i_Observer)

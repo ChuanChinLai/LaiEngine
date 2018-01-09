@@ -4,6 +4,11 @@
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
 #include <list>
 
+namespace Engine
+{
+	class IGameScene;
+}
+
 namespace Gameplay
 {
 
@@ -23,14 +28,13 @@ namespace Gameplay
 		void _Update() override;
 		void _Release() override;
 
+		void _RenderObjects(Engine::IGameScene* i_scene) const;
+
 		void AddSoldier(ICharacter* i_Soldier);
 		void AddEnemy(ICharacter* i_Enemy);
 
 		void RemoveCharacter();
 		void RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent);
-
-		const std::list<ICharacter*>& _GetSoldiers();
-		const std::list<ICharacter*>& _GetEnemies();
 
 	private:
 

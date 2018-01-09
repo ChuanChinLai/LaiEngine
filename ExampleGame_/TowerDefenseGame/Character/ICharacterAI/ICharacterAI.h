@@ -22,6 +22,9 @@ namespace Gameplay
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_Position);
 		void _Attack(ICharacter* i_Target);
 
+		void _Killed();
+		bool _IsKilled();
+
 		const Engine::Math::Vector4D<float>& _GetPosition();
 
 	protected:

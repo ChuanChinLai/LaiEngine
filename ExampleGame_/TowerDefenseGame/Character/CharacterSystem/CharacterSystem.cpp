@@ -5,6 +5,10 @@
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\EnemyKilledObserverUI.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\SoldierKilledObserverUI.h>
 
+#include <Engine\Scene\IGameScene.h>
+#include <Engine\GameEngine\GameEngine.h>
+
+
 #include <vector>
 
 void Gameplay::CharacterSystem::_Init()
@@ -41,6 +45,22 @@ void Gameplay::CharacterSystem::_Release()
 		}
 	}
 }
+
+void Gameplay::CharacterSystem::_RenderObjects(Engine::IGameScene * i_scene) const 
+{
+	for (const auto i : m_Soldiers)
+	{
+		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
+		Engine::SubmitTextObject(i_scene, i->_GetTextObject_HP());
+	}
+
+	for (const auto i : m_Enemies)
+	{
+		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
+		Engine::SubmitTextObject(i_scene, i->_GetTextObject_HP());
+	}
+}
+
 
 void Gameplay::CharacterSystem::AddSoldier(ICharacter * i_Soldier)
 {
@@ -79,16 +99,6 @@ void Gameplay::CharacterSystem::RemoveCharacter(std::list<ICharacter*>& i_Charac
 		character->_Release();
 		delete character;
 	}
-}
-
-const std::list<Gameplay::ICharacter*>& Gameplay::CharacterSystem::_GetSoldiers()
-{
-	return m_Soldiers;
-}
-
-const std::list<Gameplay::ICharacter*>& Gameplay::CharacterSystem::_GetEnemies()
-{
-	return m_Enemies;
 }
 
 void Gameplay::CharacterSystem::_UpdateCharacter()

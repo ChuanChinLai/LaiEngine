@@ -55,6 +55,15 @@ void Gameplay::ICharacterAI::_Attack(ICharacter * i_Target)
 	i_Target->_GetAttribute()->_CallDamageValue(m_Character);
 }
 
+void Gameplay::ICharacterAI::_Killed()
+{
+	m_Character->_Killed();
+}
+
+bool Gameplay::ICharacterAI::_IsKilled()
+{
+	return m_Character->_IsKilled();
+}
 
 const Engine::Math::Vector4D<float>& Gameplay::ICharacterAI::_GetPosition()
 {
