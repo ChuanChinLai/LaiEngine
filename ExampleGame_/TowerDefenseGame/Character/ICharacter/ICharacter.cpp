@@ -1,8 +1,9 @@
 #include "ICharacter.h"
 
-#include <Engine\GameEngine\GameEngine.h>
 #include <Engine\Math\Vector4D.h>
-#include <Engine\GameObject\GameObject.h>
+
+#include <Engine\GameEngine\Includes.h>
+
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
 

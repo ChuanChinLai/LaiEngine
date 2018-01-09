@@ -1,8 +1,9 @@
 #include "Enemy.h"
-#include <Engine\GameObject\GameObject.h>
-#include <Engine\GameEngine\GameEngine.h>
+
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\EnemyAI.h>
+
+#include <Engine\GameEngine\Includes.h>
 
 Gameplay::Enemy::Enemy()
 {
@@ -20,24 +21,12 @@ void Gameplay::Enemy::_Init()
 {
 	m_pGameObject->_Create("Textures/Dot_R.png");
 
-	SDL_Color Y;
-	Y.r = 0;
-	Y.g = 0;
-	Y.b = 0;
-	Y.a = 0;
-
-	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
 }
 
 void Gameplay::Enemy::_Update()
 {
-	SDL_Color Y;
-	Y.r = 0;
-	Y.g = 0;
-	Y.b = 0;
-	Y.a = 0;
-
-	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
 
 	m_pTextObject_HP->m_Position = m_pGameObject->m_Position;
 

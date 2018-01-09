@@ -1,8 +1,7 @@
 #include "MainMenuScene.h"
 #include "GamingScene\GamingScene.h"
 
-#include <Engine\GameObject\GameObject.h>
-#include <Engine\GameEngine\GameEngine.h>
+#include <Engine\GameEngine\Includes.h>
 
 #include <iostream>
 #include <string>
@@ -14,13 +13,9 @@ Engine::Asset::SpriteObject* sprite;
 void Engine::MainMenuScene::_Init()
 {
 	std::cout << "_Init: " << m_Name << std::endl;
-	SDL_Color red;
-	red.r = 255;
-	red.g = 0;
-	red.b = 0;
 
 	text = new Asset::TextObject();
-	text->_Create(std::to_string(Engine::_Timer()->_GetFPS()), red, 24, "Fonts/Font.ttf");
+	text->_Create(std::to_string(Engine::_Timer()->_GetFPS()), Engine::Color::RED, 24, "Fonts/Font.ttf");
 	text->m_Position.x = 200;
 	text->m_Position.y = 200;
 
@@ -34,12 +29,7 @@ void Engine::MainMenuScene::_Update()
 {
 	std::cout << "_Update: " << m_Name << std::endl;
 
-	SDL_Color red;
-	red.r = 255;
-	red.g = 0;
-	red.b = 0;
-
-	text->_Create(std::to_string(Engine::_Timer()->_GetFPS()), red, 24, "Fonts/Font.ttf");
+	text->_Create(std::to_string(Engine::_Timer()->_GetFPS()), Engine::Color::RED, 24, "Fonts/Font.ttf");
 
 
 	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_RETURN))

@@ -8,9 +8,9 @@ namespace Gameplay
 	{
 	public:
 
-		IGameSystem(TowerDefenseGame* TDGame)
+		IGameSystem(TowerDefenseGame* TDGame) : m_TDGame(TDGame)
 		{
-			m_TDGame = TDGame;
+
 		}
 		
 		virtual ~IGameSystem()

@@ -1,7 +1,10 @@
 #include "Soldier.h"
-#include <Engine\GameObject\GameObject.h>
+
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\SoldierAI.h>
+
+#include <Engine\GameEngine\Includes.h>
+
 #include <cassert>
 #include <stdio.h>
 
@@ -21,24 +24,12 @@ void Gameplay::Soldier::_Init()
 {
 	m_pGameObject->_Create("Textures/Dot_B.png");
 
-	SDL_Color Y;
-	Y.r = 0;
-	Y.g = 0;
-	Y.b = 0;
-	Y.a = 0;
-	
-	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
 }
 
 void Gameplay::Soldier::_Update()
 {
-	SDL_Color Y;
-	Y.r = 0;
-	Y.g = 0;
-	Y.b = 0;
-	Y.a = 0;
-
-	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Y, 40, "Fonts/Font.ttf");
+	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
 
 	m_pTextObject_HP->m_Position = m_pGameObject->m_Position;
 }

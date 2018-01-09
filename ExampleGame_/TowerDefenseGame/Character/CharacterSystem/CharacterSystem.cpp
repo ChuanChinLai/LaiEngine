@@ -8,7 +8,6 @@
 #include <Engine\Scene\IGameScene.h>
 #include <Engine\GameEngine\GameEngine.h>
 
-
 #include <vector>
 
 void Gameplay::CharacterSystem::_Init()

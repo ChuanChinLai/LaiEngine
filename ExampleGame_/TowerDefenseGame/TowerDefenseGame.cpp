@@ -5,8 +5,11 @@
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Enemy\Enemy.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Soldier\Soldier.h>
+
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterSystem\CharacterSystem.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
+#include <ExampleGame_\TowerDefenseGame\UI\GameStateInfoUI\GameStateInfoUI.h>
+
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\IGameEventObserver.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\IGameEventSubject.h>
 
@@ -36,6 +39,9 @@ void Gameplay::TowerDefenseGame::_Init()
 
 	m_CharacterSystem = new CharacterSystem(this);
 	m_CharacterSystem->_Init();
+
+	m_GameStateInfoUI = new GameStateInfoUI(this);
+	m_GameStateInfoUI->_Init();
 }
 
 void Gameplay::TowerDefenseGame::_Update()
@@ -44,6 +50,8 @@ void Gameplay::TowerDefenseGame::_Update()
 
 	m_GameEventSystem->_Update();
 	m_CharacterSystem->_Update();
+
+	m_GameStateInfoUI->_Update();
 }
 
 void Gameplay::TowerDefenseGame::_Release()
@@ -53,11 +61,16 @@ void Gameplay::TowerDefenseGame::_Release()
 
 	m_CharacterSystem->_Release();
 	delete m_CharacterSystem;
+
+	m_GameStateInfoUI->_Release();
+	delete m_GameStateInfoUI;
 }
 
 void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_scene)
 {
 	m_CharacterSystem->_RenderObjects(i_scene);
+
+	m_GameStateInfoUI->_RenderObjects(i_scene);
 }
 
 void Gameplay::TowerDefenseGame::_RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver * i_Observer)

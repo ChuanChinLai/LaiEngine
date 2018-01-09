@@ -11,8 +11,10 @@ namespace Gameplay
 {
 	class CharacterSystem;
 	class GameEventSystem;
-	class IGameEventObserver;
 
+	class GameStateInfoUI;
+
+	class IGameEventObserver;
 
 	class TowerDefenseGame
 	{
@@ -31,6 +33,8 @@ namespace Gameplay
 
 		GameEventSystem*	m_GameEventSystem = nullptr;
 		CharacterSystem*	m_CharacterSystem = nullptr;
+
+		GameStateInfoUI*	m_GameStateInfoUI = nullptr;
 
 	private:
 		TowerDefenseGame() {};

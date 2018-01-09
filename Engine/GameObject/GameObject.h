@@ -6,6 +6,8 @@
 
 namespace Engine
 {
+	class Color;
+
 	namespace Asset
 	{
 		struct Component_Renderable
@@ -36,7 +38,7 @@ namespace Engine
 			TextObject();
 			~TextObject();
 
-			bool _Create(std::string i_Text, SDL_Color i_Color, int i_Size, std::string i_FilePath);
+			bool _Create(std::string i_Text, Engine::Color i_Color, int i_Size, std::string i_FilePath);
 			void _Release();
 
 			Component_Renderable m_RenderComponent;
