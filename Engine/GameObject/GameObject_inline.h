@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Component.h"
 
 inline Engine::Asset::Component_Renderable * Engine::Asset::TextObject::_GetComponent_Renderable()
 {

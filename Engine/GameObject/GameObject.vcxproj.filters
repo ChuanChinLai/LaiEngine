@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObject_inline.h" />
+    <ClInclude Include="Component.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
