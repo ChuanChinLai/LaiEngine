@@ -4,6 +4,7 @@
 #include <cassert>
 
 #include "Graphics.h"
+#include <Engine\Color\Color.h>
 
 namespace Engine
 {
@@ -12,10 +13,10 @@ namespace Engine
 		SDL_RenderPresent(m_pRenderer);
 	}
 
-	inline void Graphics::_Clear(SDL_Color i_Color) const
+	inline void Graphics::_Clear(Color i_Color) const
 	{
 		assert(m_pRenderer != nullptr);
-		SDL_SetRenderDrawColor(m_pRenderer, i_Color.r, i_Color.g, i_Color.b, i_Color.a);
+		SDL_SetRenderDrawColor(m_pRenderer, i_Color.R, i_Color.G, i_Color.B, i_Color.A);
 		SDL_RenderClear(m_pRenderer);
 	}
 

@@ -26,8 +26,8 @@ void Gameplay::GameStateInfoUI::_Init()
 	m_pTextObject_PlayerHP->m_Position.x = 0;
 	m_pTextObject_PlayerHP->m_Position.y = 0;
 
-	m_pTextObject_EnemyHP->_Create("200", Engine::Color::BLUE, 40, "Fonts/Font.ttf");
-	m_pTextObject_EnemyHP->m_Position.x = 700;
+	m_pTextObject_EnemyHP->_Create("100", Engine::Color::BLUE, 40, "Fonts/Font.ttf");
+	m_pTextObject_EnemyHP->m_Position.x = 800;
 	m_pTextObject_EnemyHP->m_Position.y = 0;
 }
 

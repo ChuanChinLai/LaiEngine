@@ -5,6 +5,11 @@
 
 namespace Engine
 {
+	namespace Asset
+	{
+		class GameObject;
+	}
+
 	class IGameScene;
 
 	class SceneManager
@@ -21,12 +26,13 @@ namespace Engine
 		void _SetGameScene(IGameScene* i_Scene);
 		IGameScene* _GetGameScene();
 
-
 		void _Update();
 		void _Render();
 		void _Release();
 
 	private:
+
+		SDL_Rect _GetRenderPosition(Asset::GameObject* i_Object);
 
 		IGameScene* m_pCurrentScene;
 		bool 		m_bRunBegin;

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Engine\Color\Color.h>
+
 #include <External\SDL2\Includes.h>
 #include <string>
 #include <vector>
@@ -23,7 +25,7 @@ namespace Engine
 
 		struct sDataRequiredToRenderAFrame
 		{
-			SDL_Color BackgroundColor;
+			Color BackgroundColor;
 			std::vector<Engine::Asset::TextObject*>		TextObjects;
 			std::vector<Engine::Asset::SpriteObject*> SpriteObjects;
 		};
@@ -45,6 +47,7 @@ namespace Engine
 
 
 	inline void SubmitBackgroundColor(IGameScene* i_scene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
+	inline void SubmitBackgroundColor(IGameScene* i_scene, Color i_Color);
 	inline void SubmitTextObject(IGameScene* i_scene, Asset::TextObject* i_object);
 	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::SpriteObject* i_object);
 

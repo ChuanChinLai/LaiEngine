@@ -2,10 +2,12 @@
 
 #include "GameObject.h"
 
-namespace Engine
+inline Engine::Asset::Component_Renderable * Engine::Asset::TextObject::_GetComponent_Renderable()
 {
-	namespace Resource
-	{
+	return m_pRenderComponent;
+}
 
-	}
+inline  Engine::Asset::Component_Renderable * Engine::Asset::SpriteObject::_GetComponent_Renderable()
+{
+	return m_pRenderComponent;
 }

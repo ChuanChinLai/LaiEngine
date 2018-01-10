@@ -10,9 +10,27 @@ namespace Engine
 
 	namespace Asset
 	{
-		struct Component_Renderable
+		class GameObject;
+
+		class Component
 		{
-			Component_Renderable() : pTexture(nullptr), w(0), h(0)
+		public:
+			Component(GameObject* i_GameObject) : m_GameObject(i_GameObject)
+			{
+
+			}
+			virtual ~Component()
+			{
+
+			}
+			GameObject* m_GameObject;
+		};
+
+
+		class Component_Renderable : public Component
+		{
+		public:
+			Component_Renderable(GameObject* i_GameObject) : Component(i_GameObject), pTexture(nullptr), w(0), h(0)
 			{
 
 			}
@@ -41,7 +59,10 @@ namespace Engine
 			bool _Create(std::string i_Text, Engine::Color i_Color, int i_Size, std::string i_FilePath);
 			void _Release();
 
-			Component_Renderable m_RenderComponent;
+			inline Component_Renderable* _GetComponent_Renderable();
+
+		private:
+			Component_Renderable * m_pRenderComponent;
 		};
 
 		class SpriteObject : public GameObject
@@ -54,8 +75,13 @@ namespace Engine
 			bool _Create(std::string i_FilePath);
 			void _Release();
 
-			Component_Renderable m_RenderComponent;
+			inline Component_Renderable* _GetComponent_Renderable();
+
+		private:
+			Component_Renderable* m_pRenderComponent;
 		};
 
 	}
 }
+
+#include "GameObject_inline.h"
