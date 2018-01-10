@@ -27,11 +27,14 @@ bool Engine::Asset::TextObject::_Create(std::string i_Text, Engine::Color i_Colo
 	SDL_Surface *pSurface = TTF_RenderText_Solid(pFontStyle, i_Text.c_str(), i_Color._SDL_Color());
 	assert(pSurface != nullptr);
 
-	m_pRenderComponent->pTexture = SDL_CreateTextureFromSurface(Engine::_Graphics()->_GetRenderer(), pSurface);
-	assert(m_pRenderComponent->pTexture != nullptr);
+	SDL_Texture *pTexture = SDL_CreateTextureFromSurface(Engine::_Graphics()->_GetRenderer(), pSurface);
+	assert(pTexture != nullptr);
 
-	m_pRenderComponent->w = pSurface->w;
-	m_pRenderComponent->h = pSurface->h;
+	Component_Renderable* pComponent = dynamic_cast<Component_Renderable*>(m_pRenderComponent);
+
+	pComponent->pTexture = pTexture;
+	pComponent->w = pSurface->w;
+	pComponent->h = pSurface->h;
 
 	SDL_FreeSurface(pSurface);
 	TTF_CloseFont(pFontStyle);
@@ -41,13 +44,15 @@ bool Engine::Asset::TextObject::_Create(std::string i_Text, Engine::Color i_Colo
 
 void Engine::Asset::TextObject::_Release()
 {
-	if (m_pRenderComponent->pTexture != nullptr)
-	{
-		SDL_DestroyTexture(m_pRenderComponent->pTexture);
-		m_pRenderComponent->pTexture = nullptr;
+	Component_Renderable* pComponent = dynamic_cast<Component_Renderable*>(m_pRenderComponent);
 
-		m_pRenderComponent->w = 0;
-		m_pRenderComponent->h = 0;
+	if (pComponent->pTexture != nullptr)
+	{
+		SDL_DestroyTexture(pComponent->pTexture);
+		pComponent->pTexture = nullptr;
+
+		pComponent->w = 0;
+		pComponent->h = 0;
 	}
 }
 
@@ -83,12 +88,12 @@ bool Engine::Asset::SpriteObject::_Create(std::string i_FilePath)
 	SDL_Texture *pTexture = SDL_CreateTextureFromSurface(Engine::_Graphics()->_GetRenderer(), pSurface);
 	assert(pTexture != nullptr);
 
+	m_pRenderComponent->pTexture = pTexture;
 	m_pRenderComponent->w = pSurface->w;
 	m_pRenderComponent->h = pSurface->h;
 
 	SDL_FreeSurface(pSurface);
 
-	m_pRenderComponent->pTexture = pTexture;
 	return true;
 }
 

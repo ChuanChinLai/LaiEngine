@@ -8,6 +8,7 @@ namespace Engine
 	namespace Asset
 	{
 		class GameObject;
+		class Component_Renderable;
 	}
 
 	class IGameScene;
@@ -32,7 +33,7 @@ namespace Engine
 
 	private:
 
-		SDL_Rect _GetRenderPosition(Asset::GameObject* i_Object);
+		SDL_Rect _GetRenderPosition(Asset::Component_Renderable * i_pComponent);
 
 		IGameScene* m_pCurrentScene;
 		bool 		m_bRunBegin;
