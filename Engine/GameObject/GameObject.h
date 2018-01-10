@@ -10,27 +10,27 @@ namespace Engine
 
 	namespace Asset
 	{
-		class GameObject;
-
-		enum ObjectAlignment
+		enum Alignment
 		{
-			Left, 
-			Right, 
+			Left,
+			Right,
 			Center,
-			Up, 
+			Up,
 			Down,
 		};
+
+		class GameObject;
 
 		class Component
 		{
 		public:
 			Component(GameObject* i_GameObject) : m_GameObject(i_GameObject)
 			{
-				printf("new DC\n");
+
 			}
 			virtual ~Component()
 			{
-				printf("DC\n");
+
 			}
 			GameObject* m_GameObject;
 		};
@@ -41,13 +41,14 @@ namespace Engine
 		public:
 			Component_Renderable(GameObject* i_GameObject) : Component(i_GameObject), pTexture(nullptr), w(0), h(0)
 			{
-				printf("new DCR\n");
+
 			}
 
 			~Component_Renderable()
 			{
-				printf("DCR\n");
+
 			}
+
 			SDL_Texture*  pTexture;
 
 			int w;
@@ -74,11 +75,8 @@ namespace Engine
 
 			inline Component_Renderable* _GetComponent_Renderable();
 
-//			ObjectAlignment x = ObjectAlignment::Center;
-//			ObjectAlignment y = ObjectAlignment::Center;
-
 		private:
-//			Component_Renderable * m_pRenderComponent;
+
 			Component* m_pRenderComponent;
 		};
 

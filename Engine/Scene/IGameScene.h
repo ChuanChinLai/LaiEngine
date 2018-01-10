@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Engine\Color\Color.h>
-
+#include <Engine\GameObject\GameObject.h>
 #include <External\SDL2\Includes.h>
 #include <string>
 #include <vector>
@@ -26,8 +26,12 @@ namespace Engine
 		struct sDataRequiredToRenderAFrame
 		{
 			Color BackgroundColor;
+
 			std::vector<Engine::Asset::TextObject*>		TextObjects;
 			std::vector<Engine::Asset::SpriteObject*> SpriteObjects;
+
+			std::vector<std::pair<Asset::Alignment, Asset::Alignment>>	Alignment_TextObjects;
+			std::vector<std::pair<Asset::Alignment, Asset::Alignment>>	Alignment_SpriteObjects;
 		};
 
 
@@ -48,8 +52,8 @@ namespace Engine
 
 	inline void SubmitBackgroundColor(IGameScene* i_scene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
 	inline void SubmitBackgroundColor(IGameScene* i_scene, Color i_Color);
-	inline void SubmitTextObject(IGameScene* i_scene, Asset::TextObject* i_object);
-	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::SpriteObject* i_object);
+	inline void SubmitTextObject(IGameScene* i_scene, Asset::TextObject* i_object, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
+	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::SpriteObject* i_object, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
 
 }
 

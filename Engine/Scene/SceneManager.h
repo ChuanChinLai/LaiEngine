@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Engine\GameObject\GameObject.h>
+
 #include <string>
 #include <External\SDL2\Includes.h>
 
@@ -33,7 +35,7 @@ namespace Engine
 
 	private:
 
-		SDL_Rect _GetRenderPosition(Asset::Component_Renderable * i_pComponent);
+		SDL_Rect _GetRenderPosition(Asset::Component_Renderable * i_pComponent, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y);
 
 		IGameScene* m_pCurrentScene;
 		bool 		m_bRunBegin;

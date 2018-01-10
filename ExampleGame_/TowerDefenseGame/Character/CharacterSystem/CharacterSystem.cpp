@@ -5,8 +5,7 @@
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\EnemyKilledObserverUI.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\SoldierKilledObserverUI.h>
 
-#include <Engine\Scene\IGameScene.h>
-#include <Engine\GameEngine\GameEngine.h>
+#include <Engine\GameEngine\Includes.h>
 
 #include <vector>
 
