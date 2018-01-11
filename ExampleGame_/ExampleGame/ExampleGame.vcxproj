@@ -225,11 +225,11 @@
     <ProjectReference Include="..\..\Engine\GameObject\GameObject.vcxproj">
       <Project>{b3e4fa76-d217-4318-99ea-b32d4ec751ba}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\GamingScene\GamingScene.vcxproj">
-      <Project>{5e9ce98f-4a2e-4b47-9edf-c14ae9f21a92}</Project>
+    <ProjectReference Include="..\TowerDefenseGame\Scene\GamingScene\GamingScene.vcxproj">
+      <Project>{3d41ae96-3adc-40be-a998-e366806f29dd}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\MainMenuScene\MainMenuScene.vcxproj">
-      <Project>{9cf5cae1-f7ae-4b97-b046-5cda92b81b4d}</Project>
+    <ProjectReference Include="..\TowerDefenseGame\Scene\MainMenuScene\MainMenuScene.vcxproj">
+      <Project>{4b2a8f4e-bce6-4939-8fae-205ccb6c06eb}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

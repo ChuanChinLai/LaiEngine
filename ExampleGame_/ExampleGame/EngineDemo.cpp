@@ -1,8 +1,8 @@
 #include "EngineDemo.h"
 #include <Engine\GameEngine\GameEngine.h>
 #include <Engine\Scene\SceneManager.h>
-#include <ExampleGame_\MainMenuScene\MainMenuScene.h>
-#include <ExampleGame_\GamingScene\GamingScene.h>
+#include <ExampleGame_\TowerDefenseGame\Scene\GamingScene\GamingScene.h>
+#include <ExampleGame_\TowerDefenseGame\Scene\MainMenuScene\MainMenuScene.h>
 
 bool Engine::EngineDemo::_Init()
 {

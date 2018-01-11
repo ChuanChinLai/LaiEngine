@@ -1,5 +1,6 @@
 #include "MainMenuScene.h"
-#include "GamingScene\GamingScene.h"
+
+#include <ExampleGame_\TowerDefenseGame\Scene\GamingScene\GamingScene.h>
 
 #include <Engine\GameEngine\Includes.h>
 
