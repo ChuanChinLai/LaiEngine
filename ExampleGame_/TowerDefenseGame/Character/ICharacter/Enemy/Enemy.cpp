@@ -26,23 +26,16 @@ void Gameplay::Enemy::_Init()
 	}
 
 	{
-		m_pTextObject_HP->_AddComponent<Engine::Asset::Text>();
+		m_pGameObject->_AddComponent<Engine::Asset::Text>();
 		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
 		pText->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
 	}
-		
-
-
 }
 
 void Gameplay::Enemy::_Update()
 {
-	{
-		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
-		pText->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
-	}
-
-	m_pTextObject_HP->m_Position = m_pGameObject->m_Position;
+	Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
+	pText->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
 }
 
 void Gameplay::Enemy::_Release()

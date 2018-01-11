@@ -74,26 +74,6 @@ namespace Engine
 		private:
 			SDL_Texture * pTexture;
 		};
-
-
-		class Component_Renderable : public Component
-		{
-		public:
-			Component_Renderable(GameObject* i_GameObject) : Component(i_GameObject), pTexture(nullptr), w(0), h(0)
-			{
-
-			}
-
-			~Component_Renderable()
-			{
-
-			}
-
-			SDL_Texture*  pTexture;
-
-			int w;
-			int h;
-		};
 	}
 }
 

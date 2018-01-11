@@ -7,20 +7,14 @@
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
 
-Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pTextObject_HP(nullptr), m_pAttribute(nullptr), m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
+Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pAttribute(nullptr), m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
 {
 	m_pGameObject = new Engine::Asset::GameObject();
-	m_pTextObject_HP = new Engine::Asset::GameObject();
-
-//	m_pAI = new ICharacterAI(this);
 }
 
 Gameplay::ICharacter::~ICharacter()
 {
 	delete m_pGameObject;
-	delete m_pTextObject_HP;
-
-//	delete m_pAI;
 }
 
 void Gameplay::ICharacter::_Init()
@@ -80,11 +74,6 @@ float Gameplay::ICharacter::_GetATK()
 Engine::Asset::GameObject* Gameplay::ICharacter::_GetGameObject()
 {
 	return m_pGameObject;
-}
-
-Engine::Asset::GameObject* Gameplay::ICharacter::_GetTextObject_HP()
-{
-	return m_pTextObject_HP;
 }
 
 Gameplay::CharacterAttr * Gameplay::ICharacter::_GetAttribute()

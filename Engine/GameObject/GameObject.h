@@ -24,7 +24,6 @@ namespace Engine
 		};
 
 		class Component;
-		class Component_Renderable;
 
 		class GameObject
 		{

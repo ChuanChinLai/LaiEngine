@@ -12,8 +12,6 @@ namespace Engine
 	namespace Asset
 	{
 		class GameObject;
-		class TextObject;
-		class SpriteObject;
 	}
 
 

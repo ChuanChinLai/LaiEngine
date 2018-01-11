@@ -31,7 +31,7 @@ inline Engine::Asset::Sprite::Sprite(GameObject * i_GameObject) : Component(i_Ga
 
 inline Engine::Asset::Sprite::~Sprite()
 {
-
+	_Release();
 }
 
 inline SDL_Texture * Engine::Asset::Sprite::_GetTexture()
@@ -47,7 +47,7 @@ inline Engine::Asset::Text::Text(GameObject * i_GameObject) : Component(i_GameOb
 
 inline Engine::Asset::Text::~Text()
 {
-
+	_Release();
 }
 
 inline SDL_Texture * Engine::Asset::Text::_GetTexture()

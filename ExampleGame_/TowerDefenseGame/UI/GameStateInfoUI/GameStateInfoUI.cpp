@@ -14,10 +14,7 @@ Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * TDGame) : IUserInt
 
 Gameplay::GameStateInfoUI::~GameStateInfoUI()
 {
-//	delete m_pSprite_PlayerHP;
 	delete m_pTextObject_PlayerHP;
-
-//	delete m_pSprite_EnemyHP;
 	delete m_pTextObject_EnemyHP;
 }
 
@@ -45,8 +42,7 @@ void Gameplay::GameStateInfoUI::_Update()
 
 void Gameplay::GameStateInfoUI::_Release()
 {
-//	m_pTextObject_PlayerHP->_Release();
-//	m_pTextObject_EnemyHP->_Release();
+
 }
 
 void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_scene)

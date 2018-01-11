@@ -34,14 +34,10 @@ namespace Gameplay
 		float  _GetATK();
 
 		Engine::Asset::GameObject*	_GetGameObject();
-		Engine::Asset::GameObject*	_GetTextObject_HP();
-
 		CharacterAttr*				_GetAttribute();
 
 	protected:
 		Engine::Asset::GameObject*	m_pGameObject;
-		Engine::Asset::GameObject*  m_pTextObject_HP;
-
 		CharacterAttr*				m_pAttribute;
 		ICharacterAI*				m_pAI;
 	private:
