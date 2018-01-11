@@ -51,5 +51,5 @@ void Engine::GamingScene::_SubmitDataToBeRendered()
 	if(m_TowerDefenseGame)
 		m_TowerDefenseGame->_RenderObjects(this);
 
-	SubmitSpriteObject(this, pSpriteObj);
+	SubmitGameObject(this, pSpriteObj);
 }

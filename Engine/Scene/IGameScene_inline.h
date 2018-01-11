@@ -25,25 +25,11 @@ namespace Engine
 		i_scene->m_RenderedData.BackgroundColor = i_Color;
 	}
 
-	inline void SubmitTextObject(IGameScene* i_scene, Asset::TextObject * i_object, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
+
+	void SubmitGameObject(IGameScene * i_scene, Asset::GameObject * i_object, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
 	{
 		std::pair<Asset::Alignment, Asset::Alignment> alignment = { i_Align_X, i_Align_Y };
-		i_scene->m_RenderedData.Alignment_TextObjects.push_back(alignment);
 
-		i_scene->m_RenderedData.TextObjects.push_back(i_object);
-	}
-
-	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::SpriteObject * i_object, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
-	{
-		std::pair<Asset::Alignment, Asset::Alignment> alignment = { i_Align_X, i_Align_Y };
-		i_scene->m_RenderedData.Alignment_SpriteObjects.push_back(alignment);
-
-		i_scene->m_RenderedData.SpriteObjects.push_back(i_object);
-	}
-
-	void SubmitSpriteObject(IGameScene * i_scene, Asset::GameObject * i_object, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
-	{
-		std::pair<Asset::Alignment, Asset::Alignment> alignment = { i_Align_X, i_Align_Y };
 		i_scene->m_RenderedData.Alignment_GameObjects.push_back(alignment);
 
 		i_scene->m_RenderedData.GameObjects.push_back(i_object);

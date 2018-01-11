@@ -3,11 +3,22 @@
   <ItemGroup>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObject_inline.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="Component_inline.h" />
+    <ClInclude Include="Component.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Component_inline.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Component.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Components">
+      <UniqueIdentifier>{c0fc9cc2-6766-4b88-aeef-6dad4f68b687}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -9,8 +9,8 @@
 
 Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pTextObject_HP(nullptr), m_pAttribute(nullptr), m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
 {
-	m_pGameObject = new Engine::Asset::SpriteObject();
-	m_pTextObject_HP = new Engine::Asset::TextObject();
+	m_pGameObject = new Engine::Asset::GameObject();
+	m_pTextObject_HP = new Engine::Asset::GameObject();
 
 //	m_pAI = new ICharacterAI(this);
 }
@@ -77,12 +77,12 @@ float Gameplay::ICharacter::_GetATK()
 	return m_pAttribute->_GetATK();
 }
 
-Engine::Asset::SpriteObject* Gameplay::ICharacter::_GetGameObject()
+Engine::Asset::GameObject* Gameplay::ICharacter::_GetGameObject()
 {
 	return m_pGameObject;
 }
 
-Engine::Asset::TextObject* Gameplay::ICharacter::_GetTextObject_HP()
+Engine::Asset::GameObject* Gameplay::ICharacter::_GetTextObject_HP()
 {
 	return m_pTextObject_HP;
 }

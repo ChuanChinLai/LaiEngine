@@ -7,8 +7,7 @@ namespace Engine
 {
 	namespace Asset
 	{
-		class SpriteObject;
-		class TextObject;
+		class GameObject;
 	}
 }
 
@@ -29,10 +28,7 @@ namespace Gameplay
 
 	private:
 
-		Engine::Asset::SpriteObject* m_pSprite_PlayerHP;
-		Engine::Asset::TextObject*   m_pTextObject_PlayerHP;
-
-		Engine::Asset::SpriteObject* m_pSprite_EnemyHP;
-		Engine::Asset::TextObject*   m_pTextObject_EnemyHP;
+		Engine::Asset::GameObject*   m_pTextObject_PlayerHP;
+		Engine::Asset::GameObject*   m_pTextObject_EnemyHP;
 	};
 }

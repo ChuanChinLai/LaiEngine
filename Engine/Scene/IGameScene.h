@@ -27,12 +27,7 @@ namespace Engine
 		{
 			Color BackgroundColor;
 
-			std::vector<Engine::Asset::TextObject*>		TextObjects;
-			std::vector<Engine::Asset::SpriteObject*> SpriteObjects;
 			std::vector<Engine::Asset::GameObject*>		GameObjects;
-
-			std::vector<std::pair<Asset::Alignment, Asset::Alignment>>	Alignment_TextObjects;
-			std::vector<std::pair<Asset::Alignment, Asset::Alignment>>	Alignment_SpriteObjects;
 			std::vector<std::pair<Asset::Alignment, Asset::Alignment>>	Alignment_GameObjects;
 		};
 
@@ -54,9 +49,8 @@ namespace Engine
 
 	inline void SubmitBackgroundColor(IGameScene* i_scene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
 	inline void SubmitBackgroundColor(IGameScene* i_scene, Color i_Color);
-	inline void SubmitTextObject(IGameScene* i_scene, Asset::TextObject* i_object, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
-	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::SpriteObject* i_object, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
-	inline void SubmitSpriteObject(IGameScene* i_scene, Asset::GameObject* i_object, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
+
+	inline void SubmitGameObject(IGameScene* i_scene, Asset::GameObject* i_object, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
 }
 
 #include "IGameScene_inline.h"

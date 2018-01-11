@@ -48,14 +48,14 @@ void Gameplay::CharacterSystem::_RenderObjects(Engine::IGameScene * i_scene) con
 {
 	for (const auto i : m_Soldiers)
 	{
-		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
-		Engine::SubmitTextObject(i_scene, i->_GetTextObject_HP());
+		Engine::SubmitGameObject(i_scene, i->_GetGameObject());
+		Engine::SubmitGameObject(i_scene, i->_GetTextObject_HP());
 	}
 
 	for (const auto i : m_Enemies)
 	{
-		Engine::SubmitSpriteObject(i_scene, i->_GetGameObject());
-		Engine::SubmitTextObject(i_scene, i->_GetTextObject_HP());
+		Engine::SubmitGameObject(i_scene, i->_GetGameObject());
+		Engine::SubmitGameObject(i_scene, i->_GetTextObject_HP());
 	}
 }
 

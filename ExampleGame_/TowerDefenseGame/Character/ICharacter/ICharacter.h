@@ -7,8 +7,7 @@ namespace Engine
 {
 	namespace Asset
 	{
-		class SpriteObject;
-		class TextObject;
+		class GameObject;
 	}
 }
 
@@ -34,17 +33,17 @@ namespace Gameplay
 
 		float  _GetATK();
 
-		Engine::Asset::SpriteObject* _GetGameObject();
-		Engine::Asset::TextObject*	 _GetTextObject_HP();
+		Engine::Asset::GameObject*	_GetGameObject();
+		Engine::Asset::GameObject*	_GetTextObject_HP();
 
-		CharacterAttr*				 _GetAttribute();
+		CharacterAttr*				_GetAttribute();
 
 	protected:
-		Engine::Asset::SpriteObject* m_pGameObject;
-		Engine::Asset::TextObject*   m_pTextObject_HP;
+		Engine::Asset::GameObject*	m_pGameObject;
+		Engine::Asset::GameObject*  m_pTextObject_HP;
 
-		CharacterAttr*				 m_pAttribute;
-		ICharacterAI*				 m_pAI;
+		CharacterAttr*				m_pAttribute;
+		ICharacterAI*				m_pAI;
 	private:
 		bool m_bKilled;
 		bool m_bCheckKilled;

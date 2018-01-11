@@ -22,23 +22,38 @@ Gameplay::Soldier::~Soldier()
 
 void Gameplay::Soldier::_Init()
 {
-	m_pGameObject->_Create("Textures/Dot_B.png");
+	{
+		m_pGameObject->_AddComponent<Engine::Asset::Sprite>();
+		Engine::Asset::Sprite* pSprite = m_pGameObject->_GetComponent<Engine::Asset::Sprite>();
+		pSprite->_Create("Textures/Dot_B.png");
+	}
 
-	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
+	{
+		m_pTextObject_HP->_AddComponent<Engine::Asset::Text>();
+		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
+		pText->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
+	}
 }
 
 void Gameplay::Soldier::_Update()
 {
-	m_pTextObject_HP->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
+	{
+		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
+		pText->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
+	}
 
 	m_pTextObject_HP->m_Position = m_pGameObject->m_Position;
 }
 
 void Gameplay::Soldier::_Release()
 {
-	if (m_pGameObject == nullptr) assert(false);
-	else m_pGameObject->_Release();
+	{
+		Engine::Asset::Sprite* pSprite = m_pGameObject->_GetComponent<Engine::Asset::Sprite>();
+		pSprite->_Release();
+	}
 
-	if (m_pTextObject_HP == nullptr) assert(false);
-	else m_pTextObject_HP->_Release();
+	{
+		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
+		pText->_Release();
+	}
 }

@@ -54,55 +54,30 @@ void Engine::SceneManager::_Render()
 		m_pCurrentScene->_SubmitDataToBeRendered();
 
 		{
-			for (size_t i = 0; i < m_pCurrentScene->m_RenderedData.SpriteObjects.size(); i++)
-			{
-				Asset::SpriteObject* pSprite = m_pCurrentScene->m_RenderedData.SpriteObjects[i];
-				Asset::Component_Renderable* pComponent = pSprite->_GetComponent_Renderable();
-
-				std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_SpriteObjects[i];
-				SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
-
-				SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pSprite->_GetComponent_Renderable()->pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
-			}
-
-			m_pCurrentScene->m_RenderedData.SpriteObjects.clear();
-			m_pCurrentScene->m_RenderedData.Alignment_SpriteObjects.clear();
-		}
-
-		{
-			for (size_t i = 0; i < m_pCurrentScene->m_RenderedData.TextObjects.size(); i++)
-			{
-				Asset::TextObject* pText = m_pCurrentScene->m_RenderedData.TextObjects[i];
-				Asset::Component_Renderable* pComponent = pText->_GetComponent_Renderable();
-				std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_TextObjects[i];
-
-				SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
-				SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pText->_GetComponent_Renderable()->pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
-			}
-
-			m_pCurrentScene->m_RenderedData.TextObjects.clear();
-			m_pCurrentScene->m_RenderedData.Alignment_TextObjects.clear();
-		}
-
-		{
 			for (size_t i = 0; i < m_pCurrentScene->m_RenderedData.GameObjects.size(); i++)
 			{
 				Asset::GameObject* pText = m_pCurrentScene->m_RenderedData.GameObjects[i];
 
 				{
 					Asset::Sprite* pComponent = pText->_GetComponent<Asset::Sprite>();
-					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
 
-					SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
-					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
+					if (pComponent != nullptr)
+					{
+						std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
+						SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
+						SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
+					}
 				}
 
 				{
 					Asset::Text* pComponent = pText->_GetComponent<Asset::Text>();
-					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
 
-					SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
-					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
+					if (pComponent != nullptr)
+					{
+						std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
+						SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
+						SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
+					}
 				}
 
 			}

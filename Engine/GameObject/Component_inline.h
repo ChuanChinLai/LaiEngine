@@ -34,6 +34,11 @@ inline Engine::Asset::Sprite::~Sprite()
 
 }
 
+inline SDL_Texture * Engine::Asset::Sprite::_GetTexture()
+{
+	return pTexture;
+}
+
 
 inline Engine::Asset::Text::Text(GameObject * i_GameObject) : Component(i_GameObject), pTexture(nullptr), w(0), h(0)
 {
@@ -43,4 +48,9 @@ inline Engine::Asset::Text::Text(GameObject * i_GameObject) : Component(i_GameOb
 inline Engine::Asset::Text::~Text()
 {
 
+}
+
+inline SDL_Texture * Engine::Asset::Text::_GetTexture()
+{
+	return pTexture;
 }

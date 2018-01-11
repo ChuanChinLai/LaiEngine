@@ -46,10 +46,13 @@ namespace Engine
 			bool _Create(std::string i_FilePath);
 			void _Release();
 
-			SDL_Texture*  pTexture;
+			inline SDL_Texture * _GetTexture();
 
 			int w;
 			int h;
+
+		private:
+			SDL_Texture * pTexture;
 		};
 
 
@@ -63,9 +66,13 @@ namespace Engine
 			bool _Create(std::string i_Text, Engine::Color i_Color, int i_Size, std::string i_FilePath);
 			void _Release();
 
-			SDL_Texture*  pTexture;
+			inline SDL_Texture * _GetTexture();
+
 			int w;
 			int h;
+
+		private:
+			SDL_Texture * pTexture;
 		};
 
 
