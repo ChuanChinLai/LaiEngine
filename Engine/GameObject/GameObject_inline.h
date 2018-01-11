@@ -7,19 +7,15 @@ template<typename T>
 inline void Engine::Asset::GameObject::_AddComponent()
 {
 	Component* pComponent = new T(this);
-	
-	switch (pComponent->_GetType())
+	Component::TYPE TYPE = pComponent->_GetType();
+
+	if (m_Components[TYPE] == nullptr)
 	{
-		case Component::TYPE::Sprite:
-			m_Components[Component::TYPE::Sprite]	= pComponent;
-			break;
-
-		case Component::TYPE::Text:
-			m_Components[Component::TYPE::Text]		= pComponent;
-			break;
-
-		default:
-			break;
+		m_Components[TYPE] = pComponent;
+	}
+	else
+	{
+		delete pComponent;
 	}
 }
 
