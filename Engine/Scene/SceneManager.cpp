@@ -3,6 +3,8 @@
 
 #include <Engine\GameObject\GameObject.h>
 #include <Engine\GameEngine\GameEngine.h>
+#include <Engine\GameObject\Components\Sprite.h>
+#include <Engine\GameObject\Components\Text.h>
 
 Engine::SceneManager::~SceneManager()
 {

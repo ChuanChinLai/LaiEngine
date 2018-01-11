@@ -3,22 +3,43 @@
   <ItemGroup>
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObject_inline.h" />
-    <ClInclude Include="Component.h">
+    <ClInclude Include="Components\Component.h">
       <Filter>Components</Filter>
     </ClInclude>
-    <ClInclude Include="Component_inline.h">
+    <ClInclude Include="Components\Component_inline.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Sprite.h">
+      <Filter>Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Sprite_inline.h">
+      <Filter>Components\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Text.h">
+      <Filter>Components\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Text_inline.h">
+      <Filter>Components\Text</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="Component.cpp">
-      <Filter>Components</Filter>
+    <ClCompile Include="Components\Sprite.cpp">
+      <Filter>Components\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Text.cpp">
+      <Filter>Components\Text</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Components">
       <UniqueIdentifier>{c0fc9cc2-6766-4b88-aeef-6dad4f68b687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Sprite">
+      <UniqueIdentifier>{b26101a1-7747-4490-856e-0e67a97be252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Text">
+      <UniqueIdentifier>{e79f008f-d145-4e52-a37d-a5d526c0929e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

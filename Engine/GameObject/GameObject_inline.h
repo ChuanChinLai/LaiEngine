@@ -1,7 +1,7 @@
 #pragma once
 
 #include "GameObject.h"
-#include "Component.h"
+#include "Components\Component.h"
 
 template<typename T>
 inline void Engine::Asset::GameObject::_AddComponent()

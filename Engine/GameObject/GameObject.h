@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Component.h"
+#include "Components\Component.h"
 
 #include <Engine\Math\Vector4D.h>
 #include <External\SDL2\Includes.h>
