@@ -56,8 +56,6 @@ void Engine::Asset::TextObject::_Release()
 	}
 }
 
-
-
 Engine::Asset::SpriteObject::SpriteObject()
 {
 	m_pRenderComponent = new Component_Renderable(this);
@@ -109,4 +107,13 @@ void Engine::Asset::SpriteObject::_Release()
 	}
 }
 
-
+Engine::Asset::GameObject::~GameObject()
+{
+	for (auto component : m_Components)
+	{
+		if (component.second != nullptr)
+		{
+			delete component.second;
+		}
+	}
+}

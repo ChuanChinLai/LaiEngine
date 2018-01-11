@@ -6,6 +6,8 @@ Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * TDGame) : IUserInt
 {
 //	m_pSprite_PlayerHP		= new Engine::Asset::SpriteObject();
 	m_pTextObject_PlayerHP	= new Engine::Asset::TextObject();
+	m_pTextObject_PlayerHP->_AddComponent<Engine::Asset::Sprite>();
+	Engine::Asset::Text* s = m_pTextObject_PlayerHP->_GetComponent<Engine::Asset::Text>();
 
 //	m_pSprite_EnemyHP		= new Engine::Asset::SpriteObject();
 	m_pTextObject_EnemyHP	= new Engine::Asset::TextObject();

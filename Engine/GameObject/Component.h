@@ -8,23 +8,77 @@ namespace Engine
 	{
 		class GameObject;
 
-		enum Component_TYPE
-		{
-
-		};
-
 		class Component
 		{
 		public:
-			Component(GameObject* i_GameObject) : m_GameObject(i_GameObject)
-			{
 
+			enum TYPE
+			{
+				Sprite,
+				Text,
+				Null,
+			};
+
+			Component(GameObject* i_GameObject) : m_GameObject(i_GameObject), m_TYPE(TYPE::Null)
+			{
+				
 			}
 			virtual ~Component()
 			{
 
 			}
 			GameObject* m_GameObject;
+
+			TYPE _GetType()
+			{
+				return m_TYPE;
+			}
+
+		protected:
+
+			TYPE m_TYPE;
+		};
+
+
+		class Sprite : public Component
+		{
+		public:
+
+			Sprite(GameObject* i_GameObject) : Component(i_GameObject)
+			{
+				m_TYPE = TYPE::Sprite;
+			}
+
+			~Sprite()
+			{
+
+			}
+
+			SDL_Texture*  pTexture;
+
+			int w;
+			int h;
+		};
+
+
+		class Text : public Component
+		{
+		public:
+
+			Text(GameObject* i_GameObject) : Component(i_GameObject)
+			{
+				m_TYPE = TYPE::Text;
+			}
+
+			~Text()
+			{
+
+			}
+
+			SDL_Texture*  pTexture;
+
+			int w;
+			int h;
 		};
 
 
