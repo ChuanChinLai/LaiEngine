@@ -1,6 +1,9 @@
 #pragma once
 
+#include <Engine\Color\Color.h>
+
 #include <External\SDL2\Includes.h>
+#include <string>
 
 namespace Engine
 {
@@ -19,23 +22,16 @@ namespace Engine
 				Null,
 			};
 
-			Component(GameObject* i_GameObject) : m_GameObject(i_GameObject), m_TYPE(TYPE::Null)
-			{
-				
-			}
-			virtual ~Component()
-			{
+			inline Component(GameObject* i_GameObject);
 
-			}
-			GameObject* m_GameObject;
+			inline virtual ~Component();
 
-			TYPE _GetType()
-			{
-				return m_TYPE;
-			}
+			inline GameObject* _GetGameObject();
+			inline TYPE		_GetType();
 
 		protected:
 
+			GameObject* m_GameObject;
 			TYPE m_TYPE;
 		};
 
@@ -44,15 +40,11 @@ namespace Engine
 		{
 		public:
 
-			Sprite(GameObject* i_GameObject) : Component(i_GameObject)
-			{
-				m_TYPE = TYPE::Sprite;
-			}
+			Sprite(GameObject* i_GameObject);
+			~Sprite();
 
-			~Sprite()
-			{
-
-			}
+			bool _Create(std::string i_FilePath);
+			void _Release();
 
 			SDL_Texture*  pTexture;
 
@@ -65,18 +57,13 @@ namespace Engine
 		{
 		public:
 
-			Text(GameObject* i_GameObject) : Component(i_GameObject)
-			{
-				m_TYPE = TYPE::Text;
-			}
+			Text(GameObject* i_GameObject);
+			~Text();
 
-			~Text()
-			{
-
-			}
+			bool _Create(std::string i_Text, Engine::Color i_Color, int i_Size, std::string i_FilePath);
+			void _Release();
 
 			SDL_Texture*  pTexture;
-
 			int w;
 			int h;
 		};
@@ -102,3 +89,5 @@ namespace Engine
 		};
 	}
 }
+
+#include "Component_inline.h"

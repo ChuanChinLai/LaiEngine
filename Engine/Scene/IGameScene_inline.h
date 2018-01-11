@@ -41,4 +41,12 @@ namespace Engine
 		i_scene->m_RenderedData.SpriteObjects.push_back(i_object);
 	}
 
+	void SubmitSpriteObject(IGameScene * i_scene, Asset::GameObject * i_object, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
+	{
+		std::pair<Asset::Alignment, Asset::Alignment> alignment = { i_Align_X, i_Align_Y };
+		i_scene->m_RenderedData.Alignment_GameObjects.push_back(alignment);
+
+		i_scene->m_RenderedData.GameObjects.push_back(i_object);
+	}
+
 }

@@ -83,6 +83,33 @@ void Engine::SceneManager::_Render()
 			m_pCurrentScene->m_RenderedData.TextObjects.clear();
 			m_pCurrentScene->m_RenderedData.Alignment_TextObjects.clear();
 		}
+
+		{
+			for (size_t i = 0; i < m_pCurrentScene->m_RenderedData.GameObjects.size(); i++)
+			{
+				Asset::GameObject* pText = m_pCurrentScene->m_RenderedData.GameObjects[i];
+
+				{
+					Asset::Sprite* pComponent = pText->_GetComponent<Asset::Sprite>();
+					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
+
+					SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
+					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
+				}
+
+				{
+					Asset::Text* pComponent = pText->_GetComponent<Asset::Text>();
+					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
+
+					SDL_Rect DestRect = _GetRenderPosition(pComponent, alignment.first, alignment.second);
+					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->pTexture, NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
+				}
+
+			}
+
+			m_pCurrentScene->m_RenderedData.GameObjects.clear();
+			m_pCurrentScene->m_RenderedData.Alignment_GameObjects.clear();
+		}
 	}
 
 }
@@ -97,13 +124,30 @@ void Engine::SceneManager::_Release()
 
 SDL_Rect Engine::SceneManager::_GetRenderPosition(Asset::Component_Renderable * i_pComponent, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
 {
-	int x = static_cast<int>(i_pComponent->m_GameObject->m_Position.x);
-	int y = static_cast<int>(i_pComponent->m_GameObject->m_Position.y);
+	int x = static_cast<int>(i_pComponent->_GetGameObject()->m_Position.x);
+	int y = static_cast<int>(i_pComponent->_GetGameObject()->m_Position.y);
 	int w = i_pComponent->w;
 	int h = i_pComponent->h;
 
 	x = (i_Align_X == Asset::Alignment::Left) ? x : (i_Align_X == Asset::Alignment::Right) ? x - w : x - w / 2;
 	y = (i_Align_Y == Asset::Alignment::Up)   ? y : (i_Align_Y == Asset::Alignment::Down)  ? y - h : y - h / 2;
+
+	SDL_Rect DestRect = { x, y, w, h };
+
+	return DestRect;
+}
+
+SDL_Rect Engine::SceneManager::_GetRenderPosition(Asset::Component * i_pComponent, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
+{
+	Asset::Sprite* pSprite = dynamic_cast<Asset::Sprite*>(i_pComponent);
+
+	int x = 400;
+	int y = 200;
+	int w = 48;
+	int h = 48;
+
+	x = (i_Align_X == Asset::Alignment::Left) ? x : (i_Align_X == Asset::Alignment::Right) ? x - w : x - w / 2;
+	y = (i_Align_Y == Asset::Alignment::Up) ? y : (i_Align_Y == Asset::Alignment::Down) ? y - h : y - h / 2;
 
 	SDL_Rect DestRect = { x, y, w, h };
 

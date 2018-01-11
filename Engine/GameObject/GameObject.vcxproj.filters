@@ -4,8 +4,10 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObject_inline.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="Component_inline.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Component.cpp" />
   </ItemGroup>
 </Project>

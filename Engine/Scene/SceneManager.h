@@ -36,7 +36,7 @@ namespace Engine
 	private:
 
 		SDL_Rect _GetRenderPosition(Asset::Component_Renderable * i_pComponent, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y);
-
+		SDL_Rect _GetRenderPosition(Asset::Component* i_pComponent, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y);
 		IGameScene* m_pCurrentScene;
 		bool 		m_bRunBegin;
 	};
