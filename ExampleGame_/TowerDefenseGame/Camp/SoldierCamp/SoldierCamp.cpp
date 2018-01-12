@@ -21,15 +21,14 @@ void Gameplay::SoldierCamp::_RunCommand()
 	if (Engine::_Input()->_GetKeyDown(m_CommandCode))
 	{
 		ICharacter* pNewCharacter = new Soldier();
-		pNewCharacter->_SetAttribute(new CharacterAttr(m_pAttributeData));
 		pNewCharacter->_Init();
+		pNewCharacter->_SetAttribute(new CharacterAttr(m_pAttributeData));
 
-		pNewCharacter->_GetGameObject()->_AddComponent<Engine::Asset::Sprite>();
+
 		Engine::Asset::Sprite* pSprite = pNewCharacter->_GetGameObject()->_GetComponent<Engine::Asset::Sprite>();
 		pSprite->_Create(m_SpriteName);
-
 		pNewCharacter->_GetGameObject()->m_Position = m_Position;
 
-		m_Game->_AddSoldier(pNewCharacter);
+		m_pGame->_AddSoldier(pNewCharacter);
 	}
 }

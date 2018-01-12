@@ -161,6 +161,9 @@
     <ClCompile Include="CampSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EnemyCamp\EnemyCamp.vcxproj">
+      <Project>{c0b4deca-11fa-43d3-9f31-6d000f260d27}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\SoldierCamp\SoldierCamp.vcxproj">
       <Project>{23f64961-d1e0-486d-b1e1-cc67ca15fb4b}</Project>
     </ProjectReference>

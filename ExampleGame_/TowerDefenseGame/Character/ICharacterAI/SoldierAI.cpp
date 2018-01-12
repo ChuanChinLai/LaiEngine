@@ -6,17 +6,17 @@ Engine::Math::Vector4D<float> target(800.0f, 0.0f, 0.0f);
 
 Gameplay::SoldierAI::SoldierAI(ICharacter * i_Character) : ICharacterAI(i_Character)
 {
-	m_AIState->_SetAttackPosition(target);
+	m_pAIState->_SetAttackPosition(target);
 }
 
 void Gameplay::SoldierAI::ChangeAIState(IAIState * NewAIState)
 {
-	if (m_AIState != nullptr)
+	if (m_pAIState != nullptr)
 	{
-		delete m_AIState;
+		delete m_pAIState;
 	}
 
-	m_AIState = NewAIState;
-	m_AIState->_SetCharacterAI(this);
-	m_AIState->_SetAttackPosition(target);
+	m_pAIState = NewAIState;
+	m_pAIState->_SetCharacterAI(this);
+	m_pAIState->_SetAttackPosition(target);
 }

@@ -28,7 +28,7 @@ namespace Gameplay
 		const Engine::Math::Vector4D<float>& _GetPosition();
 
 	protected:
-		ICharacter * m_Character;
-		IAIState * m_AIState;
+		ICharacter*	 m_pCharacter;
+		IAIState*	 m_pAIState;
 	};
 }

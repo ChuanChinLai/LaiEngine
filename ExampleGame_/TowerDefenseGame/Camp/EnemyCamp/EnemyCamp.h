@@ -8,14 +8,14 @@ namespace Gameplay
 	{
 	public:
 
-		EnemyCamp(Engine::Asset::GameObject* i_GameObject);
+		EnemyCamp(const Engine::Math::Vector4D<float>& i_Position, std::string i_SpriteName);
 		~EnemyCamp();
 
 		virtual void _RunCommand() override;
 
 	private:
 
-		float m_Time = 0;
+		float		m_Time;
 		const float m_SpawnTime = 2.0f;
 	};
 }

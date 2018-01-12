@@ -20,11 +20,8 @@ Gameplay::Soldier::~Soldier()
 
 void Gameplay::Soldier::_Init()
 {
-	{
-		m_pGameObject->_AddComponent<Engine::Asset::Text>();
-		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
-		pText->_Create(std::to_string(static_cast<int>(m_pAttribute->_GetHP())), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
-	}
+	m_pGameObject->_AddComponent<Engine::Asset::Text>();
+	m_pGameObject->_AddComponent<Engine::Asset::Sprite>();
 }
 
 void Gameplay::Soldier::_Update()
@@ -35,5 +32,13 @@ void Gameplay::Soldier::_Update()
 
 void Gameplay::Soldier::_Release()
 {
+	{
+		Engine::Asset::Sprite* pSprite = m_pGameObject->_GetComponent<Engine::Asset::Sprite>();
+		pSprite->_Release();
+	}
 
+	{
+		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
+		pText->_Release();
+	}
 }
