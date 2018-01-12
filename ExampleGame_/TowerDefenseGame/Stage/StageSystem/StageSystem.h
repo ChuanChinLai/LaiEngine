@@ -26,18 +26,28 @@ namespace Gameplay
 
 		void _RenderObjects(Engine::IGameScene* i_pScene) const;
 
-		const Engine::Math::Vector4D<float>& _GetAttackPos_Player() const;
-		const Engine::Math::Vector4D<float>& _GetAttackPos_Enemy()  const;
+
+		void _SoldierTowerUnderAttack();
+		void _EnemyTowerUnderAttack();
+
+		int _GetSoldierHP() const;
+		int _GetEnemyHP()	const;
+
+		void _SetSoldierHP(int i_HP);
+		void _SetEnemyHP(int i_HP);
+
+		const Engine::Math::Vector4D<float>& _GetAttackPos_Soldier() const;
+		const Engine::Math::Vector4D<float>& _GetAttackPos_Enemy()   const;
 
 	private:
 
-		Engine::Asset::GameObject*	m_pTower_Player;
+		Engine::Asset::GameObject*	m_pTower_Soldier;
 		Engine::Asset::GameObject*	m_pTower_Enemy;
 
-		Engine::Math::Vector4D<float> m_AttackPos_Player;
+		Engine::Math::Vector4D<float> m_AttackPos_Soldier;
 		Engine::Math::Vector4D<float> m_AttackPos_Enemy;
 
-		const int MAX_HEART_PLAYER;
-		const int MAX_HEART_ENEMY;
+		int HP_PLAYER;
+		int HP_ENEMY;
 	};
 }

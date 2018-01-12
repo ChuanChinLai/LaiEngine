@@ -21,7 +21,7 @@ void Gameplay::AttackState::_Update(const std::list<ICharacter*>& i_Targets)
 	if (i_Targets.size() == 0)
 	{
 		if (m_bSetAttackPosition)
-			m_pCharacterAI->ChangeAIState(new AttackHeartState());
+			m_pCharacterAI->_ChangeAIState(new AttackHeartState());
 
 		return;
 	}

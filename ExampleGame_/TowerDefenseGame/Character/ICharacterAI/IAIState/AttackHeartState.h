@@ -14,6 +14,5 @@ namespace Gameplay
 
 	private:
 		Engine::Math::Vector4D<float> m_AttackPosition;
-		bool m_bOnMove;
 	};
 }

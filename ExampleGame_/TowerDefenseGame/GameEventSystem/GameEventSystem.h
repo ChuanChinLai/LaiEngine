@@ -9,6 +9,8 @@ enum ENUM_GameEvent
 	Null = 0,
 	EnemyKilled = 1,
 	SoldierKilled = 2,
+	EnemyTowerUnderAttack = 3, 
+	SoldierTowerUnderAttack = 4,
 };
 
 

@@ -12,7 +12,9 @@ namespace Gameplay
 		SoldierAI(ICharacter* i_pCharacter);
 		~SoldierAI();
 
-		virtual void ChangeAIState(IAIState* i_pNewAIState) override;
+		virtual void _ChangeAIState(IAIState* i_pNewAIState) override;
+		virtual void _AttackTower() override;
+
 		static void _SetStageSystem(StageSystem* i_pStageSystem);
 
 	private:

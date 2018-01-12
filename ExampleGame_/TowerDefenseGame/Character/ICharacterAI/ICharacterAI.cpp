@@ -18,7 +18,7 @@ Gameplay::ICharacterAI::~ICharacterAI()
 	delete m_pAIState;
 }
 
-void Gameplay::ICharacterAI::ChangeAIState(IAIState * i_pNewAIState)
+void Gameplay::ICharacterAI::_ChangeAIState(IAIState * i_pNewAIState)
 {
 	if (m_pAIState != nullptr)
 	{
@@ -27,6 +27,11 @@ void Gameplay::ICharacterAI::ChangeAIState(IAIState * i_pNewAIState)
 
 	m_pAIState = i_pNewAIState;
 	m_pAIState->_SetCharacterAI(this);
+}
+
+void Gameplay::ICharacterAI::_AttackTower()
+{
+
 }
 
 void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)

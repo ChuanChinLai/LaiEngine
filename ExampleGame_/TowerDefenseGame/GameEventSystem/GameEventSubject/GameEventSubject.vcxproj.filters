@@ -7,6 +7,12 @@
     <Filter Include="EnemyKilledSubject">
       <UniqueIdentifier>{0dac8e0e-d178-4143-8867-4ebd90ddd166}</UniqueIdentifier>
     </Filter>
+    <Filter Include="EnemyTowerAttackedSubject">
+      <UniqueIdentifier>{a1adcc3e-7c56-4940-95e1-5f1c057f0cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SoldierTowerAttackedSubject">
+      <UniqueIdentifier>{a8aca04d-2cf1-422f-aebd-0db1f7b9c584}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SoldierKilledSubject.h">
@@ -23,5 +29,17 @@
     </ClInclude>
     <ClInclude Include="IGameEventSubject.h" />
     <ClInclude Include="IGameEventSubject_inline.h" />
+    <ClInclude Include="EnemyTowerAttackedSubject.h">
+      <Filter>EnemyTowerAttackedSubject</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTowerAttackedSubject_inline.h">
+      <Filter>EnemyTowerAttackedSubject</Filter>
+    </ClInclude>
+    <ClInclude Include="SoldierTowerAttackedSubject.h">
+      <Filter>SoldierTowerAttackedSubject</Filter>
+    </ClInclude>
+    <ClInclude Include="SoldierTowerAttackedSubject_inline.h">
+      <Filter>SoldierTowerAttackedSubject</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

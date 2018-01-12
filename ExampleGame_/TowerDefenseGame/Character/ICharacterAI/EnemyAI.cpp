@@ -18,7 +18,7 @@ Gameplay::EnemyAI::~EnemyAI()
 
 }
 
-void Gameplay::EnemyAI::ChangeAIState(IAIState * i_pNewAIState)
+void Gameplay::EnemyAI::_ChangeAIState(IAIState * i_pNewAIState)
 {
 	if (m_pAIState != nullptr)
 	{
@@ -28,6 +28,11 @@ void Gameplay::EnemyAI::ChangeAIState(IAIState * i_pNewAIState)
 	m_pAIState = i_pNewAIState;
 	m_pAIState->_SetCharacterAI(this);
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
+}
+
+void Gameplay::EnemyAI::_AttackTower()
+{
+	m_pStageSystem->_SoldierTowerUnderAttack();
 }
 
 void Gameplay::EnemyAI::_SetStageSystem(StageSystem * i_pStageSystem)

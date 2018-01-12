@@ -12,7 +12,9 @@ namespace Gameplay
 		EnemyAI(ICharacter* i_pCharacter);
 		~EnemyAI();
 
-		virtual void ChangeAIState(IAIState* i_pNewAIState) override;
+		virtual void _ChangeAIState(IAIState* i_pNewAIState) override;
+		virtual void _AttackTower() override;
+
 		static void _SetStageSystem(StageSystem* i_pStageSystem);
 
 	private:

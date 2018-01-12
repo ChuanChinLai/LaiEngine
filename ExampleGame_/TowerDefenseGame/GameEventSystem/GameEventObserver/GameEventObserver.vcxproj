@@ -157,9 +157,13 @@
   <ItemGroup>
     <ClInclude Include="EnemyKilledObserverUI.h" />
     <ClInclude Include="EnemyKilledObserverUI_inline.h" />
+    <ClInclude Include="EnemyTowerAttackedObserverUI.h" />
+    <ClInclude Include="EnemyTowerAttackedObserverUI_inline.h" />
     <ClInclude Include="IGameEventObserver.h" />
     <ClInclude Include="SoldierKilledObserverUI.h" />
     <ClInclude Include="SoldierKilledObserverUI_inline.h" />
+    <ClInclude Include="SoldierTowerAttackedObserverUI.h" />
+    <ClInclude Include="SoldierTowerAttackedObserverUI_inline.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

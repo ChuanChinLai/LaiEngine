@@ -7,6 +7,12 @@
     <Filter Include="SoldierKilledObserver">
       <UniqueIdentifier>{08f5a9d0-9643-47e2-88f6-5db5636df537}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SoldierTowerAttackedObserver">
+      <UniqueIdentifier>{bd2b8973-9274-4c03-b874-c4d21a561388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EnemyTowerAttackedObserver">
+      <UniqueIdentifier>{eaff7c98-f098-4e36-a23d-0d1b5c4b58f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EnemyKilledObserverUI_inline.h">
@@ -21,6 +27,18 @@
     </ClInclude>
     <ClInclude Include="SoldierKilledObserverUI_inline.h">
       <Filter>SoldierKilledObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTowerAttackedObserverUI.h">
+      <Filter>EnemyTowerAttackedObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="SoldierTowerAttackedObserverUI.h">
+      <Filter>SoldierTowerAttackedObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="SoldierTowerAttackedObserverUI_inline.h">
+      <Filter>SoldierTowerAttackedObserver</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyTowerAttackedObserverUI_inline.h">
+      <Filter>EnemyTowerAttackedObserver</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

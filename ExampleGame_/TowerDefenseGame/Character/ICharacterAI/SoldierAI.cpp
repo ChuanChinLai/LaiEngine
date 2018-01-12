@@ -8,7 +8,7 @@ Gameplay::StageSystem* Gameplay::SoldierAI::m_pStageSystem = nullptr;
 
 Gameplay::SoldierAI::SoldierAI(ICharacter * i_pCharacter) : ICharacterAI(i_pCharacter)
 {
-	m_AttackPosition = m_pStageSystem->_GetAttackPos_Player();
+	m_AttackPosition = m_pStageSystem->_GetAttackPos_Soldier();
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
 }
 
@@ -16,7 +16,7 @@ Gameplay::SoldierAI::~SoldierAI()
 {
 }
 
-void Gameplay::SoldierAI::ChangeAIState(IAIState * i_pNewAIState)
+void Gameplay::SoldierAI::_ChangeAIState(IAIState * i_pNewAIState)
 {
 	if (m_pAIState != nullptr)
 	{
@@ -26,6 +26,11 @@ void Gameplay::SoldierAI::ChangeAIState(IAIState * i_pNewAIState)
 	m_pAIState = i_pNewAIState;
 	m_pAIState->_SetCharacterAI(this);
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
+}
+
+void Gameplay::SoldierAI::_AttackTower()
+{
+	m_pStageSystem->_EnemyTowerUnderAttack();
 }
 
 void Gameplay::SoldierAI::_SetStageSystem(StageSystem * i_pStageSystem)

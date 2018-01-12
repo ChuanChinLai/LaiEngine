@@ -1,8 +1,12 @@
 #include "GameEventSystem.h"
 
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\IGameEventSubject.h>
+
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\EnemyKilledSubject.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\SoldierKilledSubject.h>
+
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\EnemyTowerAttackedSubject.h>
+#include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\SoldierTowerAttackedSubject.h>
 
 void Gameplay::GameEventSystem::_Release()
 {
@@ -50,6 +54,14 @@ Gameplay::IGameEventSubject * Gameplay::GameEventSystem::GetGameEventSubject(ENU
 
 	case ENUM_GameEvent::SoldierKilled:
 		pSubject = new SoldierKilledSubject();
+		break;
+
+	case ENUM_GameEvent::EnemyTowerUnderAttack:
+		pSubject = new EnemyTowerAttackedSubject();
+		break;
+
+	case ENUM_GameEvent::SoldierTowerUnderAttack:
+		pSubject = new SoldierTowerAttackedSubject();
 		break;
 
 	default:
