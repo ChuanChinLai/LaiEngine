@@ -2,14 +2,14 @@
 
 #include "IAIState.h"
 
-inline Gameplay::IAIState::IAIState(): m_CharacterAI(nullptr)
+inline Gameplay::IAIState::IAIState(): m_pCharacterAI(nullptr)
 {
 
 }
 
-inline void Gameplay::IAIState::_SetCharacterAI(ICharacterAI * i_CharacterAI)
+inline void Gameplay::IAIState::_SetCharacterAI(ICharacterAI * i_pCharacterAI)
 {
-	m_CharacterAI = i_CharacterAI;
+	m_pCharacterAI = i_pCharacterAI;
 }
 
 inline void Gameplay::IAIState::_SetAttackPosition(const Engine::Math::Vector4D<float>& i_AttackPosition)

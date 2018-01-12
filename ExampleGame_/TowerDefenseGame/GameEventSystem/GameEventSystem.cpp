@@ -15,23 +15,23 @@ void Gameplay::GameEventSystem::_Release()
 	m_GameEvents.clear();
 }
 
-void Gameplay::GameEventSystem::_RegisterObserver(ENUM_GameEvent emGameEvnet, IGameEventObserver * Observer)
+void Gameplay::GameEventSystem::_RegisterObserver(ENUM_GameEvent emGameEvnet, IGameEventObserver * i_pObserver)
 {
 	IGameEventSubject* subject = GetGameEventSubject(emGameEvnet);
 
 	if (subject != nullptr)
 	{
-		subject->_Attach(Observer);
-		Observer->_SetSubject(subject);
+		subject->_Attach(i_pObserver);
+		i_pObserver->_SetSubject(subject);
 	}
 }
 
-void Gameplay::GameEventSystem::_NotifySubject(ENUM_GameEvent emGameEvnet, void * Parameter)
+void Gameplay::GameEventSystem::_NotifySubject(ENUM_GameEvent emGameEvnet, void * i_pData)
 {
 	if (m_GameEvents.count(emGameEvnet) == 0)
 		return;
 
-	m_GameEvents[emGameEvnet]->_SetData(Parameter);
+	m_GameEvents[emGameEvnet]->_SetData(i_pData);
 }
 
 Gameplay::IGameEventSubject * Gameplay::GameEventSystem::GetGameEventSubject(ENUM_GameEvent emGameEvnet)

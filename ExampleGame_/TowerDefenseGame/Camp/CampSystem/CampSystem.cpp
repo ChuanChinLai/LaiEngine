@@ -104,7 +104,7 @@ Gameplay::SoldierCamp * Gameplay::CampSystem::SoldierCampFactory(Soldier::TYPE e
 	}
 
 	SoldierCamp* NewCamp = new SoldierCamp(position, CommandCode, SpriteName);
-	NewCamp->_SetTowerDefenseGame(m_TDGame);
+	NewCamp->_SetTowerDefenseGame(m_pTDGame);
 	NewCamp->_SetAttributeData(pAttributeData);
 
 	return NewCamp;
@@ -151,7 +151,7 @@ Gameplay::EnemyCamp * Gameplay::CampSystem::EnemyCampFactory(Enemy::TYPE emEnemy
 	}
 
 	EnemyCamp* NewCamp = new EnemyCamp(position, SpriteName);
-	NewCamp->_SetTowerDefenseGame(m_TDGame);
+	NewCamp->_SetTowerDefenseGame(m_pTDGame);
 	NewCamp->_SetAttributeData(pAttributeData);
 
 	return NewCamp;

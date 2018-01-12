@@ -16,21 +16,21 @@ void Gameplay::AttackHeartState::_Update(const std::list<ICharacter*>& i_Targets
 {
 	if (i_Targets.size() != 0)
 	{
-		m_CharacterAI->ChangeAIState(new AttackState());
+		m_pCharacterAI->ChangeAIState(new AttackState());
 		return;
 	}
 
 	if (m_bOnMove)
 	{
-		float d = Engine::Math::distance(m_CharacterAI->_GetPosition(), m_AttackPosition);
+		float d = Engine::Math::distance(m_pCharacterAI->_GetPosition(), m_AttackPosition);
 
 		if (d < 1.0f)
 		{
-			m_CharacterAI->_Killed();
+			m_pCharacterAI->_Killed();
 		}
 	}
 
 
 	m_bOnMove = true;
-	m_CharacterAI->_MoveTo(m_AttackPosition);
+	m_pCharacterAI->_MoveTo(m_AttackPosition);
 }

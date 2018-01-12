@@ -17,18 +17,18 @@ namespace Gameplay
 	{
 	public:
 
-		GameStateInfoUI(TowerDefenseGame* TDGame);
+		GameStateInfoUI(TowerDefenseGame* i_pTDGame);
 		~GameStateInfoUI();
 
 		virtual void _Init() override;
 		virtual void _Update() override;
 		virtual void _Release() override;
 
-		virtual void _RenderObjects(Engine::IGameScene* i_scene) override;
+		virtual void _RenderObjects(Engine::IGameScene* i_pScene) override;
 
 	private:
 
-		Engine::Asset::GameObject*   m_pTextObject_PlayerHP;
-		Engine::Asset::GameObject*   m_pTextObject_EnemyHP;
+		Engine::Asset::GameObject*   m_pPlayerHP;
+		Engine::Asset::GameObject*   m_pEnemyHP;
 	};
 }

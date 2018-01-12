@@ -13,7 +13,7 @@ namespace Gameplay
 	{
 	public:
 
-		IUserInterface(TowerDefenseGame* TDGame) : m_TDGame(TDGame), m_bActive(true)
+		IUserInterface(TowerDefenseGame* i_pTDGame) : m_pTDGame(i_pTDGame), m_bActive(true)
 		{
 		
 		}
@@ -36,7 +36,7 @@ namespace Gameplay
 		virtual void _RenderObjects(Engine::IGameScene* i_scene) {};
 
 	protected:
-		TowerDefenseGame * m_TDGame;
+		TowerDefenseGame * m_pTDGame;
 
 	private:
 		bool m_bActive;

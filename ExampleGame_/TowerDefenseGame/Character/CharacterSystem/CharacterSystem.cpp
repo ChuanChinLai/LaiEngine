@@ -11,8 +11,8 @@
 
 void Gameplay::CharacterSystem::_Init()
 {
-	m_TDGame->_RegisterGameEvent(ENUM_GameEvent::EnemyKilled, new Gameplay::EnemyKilledObserverUI());
-	m_TDGame->_RegisterGameEvent(ENUM_GameEvent::SoldierKilled, new Gameplay::SoldierKilledObserverUI());
+	m_pTDGame->_RegisterGameEvent(ENUM_GameEvent::EnemyKilled, new Gameplay::EnemyKilledObserverUI());
+	m_pTDGame->_RegisterGameEvent(ENUM_GameEvent::SoldierKilled, new Gameplay::SoldierKilledObserverUI());
 }
 
 void Gameplay::CharacterSystem::_Update()
@@ -84,7 +84,7 @@ void Gameplay::CharacterSystem::_RemoveCharacter(std::list<ICharacter*>& i_Chara
 			continue;
 
 		if (character->_CheckKilledEvent() == false)
-			m_TDGame->_NotifyGameEvent(emEvent, character);
+			m_pTDGame->_NotifyGameEvent(emEvent, character);
 
 		CanRemoves.push_back(character);
 	}

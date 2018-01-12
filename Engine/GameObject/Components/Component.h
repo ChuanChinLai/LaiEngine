@@ -22,7 +22,7 @@ namespace Engine
 				Null,
 			};
 
-			inline Component(GameObject* i_GameObject);
+			inline Component(GameObject* i_pGameObject);
 
 			inline virtual ~Component();
 
@@ -31,7 +31,7 @@ namespace Engine
 
 		protected:
 
-			GameObject* m_GameObject;
+			GameObject* m_pGameObject;
 			TYPE m_TYPE;
 		};
 	}

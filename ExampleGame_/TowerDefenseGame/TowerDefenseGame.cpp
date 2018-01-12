@@ -35,126 +35,78 @@ Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::_Get()
 
 void Gameplay::TowerDefenseGame::_Init()
 {
-	m_GameEventSystem = new GameEventSystem(this);
-	m_GameEventSystem->_Init();
+	m_pGameEventSystem = new GameEventSystem(this);
+	m_pGameEventSystem->_Init();
 
-	m_CampSystem = new CampSystem(this);
-	m_CampSystem->_Init();
+	m_pCampSystem = new CampSystem(this);
+	m_pCampSystem->_Init();
 
-	m_CharacterSystem = new CharacterSystem(this);
-	m_CharacterSystem->_Init();
+	m_pCharacterSystem = new CharacterSystem(this);
+	m_pCharacterSystem->_Init();
 
-	m_GameStateInfoUI = new GameStateInfoUI(this);
-	m_GameStateInfoUI->_Init();
+	m_pGameStateInfoUI = new GameStateInfoUI(this);
+	m_pGameStateInfoUI->_Init();
 }
 
 void Gameplay::TowerDefenseGame::_Update()
 {
 	InputProcess();
 
-	m_GameEventSystem->_Update();
+	m_pGameEventSystem->_Update();
 
-	m_CampSystem->_Update();
+	m_pCampSystem->_Update();
 
-	m_CharacterSystem->_Update();
+	m_pCharacterSystem->_Update();
 
-	m_GameStateInfoUI->_Update();
+	m_pGameStateInfoUI->_Update();
 }
 
 void Gameplay::TowerDefenseGame::_Release()
 {
-	m_GameEventSystem->_Release();
-	delete m_GameEventSystem;
+	m_pGameEventSystem->_Release();
+	delete m_pGameEventSystem;
 
-	m_CampSystem->_Release();
-	delete m_CampSystem;
+	m_pCampSystem->_Release();
+	delete m_pCampSystem;
 
-	m_CharacterSystem->_Release();
-	delete m_CharacterSystem;
+	m_pCharacterSystem->_Release();
+	delete m_pCharacterSystem;
 
-	m_GameStateInfoUI->_Release();
-	delete m_GameStateInfoUI;
+	m_pGameStateInfoUI->_Release();
+	delete m_pGameStateInfoUI;
 }
 
-void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_scene)
+void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_pScene)
 {
-	m_CharacterSystem->_RenderObjects(i_scene);
+	m_pCharacterSystem->_RenderObjects(i_pScene);
 
-	m_GameStateInfoUI->_RenderObjects(i_scene);
+	m_pGameStateInfoUI->_RenderObjects(i_pScene);
 }
 
-void Gameplay::TowerDefenseGame::_RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver * i_Observer)
+void Gameplay::TowerDefenseGame::_RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver * i_pObserver)
 {
-	m_GameEventSystem->_RegisterObserver(emGameEvent, i_Observer);
+	m_pGameEventSystem->_RegisterObserver(emGameEvent, i_pObserver);
 }
 
-void Gameplay::TowerDefenseGame::_NotifyGameEvent(ENUM_GameEvent emGameEvent, void * i_Parameter)
+void Gameplay::TowerDefenseGame::_NotifyGameEvent(ENUM_GameEvent emGameEvent, void * i_pData)
 {
-	m_GameEventSystem->_NotifySubject(emGameEvent, i_Parameter);
+	m_pGameEventSystem->_NotifySubject(emGameEvent, i_pData);
 }
 
 void Gameplay::TowerDefenseGame::_AddSoldier(ICharacter * i_Soldier)
 {
-	if (m_CharacterSystem != nullptr)
-		m_CharacterSystem->_AddSoldier(i_Soldier);
+	if (m_pCharacterSystem != nullptr)
+		m_pCharacterSystem->_AddSoldier(i_Soldier);
 }
 
 void Gameplay::TowerDefenseGame::_AddEnemy(ICharacter * i_Enemy)
 {
-	if (m_CharacterSystem != nullptr)
-		m_CharacterSystem->_AddEnemy(i_Enemy);
+	if (m_pCharacterSystem != nullptr)
+		m_pCharacterSystem->_AddEnemy(i_Enemy);
 }
 
 
 void Gameplay::TowerDefenseGame::InputProcess()
 {
-	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_Q))
-	//{
-	//	ICharacter* character = new Soldier();
-	//	character->_Init();
-	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 100, 0, 0);
-	//	m_CharacterSystem->AddSoldier(character);
-	//}
 
-	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_W))
-	//{
-	//	ICharacter* character = new Soldier();
-	//	character->_Init();
-	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 300, 0, 0);
-	//	m_CharacterSystem->AddSoldier(character);
-	//}
-
-
-	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_E))
-	//{
-	//	ICharacter* character = new Soldier();
-	//	character->_Init();
-	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 500, 0, 0);
-	//	m_CharacterSystem->AddSoldier(character);
-	//}
-
-
-	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_I))
-	//{
-	//	ICharacter* character = new Enemy();
-	//	character->_Init();
-	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 100, 0, 0);
-	//	m_CharacterSystem->AddEnemy(character);
-	//}
-
-	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_O))
-	//{
-	//	ICharacter* character = new Enemy();
-	//	character->_Init();
-	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 300, 0, 0);
-	//	m_CharacterSystem->AddEnemy(character);
-	//}
-
-	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_P))
-	//{
-	//	ICharacter* character = new Enemy();
-	//	character->_Init();
-	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 500, 0, 0);
-	//	m_CharacterSystem->AddEnemy(character);
-	//}
 }

@@ -14,9 +14,9 @@ inline Gameplay::ICamp::~ICamp()
 	delete m_pAttributeData;
 }
 
-inline void Gameplay::ICamp::_SetTowerDefenseGame(TowerDefenseGame * i_pGame)
+inline void Gameplay::ICamp::_SetTowerDefenseGame(TowerDefenseGame * i_pTDGame)
 {
-	m_pGame = i_pGame;
+	m_pTDGame = i_pTDGame;
 }
 
 inline void Gameplay::ICamp::_SetAttributeData(CharacterAttr * i_pAttributeData)

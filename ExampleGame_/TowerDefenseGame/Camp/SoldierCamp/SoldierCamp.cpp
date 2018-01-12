@@ -29,6 +29,6 @@ void Gameplay::SoldierCamp::_RunCommand()
 		pSprite->_Create(m_SpriteName);
 		pNewCharacter->_GetGameObject()->m_Position = m_Position;
 
-		m_pGame->_AddSoldier(pNewCharacter);
+		m_pTDGame->_AddSoldier(pNewCharacter);
 	}
 }

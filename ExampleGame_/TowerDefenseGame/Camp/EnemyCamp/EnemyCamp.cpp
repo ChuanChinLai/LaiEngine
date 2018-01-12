@@ -33,5 +33,5 @@ void Gameplay::EnemyCamp::_RunCommand()
 	pSprite->_Create(m_SpriteName);
 	pNewCharacter->_GetGameObject()->m_Position = m_Position;
 
-	m_pGame->_AddEnemy(pNewCharacter);
+	m_pTDGame->_AddEnemy(pNewCharacter);
 }

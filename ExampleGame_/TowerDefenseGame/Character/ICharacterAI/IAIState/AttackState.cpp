@@ -21,7 +21,7 @@ void Gameplay::AttackState::_Update(const std::list<ICharacter*>& i_Targets)
 	if (i_Targets.size() == 0)
 	{
 		if (m_bSetAttackPosition)
-			m_CharacterAI->ChangeAIState(new AttackHeartState());
+			m_pCharacterAI->ChangeAIState(new AttackHeartState());
 
 		return;
 	}
@@ -29,7 +29,7 @@ void Gameplay::AttackState::_Update(const std::list<ICharacter*>& i_Targets)
 	float min_distance = 1000.0f;
 	ICharacter* nearest_character = nullptr;
 
-	Engine::Math::Vector4D<float> NowPosition = m_CharacterAI->_GetPosition();
+	Engine::Math::Vector4D<float> NowPosition = m_pCharacterAI->_GetPosition();
 
 	for (const auto target : i_Targets)
 	{
@@ -45,8 +45,8 @@ void Gameplay::AttackState::_Update(const std::list<ICharacter*>& i_Targets)
 	if (nearest_character)
 	{
 		if(Engine::Math::distance(NowPosition, nearest_character->_GetGameObject()->m_Position) >= 48.0f)
-			m_CharacterAI->_MoveTo(nearest_character->_GetGameObject()->m_Position);
+			m_pCharacterAI->_MoveTo(nearest_character->_GetGameObject()->m_Position);
 		else
-			m_CharacterAI->_Attack(nearest_character);
+			m_pCharacterAI->_Attack(nearest_character);
 	}
 }

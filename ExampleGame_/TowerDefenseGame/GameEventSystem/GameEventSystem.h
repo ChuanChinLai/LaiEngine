@@ -21,15 +21,15 @@ namespace Gameplay
 	{
 	public:
 
-		GameEventSystem(TowerDefenseGame* i_Game) : IGameSystem(i_Game)
+		GameEventSystem(TowerDefenseGame* i_pTDGame) : IGameSystem(i_pTDGame)
 		{
 
 		}
 
 		virtual void _Release() override;
 
-		void _RegisterObserver(ENUM_GameEvent emGameEvnet, IGameEventObserver* Observer);
-		void _NotifySubject(ENUM_GameEvent emGameEvnet, void* Parameter);
+		void _RegisterObserver(ENUM_GameEvent emGameEvnet, IGameEventObserver* i_pObserver);
+		void _NotifySubject(ENUM_GameEvent emGameEvnet, void* i_pData);
 
 	private:
 

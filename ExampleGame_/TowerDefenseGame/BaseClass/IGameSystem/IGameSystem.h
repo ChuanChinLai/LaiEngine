@@ -8,7 +8,7 @@ namespace Gameplay
 	{
 	public:
 
-		IGameSystem(TowerDefenseGame* TDGame) : m_TDGame(TDGame)
+		IGameSystem(TowerDefenseGame* i_pTDGame) : m_pTDGame(i_pTDGame)
 		{
 
 		}
@@ -23,6 +23,6 @@ namespace Gameplay
 		virtual void _Release() {};
 
 	protected:
-		TowerDefenseGame* m_TDGame;
+		TowerDefenseGame* m_pTDGame;
 	};
 }

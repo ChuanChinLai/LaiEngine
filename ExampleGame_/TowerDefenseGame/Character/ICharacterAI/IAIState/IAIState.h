@@ -13,13 +13,13 @@ namespace Gameplay
 	public:
 		IAIState();
 
-		void _SetCharacterAI(ICharacterAI* i_CharacterAI);
+		void _SetCharacterAI(ICharacterAI* i_pCharacterAI);
 
 		virtual void _SetAttackPosition(const Engine::Math::Vector4D<float>& i_AttackPosition);
 		virtual void _Update(const std::list<ICharacter*>& i_Targets);
 
 	protected:
-		ICharacterAI * m_CharacterAI;
+		ICharacterAI * m_pCharacterAI;
 	};
 }
 
