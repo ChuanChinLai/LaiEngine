@@ -30,11 +30,11 @@ namespace Gameplay
 
 		void _RenderObjects(Engine::IGameScene* i_scene) const;
 
-		void AddSoldier(ICharacter* i_Soldier);
-		void AddEnemy(ICharacter* i_Enemy);
+		void _AddSoldier(ICharacter* i_Soldier);
+		void _AddEnemy(ICharacter* i_Enemy);
 
-		void RemoveCharacter();
-		void RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent);
+		void _RemoveCharacter();
+		void _RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent);
 
 	private:
 

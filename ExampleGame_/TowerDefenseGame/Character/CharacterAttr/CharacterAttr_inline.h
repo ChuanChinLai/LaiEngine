@@ -3,6 +3,16 @@
 #include "CharacterAttr.h"
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 
+inline Gameplay::CharacterAttr::CharacterAttr(const CharacterAttr & i_Attr): m_MaxHP(i_Attr.m_MaxHP), m_NowHP(i_Attr.m_NowHP), m_ATK(i_Attr.m_ATK), m_DEF(i_Attr.m_DEF), m_MoveSpeed(i_Attr.m_MoveSpeed)
+{
+
+}
+
+inline Gameplay::CharacterAttr::CharacterAttr(const CharacterAttr * i_pAttr): m_MaxHP(i_pAttr->m_MaxHP), m_NowHP(i_pAttr->m_NowHP), m_ATK(i_pAttr->m_ATK), m_DEF(i_pAttr->m_DEF), m_MoveSpeed(i_pAttr->m_MoveSpeed)
+{
+
+}
+
 inline float Gameplay::CharacterAttr::_GetHP() const
 {
 	return m_NowHP;

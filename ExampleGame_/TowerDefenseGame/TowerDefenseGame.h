@@ -17,6 +17,8 @@ namespace Gameplay
 
 	class IGameEventObserver;
 
+	class ICharacter;
+
 	class TowerDefenseGame
 	{
 	public:
@@ -31,6 +33,11 @@ namespace Gameplay
 
 		void _RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver* i_Observer);
 		void _NotifyGameEvent(ENUM_GameEvent emGameEvent, void* i_Parameter);
+
+		/*CharacterSystem*/
+
+		void _AddSoldier(ICharacter * i_Soldier);
+		void _AddEnemy(ICharacter * i_Enemy);
 
 		GameEventSystem*	m_GameEventSystem = nullptr;
 		CampSystem*			m_CampSystem      = nullptr;

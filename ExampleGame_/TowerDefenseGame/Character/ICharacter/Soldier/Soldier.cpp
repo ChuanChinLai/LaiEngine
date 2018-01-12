@@ -10,24 +10,16 @@
 
 Gameplay::Soldier::Soldier()
 {
-	m_pAttribute = new CharacterAttr(50, 1.5f, 1.3f, 100);
 	m_pAI = new SoldierAI(this);
 }
 
 Gameplay::Soldier::~Soldier()
 {
-	delete m_pAttribute;
 	delete m_pAI;
 }
 
 void Gameplay::Soldier::_Init()
 {
-	{
-		m_pGameObject->_AddComponent<Engine::Asset::Sprite>();
-		Engine::Asset::Sprite* pSprite = m_pGameObject->_GetComponent<Engine::Asset::Sprite>();
-		pSprite->_Create("Textures/Dot_B.png");
-	}
-
 	{
 		m_pGameObject->_AddComponent<Engine::Asset::Text>();
 		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
@@ -43,13 +35,5 @@ void Gameplay::Soldier::_Update()
 
 void Gameplay::Soldier::_Release()
 {
-	{
-		Engine::Asset::Sprite* pSprite = m_pGameObject->_GetComponent<Engine::Asset::Sprite>();
-		pSprite->_Release();
-	}
 
-	{
-		Engine::Asset::Text* pText = m_pGameObject->_GetComponent<Engine::Asset::Text>();
-		pText->_Release();
-	}
 }

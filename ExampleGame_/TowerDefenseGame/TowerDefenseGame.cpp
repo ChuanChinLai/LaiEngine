@@ -93,56 +93,68 @@ void Gameplay::TowerDefenseGame::_NotifyGameEvent(ENUM_GameEvent emGameEvent, vo
 	m_GameEventSystem->_NotifySubject(emGameEvent, i_Parameter);
 }
 
+void Gameplay::TowerDefenseGame::_AddSoldier(ICharacter * i_Soldier)
+{
+	if (m_CharacterSystem != nullptr)
+		m_CharacterSystem->_AddSoldier(i_Soldier);
+}
+
+void Gameplay::TowerDefenseGame::_AddEnemy(ICharacter * i_Enemy)
+{
+	if (m_CharacterSystem != nullptr)
+		m_CharacterSystem->_AddEnemy(i_Enemy);
+}
+
 
 void Gameplay::TowerDefenseGame::InputProcess()
 {
-	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_Q))
-	{
-		ICharacter* character = new Soldier();
-		character->_Init();
-		character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 100, 0, 0);
-		m_CharacterSystem->AddSoldier(character);
-	}
+	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_Q))
+	//{
+	//	ICharacter* character = new Soldier();
+	//	character->_Init();
+	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 100, 0, 0);
+	//	m_CharacterSystem->AddSoldier(character);
+	//}
 
-	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_W))
-	{
-		ICharacter* character = new Soldier();
-		character->_Init();
-		character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 300, 0, 0);
-		m_CharacterSystem->AddSoldier(character);
-	}
-
-
-	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_E))
-	{
-		ICharacter* character = new Soldier();
-		character->_Init();
-		character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 500, 0, 0);
-		m_CharacterSystem->AddSoldier(character);
-	}
+	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_W))
+	//{
+	//	ICharacter* character = new Soldier();
+	//	character->_Init();
+	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 300, 0, 0);
+	//	m_CharacterSystem->AddSoldier(character);
+	//}
 
 
-	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_I))
-	{
-		ICharacter* character = new Enemy();
-		character->_Init();
-		character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 100, 0, 0);
-		m_CharacterSystem->AddEnemy(character);
-	}
+	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_E))
+	//{
+	//	ICharacter* character = new Soldier();
+	//	character->_Init();
+	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(200, 500, 0, 0);
+	//	m_CharacterSystem->AddSoldier(character);
+	//}
 
-	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_O))
-	{
-		ICharacter* character = new Enemy();
-		character->_Init();
-		character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 300, 0, 0);
-		m_CharacterSystem->AddEnemy(character);
-	}
 
-	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_P))
-	{
-		ICharacter* character = new Enemy();
-		character->_Init();
-		character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 500, 0, 0);
-		m_CharacterSystem->AddEnemy(character);
-	}
+	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_I))
+	//{
+	//	ICharacter* character = new Enemy();
+	//	character->_Init();
+	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 100, 0, 0);
+	//	m_CharacterSystem->AddEnemy(character);
+	//}
+
+	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_O))
+	//{
+	//	ICharacter* character = new Enemy();
+	//	character->_Init();
+	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 300, 0, 0);
+	//	m_CharacterSystem->AddEnemy(character);
+	//}
+
+	//if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_P))
+	//{
+	//	ICharacter* character = new Enemy();
+	//	character->_Init();
+	//	character->_GetGameObject()->m_Position = Engine::Math::Vector4D<float>(400, 500, 0, 0);
+	//	m_CharacterSystem->AddEnemy(character);
+	//}
 }

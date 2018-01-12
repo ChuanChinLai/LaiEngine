@@ -15,6 +15,7 @@ Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pAttribute(nullpt
 Gameplay::ICharacter::~ICharacter()
 {
 	delete m_pGameObject;
+	delete m_pAttribute;
 }
 
 void Gameplay::ICharacter::_Init()
@@ -79,4 +80,9 @@ Engine::Asset::GameObject* Gameplay::ICharacter::_GetGameObject()
 Gameplay::CharacterAttr * Gameplay::ICharacter::_GetAttribute()
 {
 	return m_pAttribute;
+}
+
+void Gameplay::ICharacter::_SetAttribute(CharacterAttr * i_pAttribute)
+{
+	m_pAttribute = i_pAttribute;
 }

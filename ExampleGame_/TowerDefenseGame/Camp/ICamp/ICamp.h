@@ -12,6 +12,9 @@ namespace Engine
 
 namespace Gameplay
 {
+	class TowerDefenseGame;
+	class CharacterAttr;
+
 	class ICamp
 	{
 	public:
@@ -19,13 +22,18 @@ namespace Gameplay
 		inline ICamp(const Engine::Math::Vector4D<float>& i_Position, std::string i_SpriteName);
 		virtual inline ~ICamp();
 
+		void _SetTowerDefenseGame(TowerDefenseGame* i_Game);
+		void _SetAttributeData(CharacterAttr* i_pAttributeData);
+
 		virtual inline void _RunCommand();
 
 	protected:
 
-		Engine::Asset::GameObject* m_GameObject;
+		TowerDefenseGame*				m_Game;
+		CharacterAttr*					m_pAttributeData;
 
-		std::string m_SpriteName;
+		Engine::Math::Vector4D<float>	m_Position;
+		std::string						m_SpriteName;
 
 	private:
 

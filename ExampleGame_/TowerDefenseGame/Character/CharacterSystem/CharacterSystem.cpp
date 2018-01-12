@@ -58,23 +58,23 @@ void Gameplay::CharacterSystem::_RenderObjects(Engine::IGameScene * i_scene) con
 }
 
 
-void Gameplay::CharacterSystem::AddSoldier(ICharacter * i_Soldier)
+void Gameplay::CharacterSystem::_AddSoldier(ICharacter * i_Soldier)
 {
 	m_Soldiers.push_back(i_Soldier);
 }
 
-void Gameplay::CharacterSystem::AddEnemy(ICharacter * i_Enemy)
+void Gameplay::CharacterSystem::_AddEnemy(ICharacter * i_Enemy)
 {
 	m_Enemies.push_back(i_Enemy);
 }
 
-void Gameplay::CharacterSystem::RemoveCharacter()
+void Gameplay::CharacterSystem::_RemoveCharacter()
 {
-	RemoveCharacter(m_Soldiers, m_Enemies, ENUM_GameEvent::SoldierKilled);
-	RemoveCharacter(m_Enemies, m_Soldiers, ENUM_GameEvent::EnemyKilled);
+	_RemoveCharacter(m_Soldiers, m_Enemies, ENUM_GameEvent::SoldierKilled);
+	_RemoveCharacter(m_Enemies, m_Soldiers, ENUM_GameEvent::EnemyKilled);
 }
 
-void Gameplay::CharacterSystem::RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent)
+void Gameplay::CharacterSystem::_RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent)
 {
 	std::list<ICharacter*> CanRemoves;
 
@@ -114,7 +114,7 @@ void Gameplay::CharacterSystem::_UpdateAI()
 {
 	_UpdateAI(m_Soldiers, m_Enemies);
 	_UpdateAI(m_Enemies, m_Soldiers);
-	RemoveCharacter();
+	_RemoveCharacter();
 }
 
 void Gameplay::CharacterSystem::_UpdateAI(const std::list<ICharacter*>& i_Characters, const std::list<ICharacter*>& i_Targets)

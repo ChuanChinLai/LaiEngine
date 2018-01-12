@@ -36,6 +36,8 @@ namespace Gameplay
 		Engine::Asset::GameObject*	_GetGameObject();
 		CharacterAttr*				_GetAttribute();
 
+		void _SetAttribute(CharacterAttr* i_pAttribute);
+
 	protected:
 		Engine::Asset::GameObject*	m_pGameObject;
 		CharacterAttr*				m_pAttribute;
