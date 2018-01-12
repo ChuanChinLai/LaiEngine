@@ -24,8 +24,8 @@ namespace Gameplay
 		{
 
 		}
-		void _Init() override;
-		void _Update() override;
+		void _Init()	override;
+		void _Update()	override;
 		void _Release() override;
 
 		void _RenderObjects(Engine::IGameScene* i_scene) const;

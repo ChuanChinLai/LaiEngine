@@ -7,6 +7,14 @@ namespace Gameplay
 	class Enemy : public ICharacter
 	{
 	public:
+
+		enum TYPE
+		{
+			PINK,
+			YELLOW,
+			GRAY, 
+		};
+
 		Enemy();
 		~Enemy();
 

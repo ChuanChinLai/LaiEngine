@@ -7,6 +7,14 @@ namespace Gameplay
 	class Soldier : public ICharacter
 	{
 	public:
+
+		enum TYPE
+		{
+			RED, 
+			GREEN, 
+			BLUE, 
+		};
+
 		Soldier();
 		~Soldier();
 

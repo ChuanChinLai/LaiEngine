@@ -6,8 +6,10 @@
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Enemy\Enemy.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Soldier\Soldier.h>
 
-#include <ExampleGame_\TowerDefenseGame\Character\CharacterSystem\CharacterSystem.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
+#include <ExampleGame_\TowerDefenseGame\Camp\CampSystem\CampSystem.h>
+#include <ExampleGame_\TowerDefenseGame\Character\CharacterSystem\CharacterSystem.h>
+
 #include <ExampleGame_\TowerDefenseGame\UI\GameStateInfoUI\GameStateInfoUI.h>
 
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventObserver\IGameEventObserver.h>
@@ -36,6 +38,8 @@ void Gameplay::TowerDefenseGame::_Init()
 	m_GameEventSystem = new GameEventSystem(this);
 	m_GameEventSystem->_Init();
 
+	m_CampSystem = new CampSystem(this);
+	m_CampSystem->_Init();
 
 	m_CharacterSystem = new CharacterSystem(this);
 	m_CharacterSystem->_Init();
@@ -49,6 +53,9 @@ void Gameplay::TowerDefenseGame::_Update()
 	InputProcess();
 
 	m_GameEventSystem->_Update();
+
+	m_CampSystem->_Update();
+
 	m_CharacterSystem->_Update();
 
 	m_GameStateInfoUI->_Update();
@@ -58,6 +65,9 @@ void Gameplay::TowerDefenseGame::_Release()
 {
 	m_GameEventSystem->_Release();
 	delete m_GameEventSystem;
+
+	m_CampSystem->_Release();
+	delete m_CampSystem;
 
 	m_CharacterSystem->_Release();
 	delete m_CharacterSystem;

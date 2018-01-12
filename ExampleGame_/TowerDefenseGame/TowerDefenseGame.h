@@ -9,8 +9,9 @@ namespace Engine
 
 namespace Gameplay
 {
-	class CharacterSystem;
 	class GameEventSystem;
+	class CharacterSystem;
+	class CampSystem;
 
 	class GameStateInfoUI;
 
@@ -32,6 +33,7 @@ namespace Gameplay
 		void _NotifyGameEvent(ENUM_GameEvent emGameEvent, void* i_Parameter);
 
 		GameEventSystem*	m_GameEventSystem = nullptr;
+		CampSystem*			m_CampSystem      = nullptr;
 		CharacterSystem*	m_CharacterSystem = nullptr;
 
 		GameStateInfoUI*	m_GameStateInfoUI = nullptr;
