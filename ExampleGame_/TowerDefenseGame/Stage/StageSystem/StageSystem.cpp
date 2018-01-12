@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-Gameplay::StageSystem::StageSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i_pTDGame), HP_PLAYER(10), HP_ENEMY(10)
+Gameplay::StageSystem::StageSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i_pTDGame), PLAYER_HP(10), AI_HP(10)
 {
 	m_pTDGame->_RegisterGameEvent(ENUM_GameEvent::EnemyTowerUnderAttack, new Gameplay::EnemyTowerAttackedObserverUI(this));
 	m_pTDGame->_RegisterGameEvent(ENUM_GameEvent::SoldierTowerUnderAttack, new Gameplay::SoldierTowerAttackedObserverUI(this));
@@ -56,32 +56,32 @@ void Gameplay::StageSystem::_RenderObjects(Engine::IGameScene * i_pScene) const
 
 void Gameplay::StageSystem::_SoldierTowerUnderAttack()
 {
-	m_pTDGame->_NotifyGameEvent(ENUM_GameEvent::SoldierTowerUnderAttack, &HP_PLAYER);
+	m_pTDGame->_NotifyGameEvent(ENUM_GameEvent::SoldierTowerUnderAttack, &PLAYER_HP);
 }
 
 void Gameplay::StageSystem::_EnemyTowerUnderAttack()
 {
-	m_pTDGame->_NotifyGameEvent(ENUM_GameEvent::EnemyTowerUnderAttack, &HP_ENEMY);
+	m_pTDGame->_NotifyGameEvent(ENUM_GameEvent::EnemyTowerUnderAttack, &AI_HP);
 }
 
-int Gameplay::StageSystem::_GetSoldierHP() const
+int Gameplay::StageSystem::_GetPlayerHP() const
 {
-	return HP_PLAYER;
+	return PLAYER_HP;
 }
 
-int Gameplay::StageSystem::_GetEnemyHP() const
+int Gameplay::StageSystem::_GetAIHP() const
 {
-	return HP_ENEMY;
+	return AI_HP;
 }
 
-void Gameplay::StageSystem::_SetSoldierHP(int i_HP)
+void Gameplay::StageSystem::_SetPlayerHP(int i_HP)
 {
-	HP_PLAYER = i_HP;
+	PLAYER_HP = i_HP;
 }
 
-void Gameplay::StageSystem::_SetEnemyHP(int i_HP)
+void Gameplay::StageSystem::_SetAIHP(int i_HP)
 {
-	HP_ENEMY = i_HP;
+	AI_HP = i_HP;
 }
 
 const Engine::Math::Vector4D<float>& Gameplay::StageSystem::_GetAttackPos_Soldier() const

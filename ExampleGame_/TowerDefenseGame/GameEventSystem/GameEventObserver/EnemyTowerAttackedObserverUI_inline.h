@@ -13,7 +13,7 @@ inline Gameplay::EnemyTowerAttackedObserverUI::EnemyTowerAttackedObserverUI(Stag
 
 void Gameplay::EnemyTowerAttackedObserverUI::_Update()
 {
-	m_pStageSystem->_SetEnemyHP(m_pStageSystem->_GetEnemyHP() - 1);
+	m_pStageSystem->_SetAIHP(m_pStageSystem->_GetAIHP() - 1);
 	std::cout << "Enemy Tower Under Attack" << std::endl;
 }
 

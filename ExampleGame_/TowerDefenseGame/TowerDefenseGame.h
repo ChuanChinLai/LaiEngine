@@ -38,6 +38,11 @@ namespace Gameplay
 		void _RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver* i_pObserver);
 		void _NotifyGameEvent(ENUM_GameEvent emGameEvent, void* i_pData);
 
+		/*StageSystem*/
+
+		int _GetPlayerHP()	const;
+		int _GetAIHP()		const;
+
 		/*CharacterSystem*/
 
 		void _AddSoldier(ICharacter * i_Soldier);

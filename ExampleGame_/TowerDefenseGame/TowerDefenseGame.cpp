@@ -111,6 +111,16 @@ void Gameplay::TowerDefenseGame::_NotifyGameEvent(ENUM_GameEvent emGameEvent, vo
 	m_pGameEventSystem->_NotifySubject(emGameEvent, i_pData);
 }
 
+int Gameplay::TowerDefenseGame::_GetPlayerHP() const
+{
+	return m_pStageSystem->_GetPlayerHP();
+}
+
+int Gameplay::TowerDefenseGame::_GetAIHP() const
+{
+	return m_pStageSystem->_GetAIHP();
+}
+
 void Gameplay::TowerDefenseGame::_AddSoldier(ICharacter * i_Soldier)
 {
 	if (m_pCharacterSystem != nullptr)

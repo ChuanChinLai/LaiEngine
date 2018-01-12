@@ -30,11 +30,11 @@ namespace Gameplay
 		void _SoldierTowerUnderAttack();
 		void _EnemyTowerUnderAttack();
 
-		int _GetSoldierHP() const;
-		int _GetEnemyHP()	const;
+		int _GetPlayerHP() const;
+		int _GetAIHP()	const;
 
-		void _SetSoldierHP(int i_HP);
-		void _SetEnemyHP(int i_HP);
+		void _SetPlayerHP(int i_HP);
+		void _SetAIHP(int i_HP);
 
 		const Engine::Math::Vector4D<float>& _GetAttackPos_Soldier() const;
 		const Engine::Math::Vector4D<float>& _GetAttackPos_Enemy()   const;
@@ -47,7 +47,7 @@ namespace Gameplay
 		Engine::Math::Vector4D<float> m_AttackPos_Soldier;
 		Engine::Math::Vector4D<float> m_AttackPos_Enemy;
 
-		int HP_PLAYER;
-		int HP_ENEMY;
+		int PLAYER_HP;
+		int AI_HP;
 	};
 }

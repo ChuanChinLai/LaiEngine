@@ -1,6 +1,9 @@
 #include "GameStateInfoUI.h"
 
+#include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
+
 #include <Engine\GameEngine\Includes.h>
+
 
 Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * i_pTDGame) : IUserInterface(i_pTDGame), m_pPlayerHP(nullptr), m_pEnemyHP(nullptr)
 {
@@ -22,14 +25,16 @@ void Gameplay::GameStateInfoUI::_Init()
 {
 	{
 		Engine::Asset::Text* pText = m_pPlayerHP->_GetComponent<Engine::Asset::Text>();
-		pText->_Create("100", Engine::Color::RED, 40, "Fonts/Font.ttf");
+		int HP = m_pTDGame->_GetPlayerHP();
+		pText->_Create(std::to_string(HP), Engine::Color::RED, 40, "Fonts/Font.ttf");
 		m_pPlayerHP->m_Position.x = 0;
 		m_pPlayerHP->m_Position.y = 0;
 	}
 
 	{
 		Engine::Asset::Text* pText = m_pEnemyHP->_GetComponent<Engine::Asset::Text>();
-		pText->_Create("100", Engine::Color::RED, 40, "Fonts/Font.ttf");
+		int HP = m_pTDGame->_GetAIHP();
+		pText->_Create(std::to_string(HP), Engine::Color::RED, 40, "Fonts/Font.ttf");
 		m_pEnemyHP->m_Position.x = 800;
 		m_pEnemyHP->m_Position.y = 0;
 	}
@@ -37,7 +42,17 @@ void Gameplay::GameStateInfoUI::_Init()
 
 void Gameplay::GameStateInfoUI::_Update()
 {
+	{
+		Engine::Asset::Text* pText = m_pPlayerHP->_GetComponent<Engine::Asset::Text>();
+		int HP = m_pTDGame->_GetPlayerHP();
+		pText->_Create(std::to_string(HP), Engine::Color::RED, 40, "Fonts/Font.ttf");
+	}
 
+	{
+		Engine::Asset::Text* pText = m_pEnemyHP->_GetComponent<Engine::Asset::Text>();
+		int HP = m_pTDGame->_GetAIHP();
+		pText->_Create(std::to_string(HP), Engine::Color::RED, 40, "Fonts/Font.ttf");
+	}
 }
 
 void Gameplay::GameStateInfoUI::_Release()

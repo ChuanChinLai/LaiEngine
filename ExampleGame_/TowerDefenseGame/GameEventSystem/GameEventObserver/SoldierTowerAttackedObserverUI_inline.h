@@ -13,7 +13,7 @@ inline Gameplay::SoldierTowerAttackedObserverUI::SoldierTowerAttackedObserverUI(
 
 void Gameplay::SoldierTowerAttackedObserverUI::_Update()
 {
-	m_pStageSystem->_SetSoldierHP(m_pStageSystem->_GetSoldierHP() - 1);
+	m_pStageSystem->_SetPlayerHP(m_pStageSystem->_GetPlayerHP() - 1);
 	std::cout << "Soldier Tower Under Attack" << std::endl;
 }
 
