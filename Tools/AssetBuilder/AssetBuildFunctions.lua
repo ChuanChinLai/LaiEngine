@@ -24,6 +24,7 @@ do
 	do 
 		local errorMessage
 		GameInstallDir, errorMessage = GetEnvironmentVariable("GameInstallDir")
+		CreateDirectoryIfItDoesntExist( GameInstallDir )
 		if not GameInstallDir then 
 			error(errorMessage)
 		end
@@ -53,6 +54,9 @@ do
 
 				local targetPath = GameInstallDir .. sourceFileName
 				
+				print( File ) 
+				print( targetPath )
+
 				local result, errorMessage = CopyFile(File, targetPath)
 
 				if result then

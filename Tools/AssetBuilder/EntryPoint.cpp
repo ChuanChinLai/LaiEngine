@@ -115,6 +115,8 @@ OnExit:
 		luaState = NULL;
 	}
 
+	system("Pause");
+
 	return exitCode;
 }
 
