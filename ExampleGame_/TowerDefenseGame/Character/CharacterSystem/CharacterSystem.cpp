@@ -44,16 +44,16 @@ void Gameplay::CharacterSystem::_Release()
 	}
 }
 
-void Gameplay::CharacterSystem::_RenderObjects(Engine::IGameScene * i_scene) const 
+void Gameplay::CharacterSystem::_RenderObjects(Engine::IGameScene * i_pScene) const
 {
 	for (const auto i : m_Soldiers)
 	{
-		Engine::SubmitGameObject(i_scene, i->_GetGameObject());
+		Engine::SubmitGameObject(i_pScene, i->_GetGameObject());
 	}
 
 	for (const auto i : m_Enemies)
 	{
-		Engine::SubmitGameObject(i_scene, i->_GetGameObject());
+		Engine::SubmitGameObject(i_pScene, i->_GetGameObject());
 	}
 }
 

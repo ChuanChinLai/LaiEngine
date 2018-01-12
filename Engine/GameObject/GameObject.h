@@ -37,7 +37,7 @@ namespace Engine
 			inline void _AddComponent();
 
 			template<typename T>
-			inline T* _GetComponent();
+			inline T*	_GetComponent();
 
 		private:
 

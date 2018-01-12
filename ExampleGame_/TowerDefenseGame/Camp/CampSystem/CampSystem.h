@@ -25,13 +25,13 @@ namespace Gameplay
 
 	public:
 
-		CampSystem(TowerDefenseGame* i_Game);
+		CampSystem(TowerDefenseGame* i_pTDGame);
 
 		virtual void _Init()	override;
 		virtual void _Update()	override;
 		virtual void _Release() override;
 
-		void _RenderObjects(Engine::IGameScene* i_scene) const;
+		void _RenderObjects(Engine::IGameScene* i_pScene) const;
 
 	private:
 

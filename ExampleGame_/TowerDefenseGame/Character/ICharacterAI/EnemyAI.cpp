@@ -3,11 +3,14 @@
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\IAIState\IAIState.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\IAIState\AttackState.h>
 
-Engine::Math::Vector4D<float> zero(0.0f, 0.0f, 0.0f);
+#include <ExampleGame_\TowerDefenseGame\Stage\StageSystem\StageSystem.h>
 
-Gameplay::EnemyAI::EnemyAI(ICharacter * i_Character) : ICharacterAI(i_Character)
+Gameplay::StageSystem* Gameplay::EnemyAI::m_pStageSystem = nullptr;
+
+Gameplay::EnemyAI::EnemyAI(ICharacter * i_pCharacter) : ICharacterAI(i_pCharacter)
 {
-	m_pAIState->_SetAttackPosition(zero);
+	m_AttackPosition = m_pStageSystem->_GetAttackPos_Enemy();
+	m_pAIState->_SetAttackPosition(m_AttackPosition);
 }
 
 Gameplay::EnemyAI::~EnemyAI()
@@ -15,14 +18,19 @@ Gameplay::EnemyAI::~EnemyAI()
 
 }
 
-void Gameplay::EnemyAI::ChangeAIState(IAIState * NewAIState)
+void Gameplay::EnemyAI::ChangeAIState(IAIState * i_pNewAIState)
 {
 	if (m_pAIState != nullptr)
 	{
 		delete m_pAIState;
 	}
 
-	m_pAIState = NewAIState;
+	m_pAIState = i_pNewAIState;
 	m_pAIState->_SetCharacterAI(this);
-	m_pAIState->_SetAttackPosition(zero);
+	m_pAIState->_SetAttackPosition(m_AttackPosition);
+}
+
+void Gameplay::EnemyAI::_SetStageSystem(StageSystem * i_pStageSystem)
+{
+	m_pStageSystem = i_pStageSystem;
 }

@@ -7,7 +7,7 @@
 #include <Engine\Math\Vector4D.h>
 
 
-Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_Character): m_pCharacter(i_Character), m_pAIState(nullptr)
+Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_pCharacter): m_pCharacter(i_pCharacter), m_pAIState(nullptr)
 {
 	m_pAIState = new AttackState();
 	m_pAIState->_SetCharacterAI(this);
@@ -18,14 +18,14 @@ Gameplay::ICharacterAI::~ICharacterAI()
 	delete m_pAIState;
 }
 
-void Gameplay::ICharacterAI::ChangeAIState(IAIState * NewAIState)
+void Gameplay::ICharacterAI::ChangeAIState(IAIState * i_pNewAIState)
 {
 	if (m_pAIState != nullptr)
 	{
 		delete m_pAIState;
 	}
 
-	m_pAIState = NewAIState;
+	m_pAIState = i_pNewAIState;
 	m_pAIState->_SetCharacterAI(this);
 }
 

@@ -12,10 +12,10 @@ namespace Gameplay
 	class ICharacterAI
 	{
 	public:
-		ICharacterAI(ICharacter* i_Character);
+		ICharacterAI(ICharacter* i_pCharacter);
 		virtual ~ICharacterAI();
 
-		virtual void ChangeAIState(IAIState* NewAIState);
+		virtual void ChangeAIState(IAIState* i_pNewAIState);
 
 		void _Update(const std::list<ICharacter*>& i_Targets);
 

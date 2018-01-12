@@ -2,12 +2,17 @@
 
 #include <Engine\Scene\IGameScene.h>
 #include <Engine\GameEngine\GameEngine.h>
+
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Enemy\Enemy.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\EnemyAI.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\SoldierAI.h>
+
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Soldier\Soldier.h>
 
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
 #include <ExampleGame_\TowerDefenseGame\Camp\CampSystem\CampSystem.h>
+#include <ExampleGame_\TowerDefenseGame\Stage\StageSystem\StageSystem.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterSystem\CharacterSystem.h>
 
 #include <ExampleGame_\TowerDefenseGame\UI\GameStateInfoUI\GameStateInfoUI.h>
@@ -41,11 +46,17 @@ void Gameplay::TowerDefenseGame::_Init()
 	m_pCampSystem = new CampSystem(this);
 	m_pCampSystem->_Init();
 
+	m_pStageSystem = new StageSystem(this);
+	m_pStageSystem->_Init();
+
 	m_pCharacterSystem = new CharacterSystem(this);
 	m_pCharacterSystem->_Init();
 
 	m_pGameStateInfoUI = new GameStateInfoUI(this);
 	m_pGameStateInfoUI->_Init();
+
+	EnemyAI::_SetStageSystem(m_pStageSystem);
+	SoldierAI::_SetStageSystem(m_pStageSystem);
 }
 
 void Gameplay::TowerDefenseGame::_Update()
@@ -55,6 +66,8 @@ void Gameplay::TowerDefenseGame::_Update()
 	m_pGameEventSystem->_Update();
 
 	m_pCampSystem->_Update();
+
+	m_pStageSystem->_Update();
 
 	m_pCharacterSystem->_Update();
 
@@ -69,6 +82,9 @@ void Gameplay::TowerDefenseGame::_Release()
 	m_pCampSystem->_Release();
 	delete m_pCampSystem;
 
+	m_pStageSystem->_Release();
+	delete m_pStageSystem;
+
 	m_pCharacterSystem->_Release();
 	delete m_pCharacterSystem;
 
@@ -78,6 +94,8 @@ void Gameplay::TowerDefenseGame::_Release()
 
 void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_pScene)
 {
+	m_pStageSystem->_RenderObjects(i_pScene);
+
 	m_pCharacterSystem->_RenderObjects(i_pScene);
 
 	m_pGameStateInfoUI->_RenderObjects(i_pScene);

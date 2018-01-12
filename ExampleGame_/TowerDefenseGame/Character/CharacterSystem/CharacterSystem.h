@@ -20,7 +20,7 @@ namespace Gameplay
 	{
 	public:
 
-		CharacterSystem(TowerDefenseGame* i_Game) : IGameSystem(i_Game)
+		CharacterSystem(TowerDefenseGame* i_pTDGame) : IGameSystem(i_pTDGame)
 		{
 
 		}
@@ -28,7 +28,7 @@ namespace Gameplay
 		void _Update()	override;
 		void _Release() override;
 
-		void _RenderObjects(Engine::IGameScene* i_scene) const;
+		void _RenderObjects(Engine::IGameScene* i_pScene) const;
 
 		void _AddSoldier(ICharacter* i_Soldier);
 		void _AddEnemy(ICharacter* i_Enemy);

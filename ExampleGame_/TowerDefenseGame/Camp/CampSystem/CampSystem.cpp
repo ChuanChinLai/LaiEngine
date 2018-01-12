@@ -8,7 +8,7 @@
 #include <iostream>
 #include <cassert>
 
-Gameplay::CampSystem::CampSystem(TowerDefenseGame * i_Game) : IGameSystem(i_Game)
+Gameplay::CampSystem::CampSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i_pTDGame)
 {
 
 }
@@ -54,7 +54,7 @@ void Gameplay::CampSystem::_Release()
 	}
 }
 
-void Gameplay::CampSystem::_RenderObjects(Engine::IGameScene * i_scene) const
+void Gameplay::CampSystem::_RenderObjects(Engine::IGameScene * i_pScene) const
 {
 
 }

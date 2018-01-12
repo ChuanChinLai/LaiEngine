@@ -10,8 +10,9 @@ namespace Engine
 namespace Gameplay
 {
 	class GameEventSystem;
-	class CharacterSystem;
 	class CampSystem;
+	class StageSystem;
+	class CharacterSystem;
 
 	class GameStateInfoUI;
 
@@ -44,13 +45,14 @@ namespace Gameplay
 
 		GameEventSystem*	m_pGameEventSystem = nullptr;
 		CampSystem*			m_pCampSystem      = nullptr;
+		StageSystem*        m_pStageSystem     = nullptr;
 		CharacterSystem*	m_pCharacterSystem = nullptr;
 		GameStateInfoUI*	m_pGameStateInfoUI = nullptr;
 
 	private:
 		TowerDefenseGame() {};
-		TowerDefenseGame(const TowerDefenseGame& i_Game);
-		TowerDefenseGame& operator = (const TowerDefenseGame& i_Game);
+		TowerDefenseGame(const TowerDefenseGame& i_TDGame);
+		TowerDefenseGame& operator = (const TowerDefenseGame& i_TDGame);
 
 		void InputProcess();
 

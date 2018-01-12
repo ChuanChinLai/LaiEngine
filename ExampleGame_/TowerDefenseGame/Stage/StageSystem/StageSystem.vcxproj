@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{7D5B6BA3-4591-4D48-9C16-6FFF9B7D75BA}</ProjectGuid>
+    <ProjectGuid>{9FA207C2-0365-4834-A0A7-C248BBCBDB9B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TowerDefenseGame</RootNamespace>
+    <RootNamespace>StageSystem</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -59,23 +59,23 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\ExampleGame.props" />
+    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\ExampleGame.props" />
+    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\ExampleGame.props" />
+    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\ExampleGame.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\Engine\EngineDefaults.props" />
-    <Import Project="..\ExampleGame.props" />
+    <Import Project="..\..\..\..\Engine\EngineDefaults.props" />
+    <Import Project="..\..\..\ExampleGame.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -155,27 +155,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="TowerDefenseGame.h" />
+    <ClInclude Include="StageSystem.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TowerDefenseGame.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Camp\CampSystem\CampSystem.vcxproj">
-      <Project>{b6eaa562-f355-47c7-a59e-17e96ce88dc0}</Project>
-    </ProjectReference>
-    <ProjectReference Include="Character\CharacterSystem\CharacterSystem.vcxproj">
-      <Project>{b1ce78c6-7029-4a06-af03-0b288d64897c}</Project>
-    </ProjectReference>
-    <ProjectReference Include="GameEventSystem\GameEventSystem.vcxproj">
-      <Project>{430e1ed2-f760-4ff3-880a-e0d7c12334a9}</Project>
-    </ProjectReference>
-    <ProjectReference Include="Stage\StageSystem\StageSystem.vcxproj">
-      <Project>{9fa207c2-0365-4834-a0a7-c248bbcbdb9b}</Project>
-    </ProjectReference>
-    <ProjectReference Include="UI\GameStateInfoUI\GameStateInfoUI.vcxproj">
-      <Project>{df823125-77c0-4cdb-98df-cff1eda448c4}</Project>
-    </ProjectReference>
+    <ClCompile Include="StageSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
