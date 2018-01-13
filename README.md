@@ -6,7 +6,7 @@ A TowerDefenseGame made by the engine.
 
 ### How to:
 
-* Environment Setup, Win10 and Visual Studio 2017
+* Environment setup: Win10 and Visual Studio 2017
 
 * Open TowerDefenseGame.sln
 
@@ -18,9 +18,9 @@ A TowerDefenseGame made by the engine.
 
 * Source code in LaiEngine/Engine
 
-* Heap Mamory Manager
-
 * Smart Pointer
+
+* TBA
 
 ## Gameplay Programming
 
@@ -28,4 +28,4 @@ A TowerDefenseGame made by the engine.
 
 * Using LaiEngine to make a TowerDefenseGame
 
-* Design Patterns
+* TBA
