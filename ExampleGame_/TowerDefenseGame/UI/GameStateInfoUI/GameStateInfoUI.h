@@ -30,5 +30,7 @@ namespace Gameplay
 
 		Engine::Asset::GameObject*   m_pPlayerHP;
 		Engine::Asset::GameObject*   m_pEnemyHP;
+
+		Engine::Asset::GameObject*   m_pFPS;
 	};
 }

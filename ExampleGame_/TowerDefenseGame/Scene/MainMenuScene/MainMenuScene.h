@@ -19,5 +19,11 @@ namespace Engine
 		void _Update()	override;
 		void _Release() override;
 		void _SubmitDataToBeRendered() override;
+
+
+	private:
+
+		Engine::Asset::GameObject*   m_pTitle = nullptr;
+		Engine::Asset::GameObject*   m_pStart = nullptr;
 	};
 }
