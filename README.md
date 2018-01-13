@@ -4,7 +4,7 @@ A homemade 2D game engine written in C++ using [Simple DirectMedia Layer](https:
 
 A TowerDefenseGame made by the engine.
 
-###How to:
+### How to:
 
 * Environment Setup, Win10 and Visual Studio 2017
 
