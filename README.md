@@ -1,4 +1,3 @@
 # TowerDefenseGame
 
-Game Engine with SDL 2.0
-This is a Game Engine designed by using Simple DirectMedia Layer (SDL 2.0).
+A homemade 2D game engine written in C++ using [Simple DirectMedia Layer](https://www.libsdl.org/) (SDL 2.0).
