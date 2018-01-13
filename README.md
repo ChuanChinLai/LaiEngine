@@ -10,9 +10,9 @@ A TowerDefenseGame made by the engine.
 
 * Open TowerDefenseGame.sln
 
-* Find **ExampleGame** project and **BuildExampleGameAssets** project in Solution Explorer
+* Build the**ExampleGame** project and **BuildExampleGameAssets** project in Solution Explorer
 
-* Build the projects and run the .exe in LaiEngine/temp/($Platform)/$(Configuration)/ExampleGame_
+* Run the .exe in LaiEngine/temp/($Platform)/$(Configuration)/ExampleGame_
 
 ## Engine Programming
 

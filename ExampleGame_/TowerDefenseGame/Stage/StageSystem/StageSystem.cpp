@@ -11,13 +11,14 @@ Gameplay::StageSystem::StageSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i
 {
 	m_pTDGame->_RegisterGameEvent(ENUM_GameEvent::EnemyTowerUnderAttack, new Gameplay::EnemyTowerAttackedObserverUI(m_pTDGame, this));
 	m_pTDGame->_RegisterGameEvent(ENUM_GameEvent::SoldierTowerUnderAttack, new Gameplay::SoldierTowerAttackedObserverUI(m_pTDGame, this));
-
-	m_pTower_Soldier = new Engine::Asset::GameObject();
-	m_pTower_Enemy   = new Engine::Asset::GameObject();
 }
 
 void Gameplay::StageSystem::_Init()
 {
+	m_pTower_Soldier = new Engine::Asset::GameObject();
+	m_pTower_Enemy	 = new Engine::Asset::GameObject();
+
+
 	m_AttackPos_Soldier = Engine::Math::Vector4D<float>(550, 300, 0);
 	m_AttackPos_Enemy   = Engine::Math::Vector4D<float>(250, 300, 0);
 

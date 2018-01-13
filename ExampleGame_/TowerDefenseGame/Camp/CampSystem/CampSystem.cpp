@@ -47,11 +47,15 @@ void Gameplay::CampSystem::_Release()
 			delete Camp.second;
 	}
 
+	m_SoldierCamps.clear();
+
 	for (const auto Camp : m_EnemyCamps)
 	{
 		if (Camp.second != nullptr)
 			delete Camp.second;
 	}
+
+	m_EnemyCamps.clear();
 }
 
 void Gameplay::CampSystem::_RenderObjects(Engine::IGameScene * i_pScene) const

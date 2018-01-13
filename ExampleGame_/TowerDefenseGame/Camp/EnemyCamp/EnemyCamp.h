@@ -15,7 +15,7 @@ namespace Gameplay
 
 	private:
 
-		float		m_Time;
-		const float m_SpawnTime = 2.0f;
+		const float m_MaxSpawnTime = 3.0f;
+		float m_Time;;
 	};
 }

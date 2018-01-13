@@ -4,10 +4,12 @@
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 
 #include <Engine\GameEngine\Includes.h>
+#include <ctime>
 
-Gameplay::EnemyCamp::EnemyCamp(const Engine::Math::Vector4D<float>& i_Position, std::string i_SpriteName): ICamp(i_Position, i_SpriteName), m_Time(m_SpawnTime)
+
+Gameplay::EnemyCamp::EnemyCamp(const Engine::Math::Vector4D<float>& i_Position, std::string i_SpriteName): ICamp(i_Position, i_SpriteName), m_Time(2.0f)
 {
-
+	srand(static_cast <unsigned> (time(0)));
 }
 
 Gameplay::EnemyCamp::~EnemyCamp()
@@ -22,7 +24,8 @@ void Gameplay::EnemyCamp::_RunCommand()
 	if (m_Time > 0)
 		return;
 
-	m_Time = m_SpawnTime;
+	m_Time = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / m_MaxSpawnTime));
+	
 
 	ICharacter* pNewCharacter = new Enemy();
 	pNewCharacter->_Init();

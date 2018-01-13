@@ -2,6 +2,7 @@
 
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 #include <ExampleGame_\TowerDefenseGame\Scene\MainMenuScene\MainMenuScene.h>
+#include <ExampleGame_\TowerDefenseGame\Scene\EndingScene\EndingScene.h>
 
 void Engine::GamingScene::_Init()
 {
@@ -19,7 +20,7 @@ void Engine::GamingScene::_Update()
 
 	if (m_TowerDefenseGame->_IsGameOver())
 	{
-		m_pSceneManager->_SetGameScene(new MainMenuScene(m_pSceneManager));
+		m_pSceneManager->_SetGameScene(new EndingScene(m_pSceneManager, m_TowerDefenseGame->_WinTheGame()));
 	}
 }
 
@@ -28,7 +29,7 @@ void Engine::GamingScene::_Release()
 //	std::cout << "_Release: " << m_Name << std::endl;
 
 	m_TowerDefenseGame->_Release();
-	delete m_TowerDefenseGame;
+	m_TowerDefenseGame = Gameplay::TowerDefenseGame::_Delete();
 }
 
 void Engine::GamingScene::_SubmitDataToBeRendered()

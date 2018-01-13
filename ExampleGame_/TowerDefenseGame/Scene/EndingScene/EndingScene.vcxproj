@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{3D41AE96-3ADC-40BE-A998-E366806F29DD}</ProjectGuid>
+    <ProjectGuid>{3B571B02-7B4A-470C-A6F3-84271634A086}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>GamingScene</RootNamespace>
+    <RootNamespace>EndingScene</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -155,18 +155,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GamingScene.cpp" />
+    <ClInclude Include="EndingScene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GamingScene.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\TowerDefenseGame.vcxproj">
-      <Project>{7d5b6ba3-4591-4d48-9c16-6fff9b7d75ba}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\EndingScene\EndingScene.vcxproj">
-      <Project>{3b571b02-7b4a-470c-a6f3-84271634a086}</Project>
-    </ProjectReference>
+    <ClCompile Include="EndingScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

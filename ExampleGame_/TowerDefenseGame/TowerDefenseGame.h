@@ -27,12 +27,8 @@ namespace Gameplay
 	{
 	public:
 
-		~TowerDefenseGame()
-		{
-			s_pTowerDefenseGame = nullptr;
-		}
-
 		static TowerDefenseGame* _Create();
+		static TowerDefenseGame* _Delete();
 		static TowerDefenseGame* _Get();
 
 		void _Init();
@@ -68,6 +64,7 @@ namespace Gameplay
 
 	private:
 		TowerDefenseGame() {};
+		~TowerDefenseGame() {};
 		TowerDefenseGame(const TowerDefenseGame& i_TDGame);
 		TowerDefenseGame& operator = (const TowerDefenseGame& i_TDGame);
 

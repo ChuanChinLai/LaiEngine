@@ -33,6 +33,18 @@ Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::_Create()
 	return s_pTowerDefenseGame;
 }
 
+Gameplay::TowerDefenseGame * Gameplay::TowerDefenseGame::_Delete()
+{
+	if (s_pTowerDefenseGame != nullptr)
+	{
+		delete s_pTowerDefenseGame;
+
+		s_pTowerDefenseGame = nullptr;
+	}
+
+	return nullptr;
+}
+
 Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::_Get()
 {
 	return s_pTowerDefenseGame;

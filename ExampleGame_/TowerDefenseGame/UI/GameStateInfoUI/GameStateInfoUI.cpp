@@ -7,38 +7,33 @@
 
 Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * i_pTDGame) : IUserInterface(i_pTDGame), m_pPlayerHP(nullptr), m_pEnemyHP(nullptr), m_pFPS(nullptr)
 {
-	m_pPlayerHP = new Engine::Asset::GameObject();
-	m_pPlayerHP->_AddComponent<Engine::Asset::Text>();
 
-
-	m_pEnemyHP = new Engine::Asset::GameObject();
-	m_pEnemyHP->_AddComponent<Engine::Asset::Text>();
-
-	m_pFPS = new Engine::Asset::GameObject();
-	m_pFPS->_AddComponent<Engine::Asset::Text>();
 }
 
 Gameplay::GameStateInfoUI::~GameStateInfoUI()
 {
-	delete m_pPlayerHP;
-	delete m_pEnemyHP;
 
-	delete m_pFPS;
 }
 
 void Gameplay::GameStateInfoUI::_Init()
 {
 	{
+		m_pPlayerHP = new Engine::Asset::GameObject();
+		m_pPlayerHP->_AddComponent<Engine::Asset::Text>();
 		m_pPlayerHP->m_Position.x = 0;
 		m_pPlayerHP->m_Position.y = 0;
 	}
 
 	{
+		m_pEnemyHP = new Engine::Asset::GameObject();
+		m_pEnemyHP->_AddComponent<Engine::Asset::Text>();
 		m_pEnemyHP->m_Position.x = 800;
 		m_pEnemyHP->m_Position.y = 0;
 	}
 
 	{
+		m_pFPS = new Engine::Asset::GameObject();
+		m_pFPS->_AddComponent<Engine::Asset::Text>();
 		m_pFPS->m_Position.x = 800;
 		m_pFPS->m_Position.y = 600;
 	}
@@ -67,7 +62,10 @@ void Gameplay::GameStateInfoUI::_Update()
 
 void Gameplay::GameStateInfoUI::_Release()
 {
+	delete m_pPlayerHP;
+	delete m_pEnemyHP;
 
+	delete m_pFPS;
 }
 
 void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene)
