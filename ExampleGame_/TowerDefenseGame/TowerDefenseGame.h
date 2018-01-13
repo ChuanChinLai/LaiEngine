@@ -27,6 +27,11 @@ namespace Gameplay
 	{
 	public:
 
+		~TowerDefenseGame()
+		{
+			s_pTowerDefenseGame = nullptr;
+		}
+
 		static TowerDefenseGame* _Create();
 		static TowerDefenseGame* _Get();
 

@@ -20,6 +20,9 @@ namespace Engine
 			m_Name = "GamingScene";
 		};
 
+		~GamingScene();
+
+
 		void _Init()	override;
 		void _Update()	override;
 		void _Release() override;

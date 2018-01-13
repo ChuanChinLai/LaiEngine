@@ -12,27 +12,28 @@ namespace Engine
 
 	}
 
-	inline void SubmitBackgroundColor(IGameScene* i_scene, uint8_t R, uint8_t G, uint8_t B, uint8_t A)
+	inline void SubmitBackgroundColor(IGameScene* i_pScene, uint8_t R, uint8_t G, uint8_t B, uint8_t A)
 	{
-		i_scene->m_RenderedData.BackgroundColor.R = R;
-		i_scene->m_RenderedData.BackgroundColor.G = G;
-		i_scene->m_RenderedData.BackgroundColor.B = B;
-		i_scene->m_RenderedData.BackgroundColor.A = A;
+		i_pScene->m_RenderedData.BackgroundColor.R = R;
+		i_pScene->m_RenderedData.BackgroundColor.G = G;
+		i_pScene->m_RenderedData.BackgroundColor.B = B;
+		i_pScene->m_RenderedData.BackgroundColor.A = A;
 	}
 
-	void SubmitBackgroundColor(IGameScene * i_scene, Color i_Color)
+	void SubmitBackgroundColor(IGameScene * i_pScene, Color i_Color)
 	{
-		i_scene->m_RenderedData.BackgroundColor = i_Color;
+		i_pScene->m_RenderedData.BackgroundColor = i_Color;
 	}
 
 
-	void SubmitGameObject(IGameScene * i_scene, Asset::GameObject * i_object, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
+	void SubmitGameObject(IGameScene * i_pScene, Asset::GameObject* i_pGameObject, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
 	{
+		if (i_pGameObject == nullptr)
+			return;
+
 		std::pair<Asset::Alignment, Asset::Alignment> alignment = { i_Align_X, i_Align_Y };
-
-		i_scene->m_RenderedData.Alignment_GameObjects.push_back(alignment);
-
-		i_scene->m_RenderedData.GameObjects.push_back(i_object);
+		i_pScene->m_RenderedData.Alignment_GameObjects.push_back(alignment);
+		i_pScene->m_RenderedData.GameObjects.push_back(i_pGameObject);
 	}
 
 }

@@ -40,6 +40,10 @@ Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::_Get()
 
 void Gameplay::TowerDefenseGame::_Init()
 {
+	m_IsGameOver = false;
+	m_WinTheGame = false;
+
+
 	m_pGameEventSystem = new GameEventSystem(this);
 	m_pGameEventSystem->_Init();
 

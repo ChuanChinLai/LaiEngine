@@ -3,7 +3,6 @@
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 #include <ExampleGame_\TowerDefenseGame\Scene\MainMenuScene\MainMenuScene.h>
 
-
 void Engine::GamingScene::_Init()
 {
 //	std::cout << "_Init: " << m_Name << std::endl;

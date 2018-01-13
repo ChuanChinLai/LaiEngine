@@ -45,10 +45,10 @@ namespace Engine
 	};
 
 
-	inline void SubmitBackgroundColor(IGameScene* i_scene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
-	inline void SubmitBackgroundColor(IGameScene* i_scene, Color i_Color);
+	inline void SubmitBackgroundColor(IGameScene* i_pScene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
+	inline void SubmitBackgroundColor(IGameScene* i_pScene, Color i_Color);
 
-	inline void SubmitGameObject(IGameScene* i_scene, Asset::GameObject* i_object, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
+	inline void SubmitGameObject(IGameScene* i_pScene, Asset::GameObject* i_pGameObject, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
 }
 
 #include "IGameScene_inline.h"
