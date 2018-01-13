@@ -6,7 +6,7 @@
 #include <Engine\GameEngine\Includes.h>
 #include <iostream>
 
-Gameplay::SoldierCamp::SoldierCamp(const Engine::Math::Vector4D<float>& i_Position, SDL_Scancode i_Code, std::string i_SpriteName) : ICamp(i_Position, i_SpriteName), m_CommandCode(i_Code)
+Gameplay::SoldierCamp::SoldierCamp(const Engine::Math::Vector4D<float>& i_Position, std::string i_SpriteName) : ICamp(i_Position, i_SpriteName)
 {
 
 }
@@ -31,4 +31,9 @@ void Gameplay::SoldierCamp::_RunCommand()
 
 		m_pTDGame->_AddSoldier(pNewCharacter);
 	}
+}
+
+void Gameplay::SoldierCamp::_SetCommandCode(SDL_Scancode i_CommandCode)
+{
+	m_CommandCode = i_CommandCode;
 }

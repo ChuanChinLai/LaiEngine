@@ -214,9 +214,11 @@
   <ItemGroup>
     <ClCompile Include="EngineDemo.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineDemo.h" />
+    <ClInclude Include="Test.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Engine\GameEngine\GameEngine.vcxproj">
@@ -224,6 +226,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Engine\GameObject\GameObject.vcxproj">
       <Project>{b3e4fa76-d217-4318-99ea-b32d4ec751ba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\External\Lua\LuaLib.vcxproj">
+      <Project>{a506e35d-bb34-468d-82cd-112386be29d1}</Project>
     </ProjectReference>
     <ProjectReference Include="..\TowerDefenseGame\Scene\GamingScene\GamingScene.vcxproj">
       <Project>{3d41ae96-3adc-40be-a998-e366806f29dd}</Project>

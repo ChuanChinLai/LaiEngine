@@ -5,7 +5,11 @@
 
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IGameSystem\IGameSystem.h>
 
+#include <External\SDL2\Includes.h>
+#include <External\Lua\Includes.h>
+
 #include <unordered_map>
+#include <string>
 
 namespace Engine
 {
@@ -35,8 +39,13 @@ namespace Gameplay
 
 	private:
 
-		SoldierCamp* SoldierCampFactory(Soldier::TYPE emSoldier);
-		EnemyCamp*	 EnemyCampFactory(Enemy::TYPE emEnemy);
+		SDL_Scancode SoldierCampFactory(Soldier::TYPE emSoldier);
+
+		bool _LoadCampDataFromLua(std::string i_FilePath);
+		bool _LoadCampTableValues(lua_State& io_luaState);
+
+		bool _LoadSoldierCampTableValues(lua_State& io_luaState);
+		bool _LoadEnemyCampTableValues(lua_State& io_luaState);
 
 		std::unordered_map<Soldier::TYPE, ICamp*>	m_SoldierCamps;
 		std::unordered_map<Enemy::TYPE, ICamp*>		m_EnemyCamps;

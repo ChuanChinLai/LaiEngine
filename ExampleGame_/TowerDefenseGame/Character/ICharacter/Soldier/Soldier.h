@@ -10,9 +10,10 @@ namespace Gameplay
 
 		enum TYPE
 		{
-			RED, 
-			GREEN, 
-			BLUE, 
+			S1 = 1,
+			S2,
+			S3,
+			TOTAL,
 		};
 
 		Soldier();

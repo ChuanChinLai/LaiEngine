@@ -2,15 +2,15 @@
 
 A homemade 2D game engine written in C++ using [Simple DirectMedia Layer](https://www.libsdl.org/) (SDL 2.0).
 
-A TowerDefenseGame made by the engine.
+A Tower Defense Game made by the engine.
 
 ### How to:
 
 * Environment setup: Win10 and Visual Studio 2017
 
-* Open TowerDefenseGame.sln
+* Open the TowerDefenseGame.sln
 
-* Build the**ExampleGame** project and **BuildExampleGameAssets** project in Solution Explorer
+* Build the **ExampleGame** project and **BuildExampleGameAssets** project in Solution Explorer
 
 * Run the .exe in LaiEngine/temp/($Platform)/$(Configuration)/ExampleGame_
 

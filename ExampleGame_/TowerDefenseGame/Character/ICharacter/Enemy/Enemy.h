@@ -10,9 +10,10 @@ namespace Gameplay
 
 		enum TYPE
 		{
-			PINK,
-			YELLOW,
-			GRAY, 
+			E1 = 1,
+			E2,
+			E3, 
+			TOTAL, 
 		};
 
 		Enemy();

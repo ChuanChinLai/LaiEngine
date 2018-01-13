@@ -121,6 +121,32 @@ do
 		end
 	end
 
+
+	--Copy Gameplay Assets
+	do
+		local errorMessage
+
+		local sourceFilePath = EngineSourceContentDir .. "Gameplay\\"
+		local builtPath = GameInstallDir .. "Gameplay\\"
+
+		CreateDirectoryIfItDoesntExist( builtPath )
+
+		local Files = GetFilesInDirectory( sourceFilePath )
+
+		for i, File in ipairs( Files ) do
+			local sourceFileName = File:sub( #sourceFilePath + 1 )
+			local targetPath = builtPath .. sourceFileName
+				
+			local result, errorMessage = CopyFile(File, targetPath)
+
+			if result then
+				print( "Copied " .. sourceFileName )
+			else
+				OutputMessage( "The file couldn't be copied to \"" .. targetPath .. "\": " .. errorMessage )
+			end
+		end
+	end
+
 end
 
 

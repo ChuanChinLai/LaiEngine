@@ -33,6 +33,26 @@ inline float Gameplay::CharacterAttr::_GetSpeed() const
 	return m_MoveSpeed;
 }
 
+inline void Gameplay::CharacterAttr::_SetHP(float i_HP)
+{
+	m_NowHP = m_MaxHP = i_HP;
+}
+
+inline void Gameplay::CharacterAttr::_SetATK(float i_ATK)
+{
+	m_ATK = i_ATK;
+}
+
+inline void Gameplay::CharacterAttr::_SetDEF(float i_DEF)
+{
+	m_DEF = i_DEF;
+}
+
+inline void Gameplay::CharacterAttr::_SetSpeed(float i_Speed)
+{
+	m_MoveSpeed = i_Speed;
+}
+
 inline void Gameplay::CharacterAttr::_CallDamageValue(ICharacter * Attacker)
 {
 	float Damage = Attacker->_GetATK() - m_DEF;

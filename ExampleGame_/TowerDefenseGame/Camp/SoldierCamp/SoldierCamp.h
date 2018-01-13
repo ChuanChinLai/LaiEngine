@@ -9,11 +9,12 @@ namespace Gameplay
 	{
 	public:
 
-		SoldierCamp(const Engine::Math::Vector4D<float>& i_Position, SDL_Scancode i_Code, std::string i_SpriteName);
+		SoldierCamp(const Engine::Math::Vector4D<float>& i_Position, std::string i_SpriteName);
 		~SoldierCamp();
 
 		virtual void _RunCommand() override;
 
+		void _SetCommandCode(SDL_Scancode i_CommandCode);
 
 	private:
 
