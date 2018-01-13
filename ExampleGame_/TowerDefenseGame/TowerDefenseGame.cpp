@@ -101,6 +101,22 @@ void Gameplay::TowerDefenseGame::_RenderObjects(Engine::IGameScene * i_pScene)
 	m_pGameStateInfoUI->_RenderObjects(i_pScene);
 }
 
+bool Gameplay::TowerDefenseGame::_IsGameOver()
+{
+	return m_IsGameOver;
+}
+
+void Gameplay::TowerDefenseGame::_GameOver(const bool WinTheGame)
+{
+	m_IsGameOver = true;
+	m_WinTheGame = WinTheGame;
+}
+
+bool Gameplay::TowerDefenseGame::_WinTheGame()
+{
+	return m_WinTheGame;
+}
+
 void Gameplay::TowerDefenseGame::_RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver * i_pObserver)
 {
 	m_pGameEventSystem->_RegisterObserver(emGameEvent, i_pObserver);

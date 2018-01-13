@@ -11,7 +11,7 @@ namespace Gameplay
 	{
 	public:
 
-		SoldierTowerAttackedObserverUI(StageSystem* i_pStageSystem);
+		SoldierTowerAttackedObserverUI(TowerDefenseGame* i_pTDGame, StageSystem* i_pStageSystem);
 
 		virtual void _Update() override;
 		virtual void _SetSubject(IGameEventSubject* i_Subject) override;
@@ -19,7 +19,9 @@ namespace Gameplay
 	private:
 
 		SoldierTowerAttackedSubject * m_pSubject = nullptr;
-		StageSystem * m_pStageSystem;
+		TowerDefenseGame * m_pTDGame = nullptr;
+		StageSystem * m_pStageSystem = nullptr;
+
 	};
 }
 

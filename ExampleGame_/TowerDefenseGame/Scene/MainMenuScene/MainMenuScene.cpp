@@ -8,6 +8,11 @@
 #include <string>
 
 
+Engine::MainMenuScene::MainMenuScene(SceneManager * i_pSceneManager) : IGameScene(i_pSceneManager)
+{
+		m_Name = "MainMenu";
+}
+
 void Engine::MainMenuScene::_Init()
 {
 //	std::cout << "_Init: " << m_Name << std::endl;

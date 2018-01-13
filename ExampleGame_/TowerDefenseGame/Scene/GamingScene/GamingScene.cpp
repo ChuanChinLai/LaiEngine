@@ -1,6 +1,8 @@
 #include "GamingScene.h"
 
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
+#include <ExampleGame_\TowerDefenseGame\Scene\MainMenuScene\MainMenuScene.h>
+
 
 void Engine::GamingScene::_Init()
 {
@@ -15,6 +17,11 @@ void Engine::GamingScene::_Update()
 {
 //	std::cout << "_Update: " << m_Name << std::endl;
 	m_TowerDefenseGame->_Update();
+
+	if (m_TowerDefenseGame->_IsGameOver())
+	{
+		m_pSceneManager->_SetGameScene(new MainMenuScene(m_pSceneManager));
+	}
 }
 
 void Engine::GamingScene::_Release()

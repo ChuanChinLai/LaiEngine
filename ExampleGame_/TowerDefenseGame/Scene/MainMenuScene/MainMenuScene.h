@@ -10,10 +10,7 @@ namespace Engine
 	{
 	public:
 
-		MainMenuScene(SceneManager* i_pSceneManager) : IGameScene(i_pSceneManager)
-		{
-			m_Name = "MainMenu";
-		};
+		MainMenuScene(SceneManager* i_pSceneManager);
 
 		void _Init()	override;
 		void _Update()	override;

@@ -35,8 +35,15 @@ namespace Gameplay
 		void _Release();
 		void _RenderObjects(Engine::IGameScene* i_pScene);
 
+		bool _IsGameOver();
+		void _GameOver(const bool WinTheGame);
+		bool _WinTheGame();
+
+		/*Event System*/
+
 		void _RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver* i_pObserver);
 		void _NotifyGameEvent(ENUM_GameEvent emGameEvent, void* i_pData);
+
 
 		/*StageSystem*/
 
@@ -62,5 +69,8 @@ namespace Gameplay
 		void InputProcess();
 
 		static TowerDefenseGame* s_pTowerDefenseGame;
+
+		bool m_IsGameOver = false;
+		bool m_WinTheGame = false;
 	};
 }
