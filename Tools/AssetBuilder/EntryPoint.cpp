@@ -24,14 +24,6 @@ namespace
 	// and then return how many there are.
 	// There will be more explanation in the examples.
 
-	int ExampleFunction(lua_State* io_luaState);
-	int ExamplePrint(lua_State* io_luaState);
-	int ExampleDouble(lua_State* io_luaState);
-	int ExampleAdd(lua_State* io_luaState);
-	int ExampleStats(lua_State* io_luaState);
-	int ExampleError(lua_State* io_luaState);
-	int ExampleErrorChecking(lua_State* io_luaState);
-
 	int LuaGetEnvironmentVariable(lua_State* io_luaState);
 	int LuaCopyFile(lua_State* io_luaState);
 	int LuaCreateDirectoryIfItDoesntExist(lua_State* io_luaState);
@@ -63,14 +55,6 @@ int main(int i_argumentCount, char** i_arguments)
 	// (this sets the function as a global variable
 	// using the name provided)
 	{
-		lua_register(luaState, "ExampleFunction", ExampleFunction);
-		lua_register(luaState, "ExamplePrint", ExamplePrint);
-		lua_register(luaState, "ExampleDouble", ExampleDouble);
-		lua_register(luaState, "ExampleAdd", ExampleAdd);
-		lua_register(luaState, "ExampleStats", ExampleStats);
-		lua_register(luaState, "ExampleError", ExampleError);
-		lua_register(luaState, "ExampleErrorChecking", ExampleErrorChecking);
-
 		lua_register(luaState, "GetEnvironmentVariable", LuaGetEnvironmentVariable);
 		lua_register(luaState, "CopyFile", LuaCopyFile);
 		lua_register(luaState, "CreateDirectoryIfItDoesntExist", LuaCreateDirectoryIfItDoesntExist);
@@ -125,135 +109,6 @@ OnExit:
 
 namespace
 {
-	int ExampleFunction(lua_State* io_luaState)
-	{
-		// This function doesn't use any input parameters:
-		std::cout << "This statement will be displayed when this function is called" << std::endl;
-
-		// This function doesn't return any values:
-		constexpr int returnValueCount = 0;
-		return returnValueCount;
-	}
-
-	int ExamplePrint(lua_State* io_luaState)
-	{
-		const auto* const i_value = lua_tostring(io_luaState, 1);
-
-		std::cout << "The input parameter to ExamplePrint() is " << i_value << std::endl;
-
-		// This function doesn't return any values:
-		constexpr int returnValueCount = 0;
-		return returnValueCount;
-	}
-
-	int ExampleDouble(lua_State* io_luaState)
-	{
-		// This function expects a single input parameter:
-		const auto i_value = lua_tonumber(io_luaState, 1);
-
-		// This function has a single return value
-		const auto o_value = i_value + i_value;
-
-		// Values to return should be pushed on the stack in order.
-		// For example, if a function were called from Lua like this:
-		//	* returnValue1, returnValue2, returnValue3 = SomeFunction()
-		// Then in the SomeFunction() C/C++ code returnValue1 would be pushed first,
-		// returnValue2 pushed next, and returnValue3 pushed last.
-
-		// In the case of this specific function, then,
-		// we push the return value:
-		lua_pushnumber(io_luaState, o_value);
-
-		// And return how many values that we pushed:
-		constexpr int returnValueCount = 1;
-		return returnValueCount;
-	}
-
-	int ExampleAdd(lua_State* io_luaState)
-	{
-		// This function expects multiple input parameters:
-		const auto i_value1 = lua_tonumber(io_luaState, 1);
-		const auto i_value2 = lua_tonumber(io_luaState, 2);
-
-		const auto o_value = i_value1 + i_value2;
-		lua_pushnumber(io_luaState, o_value);
-		constexpr int returnValueCount = 1;
-		return returnValueCount;
-	}
-
-	int ExampleStats(lua_State* io_luaState)
-	{
-		const auto i_value1 = lua_tonumber(io_luaState, 1);
-		const auto i_value2 = lua_tonumber(io_luaState, 2);
-		const auto i_value3 = lua_tonumber(io_luaState, 3);
-		const auto i_value4 = lua_tonumber(io_luaState, 4);
-
-		// This function has multiple return values:
-		const auto o_sum = i_value1 + i_value2 + i_value3 + i_value4;
-		const auto o_product = i_value1 * i_value2 * i_value3 * i_value4;
-		const auto o_average = o_sum / 4.0;
-
-		lua_pushnumber(io_luaState, o_sum);
-		lua_pushnumber(io_luaState, o_product);
-		lua_pushnumber(io_luaState, o_average);
-
-		constexpr int returnValueCount = 3;
-		return returnValueCount;
-	}
-
-	int ExampleError(lua_State* io_luaState)
-	{
-		// You don't need to understand what the following line does;
-		// it is an illegal call (like dereferencing a NULL pointer in C/C++)
-		// and will cause Lua to throw an error
-		lua_gettable(io_luaState, 1);
-
-		// After the previous statement this function will jump to a Lua error handler
-		// (like when a C++ exception is thrown)
-		// and any code that follows won't actually be executed
-
-		constexpr int returnValueCount = 0;
-		return returnValueCount;
-	}
-
-	int ExampleErrorChecking(lua_State* io_luaState)
-	{
-		// This hypothetical function expects a string for an argument
-		const auto type = lua_type(io_luaState, 1);
-		if (type == LUA_TSTRING)
-		{
-			std::cout << "A string was correctly passed as argument #1 to ExampleErrorChecking()" << std::endl;
-		}
-		else
-		{
-			// You can throw an error from C just like you can in Lua using the error() function:
-
-
-			lua_pushboolean(io_luaState, false);
-			lua_pushstring(io_luaState, "Wrong Type");
-
-			constexpr int returnValueCount = 2;
-			return returnValueCount;
-
-			/*
-			return luaL_error( io_luaState,
-			"A %s was incorrectly passed as argument #1 to ExampleErrorChecking() "
-			"(instead of a string)", lua_typename( io_luaState, type ) );
-			*/
-
-
-			// Note that neither lua_error() nor luaL_error() actually return;
-			// they jump to a Lua error handler just like what is discussed
-			// in the comments of the ExampleError() function.
-			// It is idiomatic Lua to return the result as shown above,
-			// but if you step through the code in a debugger
-			// you will see that the function doesn't actually return.
-		}
-
-		constexpr int returnValueCount = 0;
-		return returnValueCount;
-	}
-
 	int LuaGetEnvironmentVariable(lua_State* io_luaState)
 	{
 		// Argument #1: The key

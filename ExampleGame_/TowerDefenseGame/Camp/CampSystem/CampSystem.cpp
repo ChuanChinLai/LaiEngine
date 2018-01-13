@@ -18,7 +18,10 @@ Gameplay::CampSystem::CampSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i_p
 
 void Gameplay::CampSystem::_Init()
 {
-	_LoadCampDataFromLua("Gameplay/CampData.lua");
+	if(_LoadCampDataFromLua("Gameplay/CampData.lua") == false)
+	{
+		assert(false);
+	}
 }
 
 void Gameplay::CampSystem::_Update()

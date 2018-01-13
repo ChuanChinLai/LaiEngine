@@ -52,5 +52,3 @@ public:
 		std::cout << "derived vcall" << std::endl;
 	}
 };
-
-extern bool _LoadCampDataFromLua(std::string i_FilePath);

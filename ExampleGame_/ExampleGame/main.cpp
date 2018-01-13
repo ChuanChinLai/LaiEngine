@@ -4,11 +4,13 @@
 #include <Engine\Math\Vector4D.h>
 
 #include "Test.h"
+#include <Engine\Tool\Tool.h>
 #include <ExampleGame_\TowerDefenseGame\Camp\CampSystem\CampSystem.h>
 
 
 int main(int argc, char *args[])
 {
+
 	Engine::EngineDemo* Game = new Engine::EngineDemo();
 
 	if (!Game->_Init())

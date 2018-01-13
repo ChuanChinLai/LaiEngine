@@ -65,3 +65,22 @@ std::string Engine::Tool::Lua::_GetStringFromTableByKey(lua_State & io_luaState,
 
 	return result;
 }
+
+void Engine::Tool::Debug::Log(std::string i_Message)
+{
+	#if  _DEBUG
+		std::cout << "\n" << i_Message << std::endl;
+	#endif //  _DEBUG
+}
+
+void Engine::Tool::Debug::Log(bool i_Condition, std::string i_Message)
+{
+	#if  _DEBUG
+		if (i_Condition == false)
+		{
+			std::cout << "\n" << i_Message << std::endl;
+			assert(i_Condition);
+		}
+
+	#endif //  _DEBUG
+}
