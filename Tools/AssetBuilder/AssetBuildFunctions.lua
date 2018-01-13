@@ -24,9 +24,11 @@ do
 	do 
 		local errorMessage
 		GameInstallDir, errorMessage = GetEnvironmentVariable("GameInstallDir")
-		CreateDirectoryIfItDoesntExist( GameInstallDir )
+
 		if not GameInstallDir then 
 			error(errorMessage)
+		else
+			CreateDirectoryIfItDoesntExist( GameInstallDir )
 		end
 	end
 
