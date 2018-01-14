@@ -20,13 +20,13 @@ namespace Gameplay
 
 		void _Update(const std::list<ICharacter*>& i_Targets);
 
-		void _MoveTo(const Engine::Math::Vector4D<float>& i_Position);
+		void _MoveTo(const Engine::Math::Vector4D<float>& i_TargetPosition);
 		void _Attack(ICharacter* i_Target);
 	
 		void _Killed();
 		bool _IsKilled();
 
-		const Engine::Math::Vector4D<float>& _GetPosition();
+		Engine::Math::Vector4D<float> _GetPosition();
 
 	protected:
 		ICharacter*	 m_pCharacter;

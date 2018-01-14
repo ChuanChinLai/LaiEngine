@@ -7,6 +7,7 @@ template<typename T>
 inline void Engine::Asset::GameObject::_AddComponent()
 {
 	Component* pComponent = new T(this);
+
 	Component::TYPE TYPE = pComponent->_GetType();
 
 	if (m_Components[TYPE] == nullptr)

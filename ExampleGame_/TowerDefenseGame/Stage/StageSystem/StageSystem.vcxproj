@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="StageSystem.h" />
+    <ClInclude Include="StageSystem_inline.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StageSystem.cpp" />

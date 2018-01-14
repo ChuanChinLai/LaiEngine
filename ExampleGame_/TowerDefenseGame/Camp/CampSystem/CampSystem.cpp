@@ -1,15 +1,13 @@
 #include "CampSystem.h"
 
-#include <Engine\GameObject\GameObject.h>
-#include <Engine\Tool\Tool.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Camp\SoldierCamp\SoldierCamp.h>
 #include <ExampleGame_\TowerDefenseGame\Camp\EnemyCamp\EnemyCamp.h>
 
+#include <Engine\GameEngine\Includes.h>
+
 #include <iostream>
 #include <cassert>
-
-
 
 Gameplay::CampSystem::CampSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i_pTDGame)
 {
@@ -20,7 +18,7 @@ void Gameplay::CampSystem::_Init()
 {
 	if(_LoadCampDataFromLua("Gameplay/CampData.lua") == false)
 	{
-		assert(false);
+		Engine::Tool::Debug::ASSERT(false, "Gameplay/CampData.lua Not Exist");
 	}
 }
 
@@ -61,7 +59,7 @@ void Gameplay::CampSystem::_RenderObjects(Engine::IGameScene * i_pScene) const
 
 }
 
-SDL_Scancode Gameplay::CampSystem::SoldierCampFactory(Soldier::TYPE emSoldier)
+SDL_Scancode Gameplay::CampSystem::SoldierCommandFactory(Soldier::TYPE emSoldier)
 {
 	SDL_Scancode CommandCode;
 
@@ -79,8 +77,7 @@ SDL_Scancode Gameplay::CampSystem::SoldierCampFactory(Soldier::TYPE emSoldier)
 		CommandCode = SDL_SCANCODE_E;
 		break;
 	default:
-		std::cout << "ERROR TYPE" << std::endl;
-		assert(false);
+		Engine::Tool::Debug::ASSERT(false, "ERROR TYPE");
 		break;
 	}
 	return CommandCode;
@@ -260,7 +257,7 @@ bool Gameplay::CampSystem::_LoadSoldierCampTableValues(lua_State & io_luaState)
 				SoldierCamp* NewCamp = new SoldierCamp(position, SpriteName);
 				NewCamp->_SetTowerDefenseGame(m_pTDGame);
 				NewCamp->_SetAttributeData(pAttributeData);
-				NewCamp->_SetCommandCode(SoldierCampFactory(static_cast<Soldier::TYPE>(i)));
+				NewCamp->_SetCommandCode(SoldierCommandFactory(static_cast<Soldier::TYPE>(i)));
 				m_SoldierCamps[static_cast<Soldier::TYPE>(i)] = NewCamp;
 
 			}

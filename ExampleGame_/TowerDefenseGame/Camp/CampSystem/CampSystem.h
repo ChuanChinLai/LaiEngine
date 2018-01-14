@@ -34,12 +34,11 @@ namespace Gameplay
 		virtual void _Init()	override;
 		virtual void _Update()	override;
 		virtual void _Release() override;
-
-		void _RenderObjects(Engine::IGameScene* i_pScene) const;
+		virtual void _RenderObjects(Engine::IGameScene* i_pScene) const override;
 
 	private:
 
-		SDL_Scancode SoldierCampFactory(Soldier::TYPE emSoldier);
+		SDL_Scancode SoldierCommandFactory(Soldier::TYPE emSoldier);
 
 		bool _LoadCampDataFromLua(std::string i_FilePath);
 		bool _LoadCampTableValues(lua_State& io_luaState);

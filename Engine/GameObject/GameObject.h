@@ -34,7 +34,6 @@ namespace Engine
 			virtual ~GameObject();
 
 			const Transform* const Transform;
-			Math::Vector4D<float> m_Position;
 
 			template<typename T>
 			inline void _AddComponent();

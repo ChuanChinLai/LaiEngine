@@ -9,9 +9,7 @@ double Engine::Tool::Lua::_GetNumberFromTableByKey(lua_State & io_luaState, std:
 	if (!lua_istable(&io_luaState, -1))
 	{
 		std::cerr << "The top of LuaState must be a table " "(instead of a " << luaL_typename(&io_luaState, -1) << ")" << std::endl;
-
 		assert(false);
-
 		return value;
 	}
 
@@ -66,21 +64,22 @@ std::string Engine::Tool::Lua::_GetStringFromTableByKey(lua_State & io_luaState,
 	return result;
 }
 
-void Engine::Tool::Debug::Log(std::string i_Message)
+void Engine::Tool::Debug::LOG(std::string message)
 {
-	#if  _DEBUG
-		std::cout << "\n" << i_Message << std::endl;
-	#endif //  _DEBUG
+#if  _DEBUG
+	std::cout << "\n" << message << std::endl;
+#endif //  _DEBUG
 }
 
-void Engine::Tool::Debug::Log(bool i_Condition, std::string i_Message)
+void Engine::Tool::Debug::_Assert(int condition, std::string message, std::string file, int line)
 {
 	#if  _DEBUG
-		if (i_Condition == false)
-		{
-			std::cout << "\n" << i_Message << std::endl;
-			assert(i_Condition);
-		}
 
+	if (condition == false)
+	{
+		std::cout << "\n" << message << std::endl;
+		std::cout << file << " " << line << std::endl;
+		__debugbreak();
+	}
 	#endif //  _DEBUG
 }

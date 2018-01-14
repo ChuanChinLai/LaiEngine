@@ -13,8 +13,8 @@ namespace Gameplay
 
 		SoldierTowerAttackedObserverUI(TowerDefenseGame* i_pTDGame, StageSystem* i_pStageSystem);
 
-		virtual void _Update() override;
-		virtual void _SetSubject(IGameEventSubject* i_Subject) override;
+		inline virtual void _Update() override;
+		inline virtual void _SetSubject(IGameEventSubject* i_Subject) override;
 
 	private:
 

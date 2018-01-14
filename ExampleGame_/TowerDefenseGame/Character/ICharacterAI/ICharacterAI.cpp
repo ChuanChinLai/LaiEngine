@@ -3,9 +3,8 @@
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\IAIState\AttackState.h>
-#include <Engine\GameEngine\GameEngine.h>
-#include <Engine\Math\Vector4D.h>
 
+#include <Engine\GameEngine\Includes.h>
 
 Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_pCharacter): m_pCharacter(i_pCharacter), m_pAIState(nullptr)
 {
@@ -39,20 +38,21 @@ void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)
 	m_pAIState->_Update(i_Targets);
 }
 
-void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Position)
+void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_TargetPosition)
 {
-	if (Engine::Math::distance(m_pCharacter->_GetGameObject()->m_Position, i_Position) < 0.01f)
-	{
-		return;
-	}
+	Engine::Math::Vector4D<float> CurrentPosition = _GetPosition();
 
-	Engine::Math::Vector4D<float> dir = i_Position - m_pCharacter->_GetGameObject()->m_Position;
+	if (Engine::Math::distance(CurrentPosition, i_TargetPosition) < 0.01f)
+		return;
+
+
+	Engine::Math::Vector4D<float> dir = i_TargetPosition - CurrentPosition;
 	dir.normalize();
 
 	float v = m_pCharacter->_GetAttribute()->_GetSpeed();
 	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
 
-	m_pCharacter->_GetGameObject()->m_Position += dir * v * t;
+	*(m_pCharacter->_GetGameObject()->Transform->Position) += dir * v * t;
 }
 
 void Gameplay::ICharacterAI::_Attack(ICharacter * i_Target)
@@ -70,7 +70,7 @@ bool Gameplay::ICharacterAI::_IsKilled()
 	return m_pCharacter->_IsKilled();
 }
 
-const Engine::Math::Vector4D<float>& Gameplay::ICharacterAI::_GetPosition()
+Engine::Math::Vector4D<float> Gameplay::ICharacterAI::_GetPosition()
 {
-	return m_pCharacter->_GetGameObject()->m_Position;
+	return *(m_pCharacter->_GetGameObject()->Transform->Position);
 }

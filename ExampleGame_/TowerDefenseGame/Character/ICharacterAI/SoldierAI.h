@@ -18,7 +18,7 @@ namespace Gameplay
 		static void _SetStageSystem(StageSystem* i_pStageSystem);
 
 	private:
-		static StageSystem*	m_pStageSystem;
+		static StageSystem* s_pStageSystem;
 		Engine::Math::Vector4D<float> m_AttackPosition;
 	};
 }

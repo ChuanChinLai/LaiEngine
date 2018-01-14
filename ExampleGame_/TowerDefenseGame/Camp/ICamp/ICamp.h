@@ -22,8 +22,8 @@ namespace Gameplay
 		inline ICamp(const Engine::Math::Vector4D<float>& i_Position, std::string i_SpriteName);
 		virtual inline ~ICamp();
 
-		void _SetTowerDefenseGame(TowerDefenseGame* i_pTDGame);
-		void _SetAttributeData(CharacterAttr* i_pAttributeData);
+		inline void _SetTowerDefenseGame(TowerDefenseGame* i_pTDGame);
+		inline void _SetAttributeData(CharacterAttr* i_pAttributeData);
 
 		virtual inline void _RunCommand();
 

@@ -14,8 +14,17 @@ Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pAttribute(nullpt
 
 Gameplay::ICharacter::~ICharacter()
 {
-	delete m_pGameObject;
-	delete m_pAttribute;
+	if (m_pGameObject)
+	{
+		delete m_pGameObject;
+		m_pGameObject = nullptr;
+	}
+
+	if (m_pAttribute)
+	{
+		delete m_pAttribute;
+		m_pAttribute = nullptr;
+	}
 }
 
 void Gameplay::ICharacter::_Init()
@@ -34,7 +43,7 @@ void Gameplay::ICharacter::_Release()
 
 void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Targets)
 {
-	if (m_pAttribute->_GetHP() <= 0)
+	if (m_bKilled || m_pAttribute->_GetHP() <= 0.0f)
 	{
 		m_bKilled = true;
 		return;
@@ -66,20 +75,24 @@ bool Gameplay::ICharacter::_CheckKilledEvent()
 	return false;
 }
 
-
-float Gameplay::ICharacter::_GetATK()
-{
-	return m_pAttribute->_GetATK();
-}
-
 Engine::Asset::GameObject* Gameplay::ICharacter::_GetGameObject()
 {
 	return m_pGameObject;
 }
 
+Engine::Math::Vector4D<float> Gameplay::ICharacter::_GetPosition()
+{
+	return *(m_pGameObject->Transform->Position);
+}
+
 Gameplay::CharacterAttr * Gameplay::ICharacter::_GetAttribute()
 {
 	return m_pAttribute;
+}
+
+float Gameplay::ICharacter::_GetATK()
+{
+	return m_pAttribute->_GetATK();
 }
 
 void Gameplay::ICharacter::_SetAttribute(CharacterAttr * i_pAttribute)

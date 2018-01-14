@@ -4,11 +4,11 @@
 
 #include <ExampleGame_\TowerDefenseGame\Stage\StageSystem\StageSystem.h>
 
-Gameplay::StageSystem* Gameplay::SoldierAI::m_pStageSystem = nullptr;
+Gameplay::StageSystem* Gameplay::SoldierAI::s_pStageSystem = nullptr;
 
 Gameplay::SoldierAI::SoldierAI(ICharacter * i_pCharacter) : ICharacterAI(i_pCharacter)
 {
-	m_AttackPosition = m_pStageSystem->_GetAttackPos_Soldier();
+	m_AttackPosition = s_pStageSystem->_GetAttackPos_Soldier();
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
 }
 
@@ -30,10 +30,10 @@ void Gameplay::SoldierAI::_ChangeAIState(IAIState * i_pNewAIState)
 
 void Gameplay::SoldierAI::_AttackTower()
 {
-	m_pStageSystem->_EnemyTowerUnderAttack();
+	s_pStageSystem->_EnemyTowerUnderAttack();
 }
 
 void Gameplay::SoldierAI::_SetStageSystem(StageSystem * i_pStageSystem)
 {
-	m_pStageSystem = i_pStageSystem;
+	s_pStageSystem = i_pStageSystem;
 }

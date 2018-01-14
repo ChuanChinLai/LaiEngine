@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-void Gameplay::EnemyKilledObserverUI::_Update()
+inline void Gameplay::EnemyKilledObserverUI::_Update()
 {
 	std::cout << "EnemyKilled" << std::endl;
 }

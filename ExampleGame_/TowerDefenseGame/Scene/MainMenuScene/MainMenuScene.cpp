@@ -19,16 +19,16 @@ void Engine::MainMenuScene::_Init()
 	{
 		m_pTitle = new Engine::Asset::GameObject();
 		m_pTitle->_AddComponent<Engine::Asset::Text>();
-		m_pTitle->m_Position.x = 400;
-		m_pTitle->m_Position.y = 200;
+		m_pTitle->Transform->Position->x = 400;
+		m_pTitle->Transform->Position->y = 200;
 	}
 
 	{
 
 		m_pStart = new Engine::Asset::GameObject();
 		m_pStart->_AddComponent<Engine::Asset::Text>();
-		m_pStart->m_Position.x = 400;
-		m_pStart->m_Position.y = 500;
+		m_pStart->Transform->Position->x = 400;
+		m_pStart->Transform->Position->y = 500;
 	}
 }
 

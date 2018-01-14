@@ -24,17 +24,17 @@ namespace Gameplay
 		{
 
 		}
-		void _Init()	override;
-		void _Update()	override;
-		void _Release() override;
 
-		void _RenderObjects(Engine::IGameScene* i_pScene) const;
+		virtual void _Init()	override;
+		virtual void _Update()	override;
+		virtual void _Release() override;
+		virtual void _RenderObjects(Engine::IGameScene* i_pScene) const override;
 
 		void _AddSoldier(ICharacter* i_Soldier);
 		void _AddEnemy(ICharacter* i_Enemy);
 
 		void _RemoveCharacter();
-		void _RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent);
+		void _RemoveCharacter(std::list<ICharacter*>& i_Characters, ENUM_GameEvent emEvent);
 
 	private:
 

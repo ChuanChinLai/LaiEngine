@@ -70,11 +70,11 @@ void Gameplay::CharacterSystem::_AddEnemy(ICharacter * i_Enemy)
 
 void Gameplay::CharacterSystem::_RemoveCharacter()
 {
-	_RemoveCharacter(m_Soldiers, m_Enemies, ENUM_GameEvent::SoldierKilled);
-	_RemoveCharacter(m_Enemies, m_Soldiers, ENUM_GameEvent::EnemyKilled);
+	_RemoveCharacter(m_Soldiers, ENUM_GameEvent::SoldierKilled);
+	_RemoveCharacter(m_Enemies, ENUM_GameEvent::EnemyKilled);
 }
 
-void Gameplay::CharacterSystem::_RemoveCharacter(std::list<ICharacter*>& i_Characters, std::list<ICharacter*>& i_Opponents, ENUM_GameEvent emEvent)
+void Gameplay::CharacterSystem::_RemoveCharacter(std::list<ICharacter*>& i_Characters, ENUM_GameEvent emEvent)
 {
 	std::list<ICharacter*> CanRemoves;
 

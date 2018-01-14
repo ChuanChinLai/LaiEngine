@@ -29,7 +29,7 @@ namespace Gameplay
 		inline void _SetHP	(float i_HP);
 		inline void _SetATK	(float i_ATK);
 		inline void _SetDEF	(float i_DEF);
-		inline void _SetSpeed(float i_Speed) ;
+		inline void _SetSpeed(float i_Speed);
 
 		inline void _CallDamageValue(ICharacter* Attacker);
 

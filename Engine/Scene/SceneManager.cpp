@@ -3,6 +3,7 @@
 
 #include <Engine\GameObject\GameObject.h>
 #include <Engine\GameEngine\GameEngine.h>
+#include <Engine\GameObject\Components\Transform.h>
 #include <Engine\GameObject\Components\Sprite.h>
 #include <Engine\GameObject\Components\Text.h>
 
@@ -65,7 +66,7 @@ void Engine::SceneManager::_Render()
 				if (pComponent != nullptr)
 				{
 					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
-					SDL_Rect DestRect = _GetRenderPosition(pGameObject->m_Position, pComponent->w, pComponent->h, alignment.first, alignment.second);
+					SDL_Rect DestRect = _GetRenderPosition(*(pGameObject->Transform->Position), pComponent->w, pComponent->h, alignment.first, alignment.second);
 					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
 				}
 			}
@@ -76,7 +77,7 @@ void Engine::SceneManager::_Render()
 				if (pComponent != nullptr)
 				{
 					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
-					SDL_Rect DestRect = _GetRenderPosition(pGameObject->m_Position, pComponent->w, pComponent->h, alignment.first, alignment.second);
+					SDL_Rect DestRect = _GetRenderPosition(*(pGameObject->Transform->Position), pComponent->w, pComponent->h, alignment.first, alignment.second);
 					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
 				}
 			}

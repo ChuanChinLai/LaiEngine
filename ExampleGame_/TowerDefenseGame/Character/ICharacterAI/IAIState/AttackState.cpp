@@ -1,5 +1,7 @@
 #include "AttackState.h"
 
+#include <Engine\GameEngine\Includes.h>
+
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\IAIState\AttackHeartState.h>
@@ -26,27 +28,27 @@ void Gameplay::AttackState::_Update(const std::list<ICharacter*>& i_Targets)
 		return;
 	}
 
-	float min_distance = 1000.0f;
-	ICharacter* nearest_character = nullptr;
+	float min_distance = 100000.0f;
+	ICharacter* pNearestCharacter = nullptr;
 
 	Engine::Math::Vector4D<float> NowPosition = m_pCharacterAI->_GetPosition();
 
-	for (const auto target : i_Targets)
+	for (const auto pTarget : i_Targets)
 	{
-		float d = Engine::Math::distance(NowPosition, target->_GetGameObject()->m_Position);
+		float d = Engine::Math::distance(NowPosition, pTarget->_GetPosition());
 
 		if (d < min_distance)
 		{
-			nearest_character = target;
+			pNearestCharacter = pTarget;
 			min_distance = d;
 		}
 	}
 
-	if (nearest_character)
+	if (pNearestCharacter)
 	{
-		if(Engine::Math::distance(NowPosition, nearest_character->_GetGameObject()->m_Position) >= 48.0f)
-			m_pCharacterAI->_MoveTo(nearest_character->_GetGameObject()->m_Position);
+		if(Engine::Math::distance(NowPosition, pNearestCharacter->_GetPosition()) >= 48.0f)
+			m_pCharacterAI->_MoveTo(pNearestCharacter->_GetPosition());
 		else
-			m_pCharacterAI->_Attack(nearest_character);
+			m_pCharacterAI->_Attack(pNearestCharacter);
 	}
 }

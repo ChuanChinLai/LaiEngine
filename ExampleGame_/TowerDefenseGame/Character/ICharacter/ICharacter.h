@@ -31,17 +31,20 @@ namespace Gameplay
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 
-		float  _GetATK();
+		Engine::Asset::GameObject*		_GetGameObject();
+		Engine::Math::Vector4D<float>	_GetPosition();
+		CharacterAttr*					_GetAttribute();
 
-		Engine::Asset::GameObject*	_GetGameObject();
-		CharacterAttr*				_GetAttribute();
+		float							_GetATK();
 
 		void _SetAttribute(CharacterAttr* i_pAttribute);
 
 	protected:
+
 		Engine::Asset::GameObject*	m_pGameObject;
 		CharacterAttr*				m_pAttribute;
 		ICharacterAI*				m_pAI;
+
 	private:
 		bool m_bKilled;
 		bool m_bCheckKilled;

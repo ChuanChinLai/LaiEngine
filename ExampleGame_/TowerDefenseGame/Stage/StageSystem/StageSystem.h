@@ -18,26 +18,26 @@ namespace Gameplay
 	class StageSystem : public IGameSystem
 	{
 	public:
+
 		StageSystem(TowerDefenseGame* i_pTDGame);
 
 		virtual void _Init()	override;
 		virtual void _Update()	override;
 		virtual void _Release() override;
+		virtual void _RenderObjects(Engine::IGameScene* i_pScene) const override;
 
-		void _RenderObjects(Engine::IGameScene* i_pScene) const;
 
+		inline void _SoldierTowerUnderAttack();
+		inline void _EnemyTowerUnderAttack();
 
-		void _SoldierTowerUnderAttack();
-		void _EnemyTowerUnderAttack();
+		inline int _GetPlayerHP() const;
+		inline int _GetAIHP()	const;
 
-		int _GetPlayerHP() const;
-		int _GetAIHP()	const;
+		inline void _SetPlayerHP(int i_HP);
+		inline void _SetAIHP(int i_HP);
 
-		void _SetPlayerHP(int i_HP);
-		void _SetAIHP(int i_HP);
-
-		const Engine::Math::Vector4D<float>& _GetAttackPos_Soldier() const;
-		const Engine::Math::Vector4D<float>& _GetAttackPos_Enemy()   const;
+		inline Engine::Math::Vector4D<float> _GetAttackPos_Soldier() const;
+		inline Engine::Math::Vector4D<float> _GetAttackPos_Enemy()   const;
 
 	private:
 
@@ -51,3 +51,5 @@ namespace Gameplay
 		int AI_HP;
 	};
 }
+
+#include "StageSystem_inline.h"

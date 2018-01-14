@@ -9,8 +9,8 @@ namespace Gameplay
 	class EnemyKilledObserverUI : public IGameEventObserver
 	{
 	public:
-		virtual void _Update() override;
-		virtual void _SetSubject(IGameEventSubject* i_Subject) override;
+		inline virtual void _Update() override;
+		inline virtual void _SetSubject(IGameEventSubject* i_Subject) override;
 
 	private:
 

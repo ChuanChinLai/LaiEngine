@@ -1,6 +1,7 @@
 #pragma once
 
 #include "EnemyTowerAttackedObserverUI.h"
+#include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSubject\EnemyTowerAttackedSubject.h>
 #include <ExampleGame_\TowerDefenseGame\Stage\StageSystem\StageSystem.h>
 
@@ -13,7 +14,7 @@ inline Gameplay::EnemyTowerAttackedObserverUI::EnemyTowerAttackedObserverUI(Towe
 }
 
 
-void Gameplay::EnemyTowerAttackedObserverUI::_Update()
+inline void Gameplay::EnemyTowerAttackedObserverUI::_Update()
 {
 	m_pStageSystem->_SetAIHP(m_pStageSystem->_GetAIHP() - 1);
 	std::cout << "Enemy Tower Under Attack" << std::endl;
