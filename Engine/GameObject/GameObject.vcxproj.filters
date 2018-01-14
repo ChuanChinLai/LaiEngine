@@ -21,6 +21,12 @@
     <ClInclude Include="Components\Text_inline.h">
       <Filter>Components\Text</Filter>
     </ClInclude>
+    <ClInclude Include="Components\Transform.h">
+      <Filter>Components\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Transform_inline.h">
+      <Filter>Components\Transform</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
@@ -40,6 +46,9 @@
     </Filter>
     <Filter Include="Components\Text">
       <UniqueIdentifier>{e79f008f-d145-4e52-a37d-a5d526c0929e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Transform">
+      <UniqueIdentifier>{0d39b360-22f3-4d87-9e1b-35d3cb06a725}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

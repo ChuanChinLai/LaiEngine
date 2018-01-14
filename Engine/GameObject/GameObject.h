@@ -24,13 +24,16 @@ namespace Engine
 		};
 
 		class Component;
+		class Transform;
 
 		class GameObject
 		{
 		public:
 			
+			GameObject();
 			virtual ~GameObject();
 
+			const Transform* const Transform;
 			Math::Vector4D<float> m_Position;
 
 			template<typename T>
@@ -38,7 +41,6 @@ namespace Engine
 
 			template<typename T>
 			inline T*	_GetComponent();
-
 		private:
 
 			std::unordered_map<Component::TYPE, Component*> m_Components;
