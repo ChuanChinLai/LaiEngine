@@ -29,7 +29,7 @@ namespace Gameplay
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 
-		Engine::GameObject*				_GetGameObject();
+		Engine::GameObject*		_GetGameObject();
 		Engine::Math::Vector4D<float>	_GetPosition();
 		CharacterAttr*					_GetAttribute();
 
@@ -41,7 +41,8 @@ namespace Gameplay
 
 		Engine::Memory::shared_ptr<Engine::GameObject>	m_pGameObject;
 		CharacterAttr*				m_pAttribute;
-		ICharacterAI*				m_pAI;
+
+		Engine::Memory::shared_ptr<ICharacterAI> m_pAI;
 
 	private:
 		bool m_bKilled;

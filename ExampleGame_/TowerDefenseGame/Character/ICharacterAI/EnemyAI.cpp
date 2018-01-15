@@ -7,15 +7,15 @@
 
 Gameplay::StageSystem* Gameplay::EnemyAI::s_pStageSystem = nullptr;
 
+Engine::Memory::shared_ptr<Gameplay::ICharacterAI> Gameplay::EnemyAI::_Create(ICharacter * i_pCharacter)
+{
+	return Engine::Memory::shared_ptr<ICharacterAI>(new EnemyAI(i_pCharacter));
+}
+
 Gameplay::EnemyAI::EnemyAI(ICharacter * i_pCharacter) : ICharacterAI(i_pCharacter)
 {
 	m_AttackPosition = s_pStageSystem->_GetAttackPos_Enemy();
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
-}
-
-Gameplay::EnemyAI::~EnemyAI()
-{
-
 }
 
 void Gameplay::EnemyAI::_ChangeAIState(IAIState * i_pNewAIState)

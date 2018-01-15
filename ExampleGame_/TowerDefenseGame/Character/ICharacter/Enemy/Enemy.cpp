@@ -7,12 +7,12 @@
 
 Gameplay::Enemy::Enemy()
 {
-	m_pAI = new EnemyAI(this);
+	m_pAI = EnemyAI::_Create(this);
 }
 
 Gameplay::Enemy::~Enemy()
 {
-	delete m_pAI;
+//	delete m_pAI;
 }
 
 void Gameplay::Enemy::_Init()

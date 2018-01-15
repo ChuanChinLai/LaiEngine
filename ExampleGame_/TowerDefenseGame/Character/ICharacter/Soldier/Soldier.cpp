@@ -10,12 +10,12 @@
 
 Gameplay::Soldier::Soldier()
 {
-	m_pAI = new SoldierAI(this);
+	m_pAI = SoldierAI::_Create(this);
 }
 
 Gameplay::Soldier::~Soldier()
 {
-	delete m_pAI;
+//	delete m_pAI;
 }
 
 void Gameplay::Soldier::_Init()

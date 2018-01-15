@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Engine\Math\Vector4D.h>
+#include <Engine\SmartPointer\SharedPointer.h>
+
 #include <list>
 
 namespace Gameplay
@@ -12,7 +14,7 @@ namespace Gameplay
 	class ICharacterAI
 	{
 	public:
-		ICharacterAI(ICharacter* i_pCharacter);
+
 		virtual ~ICharacterAI();
 
 		virtual void _ChangeAIState(IAIState* i_pNewAIState);
@@ -29,7 +31,12 @@ namespace Gameplay
 		Engine::Math::Vector4D<float> _GetPosition();
 
 	protected:
+
+		ICharacterAI(ICharacter* i_pCharacter);
+
 		ICharacter*	 m_pCharacter;
 		IAIState*	 m_pAIState;
+
+	private:
 	};
 }

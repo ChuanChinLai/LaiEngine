@@ -6,14 +6,15 @@
 
 Gameplay::StageSystem* Gameplay::SoldierAI::s_pStageSystem = nullptr;
 
+Engine::Memory::shared_ptr<Gameplay::ICharacterAI> Gameplay::SoldierAI::_Create(ICharacter * i_pCharacter)
+{
+	return Engine::Memory::shared_ptr<ICharacterAI>(new SoldierAI(i_pCharacter));
+}
+
 Gameplay::SoldierAI::SoldierAI(ICharacter * i_pCharacter) : ICharacterAI(i_pCharacter)
 {
 	m_AttackPosition = s_pStageSystem->_GetAttackPos_Soldier();
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
-}
-
-Gameplay::SoldierAI::~SoldierAI()
-{
 }
 
 void Gameplay::SoldierAI::_ChangeAIState(IAIState * i_pNewAIState)

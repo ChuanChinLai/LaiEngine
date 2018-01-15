@@ -46,8 +46,6 @@ namespace Engine
 
 
 		std::unordered_map<Component::ObjectComponent::TYPE, Component::ObjectComponent*> m_Components;
-
-
 	public:
 
 		enum Alignment
