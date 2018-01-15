@@ -33,8 +33,9 @@ namespace Gameplay
 		bool _CheckKilledEvent();
 
 		Engine::GameObject*				_GetGameObject();
-		Engine::Math::Vector4D<float>	_GetPosition();
 
+		Engine::Math::Vector4D<float> _GetPosition();
+		void _SetPosition(const Engine::Math::Vector4D<float>& i_Position);
 
 		Engine::Memory::weak_ptr<CharacterAttr> _GetAttribute();
 		void _SetAttribute(Engine::Memory::shared_ptr<CharacterAttr> i_pAttribute);

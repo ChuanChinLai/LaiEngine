@@ -23,12 +23,10 @@ void Gameplay::SoldierCamp::_RunCommand()
 		ICharacter* pNewCharacter = new Soldier();
 		pNewCharacter->_Init();
 		pNewCharacter->_SetAttribute(Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData)));
-
+		pNewCharacter->_SetPosition(m_Position);
 
 		Engine::Component::Sprite* pSprite = pNewCharacter->_GetGameObject()->_GetComponent<Engine::Component::Sprite>();
 		pSprite->_Create(m_SpriteName);
-
-		*(pNewCharacter->_GetGameObject()->Transform->Position) = m_Position;
 
 		m_pTDGame->_AddSoldier(pNewCharacter);
 	}
