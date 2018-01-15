@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <ostream>
 
-//#include "ToolKit.h"
-
 template <class S> class Vector4D;
 
 namespace Engine

@@ -1,62 +1,40 @@
 #pragma once
 
 #include "CharacterAttr.h"
+
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 
-inline Gameplay::CharacterAttr::CharacterAttr(const CharacterAttr & i_Attr): m_MaxHP(i_Attr.m_MaxHP), m_NowHP(i_Attr.m_NowHP), m_ATK(i_Attr.m_ATK), m_DEF(i_Attr.m_DEF), m_MoveSpeed(i_Attr.m_MoveSpeed)
+
+inline Gameplay::CharacterAttr::CharacterAttr() : HP(0), ATK(0), DEF(0), SPEED(0)
 {
 
 }
 
-inline Gameplay::CharacterAttr::CharacterAttr(const CharacterAttr * i_pAttr): m_MaxHP(i_pAttr->m_MaxHP), m_NowHP(i_pAttr->m_NowHP), m_ATK(i_pAttr->m_ATK), m_DEF(i_pAttr->m_DEF), m_MoveSpeed(i_pAttr->m_MoveSpeed)
+inline Gameplay::CharacterAttr::CharacterAttr(float i_MaxHP, float i_ATK, float i_DEF, float i_MoveSpeed) : HP(i_MaxHP), ATK(i_ATK), DEF(i_DEF), SPEED(i_MoveSpeed)
 {
 
 }
 
-inline float Gameplay::CharacterAttr::_GetHP() const
+inline Gameplay::CharacterAttr::CharacterAttr(const CharacterAttr & i_Attr) : HP(i_Attr.HP), ATK(i_Attr.ATK), DEF(i_Attr.DEF), SPEED(i_Attr.SPEED)
 {
-	return m_NowHP;
+
 }
 
-inline float Gameplay::CharacterAttr::_GetATK() const
+inline const Gameplay::CharacterAttr & Gameplay::CharacterAttr::operator=(const CharacterAttr & i_Attr)
 {
-	return m_ATK;
+	HP	= i_Attr.HP;
+	ATK = i_Attr.ATK;
+	DEF = i_Attr.DEF;
+	SPEED = i_Attr.SPEED;
+
+	return *this;
 }
 
-inline float Gameplay::CharacterAttr::_GetDEF() const
-{
-	return m_DEF;
-}
 
-inline float Gameplay::CharacterAttr::_GetSpeed() const
+inline void Gameplay::CharacterAttr::_CallDamageValue(Gameplay::ICharacter * Attacker)
 {
-	return m_MoveSpeed;
-}
-
-inline void Gameplay::CharacterAttr::_SetHP(float i_HP)
-{
-	m_NowHP = m_MaxHP = i_HP;
-}
-
-inline void Gameplay::CharacterAttr::_SetATK(float i_ATK)
-{
-	m_ATK = i_ATK;
-}
-
-inline void Gameplay::CharacterAttr::_SetDEF(float i_DEF)
-{
-	m_DEF = i_DEF;
-}
-
-inline void Gameplay::CharacterAttr::_SetSpeed(float i_Speed)
-{
-	m_MoveSpeed = i_Speed;
-}
-
-inline void Gameplay::CharacterAttr::_CallDamageValue(ICharacter * Attacker)
-{
-	float Damage = Attacker->_GetATK() - m_DEF;
+	float Damage = Attacker->m_Attribute->ATK - DEF;
 
 	if(Damage > 0.0f)
-		m_NowHP -= Damage;
+		HP -= Damage;
 }

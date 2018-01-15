@@ -10,7 +10,6 @@ namespace Gameplay
 	class ICharacter;
 	class IAIState;
 
-
 	class ICharacterAI
 	{
 	public:
@@ -21,7 +20,6 @@ namespace Gameplay
 		virtual void _AttackTower();
 
 		void _Update(const std::list<ICharacter*>& i_Targets);
-
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_TargetPosition);
 		void _Attack(ICharacter* i_Target);
 	

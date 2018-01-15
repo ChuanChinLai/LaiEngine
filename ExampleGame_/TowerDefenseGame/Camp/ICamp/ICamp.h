@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Engine\Math\Vector4D.h>
+#include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 
 namespace Gameplay
 {
@@ -15,14 +16,15 @@ namespace Gameplay
 		virtual inline ~ICamp();
 
 		inline void _SetTowerDefenseGame(TowerDefenseGame* i_pTDGame);
-		inline void _SetAttributeData(CharacterAttr* i_pAttributeData);
+		inline void _SetAttributeData(const CharacterAttr& i_AttributeData);
 
 		virtual inline void _RunCommand();
 
 	protected:
 
 		TowerDefenseGame*				m_pTDGame;
-		CharacterAttr*					m_pAttributeData;
+
+		CharacterAttr m_AttributeData;
 
 		Engine::Math::Vector4D<float>	m_Position;
 		std::string						m_SpriteName;

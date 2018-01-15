@@ -49,7 +49,7 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Targ
 	Engine::Math::Vector4D<float> dir = i_TargetPosition - CurrentPosition;
 	dir.normalize();
 
-	float v = m_pCharacter->_GetAttribute()->_GetSpeed();
+	float v = m_pCharacter->m_Attribute->SPEED;
 	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
 
 	*(m_pCharacter->_GetGameObject()->Transform->Position) += dir * v * t;
@@ -57,7 +57,7 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Targ
 
 void Gameplay::ICharacterAI::_Attack(ICharacter * i_Target)
 {
-	i_Target->_GetAttribute()->_CallDamageValue(m_pCharacter);
+	i_Target->m_Attribute->_CallDamageValue(m_pCharacter);
 }
 
 void Gameplay::ICharacterAI::_Killed()

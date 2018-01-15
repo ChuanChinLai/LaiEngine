@@ -6,18 +6,14 @@
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
 
-Gameplay::ICharacter::ICharacter() : m_pAttribute(nullptr), m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
+Gameplay::ICharacter::ICharacter() : m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
 {
 	m_pGameObject = Engine::GameObject::_Create();
 }
 
 Gameplay::ICharacter::~ICharacter()
 {
-	if (m_pAttribute)
-	{
-		delete m_pAttribute;
-		m_pAttribute = nullptr;
-	}
+
 }
 
 void Gameplay::ICharacter::_Init()
@@ -36,7 +32,7 @@ void Gameplay::ICharacter::_Release()
 
 void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Targets)
 {
-	if (m_bKilled || m_pAttribute->_GetHP() <= 0.0f)
+	if (m_bKilled || m_Attribute->HP <= 0.0f)
 	{
 		m_bKilled = true;
 		return;
@@ -76,19 +72,4 @@ Engine::GameObject* Gameplay::ICharacter::_GetGameObject()
 Engine::Math::Vector4D<float> Gameplay::ICharacter::_GetPosition()
 {
 	return *(m_pGameObject->Transform->Position);
-}
-
-Gameplay::CharacterAttr * Gameplay::ICharacter::_GetAttribute()
-{
-	return m_pAttribute;
-}
-
-float Gameplay::ICharacter::_GetATK()
-{
-	return m_pAttribute->_GetATK();
-}
-
-void Gameplay::ICharacter::_SetAttribute(CharacterAttr * i_pAttribute)
-{
-	m_pAttribute = i_pAttribute;
 }

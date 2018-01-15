@@ -1,7 +1,10 @@
 #pragma once
 
+//#include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
+
 #include <Engine\Math\Vector4D.h>
 #include <Engine\SmartPointer\SharedPointer.h>
+
 #include <list>
 
 namespace Engine
@@ -29,19 +32,13 @@ namespace Gameplay
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 
-		Engine::GameObject*		_GetGameObject();
-		Engine::Math::Vector4D<float>	_GetPosition();
-		CharacterAttr*					_GetAttribute();
+		Engine::GameObject* _GetGameObject();
+		Engine::Math::Vector4D<float> _GetPosition();
 
-		float							_GetATK();
-
-		void _SetAttribute(CharacterAttr* i_pAttribute);
-
+		Engine::Memory::shared_ptr<CharacterAttr> m_Attribute;
 	protected:
 
 		Engine::Memory::shared_ptr<Engine::GameObject>	m_pGameObject;
-		CharacterAttr*				m_pAttribute;
-
 		Engine::Memory::shared_ptr<ICharacterAI> m_pAI;
 
 	private:

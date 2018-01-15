@@ -11,7 +11,7 @@ inline Gameplay::ICamp::ICamp(const Engine::Math::Vector4D<float>& i_Position, s
 
 inline Gameplay::ICamp::~ICamp()
 {
-	delete m_pAttributeData;
+
 }
 
 inline void Gameplay::ICamp::_SetTowerDefenseGame(TowerDefenseGame * i_pTDGame)
@@ -19,9 +19,9 @@ inline void Gameplay::ICamp::_SetTowerDefenseGame(TowerDefenseGame * i_pTDGame)
 	m_pTDGame = i_pTDGame;
 }
 
-inline void Gameplay::ICamp::_SetAttributeData(CharacterAttr * i_pAttributeData)
+inline void Gameplay::ICamp::_SetAttributeData(const CharacterAttr & i_AttributeData)
 {
-	m_pAttributeData = i_pAttributeData;
+	m_AttributeData = i_AttributeData;
 }
 
 inline void Gameplay::ICamp::_RunCommand()

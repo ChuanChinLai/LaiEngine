@@ -223,7 +223,7 @@ bool Gameplay::CampSystem::_LoadSoldierCampTableValues(lua_State & io_luaState)
 			if (lua_istable(&io_luaState, -1))
 			{
 				Engine::Math::Vector4D<float> position;
-				Gameplay::CharacterAttr* pAttributeData = new CharacterAttr();
+				Gameplay::CharacterAttr AttributeData;
 				double value = 0.0f;
 
 				//Position
@@ -238,17 +238,17 @@ bool Gameplay::CampSystem::_LoadSoldierCampTableValues(lua_State & io_luaState)
 				//Attribute
 				{
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "HP");
-					pAttributeData->_SetHP(static_cast<float>(value));
+					AttributeData.HP = static_cast<float>(value);
 
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "ATK");
-					pAttributeData->_SetATK(static_cast<float>(value));
+					AttributeData.ATK = static_cast<float>(value);
 
 
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "DEF");
-					pAttributeData->_SetDEF(static_cast<float>(value));
+					AttributeData.DEF = static_cast<float>(value);
 
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "SPEED");
-					pAttributeData->_SetSpeed(static_cast<float>(value));
+					AttributeData.SPEED = static_cast<float>(value);
 				}
 
 				//Sprite Name
@@ -256,7 +256,7 @@ bool Gameplay::CampSystem::_LoadSoldierCampTableValues(lua_State & io_luaState)
 
 				SoldierCamp* NewCamp = new SoldierCamp(position, SpriteName);
 				NewCamp->_SetTowerDefenseGame(m_pTDGame);
-				NewCamp->_SetAttributeData(pAttributeData);
+				NewCamp->_SetAttributeData(AttributeData);
 				NewCamp->_SetCommandCode(SoldierCommandFactory(static_cast<Soldier::TYPE>(i)));
 				m_SoldierCamps[static_cast<Soldier::TYPE>(i)] = NewCamp;
 
@@ -301,7 +301,7 @@ bool Gameplay::CampSystem::_LoadEnemyCampTableValues(lua_State & io_luaState)
 			if (lua_istable(&io_luaState, -1))
 			{
 				Engine::Math::Vector4D<float> position;
-				Gameplay::CharacterAttr* pAttributeData = new CharacterAttr();
+				CharacterAttr AttributeData;
 				double value = 0.0f;
 
 				//Position
@@ -316,17 +316,16 @@ bool Gameplay::CampSystem::_LoadEnemyCampTableValues(lua_State & io_luaState)
 				//Attribute
 				{
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "HP");
-					pAttributeData->_SetHP(static_cast<float>(value));
+					AttributeData.HP = static_cast<float>(value);
 
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "ATK");
-					pAttributeData->_SetATK(static_cast<float>(value));
-
+					AttributeData.ATK = static_cast<float>(value);
 
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "DEF");
-					pAttributeData->_SetDEF(static_cast<float>(value));
+					AttributeData.DEF = static_cast<float>(value);
 
 					value = Engine::Tool::Lua::_GetNumberFromTableByKey(io_luaState, "SPEED");
-					pAttributeData->_SetSpeed(static_cast<float>(value));
+					AttributeData.SPEED = static_cast<float>(value);
 				}
 
 				//Sprite Name
@@ -334,7 +333,7 @@ bool Gameplay::CampSystem::_LoadEnemyCampTableValues(lua_State & io_luaState)
 
 				EnemyCamp* NewCamp = new EnemyCamp(position, SpriteName);
 				NewCamp->_SetTowerDefenseGame(m_pTDGame);
-				NewCamp->_SetAttributeData(pAttributeData);
+				NewCamp->_SetAttributeData(AttributeData);
 				m_EnemyCamps[static_cast<Enemy::TYPE>(i)] = NewCamp;
 
 			}

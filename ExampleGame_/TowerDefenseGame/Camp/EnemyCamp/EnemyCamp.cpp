@@ -26,10 +26,9 @@ void Gameplay::EnemyCamp::_RunCommand()
 
 	m_Time = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / m_MaxSpawnTime));
 	
-
 	ICharacter* pNewCharacter = new Enemy();
 	pNewCharacter->_Init();
-	pNewCharacter->_SetAttribute(new CharacterAttr(m_pAttributeData));
+	pNewCharacter->m_Attribute = Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData));
 
 
 	Engine::Component::Sprite* pSprite = pNewCharacter->_GetGameObject()->_GetComponent<Engine::Component::Sprite>();
