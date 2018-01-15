@@ -4,11 +4,11 @@
 #include "Components\Component.h"
 
 template<typename T>
-inline void Engine::Asset::GameObject::_AddComponent()
+inline void Engine::GameObject::_AddComponent()
 {
-	Component* pComponent = new T(this);
+	Component::ObjectComponent* pComponent = new T(this);
 
-	Component::TYPE TYPE = pComponent->_GetType();
+	Component::ObjectComponent::TYPE TYPE = pComponent->_GetType();
 
 	if (m_Components[TYPE] == nullptr)
 	{
@@ -21,9 +21,9 @@ inline void Engine::Asset::GameObject::_AddComponent()
 }
 
 template<typename T>
-inline T * Engine::Asset::GameObject::_GetComponent()
+inline T * Engine::GameObject::_GetComponent()
 {
-	Component* pDummy = new T(this);
+	Component::ObjectComponent* pDummy = new T(this);
 
 	T* pComponent = dynamic_cast<T*>(m_Components[pDummy->_GetType()]);
 

@@ -7,11 +7,11 @@
 
 namespace Engine
 {
-	namespace Asset
-	{
-		class GameObject;
+	class GameObject;
 
-		class Component
+	namespace Component
+	{
+		class ObjectComponent
 		{
 		public:
 
@@ -22,16 +22,16 @@ namespace Engine
 				Null,
 			};
 
-			inline Component(GameObject* i_pGameObject);
+			inline ObjectComponent(GameObject* i_pGameObject);
 
-			inline virtual ~Component();
+			inline virtual ~ObjectComponent();
 
 			inline GameObject*	_GetGameObject();
 			inline TYPE			_GetType();
 
 		protected:
 
-			GameObject* m_pGameObject;
+			GameObject * m_pGameObject;
 			TYPE m_TYPE;
 		};
 	}

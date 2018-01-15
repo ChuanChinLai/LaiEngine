@@ -4,7 +4,7 @@
 
 #include <cassert>
 
-bool Engine::Asset::Text::_Create(std::string i_Text, Engine::Color i_Color, int i_Size, std::string i_FilePath)
+bool Engine::Component::Text::_Create(std::string i_Text, Engine::Color i_Color, int i_Size, std::string i_FilePath)
 {
 	_Release();
 
@@ -26,7 +26,7 @@ bool Engine::Asset::Text::_Create(std::string i_Text, Engine::Color i_Color, int
 	return true;
 }
 
-void Engine::Asset::Text::_Release()
+void Engine::Component::Text::_Release()
 {
 	if (pTexture != nullptr)
 	{

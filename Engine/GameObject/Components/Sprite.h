@@ -4,9 +4,9 @@
 
 namespace Engine
 {
-	namespace Asset
+	namespace Component
 	{
-		class Sprite : public Component
+		class Sprite : public ObjectComponent
 		{
 		public:
 

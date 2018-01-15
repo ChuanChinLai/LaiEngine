@@ -5,10 +5,7 @@
 
 namespace Engine
 {
-	namespace Asset
-	{
-		class GameObject;
-	}
+	class GameObject;
 }
 
 namespace Gameplay
@@ -28,8 +25,8 @@ namespace Gameplay
 
 	private:
 
-		Engine::Asset::GameObject*   m_pPlayerHP;
-		Engine::Asset::GameObject*   m_pEnemyHP;
-		Engine::Asset::GameObject*   m_pFPS;
+		Engine::GameObject*   m_pPlayerHP;
+		Engine::GameObject*   m_pEnemyHP;
+		Engine::GameObject*   m_pFPS;
 	};
 }

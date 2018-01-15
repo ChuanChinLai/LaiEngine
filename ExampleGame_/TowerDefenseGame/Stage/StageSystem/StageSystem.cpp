@@ -15,8 +15,8 @@ Gameplay::StageSystem::StageSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i
 
 void Gameplay::StageSystem::_Init()
 {
-	m_pTower_Soldier = new Engine::Asset::GameObject();
-	m_pTower_Enemy	 = new Engine::Asset::GameObject();
+	m_pTower_Soldier = new Engine::GameObject();
+	m_pTower_Enemy	 = new Engine::GameObject();
 
 
 	m_AttackPos_Soldier = Engine::Math::Vector4D<float>(550, 300, 0);
@@ -26,14 +26,14 @@ void Gameplay::StageSystem::_Init()
 	*(m_pTower_Enemy->Transform->Position)   = m_AttackPos_Soldier;
 
 	{
-		m_pTower_Soldier->_AddComponent<Engine::Asset::Sprite>();
-		Engine::Asset::Sprite* pSprite = m_pTower_Soldier->_GetComponent<Engine::Asset::Sprite>();
+		m_pTower_Soldier->_AddComponent<Engine::Component::Sprite>();
+		Engine::Component::Sprite* pSprite = m_pTower_Soldier->_GetComponent<Engine::Component::Sprite>();
 		pSprite->_Create("Textures/Star_Green.png");
 	}
 
 	{
-		m_pTower_Enemy->_AddComponent<Engine::Asset::Sprite>();
-		Engine::Asset::Sprite* pSprite = m_pTower_Enemy->_GetComponent<Engine::Asset::Sprite>();
+		m_pTower_Enemy->_AddComponent<Engine::Component::Sprite>();
+		Engine::Component::Sprite* pSprite = m_pTower_Enemy->_GetComponent<Engine::Component::Sprite>();
 		pSprite->_Create("Textures/Star_Red.png");
 	}
 }

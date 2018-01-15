@@ -6,11 +6,7 @@
 namespace Engine
 {
 	class IGameScene;
-
-	namespace Asset
-	{
-		class GameObject;
-	}
+	class GameObject;
 }
 
 namespace Gameplay
@@ -41,8 +37,8 @@ namespace Gameplay
 
 	private:
 
-		Engine::Asset::GameObject*	m_pTower_Soldier;
-		Engine::Asset::GameObject*	m_pTower_Enemy;
+		Engine::GameObject*	m_pTower_Soldier;
+		Engine::GameObject*	m_pTower_Enemy;
 
 		Engine::Math::Vector4D<float> m_AttackPos_Soldier;
 		Engine::Math::Vector4D<float> m_AttackPos_Enemy;

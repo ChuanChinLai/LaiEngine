@@ -12,8 +12,33 @@ namespace Engine
 {
 	class Color;
 
-	namespace Asset
+	namespace Component
 	{
+		class ObjectComponent;
+		class Transform;
+	}
+
+	class GameObject
+	{
+	public:
+
+		GameObject();
+		virtual ~GameObject();
+
+		const Component::Transform* const Transform;
+
+		template<typename T>
+		inline void _AddComponent();
+
+		template<typename T>
+		inline T*	_GetComponent();
+
+	private:
+		std::unordered_map<Component::ObjectComponent::TYPE, Component::ObjectComponent*> m_Components;
+
+
+	public:
+
 		enum Alignment
 		{
 			Left,
@@ -23,28 +48,7 @@ namespace Engine
 			Down,
 		};
 
-		class Component;
-		class Transform;
-
-		class GameObject
-		{
-		public:
-			
-			GameObject();
-			virtual ~GameObject();
-
-			const Transform* const Transform;
-
-			template<typename T>
-			inline void _AddComponent();
-
-			template<typename T>
-			inline T*	_GetComponent();
-		private:
-
-			std::unordered_map<Component::TYPE, Component*> m_Components;
-		};
-	}
+	};
 }
 
 #include "GameObject_inline.h"

@@ -3,22 +3,22 @@
 #include "Component.h"
 #include <Engine\GameObject\GameObject.h>
 
-inline Engine::Asset::Component::Component(GameObject * i_pGameObject) : m_pGameObject(i_pGameObject)
+inline Engine::Component::ObjectComponent::ObjectComponent(GameObject * i_pGameObject) : m_pGameObject(i_pGameObject)
 {
 
 }
 
-inline Engine::Asset::Component::~Component()
+inline Engine::Component::ObjectComponent::~ObjectComponent()
 {
 
 }
 
-inline Engine::Asset::GameObject * Engine::Asset::Component::_GetGameObject()
+inline Engine::GameObject * Engine::Component::ObjectComponent::_GetGameObject()
 {
 	return m_pGameObject;
 }
 
-inline Engine::Asset::Component::TYPE Engine::Asset::Component::_GetType()
+inline Engine::Component::ObjectComponent::TYPE Engine::Component::ObjectComponent::_GetType()
 {
 	return m_TYPE;
 }

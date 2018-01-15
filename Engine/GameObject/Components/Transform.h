@@ -5,9 +5,9 @@
 
 namespace Engine
 {
-	namespace Asset
+	namespace Component
 	{
-		class Transform : public Component
+		class Transform : public ObjectComponent
 		{
 		public:
 

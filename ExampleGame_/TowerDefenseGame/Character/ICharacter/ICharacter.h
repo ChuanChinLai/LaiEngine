@@ -5,10 +5,7 @@
 
 namespace Engine
 {
-	namespace Asset
-	{
-		class GameObject;
-	}
+	class GameObject;
 }
 
 namespace Gameplay
@@ -31,7 +28,7 @@ namespace Gameplay
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 
-		Engine::Asset::GameObject*		_GetGameObject();
+		Engine::GameObject*		_GetGameObject();
 		Engine::Math::Vector4D<float>	_GetPosition();
 		CharacterAttr*					_GetAttribute();
 
@@ -41,7 +38,7 @@ namespace Gameplay
 
 	protected:
 
-		Engine::Asset::GameObject*	m_pGameObject;
+		Engine::GameObject*	m_pGameObject;
 		CharacterAttr*				m_pAttribute;
 		ICharacterAI*				m_pAI;
 

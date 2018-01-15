@@ -18,22 +18,22 @@ Gameplay::GameStateInfoUI::~GameStateInfoUI()
 void Gameplay::GameStateInfoUI::_Init()
 {
 	{
-		m_pPlayerHP = new Engine::Asset::GameObject();
-		m_pPlayerHP->_AddComponent<Engine::Asset::Text>();
+		m_pPlayerHP = new Engine::GameObject();
+		m_pPlayerHP->_AddComponent<Engine::Component::Text>();
 		m_pPlayerHP->Transform->Position->x = 0;
 		m_pPlayerHP->Transform->Position->y = 0;
 	}
 
 	{
-		m_pEnemyHP = new Engine::Asset::GameObject();
-		m_pEnemyHP->_AddComponent<Engine::Asset::Text>();
+		m_pEnemyHP = new Engine::GameObject();
+		m_pEnemyHP->_AddComponent<Engine::Component::Text>();
 		m_pEnemyHP->Transform->Position->x = 800;
 		m_pEnemyHP->Transform->Position->y = 0;
 	}
 
 	{
-		m_pFPS = new Engine::Asset::GameObject();
-		m_pFPS->_AddComponent<Engine::Asset::Text>();
+		m_pFPS = new Engine::GameObject();
+		m_pFPS->_AddComponent<Engine::Component::Text>();
 		m_pFPS->Transform->Position->x = 800;
 		m_pFPS->Transform->Position->y = 600;
 	}
@@ -42,19 +42,19 @@ void Gameplay::GameStateInfoUI::_Init()
 void Gameplay::GameStateInfoUI::_Update()
 {
 	{
-		Engine::Asset::Text* pText = m_pPlayerHP->_GetComponent<Engine::Asset::Text>();
+		Engine::Component::Text* pText = m_pPlayerHP->_GetComponent<Engine::Component::Text>();
 		std::string HP = std::to_string(m_pTDGame->_GetPlayerHP());
 		pText->_Create(HP, Engine::Color::RED, 40, "Fonts/Font.ttf");
 	}
 
 	{
-		Engine::Asset::Text* pText = m_pEnemyHP->_GetComponent<Engine::Asset::Text>();
+		Engine::Component::Text* pText = m_pEnemyHP->_GetComponent<Engine::Component::Text>();
 		std::string HP = std::to_string(m_pTDGame->_GetAIHP());
 		pText->_Create(HP, Engine::Color::RED, 40, "Fonts/Font.ttf");
 	}
 
 	{
-		Engine::Asset::Text* pText = m_pFPS->_GetComponent<Engine::Asset::Text>();
+		Engine::Component::Text* pText = m_pFPS->_GetComponent<Engine::Component::Text>();
 		std::string s = std::to_string(Engine::_Timer()->_GetFPS());
 		pText->_Create(s, Engine::Color::RED, 40, "Fonts/Font.ttf");
 	}
@@ -83,7 +83,7 @@ void Gameplay::GameStateInfoUI::_Release()
 
 void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene)
 {
-	Engine::SubmitGameObject(i_pScene, m_pPlayerHP	, Engine::Asset::Alignment::Left, Engine::Asset::Alignment::Up);
-	Engine::SubmitGameObject(i_pScene, m_pEnemyHP	, Engine::Asset::Alignment::Right, Engine::Asset::Alignment::Up);
-	Engine::SubmitGameObject(i_pScene, m_pFPS		, Engine::Asset::Alignment::Right, Engine::Asset::Alignment::Down);
+	Engine::SubmitGameObject(i_pScene, m_pPlayerHP	, Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
+	Engine::SubmitGameObject(i_pScene, m_pEnemyHP	, Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
+	Engine::SubmitGameObject(i_pScene, m_pFPS		, Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
 }

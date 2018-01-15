@@ -25,7 +25,7 @@ void Gameplay::SoldierCamp::_RunCommand()
 		pNewCharacter->_SetAttribute(new CharacterAttr(m_pAttributeData));
 
 
-		Engine::Asset::Sprite* pSprite = pNewCharacter->_GetGameObject()->_GetComponent<Engine::Asset::Sprite>();
+		Engine::Component::Sprite* pSprite = pNewCharacter->_GetGameObject()->_GetComponent<Engine::Component::Sprite>();
 		pSprite->_Create(m_SpriteName);
 
 		*(pNewCharacter->_GetGameObject()->Transform->Position) = m_Position;

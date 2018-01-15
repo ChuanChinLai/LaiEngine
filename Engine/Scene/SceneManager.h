@@ -7,11 +7,7 @@
 
 namespace Engine
 {
-	namespace Asset
-	{
-		class GameObject;
-	}
-
+	class GameObject;
 	class IGameScene;
 
 	class SceneManager
@@ -34,7 +30,7 @@ namespace Engine
 
 	private:
 
-		SDL_Rect	_GetRenderPosition(const Math::Vector4D<float>& i_Position, int i_w, int i_h, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y);
+		SDL_Rect	_GetRenderPosition(const Math::Vector4D<float>& i_Position, int i_w, int i_h, GameObject::Alignment i_Align_X, GameObject::Alignment i_Align_Y);
 		IGameScene* m_pCurrentScene;
 		bool 		m_bRunBegin;
 	};

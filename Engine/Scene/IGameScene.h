@@ -9,12 +9,7 @@
 
 namespace Engine
 {
-	namespace Asset
-	{
-		class GameObject;
-	}
-
-
+	class GameObject;
 	class SceneManager;
 
 	class IGameScene
@@ -25,8 +20,8 @@ namespace Engine
 		{
 			Color BackgroundColor;
 
-			std::vector<Engine::Asset::GameObject*>		GameObjects;
-			std::vector<std::pair<Asset::Alignment, Asset::Alignment>>	Alignment_GameObjects;
+			std::vector<Engine::GameObject*> GameObjects;
+			std::vector<std::pair<GameObject::Alignment, GameObject::Alignment>>	Alignment_GameObjects;
 		};
 
 
@@ -48,7 +43,7 @@ namespace Engine
 	inline void SubmitBackgroundColor(IGameScene* i_pScene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
 	inline void SubmitBackgroundColor(IGameScene* i_pScene, Color i_Color);
 
-	inline void SubmitGameObject(IGameScene* i_pScene, Asset::GameObject* i_pGameObject, Asset::Alignment i_Align_X = Asset::Alignment::Center, Asset::Alignment i_Align_Y = Asset::Alignment::Center);
+	inline void SubmitGameObject(IGameScene* i_pScene, GameObject* i_pGameObject, GameObject::Alignment i_Align_X = GameObject::Alignment::Center, GameObject::Alignment i_Align_Y = GameObject::Alignment::Center);
 }
 
 #include "IGameScene_inline.h"

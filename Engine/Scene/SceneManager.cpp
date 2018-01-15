@@ -58,25 +58,25 @@ void Engine::SceneManager::_Render()
 
 		for (size_t i = 0; i < m_pCurrentScene->m_RenderedData.GameObjects.size(); i++)
 		{
-			Asset::GameObject* pGameObject = m_pCurrentScene->m_RenderedData.GameObjects[i];
+			GameObject* pGameObject = m_pCurrentScene->m_RenderedData.GameObjects[i];
 
 			{
-				Asset::Sprite* pComponent = pGameObject->_GetComponent<Asset::Sprite>();
+				Component::Sprite* pComponent = pGameObject->_GetComponent<Component::Sprite>();
 
 				if (pComponent != nullptr)
 				{
-					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
+					std::pair<GameObject::Alignment, GameObject::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
 					SDL_Rect DestRect = _GetRenderPosition(*(pGameObject->Transform->Position), pComponent->w, pComponent->h, alignment.first, alignment.second);
 					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
 				}
 			}
 
 			{
-				Asset::Text* pComponent = pGameObject->_GetComponent<Asset::Text>();
+				Component::Text* pComponent = pGameObject->_GetComponent<Component::Text>();
 
 				if (pComponent != nullptr)
 				{
-					std::pair<Asset::Alignment, Asset::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
+					std::pair<GameObject::Alignment, GameObject::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
 					SDL_Rect DestRect = _GetRenderPosition(*(pGameObject->Transform->Position), pComponent->w, pComponent->h, alignment.first, alignment.second);
 					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
 				}
@@ -98,15 +98,15 @@ void Engine::SceneManager::_Release()
 	}
 }
 
-SDL_Rect Engine::SceneManager::_GetRenderPosition(const Math::Vector4D<float>& i_Position, int i_w, int i_h, Asset::Alignment i_Align_X, Asset::Alignment i_Align_Y)
+SDL_Rect Engine::SceneManager::_GetRenderPosition(const Math::Vector4D<float>& i_Position, int i_w, int i_h, GameObject::Alignment i_Align_X, GameObject::Alignment i_Align_Y)
 {
 	int x = static_cast<int>(i_Position.x);
 	int y = static_cast<int>(i_Position.y);
 	int w = i_w;
 	int h = i_h;
 
-	x = (i_Align_X == Asset::Alignment::Left) ? x : (i_Align_X == Asset::Alignment::Right) ? x - w : x - w / 2;
-	y = (i_Align_Y == Asset::Alignment::Up)   ? y : (i_Align_Y == Asset::Alignment::Down)  ? y - h : y - h / 2;
+	x = (i_Align_X == GameObject::Alignment::Left) ? x : (i_Align_X == GameObject::Alignment::Right) ? x - w : x - w / 2;
+	y = (i_Align_Y == GameObject::Alignment::Up)   ? y : (i_Align_Y == GameObject::Alignment::Down)  ? y - h : y - h / 2;
 
 	SDL_Rect DestRect = { x, y, w, h };
 

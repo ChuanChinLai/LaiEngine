@@ -4,7 +4,7 @@
 
 #include <cassert>
 
-bool Engine::Asset::Sprite::_Create(std::string i_FilePath)
+bool Engine::Component::Sprite::_Create(std::string i_FilePath)
 {
 	_Release();
 
@@ -29,7 +29,7 @@ bool Engine::Asset::Sprite::_Create(std::string i_FilePath)
 	return true;
 }
 
-void Engine::Asset::Sprite::_Release()
+void Engine::Component::Sprite::_Release()
 {
 	if (pTexture != nullptr)
 	{

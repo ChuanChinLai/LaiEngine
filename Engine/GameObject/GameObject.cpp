@@ -7,12 +7,12 @@
 #include <External\SDL2\Includes.h>
 #include <cassert>
 
-Engine::Asset::GameObject::GameObject() : Transform(new Engine::Asset::Transform(this))
+Engine::GameObject::GameObject() : Transform(new Engine::Component::Transform(this))
 {
 
 }
 
-Engine::Asset::GameObject::~GameObject()
+Engine::GameObject::~GameObject()
 {
 	delete Transform;
 

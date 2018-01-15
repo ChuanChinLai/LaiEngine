@@ -2,14 +2,6 @@
 
 #include <Engine\Math\Vector4D.h>
 
-namespace Engine
-{
-	namespace Asset
-	{
-		class GameObject;
-	}
-}
-
 namespace Gameplay
 {
 	class TowerDefenseGame;

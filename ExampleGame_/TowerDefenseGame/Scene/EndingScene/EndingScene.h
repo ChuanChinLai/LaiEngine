@@ -20,8 +20,8 @@ namespace Engine
 
 	private:
 
-		Engine::Asset::GameObject*   m_pTitle = nullptr;
-		Engine::Asset::GameObject*   m_pStart = nullptr;
+		Engine::GameObject*   m_pTitle = nullptr;
+		Engine::GameObject*   m_pStart = nullptr;
 
 		bool m_WinTheGame;
 	};

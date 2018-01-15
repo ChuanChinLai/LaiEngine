@@ -2,12 +2,12 @@
 
 #include "Transform.h"
 
-inline Engine::Asset::Transform::Transform(GameObject* i_GameObject): Component(i_GameObject), Position(new Engine::Math::Vector4D<float>()), Rotation(new Engine::Math::Vector4D<float>()) 
+inline Engine::Component::Transform::Transform(GameObject* i_GameObject): ObjectComponent(i_GameObject), Position(new Engine::Math::Vector4D<float>()), Rotation(new Engine::Math::Vector4D<float>()) 
 {
 
 }
 
-inline Engine::Asset::Transform::~Transform()
+inline Engine::Component::Transform::~Transform()
 {
 	delete Position;
 	delete Rotation;

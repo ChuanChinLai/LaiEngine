@@ -4,9 +4,9 @@
 
 namespace Engine
 {
-	namespace Asset
+	namespace Component
 	{
-		class Text : public Component
+		class Text : public ObjectComponent
 		{
 		public:
 

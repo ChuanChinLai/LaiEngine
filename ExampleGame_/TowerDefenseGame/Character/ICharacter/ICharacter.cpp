@@ -9,7 +9,7 @@
 
 Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pAttribute(nullptr), m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
 {
-	m_pGameObject = new Engine::Asset::GameObject();
+	m_pGameObject = new Engine::GameObject();
 }
 
 Gameplay::ICharacter::~ICharacter()
@@ -75,7 +75,7 @@ bool Gameplay::ICharacter::_CheckKilledEvent()
 	return false;
 }
 
-Engine::Asset::GameObject* Gameplay::ICharacter::_GetGameObject()
+Engine::GameObject* Gameplay::ICharacter::_GetGameObject()
 {
 	return m_pGameObject;
 }
