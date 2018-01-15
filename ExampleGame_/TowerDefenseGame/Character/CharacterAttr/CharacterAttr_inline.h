@@ -4,6 +4,8 @@
 
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 
+#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\SmartPointer\WeakPointer.h>
 
 inline Gameplay::CharacterAttr::CharacterAttr() : HP(0), ATK(0), DEF(0), SPEED(0)
 {
@@ -33,7 +35,7 @@ inline const Gameplay::CharacterAttr & Gameplay::CharacterAttr::operator=(const 
 
 inline void Gameplay::CharacterAttr::_CallDamageValue(Gameplay::ICharacter * Attacker)
 {
-	float Damage = Attacker->m_Attribute->ATK - DEF;
+	float Damage = Attacker->_GetAttribute()->ATK - DEF;
 
 	if(Damage > 0.0f)
 		HP -= Damage;

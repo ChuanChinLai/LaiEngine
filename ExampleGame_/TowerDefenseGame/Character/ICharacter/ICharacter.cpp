@@ -32,7 +32,7 @@ void Gameplay::ICharacter::_Release()
 
 void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Targets)
 {
-	if (m_bKilled || m_Attribute->HP <= 0.0f)
+	if (m_bKilled || m_pAttribute->HP <= 0.0f)
 	{
 		m_bKilled = true;
 		return;
@@ -72,4 +72,14 @@ Engine::GameObject* Gameplay::ICharacter::_GetGameObject()
 Engine::Math::Vector4D<float> Gameplay::ICharacter::_GetPosition()
 {
 	return *(m_pGameObject->Transform->Position);
+}
+
+Engine::Memory::weak_ptr<Gameplay::CharacterAttr> Gameplay::ICharacter::_GetAttribute()
+{
+	return m_pAttribute;
+}
+
+void Gameplay::ICharacter::_SetAttribute(Engine::Memory::shared_ptr<CharacterAttr> i_pAttribute)
+{
+	m_pAttribute = i_pAttribute;
 }

@@ -31,7 +31,7 @@ namespace Engine
 	}
 
 
-	void SubmitGameObject(IGameScene * i_pScene, GameObject* i_pGameObject, GameObject::Alignment i_Align_X, GameObject::Alignment i_Align_Y)
+	void SubmitObjectToBeRendered(IGameScene * i_pScene, GameObject* i_pGameObject, GameObject::Alignment i_Align_X, GameObject::Alignment i_Align_Y)
 	{
 		if (i_pGameObject == nullptr)
 			return;

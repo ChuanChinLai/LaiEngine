@@ -8,7 +8,7 @@
 #include "Test.h"
 #include <Engine\Tool\Tool.h>
 #include <ExampleGame_\TowerDefenseGame\Camp\CampSystem\CampSystem.h>
-
+#include <list>
 
 int main(int argc, char *args[])
 {

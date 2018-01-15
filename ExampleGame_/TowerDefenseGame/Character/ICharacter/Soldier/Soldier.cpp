@@ -27,7 +27,7 @@ void Gameplay::Soldier::_Init()
 void Gameplay::Soldier::_Update()
 {
 	Engine::Component::Text* pText = m_pGameObject->_GetComponent<Engine::Component::Text>();
-	pText->_Create(std::to_string(static_cast<int>(m_Attribute->HP)), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
+	pText->_Create(std::to_string(static_cast<int>(m_pAttribute->HP)), Engine::Color::BLACK, 40, "Fonts/Font.ttf");
 }
 
 void Gameplay::Soldier::_Release()

@@ -28,7 +28,7 @@ void Gameplay::EnemyCamp::_RunCommand()
 	
 	ICharacter* pNewCharacter = new Enemy();
 	pNewCharacter->_Init();
-	pNewCharacter->m_Attribute = Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData));
+	pNewCharacter->_SetAttribute(Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData)));
 
 
 	Engine::Component::Sprite* pSprite = pNewCharacter->_GetGameObject()->_GetComponent<Engine::Component::Sprite>();

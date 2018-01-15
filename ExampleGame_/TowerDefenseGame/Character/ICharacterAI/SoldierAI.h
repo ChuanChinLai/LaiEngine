@@ -13,7 +13,7 @@ namespace Gameplay
 		static Engine::Memory::shared_ptr<ICharacterAI> _Create(ICharacter* i_pCharacter);
 		static  void _SetStageSystem(StageSystem* i_pStageSystem);
 
-		virtual void _ChangeAIState(IAIState* i_pNewAIState) override;
+		virtual void _ChangeAIState(Engine::Memory::shared_ptr<IAIState> i_pAIState) override;
 		virtual void _AttackTower() override;
 
 	private:

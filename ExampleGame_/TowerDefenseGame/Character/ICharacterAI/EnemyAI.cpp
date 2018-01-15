@@ -18,14 +18,9 @@ Gameplay::EnemyAI::EnemyAI(ICharacter * i_pCharacter) : ICharacterAI(i_pCharacte
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
 }
 
-void Gameplay::EnemyAI::_ChangeAIState(IAIState * i_pNewAIState)
+void Gameplay::EnemyAI::_ChangeAIState(Engine::Memory::shared_ptr<IAIState> i_pAIState)
 {
-	if (m_pAIState != nullptr)
-	{
-		delete m_pAIState;
-	}
-
-	m_pAIState = i_pNewAIState;
+	m_pAIState = i_pAIState;
 	m_pAIState->_SetCharacterAI(this);
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
 }

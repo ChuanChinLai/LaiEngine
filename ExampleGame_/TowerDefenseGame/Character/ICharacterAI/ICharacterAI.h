@@ -16,7 +16,7 @@ namespace Gameplay
 
 		virtual ~ICharacterAI();
 
-		virtual void _ChangeAIState(IAIState* i_pNewAIState);
+		virtual void _ChangeAIState(Engine::Memory::shared_ptr<IAIState> i_pAIState);
 		virtual void _AttackTower();
 
 		void _Update(const std::list<ICharacter*>& i_Targets);
@@ -33,7 +33,7 @@ namespace Gameplay
 		ICharacterAI(ICharacter* i_pCharacter);
 
 		ICharacter*	 m_pCharacter;
-		IAIState*	 m_pAIState;
+		Engine::Memory::shared_ptr<IAIState> m_pAIState;
 
 	private:
 	};

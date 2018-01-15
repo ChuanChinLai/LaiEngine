@@ -32,14 +32,18 @@ namespace Gameplay
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 
-		Engine::GameObject* _GetGameObject();
-		Engine::Math::Vector4D<float> _GetPosition();
+		Engine::GameObject*				_GetGameObject();
+		Engine::Math::Vector4D<float>	_GetPosition();
 
-		Engine::Memory::shared_ptr<CharacterAttr> m_Attribute;
+
+		Engine::Memory::weak_ptr<CharacterAttr> _GetAttribute();
+		void _SetAttribute(Engine::Memory::shared_ptr<CharacterAttr> i_pAttribute);
+
 	protected:
 
 		Engine::Memory::shared_ptr<Engine::GameObject>	m_pGameObject;
-		Engine::Memory::shared_ptr<ICharacterAI> m_pAI;
+		Engine::Memory::shared_ptr<ICharacterAI>		m_pAI;
+		Engine::Memory::shared_ptr<CharacterAttr>		m_pAttribute;
 
 	private:
 		bool m_bKilled;

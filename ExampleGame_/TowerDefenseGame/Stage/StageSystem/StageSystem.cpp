@@ -50,6 +50,6 @@ void Gameplay::StageSystem::_Release()
 
 void Gameplay::StageSystem::_RenderObjects(Engine::IGameScene * i_pScene) const
 {
-	Engine::SubmitGameObject(i_pScene, m_pTower_Soldier._Get());
-	Engine::SubmitGameObject(i_pScene, m_pTower_Enemy._Get());
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pTower_Soldier._Get());
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pTower_Enemy._Get());
 }

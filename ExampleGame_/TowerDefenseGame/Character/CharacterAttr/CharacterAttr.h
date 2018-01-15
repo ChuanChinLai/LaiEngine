@@ -1,7 +1,5 @@
 #pragma once
 
-#include <Engine\SmartPointer\SharedPointer.h>
-
 namespace Gameplay
 {
 	class ICharacter;

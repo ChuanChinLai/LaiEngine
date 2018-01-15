@@ -67,7 +67,7 @@ void Gameplay::GameStateInfoUI::_Release()
 
 void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene)
 {
-	Engine::SubmitGameObject(i_pScene, m_pPlayerHP._Get(), Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
-	Engine::SubmitGameObject(i_pScene, m_pEnemyHP._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
-	Engine::SubmitGameObject(i_pScene, m_pFPS._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pPlayerHP._Get(), Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pEnemyHP._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pFPS._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
 }

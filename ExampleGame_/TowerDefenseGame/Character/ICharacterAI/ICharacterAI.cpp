@@ -8,23 +8,18 @@
 
 Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_pCharacter): m_pCharacter(i_pCharacter), m_pAIState(nullptr)
 {
-	m_pAIState = new AttackState();
+	m_pAIState = Engine::Memory::shared_ptr<IAIState>(new AttackState());
 	m_pAIState->_SetCharacterAI(this);
 }
 
 Gameplay::ICharacterAI::~ICharacterAI()
 {
-	delete m_pAIState;
+
 }
 
-void Gameplay::ICharacterAI::_ChangeAIState(IAIState * i_pNewAIState)
+void Gameplay::ICharacterAI::_ChangeAIState(Engine::Memory::shared_ptr<IAIState> i_pAIState)
 {
-	if (m_pAIState != nullptr)
-	{
-		delete m_pAIState;
-	}
-
-	m_pAIState = i_pNewAIState;
+	m_pAIState = i_pAIState;
 	m_pAIState->_SetCharacterAI(this);
 }
 
@@ -49,7 +44,7 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Targ
 	Engine::Math::Vector4D<float> dir = i_TargetPosition - CurrentPosition;
 	dir.normalize();
 
-	float v = m_pCharacter->m_Attribute->SPEED;
+	float v = m_pCharacter->_GetAttribute()->SPEED;
 	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
 
 	*(m_pCharacter->_GetGameObject()->Transform->Position) += dir * v * t;
@@ -57,7 +52,7 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Targ
 
 void Gameplay::ICharacterAI::_Attack(ICharacter * i_Target)
 {
-	i_Target->m_Attribute->_CallDamageValue(m_pCharacter);
+	i_Target->_GetAttribute()->_CallDamageValue(m_pCharacter);
 }
 
 void Gameplay::ICharacterAI::_Killed()

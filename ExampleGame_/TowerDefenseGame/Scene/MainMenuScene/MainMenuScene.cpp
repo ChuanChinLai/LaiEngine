@@ -62,6 +62,6 @@ void Engine::MainMenuScene::_SubmitDataToBeRendered()
 {
 	SubmitBackgroundColor(this, 0, 0, 0, 0);
 
-	SubmitGameObject(this, m_pTitle._Get());
-	SubmitGameObject(this, m_pStart._Get());
+	SubmitObjectToBeRendered(this, m_pTitle._Get());
+	SubmitObjectToBeRendered(this, m_pStart._Get());
 }

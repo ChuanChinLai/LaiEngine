@@ -23,10 +23,8 @@ namespace Gameplay
 	protected:
 
 		TowerDefenseGame*				m_pTDGame;
-
-		CharacterAttr m_AttributeData;
-
 		Engine::Math::Vector4D<float>	m_Position;
+		CharacterAttr					m_AttributeData;
 		std::string						m_SpriteName;
 
 	private:

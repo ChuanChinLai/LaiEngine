@@ -16,7 +16,7 @@ void Gameplay::AttackHeartState::_Update(const std::list<ICharacter*>& i_Targets
 {
 	if (i_Targets.size() != 0)
 	{
-		m_pCharacterAI->_ChangeAIState(new AttackState());
+		m_pCharacterAI->_ChangeAIState(Engine::Memory::shared_ptr<IAIState>(new AttackState()));
 		return;
 	}
 
