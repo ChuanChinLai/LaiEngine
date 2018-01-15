@@ -1,8 +1,7 @@
 #pragma once
 
 #include "Components\Component.h"
-
-#include <Engine\Math\Vector4D.h>
+//#include <Engine\SmartPointer\SharedPointer.h>
 #include <External\SDL2\Includes.h>
 
 #include <string>
@@ -11,6 +10,11 @@
 namespace Engine
 {
 	class Color;
+
+	namespace Memory
+	{
+		template<class T> class shared_ptr;
+	}
 
 	namespace Component
 	{
@@ -21,6 +25,8 @@ namespace Engine
 	class GameObject
 	{
 	public:
+	
+		static Memory::shared_ptr<GameObject> _Create();
 
 		GameObject();
 		virtual ~GameObject();

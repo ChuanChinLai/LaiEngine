@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IUserInterface\IUserInterface.h>
-
+#include <Engine\SmartPointer\SharedPointer.h>
 
 namespace Engine
 {
@@ -25,7 +25,7 @@ namespace Gameplay
 
 	private:
 
-		Engine::GameObject*   m_pPlayerHP;
+		Engine::Memory::shared_ptr<Engine::GameObject> m_pPlayerHP;
 		Engine::GameObject*   m_pEnemyHP;
 		Engine::GameObject*   m_pFPS;
 	};

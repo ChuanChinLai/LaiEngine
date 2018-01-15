@@ -1,11 +1,11 @@
 #include "GameStateInfoUI.h"
 
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
-
+#include <Engine\SmartPointer\SharedPointer.h>
 #include <Engine\GameEngine\Includes.h>
 
 
-Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * i_pTDGame) : IUserInterface(i_pTDGame), m_pPlayerHP(nullptr), m_pEnemyHP(nullptr), m_pFPS(nullptr)
+Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * i_pTDGame) : IUserInterface(i_pTDGame), m_pEnemyHP(nullptr), m_pFPS(nullptr)
 {
 
 }
@@ -18,7 +18,7 @@ Gameplay::GameStateInfoUI::~GameStateInfoUI()
 void Gameplay::GameStateInfoUI::_Init()
 {
 	{
-		m_pPlayerHP = new Engine::GameObject();
+		m_pPlayerHP = Engine::GameObject::_Create();
 		m_pPlayerHP->_AddComponent<Engine::Component::Text>();
 		m_pPlayerHP->Transform->Position->x = 0;
 		m_pPlayerHP->Transform->Position->y = 0;
@@ -62,12 +62,6 @@ void Gameplay::GameStateInfoUI::_Update()
 
 void Gameplay::GameStateInfoUI::_Release()
 {
-	if (m_pPlayerHP != nullptr)
-	{
-		delete m_pPlayerHP;
-		m_pPlayerHP = nullptr;
-	}
-
 	if (m_pEnemyHP != nullptr)
 	{
 		delete m_pEnemyHP;
@@ -83,7 +77,7 @@ void Gameplay::GameStateInfoUI::_Release()
 
 void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene)
 {
-	Engine::SubmitGameObject(i_pScene, m_pPlayerHP	, Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
+	Engine::SubmitGameObject(i_pScene, m_pPlayerHP._Get() , Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
 	Engine::SubmitGameObject(i_pScene, m_pEnemyHP	, Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
 	Engine::SubmitGameObject(i_pScene, m_pFPS		, Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
 }
