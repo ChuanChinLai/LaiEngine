@@ -25,14 +25,14 @@ void Gameplay::GameStateInfoUI::_Init()
 	}
 
 	{
-		m_pEnemyHP = new Engine::GameObject();
+		m_pEnemyHP = Engine::GameObject::_Create();
 		m_pEnemyHP->_AddComponent<Engine::Component::Text>();
 		m_pEnemyHP->Transform->Position->x = 800;
 		m_pEnemyHP->Transform->Position->y = 0;
 	}
 
 	{
-		m_pFPS = new Engine::GameObject();
+		m_pFPS = Engine::GameObject::_Create();
 		m_pFPS->_AddComponent<Engine::Component::Text>();
 		m_pFPS->Transform->Position->x = 800;
 		m_pFPS->Transform->Position->y = 600;
@@ -62,22 +62,12 @@ void Gameplay::GameStateInfoUI::_Update()
 
 void Gameplay::GameStateInfoUI::_Release()
 {
-	if (m_pEnemyHP != nullptr)
-	{
-		delete m_pEnemyHP;
-		m_pEnemyHP = nullptr;
-	}
 
-	if (m_pFPS != nullptr)
-	{
-		delete m_pFPS;
-		m_pFPS = nullptr;
-	}
 }
 
 void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene)
 {
-	Engine::SubmitGameObject(i_pScene, m_pPlayerHP._Get() , Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
-	Engine::SubmitGameObject(i_pScene, m_pEnemyHP	, Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
-	Engine::SubmitGameObject(i_pScene, m_pFPS		, Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
+	Engine::SubmitGameObject(i_pScene, m_pPlayerHP._Get(), Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
+	Engine::SubmitGameObject(i_pScene, m_pEnemyHP._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
+	Engine::SubmitGameObject(i_pScene, m_pFPS._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
 }

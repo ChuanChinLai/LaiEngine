@@ -26,6 +26,7 @@ namespace Engine
 
 
 		IGameScene(SceneManager* i_pSceneManager);
+		virtual ~IGameScene();
 
 		virtual void _Init() = 0;
 		virtual void _Update() = 0;

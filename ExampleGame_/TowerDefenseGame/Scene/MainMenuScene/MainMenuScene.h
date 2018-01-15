@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Engine\Scene\IGameScene.h>
+#include <Engine\SmartPointer\SharedPointer.h>
 
 namespace Engine
 {
@@ -17,10 +18,9 @@ namespace Engine
 		void _Release() override;
 		void _SubmitDataToBeRendered() override;
 
-
 	private:
 
-		Engine::GameObject*   m_pTitle = nullptr;
-		Engine::GameObject*   m_pStart = nullptr;
+		Engine::Memory::shared_ptr<GameObject> m_pTitle;
+		Engine::Memory::shared_ptr<GameObject> m_pStart;
 	};
 }

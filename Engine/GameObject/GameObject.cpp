@@ -10,7 +10,7 @@
 
 Engine::Memory::shared_ptr<Engine::GameObject> Engine::GameObject::_Create()
 {
-	return Memory::shared_ptr<GameObject>(new GameObject);
+	return Memory::shared_ptr<GameObject>(new GameObject());
 }
 
 Engine::GameObject::GameObject() : Transform(new Engine::Component::Transform(this))

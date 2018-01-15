@@ -28,8 +28,7 @@ namespace Engine
 	
 		static Memory::shared_ptr<GameObject> _Create();
 
-		GameObject();
-		virtual ~GameObject();
+		~GameObject();
 
 		const Component::Transform* const Transform;
 
@@ -40,6 +39,12 @@ namespace Engine
 		inline T*	_GetComponent();
 
 	private:
+
+		GameObject();
+		GameObject(const GameObject& i_Object);
+		GameObject& operator =  (const GameObject& i_Object);
+
+
 		std::unordered_map<Component::ObjectComponent::TYPE, Component::ObjectComponent*> m_Components;
 
 

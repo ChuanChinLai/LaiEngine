@@ -15,8 +15,8 @@ Gameplay::StageSystem::StageSystem(TowerDefenseGame * i_pTDGame) : IGameSystem(i
 
 void Gameplay::StageSystem::_Init()
 {
-	m_pTower_Soldier = new Engine::GameObject();
-	m_pTower_Enemy	 = new Engine::GameObject();
+	m_pTower_Soldier = Engine::GameObject::_Create();
+	m_pTower_Enemy	 = Engine::GameObject::_Create();
 
 
 	m_AttackPos_Soldier = Engine::Math::Vector4D<float>(550, 300, 0);
@@ -45,12 +45,11 @@ void Gameplay::StageSystem::_Update()
 
 void Gameplay::StageSystem::_Release()
 {
-	delete m_pTower_Soldier;
-	delete m_pTower_Enemy;
+
 }
 
 void Gameplay::StageSystem::_RenderObjects(Engine::IGameScene * i_pScene) const
 {
-	Engine::SubmitGameObject(i_pScene, m_pTower_Soldier);
-	Engine::SubmitGameObject(i_pScene, m_pTower_Enemy);
+	Engine::SubmitGameObject(i_pScene, m_pTower_Soldier._Get());
+	Engine::SubmitGameObject(i_pScene, m_pTower_Enemy._Get());
 }

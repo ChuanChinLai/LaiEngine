@@ -1,7 +1,6 @@
 #include "MainMenuScene.h"
 
 #include <ExampleGame_\TowerDefenseGame\Scene\GamingScene\GamingScene.h>
-
 #include <Engine\GameEngine\Includes.h>
 
 #include <iostream>
@@ -17,15 +16,14 @@ void Engine::MainMenuScene::_Init()
 {
 //	std::cout << "_Init: " << m_Name << std::endl;
 	{
-		m_pTitle = new Engine::GameObject();
+		m_pTitle = Engine::GameObject::_Create();
 		m_pTitle->_AddComponent<Engine::Component::Text>();
 		m_pTitle->Transform->Position->x = 400;
 		m_pTitle->Transform->Position->y = 200;
 	}
 
 	{
-
-		m_pStart = new Engine::GameObject();
+		m_pStart = Engine::GameObject::_Create();
 		m_pStart->_AddComponent<Engine::Component::Text>();
 		m_pStart->Transform->Position->x = 400;
 		m_pStart->Transform->Position->y = 500;
@@ -58,15 +56,12 @@ void Engine::MainMenuScene::_Update()
 void Engine::MainMenuScene::_Release()
 {
 //	std::cout << "_Release: " << m_Name << std::endl;
-
-	delete m_pTitle;
-	delete m_pStart;
 }
 
 void Engine::MainMenuScene::_SubmitDataToBeRendered()
 {
 	SubmitBackgroundColor(this, 0, 0, 0, 0);
 
-	SubmitGameObject(this, m_pTitle);
-	SubmitGameObject(this, m_pStart);
+	SubmitGameObject(this, m_pTitle._Get());
+	SubmitGameObject(this, m_pStart._Get());
 }

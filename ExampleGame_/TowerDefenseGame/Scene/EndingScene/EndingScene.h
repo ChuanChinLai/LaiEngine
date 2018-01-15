@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Engine\Scene\IGameScene.h>
+#include <Engine\SmartPointer\SharedPointer.h>
 
 namespace Engine
 {
@@ -20,8 +21,8 @@ namespace Engine
 
 	private:
 
-		Engine::GameObject*   m_pTitle = nullptr;
-		Engine::GameObject*   m_pStart = nullptr;
+		Engine::Memory::shared_ptr<Engine::GameObject>   m_pTitle;
+		Engine::Memory::shared_ptr<Engine::GameObject>   m_pStart;
 
 		bool m_WinTheGame;
 	};

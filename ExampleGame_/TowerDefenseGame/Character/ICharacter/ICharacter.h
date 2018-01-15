@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Engine\Math\Vector4D.h>
+#include <Engine\SmartPointer\SharedPointer.h>
 #include <list>
 
 namespace Engine
@@ -28,7 +29,7 @@ namespace Gameplay
 		bool _IsKilled();
 		bool _CheckKilledEvent();
 
-		Engine::GameObject*		_GetGameObject();
+		Engine::GameObject*				_GetGameObject();
 		Engine::Math::Vector4D<float>	_GetPosition();
 		CharacterAttr*					_GetAttribute();
 
@@ -38,7 +39,7 @@ namespace Gameplay
 
 	protected:
 
-		Engine::GameObject*	m_pGameObject;
+		Engine::Memory::shared_ptr<Engine::GameObject>	m_pGameObject;
 		CharacterAttr*				m_pAttribute;
 		ICharacterAI*				m_pAI;
 

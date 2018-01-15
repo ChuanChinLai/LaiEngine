@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IGameSystem\IGameSystem.h>
+#include <Engine\SmartPointer\SharedPointer.h>
 #include <Engine\Math\Vector4D.h>
 
 namespace Engine
@@ -37,8 +38,8 @@ namespace Gameplay
 
 	private:
 
-		Engine::GameObject*	m_pTower_Soldier;
-		Engine::GameObject*	m_pTower_Enemy;
+		Engine::Memory::shared_ptr<Engine::GameObject>	m_pTower_Soldier;
+		Engine::Memory::shared_ptr<Engine::GameObject>	m_pTower_Enemy;
 
 		Engine::Math::Vector4D<float> m_AttackPos_Soldier;
 		Engine::Math::Vector4D<float> m_AttackPos_Enemy;

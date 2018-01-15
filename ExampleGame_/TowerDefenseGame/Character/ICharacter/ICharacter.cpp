@@ -1,25 +1,18 @@
 #include "ICharacter.h"
 
 #include <Engine\Math\Vector4D.h>
-
 #include <Engine\GameEngine\Includes.h>
 
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
 
-Gameplay::ICharacter::ICharacter() : m_pGameObject(nullptr), m_pAttribute(nullptr), m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
+Gameplay::ICharacter::ICharacter() : m_pAttribute(nullptr), m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
 {
-	m_pGameObject = new Engine::GameObject();
+	m_pGameObject = Engine::GameObject::_Create();
 }
 
 Gameplay::ICharacter::~ICharacter()
 {
-	if (m_pGameObject)
-	{
-		delete m_pGameObject;
-		m_pGameObject = nullptr;
-	}
-
 	if (m_pAttribute)
 	{
 		delete m_pAttribute;
@@ -77,7 +70,7 @@ bool Gameplay::ICharacter::_CheckKilledEvent()
 
 Engine::GameObject* Gameplay::ICharacter::_GetGameObject()
 {
-	return m_pGameObject;
+	return m_pGameObject._Get();
 }
 
 Engine::Math::Vector4D<float> Gameplay::ICharacter::_GetPosition()

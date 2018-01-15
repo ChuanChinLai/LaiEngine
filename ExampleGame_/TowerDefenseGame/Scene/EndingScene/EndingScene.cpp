@@ -13,7 +13,7 @@ Engine::EndingScene::EndingScene(SceneManager * i_pSceneManager, bool i_WinTheGa
 void Engine::EndingScene::_Init()
 {
 	{
-		m_pTitle = new Engine::GameObject();
+		m_pTitle = Engine::GameObject::_Create();
 		m_pTitle->_AddComponent<Engine::Component::Text>();
 		m_pTitle->Transform->Position->x = 400;
 		m_pTitle->Transform->Position->y = 200;
@@ -21,7 +21,7 @@ void Engine::EndingScene::_Init()
 
 	{
 
-		m_pStart = new Engine::GameObject();
+		m_pStart = Engine::GameObject::_Create();
 		m_pStart->_AddComponent<Engine::Component::Text>();
 		m_pStart->Transform->Position->x = 400;
 		m_pStart->Transform->Position->y = 500;
@@ -58,14 +58,13 @@ void Engine::EndingScene::_Update()
 
 void Engine::EndingScene::_Release()
 {
-	delete m_pTitle;
-	delete m_pStart;
+
 }
 
 void Engine::EndingScene::_SubmitDataToBeRendered()
 {
 	SubmitBackgroundColor(this, Engine::Color::BLACK);
 
-	SubmitGameObject(this, m_pTitle);
-	SubmitGameObject(this, m_pStart);
+	SubmitGameObject(this, m_pTitle._Get());
+	SubmitGameObject(this, m_pStart._Get());
 }

@@ -26,7 +26,7 @@ namespace Gameplay
 	private:
 
 		Engine::Memory::shared_ptr<Engine::GameObject> m_pPlayerHP;
-		Engine::GameObject*   m_pEnemyHP;
-		Engine::GameObject*   m_pFPS;
+		Engine::Memory::shared_ptr<Engine::GameObject> m_pEnemyHP;
+		Engine::Memory::shared_ptr<Engine::GameObject> m_pFPS;
 	};
 }
