@@ -12,7 +12,7 @@ void Gameplay::AttackHeartState::_SetAttackPosition(const Engine::Math::Vector4D
 	m_AttackPosition = i_AttackPosition;
 }
 
-void Gameplay::AttackHeartState::_Update(const std::list<ICharacter*>& i_Targets)
+void Gameplay::AttackHeartState::_Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
 	if (i_Targets.size() != 0)
 	{

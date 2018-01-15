@@ -10,7 +10,7 @@ namespace Gameplay
 		AttackState();
 
 		virtual void _SetAttackPosition(const Engine::Math::Vector4D<float>& i_AttackPosition) override;
-		virtual void _Update(const std::list<ICharacter*>& i_Targets) override;
+		virtual void _Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets) override;
 
 	private:
 		bool	m_bSetAttackPosition;

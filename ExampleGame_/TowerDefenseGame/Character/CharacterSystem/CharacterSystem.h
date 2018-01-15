@@ -2,6 +2,9 @@
 
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IGameSystem\IGameSystem.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
+
+#include <Engine\SmartPointer\SharedPointer.h>
+
 #include <list>
 
 namespace Engine
@@ -30,19 +33,19 @@ namespace Gameplay
 		virtual void _Release() override;
 		virtual void _RenderObjects(Engine::IGameScene* i_pScene) const override;
 
-		void _AddSoldier(ICharacter* i_Soldier);
-		void _AddEnemy(ICharacter* i_Enemy);
+		void _AddSoldier(Engine::Memory::shared_ptr<ICharacter> i_Soldier);
+		void _AddEnemy(Engine::Memory::shared_ptr<ICharacter> i_Enemy);
 
 		void _RemoveCharacter();
-		void _RemoveCharacter(std::list<ICharacter*>& i_Characters, ENUM_GameEvent emEvent);
+		void _RemoveCharacter(std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Characters, ENUM_GameEvent emEvent);
 
 	private:
 
 		void _UpdateCharacter();
 		void _UpdateAI();
-		void _UpdateAI(const std::list<ICharacter*>& i_Characters, const std::list<ICharacter*>& i_Targets);
+		void _UpdateAI(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Characters, const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets);
 
-		std::list<ICharacter*> m_Soldiers;
-		std::list<ICharacter*> m_Enemies;
+		std::list<Engine::Memory::shared_ptr<ICharacter>> m_Soldiers;
+		std::list<Engine::Memory::shared_ptr<ICharacter>> m_Enemies;
 	};
 }

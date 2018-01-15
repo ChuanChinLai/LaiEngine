@@ -26,7 +26,7 @@ void Gameplay::EnemyCamp::_RunCommand()
 
 	m_Time = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / m_MaxSpawnTime));
 	
-	ICharacter* pNewCharacter = new Enemy();
+	Engine::Memory::shared_ptr<ICharacter> pNewCharacter(new Enemy());
 	pNewCharacter->_Init();
 	pNewCharacter->_SetAttribute(Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData)));
 	pNewCharacter->_SetPosition(m_Position);

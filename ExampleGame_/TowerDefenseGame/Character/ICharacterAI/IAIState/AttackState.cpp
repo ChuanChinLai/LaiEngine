@@ -18,7 +18,7 @@ void Gameplay::AttackState::_SetAttackPosition(const Engine::Math::Vector4D<floa
 	m_bSetAttackPosition = true;
 }
 
-void Gameplay::AttackState::_Update(const std::list<ICharacter*>& i_Targets)
+void Gameplay::AttackState::_Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
 	if (i_Targets.size() == 0)
 	{
@@ -39,7 +39,7 @@ void Gameplay::AttackState::_Update(const std::list<ICharacter*>& i_Targets)
 
 		if (d < min_distance)
 		{
-			pNearestCharacter = pTarget;
+			pNearestCharacter = pTarget._Get();
 			min_distance = d;
 		}
 	}

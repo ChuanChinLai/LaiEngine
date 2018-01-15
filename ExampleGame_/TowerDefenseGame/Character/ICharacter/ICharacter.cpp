@@ -30,7 +30,7 @@ void Gameplay::ICharacter::_Release()
 
 }
 
-void Gameplay::ICharacter::_UpdateAI(const std::list<ICharacter*>& i_Targets)
+void Gameplay::ICharacter::_UpdateAI(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
 	if (m_bKilled || m_pAttribute->HP <= 0.0f)
 	{

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
+#include <Engine\SmartPointer\SharedPointer.h>
 
 namespace Engine
 {
@@ -53,8 +54,8 @@ namespace Gameplay
 
 		/*CharacterSystem*/
 
-		void _AddSoldier(ICharacter * i_Soldier);
-		void _AddEnemy(ICharacter * i_Enemy);
+		void _AddSoldier(Engine::Memory::shared_ptr<ICharacter> i_Soldier);
+		void _AddEnemy(Engine::Memory::shared_ptr<ICharacter> i_Enemy);
 
 		GameEventSystem*	m_pGameEventSystem = nullptr;
 		CampSystem*			m_pCampSystem      = nullptr;

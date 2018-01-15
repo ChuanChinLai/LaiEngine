@@ -19,7 +19,7 @@ namespace Gameplay
 		virtual void _ChangeAIState(Engine::Memory::shared_ptr<IAIState> i_pAIState);
 		virtual void _AttackTower();
 
-		void _Update(const std::list<ICharacter*>& i_Targets);
+		void _Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets);
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_TargetPosition);
 		void _Attack(ICharacter* i_Target);
 	

@@ -17,7 +17,7 @@ inline void Gameplay::IAIState::_SetAttackPosition(const Engine::Math::Vector4D<
 
 }
 
-inline void Gameplay::IAIState::_Update(const std::list<ICharacter*>& i_Targets)
+inline void Gameplay::IAIState::_Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
 
 }

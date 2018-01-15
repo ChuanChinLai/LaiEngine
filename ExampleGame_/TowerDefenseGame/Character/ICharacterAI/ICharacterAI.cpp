@@ -28,7 +28,7 @@ void Gameplay::ICharacterAI::_AttackTower()
 
 }
 
-void Gameplay::ICharacterAI::_Update(const std::list<ICharacter*>& i_Targets)
+void Gameplay::ICharacterAI::_Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
 	m_pAIState->_Update(i_Targets);
 }

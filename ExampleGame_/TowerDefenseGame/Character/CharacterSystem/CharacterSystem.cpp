@@ -25,23 +25,17 @@ void Gameplay::CharacterSystem::_Release()
 {
 	for (auto soldier : m_Soldiers)
 	{
-		if (soldier != nullptr)
-		{
-			soldier->_Release();
-			delete soldier;
-			soldier = nullptr;
-		}
+		soldier->_Release();
 	}
+
+	m_Soldiers.clear();
 
 	for (auto enemy : m_Enemies)
 	{
-		if (enemy != nullptr)
-		{
-			enemy->_Release();
-			delete enemy;
-			enemy = nullptr;
-		}
+		enemy->_Release();
 	}
+
+	m_Enemies.clear();
 }
 
 void Gameplay::CharacterSystem::_RenderObjects(Engine::IGameScene * i_pScene) const
@@ -58,12 +52,12 @@ void Gameplay::CharacterSystem::_RenderObjects(Engine::IGameScene * i_pScene) co
 }
 
 
-void Gameplay::CharacterSystem::_AddSoldier(ICharacter * i_Soldier)
+void Gameplay::CharacterSystem::_AddSoldier(Engine::Memory::shared_ptr<ICharacter> i_Soldier)
 {
 	m_Soldiers.push_back(i_Soldier);
 }
 
-void Gameplay::CharacterSystem::_AddEnemy(ICharacter * i_Enemy)
+void Gameplay::CharacterSystem::_AddEnemy(Engine::Memory::shared_ptr<ICharacter> i_Enemy)
 {
 	m_Enemies.push_back(i_Enemy);
 }
@@ -74,9 +68,9 @@ void Gameplay::CharacterSystem::_RemoveCharacter()
 	_RemoveCharacter(m_Enemies, ENUM_GameEvent::EnemyKilled);
 }
 
-void Gameplay::CharacterSystem::_RemoveCharacter(std::list<ICharacter*>& i_Characters, ENUM_GameEvent emEvent)
+void Gameplay::CharacterSystem::_RemoveCharacter(std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Characters, ENUM_GameEvent emEvent)
 {
-	std::list<ICharacter*> CanRemoves;
+	std::list<Engine::Memory::shared_ptr<ICharacter>> CanRemoves;
 
 	for (auto character : i_Characters)
 	{
@@ -84,7 +78,7 @@ void Gameplay::CharacterSystem::_RemoveCharacter(std::list<ICharacter*>& i_Chara
 			continue;
 
 		if (character->_CheckKilledEvent() == false)
-			m_pTDGame->_NotifyGameEvent(emEvent, character);
+			m_pTDGame->_NotifyGameEvent(emEvent, character._Get());
 
 		CanRemoves.push_back(character);
 	}
@@ -93,7 +87,6 @@ void Gameplay::CharacterSystem::_RemoveCharacter(std::list<ICharacter*>& i_Chara
 	{
 		i_Characters.remove(character);
 		character->_Release();
-		delete character;
 	}
 }
 
@@ -117,7 +110,7 @@ void Gameplay::CharacterSystem::_UpdateAI()
 	_RemoveCharacter();
 }
 
-void Gameplay::CharacterSystem::_UpdateAI(const std::list<ICharacter*>& i_Characters, const std::list<ICharacter*>& i_Targets)
+void Gameplay::CharacterSystem::_UpdateAI(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Characters, const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
 	for (const auto character : i_Characters)
 	{

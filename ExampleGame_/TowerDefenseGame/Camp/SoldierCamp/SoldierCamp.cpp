@@ -20,7 +20,7 @@ void Gameplay::SoldierCamp::_RunCommand()
 {
 	if (Engine::_Input()->_GetKeyDown(m_CommandCode))
 	{
-		ICharacter* pNewCharacter = new Soldier();
+		Engine::Memory::shared_ptr<ICharacter> pNewCharacter(new Soldier());
 		pNewCharacter->_Init();
 		pNewCharacter->_SetAttribute(Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData)));
 		pNewCharacter->_SetPosition(m_Position);

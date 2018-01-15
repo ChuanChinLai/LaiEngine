@@ -153,13 +153,13 @@ int Gameplay::TowerDefenseGame::_GetAIHP() const
 	return m_pStageSystem->_GetAIHP();
 }
 
-void Gameplay::TowerDefenseGame::_AddSoldier(ICharacter * i_Soldier)
+void Gameplay::TowerDefenseGame::_AddSoldier(Engine::Memory::shared_ptr<ICharacter> i_Soldier)
 {
 	if (m_pCharacterSystem != nullptr)
 		m_pCharacterSystem->_AddSoldier(i_Soldier);
 }
 
-void Gameplay::TowerDefenseGame::_AddEnemy(ICharacter * i_Enemy)
+void Gameplay::TowerDefenseGame::_AddEnemy(Engine::Memory::shared_ptr<ICharacter> i_Enemy)
 {
 	if (m_pCharacterSystem != nullptr)
 		m_pCharacterSystem->_AddEnemy(i_Enemy);
