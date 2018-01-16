@@ -22,7 +22,7 @@ void Gameplay::AttackState::_Update(const std::list<Engine::Memory::shared_ptr<I
 {
 	if (i_Targets.size() == 0)
 	{
-		if (m_bSetAttackPosition)
+		if (m_bSetAttackPosition && m_pCharacterAI)
 			m_pCharacterAI->_ChangeAIState(Engine::Memory::shared_ptr<IAIState>(new AttackHeartState()));
 
 		return;

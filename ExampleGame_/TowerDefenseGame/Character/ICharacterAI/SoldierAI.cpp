@@ -1,6 +1,8 @@
 #include "SoldierAI.h"
+
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\IAIState\IAIState.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\IAIState\AttackState.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 
 #include <ExampleGame_\TowerDefenseGame\Stage\StageSystem\StageSystem.h>
 
@@ -9,6 +11,8 @@ Gameplay::StageSystem* Gameplay::SoldierAI::s_pStageSystem = nullptr;
 Gameplay::SoldierAI::SoldierAI(Engine::Memory::weak_ptr<ICharacter> i_pCharacter) : ICharacterAI(i_pCharacter)
 {
 	m_AttackPosition = s_pStageSystem->_GetAttackPos_Soldier();
+
+	m_pAIState->_SetCharacterAI(this);
 	m_pAIState->_SetAttackPosition(m_AttackPosition);
 }
 

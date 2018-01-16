@@ -6,7 +6,7 @@
 #include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
 
-Gameplay::ICharacter::ICharacter() : m_pAI(nullptr), m_bKilled(false), m_bCheckKilled(false)
+Gameplay::ICharacter::ICharacter() : m_bKilled(false), m_bCheckKilled(false)
 {
 	m_pGameObject = Engine::GameObject::_Create();
 }

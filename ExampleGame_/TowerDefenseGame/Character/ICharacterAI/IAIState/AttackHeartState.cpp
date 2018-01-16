@@ -14,7 +14,7 @@ void Gameplay::AttackHeartState::_SetAttackPosition(const Engine::Math::Vector4D
 
 void Gameplay::AttackHeartState::_Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
-	if (i_Targets.size() != 0)
+	if (i_Targets.size() != 0 && m_pCharacterAI)
 	{
 		m_pCharacterAI->_ChangeAIState(Engine::Memory::shared_ptr<IAIState>(new AttackState()));
 		return;
