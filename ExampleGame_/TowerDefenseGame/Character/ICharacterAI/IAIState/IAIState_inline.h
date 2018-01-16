@@ -7,6 +7,10 @@ inline Gameplay::IAIState::IAIState(): m_pCharacterAI(nullptr)
 
 }
 
+inline Gameplay::IAIState::~IAIState()
+{
+}
+
 inline void Gameplay::IAIState::_SetCharacterAI(ICharacterAI * i_pCharacterAI)
 {
 	m_pCharacterAI = i_pCharacterAI;

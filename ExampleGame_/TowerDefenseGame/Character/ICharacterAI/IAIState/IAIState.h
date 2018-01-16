@@ -14,6 +14,7 @@ namespace Gameplay
 	public:
 
 		IAIState();
+		virtual ~IAIState();
 
 		inline void _SetCharacterAI(ICharacterAI* i_pCharacterAI);
 

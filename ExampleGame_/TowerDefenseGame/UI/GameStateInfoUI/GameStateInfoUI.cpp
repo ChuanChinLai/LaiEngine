@@ -5,7 +5,7 @@
 #include <Engine\GameEngine\Includes.h>
 
 
-Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * i_pTDGame) : IUserInterface(i_pTDGame), m_pEnemyHP(nullptr), m_pFPS(nullptr)
+Gameplay::GameStateInfoUI::GameStateInfoUI(TowerDefenseGame * i_pTDGame) : IUserInterface(i_pTDGame), m_pPlayerHP(nullptr), m_pEnemyHP(nullptr), m_pFPS(nullptr)
 {
 
 }

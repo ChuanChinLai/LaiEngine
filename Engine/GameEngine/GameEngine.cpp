@@ -20,32 +20,21 @@ namespace Engine
 
 	SceneManager* s_pSceneManager;
 
-	GameEngine::GameEngine() : GameIsRunning(true)
+	GameEngine::GameEngine() : GameIsRunning(true), m_pAudio(new Audio(this)), m_pGraphics(new Graphics(this)), m_pInput(new Input(this)), m_pTimer(new Timer(this)), m_pSceneManager(new Engine::SceneManager())
 	{
 
 	}
 
 	bool GameEngine::_InitSystem(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN)
 	{
-
 		{
-			m_pAudio	= Engine::Memory::shared_ptr<Audio>(new Audio(this));
-			m_pGraphics = Engine::Memory::shared_ptr<Graphics>(new Graphics(this));
-			m_pInput	= Engine::Memory::shared_ptr<Input>(new Input(this));
-			m_pTimer	= Engine::Memory::shared_ptr<Timer>(new Timer(this));
+			s_pAudio = m_pAudio._Get();
+			s_pGraphics = m_pGraphics._Get();
+			s_pInput = m_pInput._Get();
+			s_pTimer = m_pTimer._Get();
 
-			m_pSceneManager = Engine::Memory::shared_ptr<Engine::SceneManager>(new Engine::SceneManager());
-
-			{
-				s_pAudio	= m_pAudio._Get();
-				s_pGraphics = m_pGraphics._Get();
-				s_pInput	= m_pInput._Get();
-				s_pTimer	= m_pTimer._Get();
-
-				s_pSceneManager = m_pSceneManager._Get();
-			}
+			s_pSceneManager = m_pSceneManager._Get();
 		}
-
 
 		if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 			return false;

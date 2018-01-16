@@ -8,7 +8,7 @@
 
 Gameplay::ICharacterAI::ICharacterAI(Engine::Memory::weak_ptr<ICharacter> i_pCharacter): m_pCharacter(i_pCharacter), m_pAIState(nullptr)
 {
-	m_pAIState = Engine::Memory::shared_ptr<IAIState>(new AttackState());
+	m_pAIState = Engine::Memory::shared_ptr<IAIState>(new AttackState);
 	m_pAIState->_SetCharacterAI(this);
 }
 
