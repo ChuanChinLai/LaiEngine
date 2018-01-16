@@ -33,7 +33,7 @@ inline const Gameplay::CharacterAttr & Gameplay::CharacterAttr::operator=(const 
 }
 
 
-inline void Gameplay::CharacterAttr::_CallDamageValue(Gameplay::ICharacter * Attacker)
+inline void Gameplay::CharacterAttr::_CallDamageValue(Engine::Memory::weak_ptr<ICharacter> Attacker)
 {
 	float Damage = Attacker->_GetAttribute()->ATK - DEF;
 

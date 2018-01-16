@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Engine\SmartPointer\WeakPointer.h>
+
 namespace Gameplay
 {
 	class ICharacter;
@@ -13,7 +15,7 @@ namespace Gameplay
 		inline CharacterAttr(const CharacterAttr & i_Attr);
 		inline const CharacterAttr& operator = (const CharacterAttr & i_Attr);
 
-		inline void _CallDamageValue(ICharacter* Attacker);
+		inline void _CallDamageValue(Engine::Memory::weak_ptr<ICharacter> Attacker);
 
 		float	HP = 0;
 		float	ATK = 0;

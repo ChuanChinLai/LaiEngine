@@ -37,6 +37,9 @@ namespace Gameplay
 		Engine::Math::Vector4D<float> _GetPosition();
 		void _SetPosition(const Engine::Math::Vector4D<float>& i_Position);
 
+		Engine::Memory::weak_ptr<ICharacterAI> _GetCharacterAI();
+		void _SetCharacterAI(Engine::Memory::shared_ptr<ICharacterAI> i_pAI);
+	
 		Engine::Memory::weak_ptr<CharacterAttr> _GetAttribute();
 		void _SetAttribute(Engine::Memory::shared_ptr<CharacterAttr> i_pAttribute);
 

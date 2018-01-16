@@ -1,6 +1,7 @@
 #include "SoldierCamp.h"
 
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Soldier\Soldier.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\SoldierAI.h>
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 
 #include <Engine\GameEngine\Includes.h>
@@ -20,8 +21,10 @@ void Gameplay::SoldierCamp::_RunCommand()
 {
 	if (Engine::_Input()->_GetKeyDown(m_CommandCode))
 	{
-		Engine::Memory::shared_ptr<ICharacter> pNewCharacter(new Soldier());
+		Engine::Memory::shared_ptr<ICharacter> pNewCharacter(new Soldier);
+
 		pNewCharacter->_Init();
+		pNewCharacter->_SetCharacterAI(Engine::Memory::shared_ptr<ICharacterAI>(new SoldierAI(pNewCharacter)));
 		pNewCharacter->_SetAttribute(Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData)));
 		pNewCharacter->_SetPosition(m_Position);
 

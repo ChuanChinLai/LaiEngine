@@ -38,7 +38,8 @@ void Gameplay::ICharacter::_UpdateAI(const std::list<Engine::Memory::shared_ptr<
 		return;
 	}
 
-	m_pAI->_Update(i_Targets);
+	if(m_pAI)
+		m_pAI->_Update(i_Targets);
 }
 
 void Gameplay::ICharacter::_Killed()
@@ -77,6 +78,16 @@ Engine::Math::Vector4D<float> Gameplay::ICharacter::_GetPosition()
 void Gameplay::ICharacter::_SetPosition(const Engine::Math::Vector4D<float>& i_Position)
 {
 	*(m_pGameObject->Transform->Position) = i_Position;
+}
+
+Engine::Memory::weak_ptr<Gameplay::ICharacterAI> Gameplay::ICharacter::_GetCharacterAI()
+{
+	return m_pAI;
+}
+
+void Gameplay::ICharacter::_SetCharacterAI(Engine::Memory::shared_ptr<ICharacterAI> i_pAI)
+{
+	m_pAI = i_pAI;
 }
 
 Engine::Memory::weak_ptr<Gameplay::CharacterAttr> Gameplay::ICharacter::_GetAttribute()

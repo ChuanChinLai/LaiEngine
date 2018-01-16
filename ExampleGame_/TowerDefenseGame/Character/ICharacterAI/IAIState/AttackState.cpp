@@ -29,7 +29,7 @@ void Gameplay::AttackState::_Update(const std::list<Engine::Memory::shared_ptr<I
 	}
 
 	float min_distance = 100000.0f;
-	ICharacter* pNearestCharacter = nullptr;
+	Engine::Memory::weak_ptr<ICharacter> pNearestCharacter;
 
 	Engine::Math::Vector4D<float> NowPosition = m_pCharacterAI->_GetPosition();
 
@@ -39,12 +39,12 @@ void Gameplay::AttackState::_Update(const std::list<Engine::Memory::shared_ptr<I
 
 		if (d < min_distance)
 		{
-			pNearestCharacter = pTarget._Get();
+			pNearestCharacter = pTarget;
 			min_distance = d;
 		}
 	}
 
-	if (pNearestCharacter)
+	if (pNearestCharacter._IsValid())
 	{
 		if(Engine::Math::distance(NowPosition, pNearestCharacter->_GetPosition()) >= 48.0f)
 			m_pCharacterAI->_MoveTo(pNearestCharacter->_GetPosition());

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
+#include <Engine\SmartPointer\WeakPointer.h>
 
 namespace Gameplay
 {
@@ -10,15 +11,15 @@ namespace Gameplay
 	{
 	public:
 
-		static Engine::Memory::shared_ptr<ICharacterAI> _Create(ICharacter* i_pCharacter);
-		static void _SetStageSystem(StageSystem* i_pStageSystem);
+		EnemyAI(Engine::Memory::weak_ptr<ICharacter> i_pCharacter);
 
 		virtual void _ChangeAIState(Engine::Memory::shared_ptr<IAIState> i_pAIState) override;
 		virtual void _AttackTower() override;
 
+		static	void _SetStageSystem(StageSystem* i_pStageSystem);
+
 	private:
 
-		EnemyAI(ICharacter* i_pCharacter);
 		EnemyAI(const EnemyAI& i_AI);
 		const EnemyAI& operator = (const EnemyAI& AI);
 

@@ -17,7 +17,6 @@ namespace Gameplay
 		};
 
 		Enemy();
-		~Enemy();
 
 		virtual void _Init() override;
 		virtual void _Update() override;

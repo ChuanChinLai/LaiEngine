@@ -17,7 +17,6 @@ namespace Gameplay
 		};
 
 		Soldier();
-		~Soldier();
 
 		virtual void _Init() override;
 		virtual void _Update() override;

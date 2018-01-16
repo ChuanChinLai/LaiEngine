@@ -2,6 +2,7 @@
 
 #include <Engine\Math\Vector4D.h>
 #include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\SmartPointer\WeakPointer.h>
 
 #include <list>
 
@@ -21,7 +22,7 @@ namespace Gameplay
 
 		void _Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets);
 		void _MoveTo(const Engine::Math::Vector4D<float>& i_TargetPosition);
-		void _Attack(ICharacter* i_Target);
+		void _Attack(Engine::Memory::weak_ptr<ICharacter> i_pTarget);
 	
 		void _Killed();
 		bool _IsKilled();
@@ -30,9 +31,9 @@ namespace Gameplay
 
 	protected:
 
-		ICharacterAI(ICharacter* i_pCharacter);
+		ICharacterAI(Engine::Memory::weak_ptr<ICharacter> i_pCharacter);
 
-		ICharacter*	 m_pCharacter;
+		Engine::Memory::weak_ptr<ICharacter> m_pCharacter;
 		Engine::Memory::shared_ptr<IAIState> m_pAIState;
 
 	private:

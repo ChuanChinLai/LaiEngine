@@ -6,7 +6,7 @@
 
 #include <Engine\GameEngine\Includes.h>
 
-Gameplay::ICharacterAI::ICharacterAI(ICharacter* i_pCharacter): m_pCharacter(i_pCharacter), m_pAIState(nullptr)
+Gameplay::ICharacterAI::ICharacterAI(Engine::Memory::weak_ptr<ICharacter> i_pCharacter): m_pCharacter(i_pCharacter), m_pAIState(nullptr)
 {
 	m_pAIState = Engine::Memory::shared_ptr<IAIState>(new AttackState());
 	m_pAIState->_SetCharacterAI(this);
@@ -30,7 +30,8 @@ void Gameplay::ICharacterAI::_AttackTower()
 
 void Gameplay::ICharacterAI::_Update(const std::list<Engine::Memory::shared_ptr<ICharacter>>& i_Targets)
 {
-	m_pAIState->_Update(i_Targets);
+	if(m_pAIState)
+		m_pAIState->_Update(i_Targets);
 }
 
 void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_TargetPosition)
@@ -50,9 +51,9 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Targ
 	*(m_pCharacter->_GetGameObject()->Transform->Position) += dir * v * t;
 }
 
-void Gameplay::ICharacterAI::_Attack(ICharacter * i_Target)
+void Gameplay::ICharacterAI::_Attack(Engine::Memory::weak_ptr<ICharacter> i_pTarget)
 {
-	i_Target->_GetAttribute()->_CallDamageValue(m_pCharacter);
+	i_pTarget->_GetAttribute()->_CallDamageValue(m_pCharacter);
 }
 
 void Gameplay::ICharacterAI::_Killed()

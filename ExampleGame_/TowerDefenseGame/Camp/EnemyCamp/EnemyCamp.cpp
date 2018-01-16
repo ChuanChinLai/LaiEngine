@@ -1,6 +1,7 @@
 #include "EnemyCamp.h"
 
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\Enemy\Enemy.h>
+#include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\EnemyAI.h>
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
 
 #include <Engine\GameEngine\Includes.h>
@@ -26,8 +27,10 @@ void Gameplay::EnemyCamp::_RunCommand()
 
 	m_Time = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / m_MaxSpawnTime));
 	
-	Engine::Memory::shared_ptr<ICharacter> pNewCharacter(new Enemy());
+	Engine::Memory::shared_ptr<ICharacter> pNewCharacter(new Enemy);
+
 	pNewCharacter->_Init();
+	pNewCharacter->_SetCharacterAI(Engine::Memory::shared_ptr<ICharacterAI>(new EnemyAI(pNewCharacter)));
 	pNewCharacter->_SetAttribute(Engine::Memory::shared_ptr<CharacterAttr>(new CharacterAttr(m_AttributeData)));
 	pNewCharacter->_SetPosition(m_Position);
 

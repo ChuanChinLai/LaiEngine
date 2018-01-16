@@ -10,12 +10,8 @@
 
 Gameplay::Soldier::Soldier()
 {
-	m_pAI = SoldierAI::_Create(this);
-}
-
-Gameplay::Soldier::~Soldier()
-{
-//	delete m_pAI;
+//	Engine::Memory::shared_ptr<ICharacter> pCharacter(this);
+//	m_pAI = SoldierAI::_Create(pCharacter);
 }
 
 void Gameplay::Soldier::_Init()
@@ -32,13 +28,5 @@ void Gameplay::Soldier::_Update()
 
 void Gameplay::Soldier::_Release()
 {
-	{
-		Engine::Component::Sprite* pSprite = m_pGameObject->_GetComponent<Engine::Component::Sprite>();
-		pSprite->_Release();
-	}
 
-	{
-		Engine::Component::Text* pText = m_pGameObject->_GetComponent<Engine::Component::Text>();
-		pText->_Release();
-	}
 }
