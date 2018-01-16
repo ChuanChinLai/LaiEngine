@@ -21,7 +21,7 @@ namespace Gameplay
 		virtual void _Update() override;
 		virtual void _Release() override;
 
-		virtual void _RenderObjects(Engine::IGameScene* i_pScene) override;
+		virtual void _RenderObjects(Engine::IGameScene* i_pScene) const override;
 
 	private:
 

@@ -65,7 +65,7 @@ void Gameplay::GameStateInfoUI::_Release()
 
 }
 
-void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene)
+void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene) const
 {
 	Engine::SubmitObjectToBeRendered(i_pScene, m_pPlayerHP._Get(), Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
 	Engine::SubmitObjectToBeRendered(i_pScene, m_pEnemyHP._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);

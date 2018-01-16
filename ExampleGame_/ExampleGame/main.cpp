@@ -12,17 +12,18 @@
 
 int main(int argc, char *args[])
 {
-	Engine::EngineDemo* Game = new Engine::EngineDemo();
-
-	if (!Game->_Init())
 	{
-		Game->_Release();
-		return 0;
+		Engine::EngineDemo Game;
+
+		if (!Game._Init())
+		{
+			Game._Release();
+			return 0;
+		}
+
+		Game._Loop();
 	}
 
-	Game->_Loop();
-
-	delete Game;
 
 #if defined _DEBUG
 	_CrtDumpMemoryLeaks();

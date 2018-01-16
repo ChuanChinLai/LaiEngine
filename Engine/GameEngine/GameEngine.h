@@ -16,6 +16,7 @@ namespace Engine
 	public:
 
 		GameEngine();
+		virtual ~GameEngine();
 
 		bool _InitSystem(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN);
 		void _Loop();

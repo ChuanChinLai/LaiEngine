@@ -30,7 +30,7 @@ namespace Gameplay
 
 		static TowerDefenseGame* _Create();
 		static TowerDefenseGame* _Delete();
-		static TowerDefenseGame* _Get();
+		static TowerDefenseGame* _Instance();
 
 		void _Init();
 		void _Update();

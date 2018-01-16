@@ -45,7 +45,7 @@ Gameplay::TowerDefenseGame * Gameplay::TowerDefenseGame::_Delete()
 	return nullptr;
 }
 
-Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::_Get()
+Gameplay::TowerDefenseGame* Gameplay::TowerDefenseGame::_Instance()
 {
 	return s_pTowerDefenseGame;
 }
@@ -135,12 +135,14 @@ bool Gameplay::TowerDefenseGame::_WinTheGame()
 
 void Gameplay::TowerDefenseGame::_RegisterGameEvent(ENUM_GameEvent emGameEvent, IGameEventObserver * i_pObserver)
 {
-	m_pGameEventSystem->_RegisterObserver(emGameEvent, i_pObserver);
+	if(m_pGameEventSystem)
+		m_pGameEventSystem->_RegisterObserver(emGameEvent, i_pObserver);
 }
 
 void Gameplay::TowerDefenseGame::_NotifyGameEvent(ENUM_GameEvent emGameEvent, void * i_pData)
 {
-	m_pGameEventSystem->_NotifySubject(emGameEvent, i_pData);
+	if (m_pGameEventSystem)
+		m_pGameEventSystem->_NotifySubject(emGameEvent, i_pData);
 }
 
 int Gameplay::TowerDefenseGame::_GetPlayerHP() const
