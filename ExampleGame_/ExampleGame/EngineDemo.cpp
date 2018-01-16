@@ -3,6 +3,7 @@
 #include <Engine\Scene\SceneManager.h>
 #include <ExampleGame_\TowerDefenseGame\Scene\GamingScene\GamingScene.h>
 #include <ExampleGame_\TowerDefenseGame\Scene\MainMenuScene\MainMenuScene.h>
+#include <ExampleGame_\TowerDefenseGame\Scene\TutorialScene\TutorialScene.h>
 
 bool Engine::EngineDemo::_Init()
 {
@@ -11,7 +12,7 @@ bool Engine::EngineDemo::_Init()
 		return false;
 	}
 
-	Engine::MainMenuScene* S1 = new Engine::MainMenuScene(_GetSceneManager()._Get());
+	Engine::TutorialScene* S1 = new Engine::TutorialScene(_GetSceneManager()._Get());
 
 	_GetSceneManager()->_SetGameScene(S1);
 
