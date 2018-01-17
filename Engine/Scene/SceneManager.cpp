@@ -64,11 +64,7 @@ void Engine::SceneManager::_Render()
 				Component::Sprite* pComponent = pGameObject->_GetComponent<Component::Sprite>();
 
 				if (pComponent != nullptr)
-				{
-					std::pair<GameObject::Alignment, GameObject::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
-					SDL_Rect DestRect = _GetRenderPosition(*(pGameObject->Transform->Position), pComponent->w, pComponent->h, alignment.first, alignment.second);
-					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
-				}
+					pComponent->_Update();
 			}
 
 			{
@@ -76,16 +72,13 @@ void Engine::SceneManager::_Render()
 
 				if (pComponent != nullptr)
 				{
-					std::pair<GameObject::Alignment, GameObject::Alignment> alignment = m_pCurrentScene->m_RenderedData.Alignment_GameObjects[i];
-					SDL_Rect DestRect = _GetRenderPosition(*(pGameObject->Transform->Position), pComponent->w, pComponent->h, alignment.first, alignment.second);
-					SDL_RenderCopyEx(Engine::_Graphics()->_GetRenderer(), pComponent->_GetTexture(), NULL, &DestRect, 0, NULL, SDL_FLIP_NONE);
+					pComponent->_Update();
 				}
 			}
 
 		}
 
 		m_pCurrentScene->m_RenderedData.GameObjects.clear();
-		m_pCurrentScene->m_RenderedData.Alignment_GameObjects.clear();
 	}
 
 }
@@ -96,19 +89,4 @@ void Engine::SceneManager::_Release()
 	{
 		m_pCurrentScene->_Release();
 	}
-}
-
-SDL_Rect Engine::SceneManager::_GetRenderPosition(const Math::Vector4D<float>& i_Position, int i_w, int i_h, GameObject::Alignment i_Align_X, GameObject::Alignment i_Align_Y)
-{
-	int x = static_cast<int>(i_Position.x);
-	int y = static_cast<int>(i_Position.y);
-	int w = i_w;
-	int h = i_h;
-
-	x = (i_Align_X == GameObject::Alignment::Left) ? x : (i_Align_X == GameObject::Alignment::Right) ? x - w : x - w / 2;
-	y = (i_Align_Y == GameObject::Alignment::Up)   ? y : (i_Align_Y == GameObject::Alignment::Down)  ? y - h : y - h / 2;
-
-	SDL_Rect DestRect = { x, y, w, h };
-
-	return DestRect;
 }

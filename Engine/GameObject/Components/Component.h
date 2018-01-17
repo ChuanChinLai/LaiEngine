@@ -25,6 +25,7 @@ namespace Engine
 			inline ObjectComponent(GameObject* i_pGameObject);
 
 			inline virtual ~ObjectComponent();
+			inline virtual void _Update();
 
 			inline GameObject*	_GetGameObject();
 			inline TYPE			_GetType();

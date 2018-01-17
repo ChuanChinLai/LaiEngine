@@ -18,7 +18,6 @@ namespace Engine
 		void _Release() override;
 		void _SubmitDataToBeRendered() override;
 
-
 	private:
 
 		Engine::Memory::shared_ptr<Engine::GameObject>   m_pTitle;

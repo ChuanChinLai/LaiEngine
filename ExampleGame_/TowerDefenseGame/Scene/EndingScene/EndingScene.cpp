@@ -17,20 +17,7 @@ void Engine::EndingScene::_Init()
 		m_pTitle->_AddComponent<Engine::Component::Text>();
 		m_pTitle->Transform->Position->x = 400;
 		m_pTitle->Transform->Position->y = 200;
-	}
 
-	{
-
-		m_pStart = Engine::GameObject::_Create();
-		m_pStart->_AddComponent<Engine::Component::Text>();
-		m_pStart->Transform->Position->x = 400;
-		m_pStart->Transform->Position->y = 500;
-	}
-}
-
-void Engine::EndingScene::_Update()
-{
-	{
 		Engine::Component::Text* pText = m_pTitle->_GetComponent<Engine::Component::Text>();
 
 		if (m_WinTheGame)
@@ -41,15 +28,22 @@ void Engine::EndingScene::_Update()
 		{
 			pText->_Create("You Lose The Game", Engine::Color::RED, 40, "Fonts/Font.ttf");
 		}
+
 	}
 
-
 	{
+		m_pStart = Engine::GameObject::_Create();
+		m_pStart->_AddComponent<Engine::Component::Text>();
+		m_pStart->Transform->Position->x = 400;
+		m_pStart->Transform->Position->y = 500;
+
 		Engine::Component::Text* pText = m_pStart->_GetComponent<Engine::Component::Text>();
 		pText->_Create("Press Enter To Play Again", Engine::Color::RED, 40, "Fonts/Font.ttf");
 	}
+}
 
-
+void Engine::EndingScene::_Update()
+{
 	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_RETURN))
 	{
 		m_pSceneManager->_SetGameScene(new MainMenuScene(m_pSceneManager));

@@ -19,9 +19,7 @@ namespace Engine
 		struct sDataRequiredToRenderAFrame
 		{
 			Color BackgroundColor;
-
 			std::vector<Engine::GameObject*> GameObjects;
-			std::vector<std::pair<GameObject::Alignment, GameObject::Alignment>>	Alignment_GameObjects;
 		};
 
 
@@ -43,7 +41,7 @@ namespace Engine
 
 	inline void SubmitBackgroundColor(IGameScene* i_pScene, uint8_t R, uint8_t G, uint8_t B, uint8_t A);
 	inline void SubmitBackgroundColor(IGameScene* i_pScene, Color i_Color);
-	inline void SubmitObjectToBeRendered(IGameScene* i_pScene, GameObject* i_pGameObject, GameObject::Alignment i_Align_X = GameObject::Alignment::Center, GameObject::Alignment i_Align_Y = GameObject::Alignment::Center);
+	inline void SubmitObjectToBeRendered(IGameScene* i_pScene, GameObject* i_pGameObject);
 }
 
 #include "IGameScene_inline.h"

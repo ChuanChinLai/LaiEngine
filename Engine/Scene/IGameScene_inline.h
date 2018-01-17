@@ -31,13 +31,11 @@ namespace Engine
 	}
 
 
-	void SubmitObjectToBeRendered(IGameScene * i_pScene, GameObject* i_pGameObject, GameObject::Alignment i_Align_X, GameObject::Alignment i_Align_Y)
+	void SubmitObjectToBeRendered(IGameScene * i_pScene, GameObject* i_pGameObject)
 	{
 		if (i_pGameObject == nullptr)
 			return;
 
-		std::pair<GameObject::Alignment, GameObject::Alignment> alignment = { i_Align_X, i_Align_Y };
-		i_pScene->m_RenderedData.Alignment_GameObjects.push_back(alignment);
 		i_pScene->m_RenderedData.GameObjects.push_back(i_pGameObject);
 	}
 

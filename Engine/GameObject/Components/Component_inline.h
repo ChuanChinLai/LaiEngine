@@ -13,6 +13,10 @@ inline Engine::Component::ObjectComponent::~ObjectComponent()
 
 }
 
+inline void Engine::Component::ObjectComponent::_Update()
+{
+}
+
 inline Engine::GameObject * Engine::Component::ObjectComponent::_GetGameObject()
 {
 	return m_pGameObject;

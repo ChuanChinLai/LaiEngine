@@ -20,6 +20,9 @@ void Gameplay::GameStateInfoUI::_Init()
 	{
 		m_pPlayerHP = Engine::GameObject::_Create();
 		m_pPlayerHP->_AddComponent<Engine::Component::Text>();
+		Engine::Component::Text* pText = m_pPlayerHP->_GetComponent<Engine::Component::Text>();
+		pText->_SetAlignment(Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
+
 		m_pPlayerHP->Transform->Position->x = 0;
 		m_pPlayerHP->Transform->Position->y = 0;
 	}
@@ -27,6 +30,9 @@ void Gameplay::GameStateInfoUI::_Init()
 	{
 		m_pEnemyHP = Engine::GameObject::_Create();
 		m_pEnemyHP->_AddComponent<Engine::Component::Text>();
+		Engine::Component::Text* pText = m_pEnemyHP->_GetComponent<Engine::Component::Text>();
+		pText->_SetAlignment(Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
+
 		m_pEnemyHP->Transform->Position->x = 800;
 		m_pEnemyHP->Transform->Position->y = 0;
 	}
@@ -34,6 +40,9 @@ void Gameplay::GameStateInfoUI::_Init()
 	{
 		m_pFPS = Engine::GameObject::_Create();
 		m_pFPS->_AddComponent<Engine::Component::Text>();
+		Engine::Component::Text* pText = m_pFPS->_GetComponent<Engine::Component::Text>();
+		pText->_SetAlignment(Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
+
 		m_pFPS->Transform->Position->x = 800;
 		m_pFPS->Transform->Position->y = 600;
 	}
@@ -67,7 +76,7 @@ void Gameplay::GameStateInfoUI::_Release()
 
 void Gameplay::GameStateInfoUI::_RenderObjects(Engine::IGameScene * i_pScene) const
 {
-	Engine::SubmitObjectToBeRendered(i_pScene, m_pPlayerHP._Get(), Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
-	Engine::SubmitObjectToBeRendered(i_pScene, m_pEnemyHP._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
-	Engine::SubmitObjectToBeRendered(i_pScene, m_pFPS._Get(), Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pPlayerHP._Get());
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pEnemyHP._Get());
+	Engine::SubmitObjectToBeRendered(i_pScene, m_pFPS._Get());
 }

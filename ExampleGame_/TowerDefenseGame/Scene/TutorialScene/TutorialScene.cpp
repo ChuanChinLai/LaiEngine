@@ -114,31 +114,6 @@ void Engine::TutorialScene::_Update()
 {
 	//	std::cout << "_Update: " << m_Name << std::endl;
 
-	//Input
-	{
-		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_Q))
-		{
-			bOnMove_Q = true;
-		}
-
-		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_W))
-		{
-			bOnMove_W = true;
-		}
-
-		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_E))
-		{
-			bOnMove_E = true;
-		}
-
-		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_RETURN))
-		{
-			m_pSceneManager->_SetGameScene(new GamingScene(m_pSceneManager));
-			return;
-		}
-	}
-
-
 	{
 		if (bOnMove_Q)
 		{
@@ -191,6 +166,30 @@ void Engine::TutorialScene::_Update()
 			}
 		}
 	}
+
+	//Input
+	{
+		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_Q))
+		{
+			bOnMove_Q = true;
+		}
+
+		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_W))
+		{
+			bOnMove_W = true;
+		}
+
+		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_E))
+		{
+			bOnMove_E = true;
+		}
+
+		if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_RETURN))
+		{
+			m_pSceneManager->_SetGameScene(new GamingScene(m_pSceneManager));
+		}
+	}
+
 }
 
 void Engine::TutorialScene::_Release()

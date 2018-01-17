@@ -68,11 +68,9 @@ void Engine::MainMenuScene::_Update()
 		v.y = -v.y;
 
 
-
 	if (Engine::_Input()->_GetKeyDown(SDL_SCANCODE_RETURN))
 	{
 		m_pSceneManager->_SetGameScene(new TutorialScene(m_pSceneManager));
-		return;
 	}
 }
 
