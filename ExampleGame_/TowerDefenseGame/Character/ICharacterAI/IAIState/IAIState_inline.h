@@ -4,7 +4,7 @@
 
 inline Gameplay::IAIState::IAIState()
 {
-	printf("New AI State\n");
+
 }
 
 inline Gameplay::IAIState::~IAIState()

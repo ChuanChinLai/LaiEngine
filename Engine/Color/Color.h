@@ -17,7 +17,10 @@ namespace Engine
 		static Color RED;
 		static Color GREEN;
 		static Color BLUE;
+
+		static Color YELLOW;
 		static Color BLACK;
+
 
 		uint8_t R, G, B, A;
 	};

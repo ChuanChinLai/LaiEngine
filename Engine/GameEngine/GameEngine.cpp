@@ -33,24 +33,24 @@ namespace Engine
 	bool GameEngine::_InitSystem(const char i_TITLE[], int i_SCREEN_WIDTH, int i_SCREEN_HEIGHT, bool FULLSCREEN)
 	{
 		{
-			s_pAudio = m_pAudio._Get();
-			s_pGraphics = m_pGraphics._Get();
-			s_pInput = m_pInput._Get();
-			s_pTimer = m_pTimer._Get();
+			s_pAudio = m_pAudio;
+			s_pGraphics = m_pGraphics;
+			s_pInput = m_pInput;
+			s_pTimer = m_pTimer;
 
-			s_pSceneManager = m_pSceneManager._Get();
+			s_pSceneManager = m_pSceneManager;
 		}
 
 		if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 			return false;
 
-		if (m_pAudio._Get() == nullptr || m_pAudio->_Init() == false)
+		if (m_pAudio == nullptr || m_pAudio->_Init() == false)
 			return false;
 
-		if (m_pGraphics._Get() == nullptr || m_pGraphics->_Init(i_TITLE, i_SCREEN_WIDTH, i_SCREEN_HEIGHT) == false)
+		if (m_pGraphics == nullptr || m_pGraphics->_Init(i_TITLE, i_SCREEN_WIDTH, i_SCREEN_HEIGHT) == false)
 			return false;
 
-		if (m_pInput._Get() == nullptr || m_pInput->_Init() == false)
+		if (m_pInput == nullptr || m_pInput->_Init() == false)
 			return false;
 
 		if (TTF_Init() == -1)
@@ -101,6 +101,13 @@ namespace Engine
 	void GameEngine::_Release()
 	{
 		_FreeSystem();
+
+		delete m_pAudio;
+		delete m_pGraphics;
+		delete m_pInput;
+		delete m_pTimer;
+
+		delete m_pSceneManager;
 	}
 
 	bool GameEngine::_Init()

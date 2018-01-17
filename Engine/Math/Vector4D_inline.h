@@ -173,7 +173,13 @@ namespace Engine
 		}
 
 		template<class T>
-		inline void Vector4D<T>::normalize()
+		inline T Vector4D<T>::Length()
+		{
+			return sqrt(x * x + y * y + z * z);
+		}
+
+		template<class T>
+		inline void Vector4D<T>::Normalize()
 		{
 			float magSq = x * x + y * y + z * z;
 

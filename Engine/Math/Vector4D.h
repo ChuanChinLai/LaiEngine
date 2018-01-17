@@ -50,7 +50,8 @@ namespace Engine
 			inline Vector4D<T> operator / (const T i_sv) const;
 			inline Vector4D<T> operator - () const;
 
-			inline void normalize();
+			inline T	Length();
+			inline void Normalize();
 
 		public: 
 			T x, y, z, w;

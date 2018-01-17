@@ -24,23 +24,23 @@ namespace Engine
 
 		virtual bool _Init();
 
-		inline Engine::Memory::weak_ptr<Audio>		_GetAudio();
-		inline Engine::Memory::weak_ptr<Graphics>   _GetGraphics();
-		inline Engine::Memory::weak_ptr<Input>		_GetInput();
-		inline Engine::Memory::weak_ptr<Timer>		_GetTimer();
+		inline Audio*		_GetAudio();
+		inline Graphics*	_GetGraphics();
+		inline Input*		_GetInput();
+		inline Timer*		_GetTimer();
 
-		inline Engine::Memory::weak_ptr<SceneManager> _GetSceneManager();
+		inline SceneManager* _GetSceneManager();
 
 	private:
 
 		void _FreeSystem();
 
-		Engine::Memory::shared_ptr<Audio>	 m_pAudio;
-		Engine::Memory::shared_ptr<Graphics> m_pGraphics;
-		Engine::Memory::shared_ptr<Input>	 m_pInput;
-		Engine::Memory::shared_ptr<Timer>	 m_pTimer;
+		Audio*		const m_pAudio;
+		Graphics*	const m_pGraphics;
+		Input*		const m_pInput;
+		Timer*		const m_pTimer;
 
-		Engine::Memory::shared_ptr<SceneManager> m_pSceneManager;
+		SceneManager* m_pSceneManager;
 
 		bool	  GameIsRunning;
 	};

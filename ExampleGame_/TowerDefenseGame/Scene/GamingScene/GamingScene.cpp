@@ -34,7 +34,7 @@ void Engine::GamingScene::_Release()
 
 void Engine::GamingScene::_SubmitDataToBeRendered()
 {
-	SubmitBackgroundColor(this, 255, 255, 255, 0);
+	SubmitBackgroundColor(this, 0, 0, 0, 0);
 
 	if(m_TowerDefenseGame)
 		m_TowerDefenseGame->_RenderObjects(this);

@@ -22,5 +22,7 @@ namespace Engine
 
 		Engine::Memory::shared_ptr<GameObject> m_pTitle;
 		Engine::Memory::shared_ptr<GameObject> m_pStart;
+
+		Engine::Memory::shared_ptr<GameObject> m_pObject;
 	};
 }

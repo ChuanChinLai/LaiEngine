@@ -21,6 +21,17 @@ namespace Engine
 	private:
 
 		Engine::Memory::shared_ptr<GameObject> m_pTitle;
+		Engine::Memory::shared_ptr<GameObject> m_pSubTitle;
 		Engine::Memory::shared_ptr<GameObject> m_pStart;
+
+		Engine::Memory::shared_ptr<GameObject> m_pQ;
+		Engine::Memory::shared_ptr<GameObject> m_pW;
+		Engine::Memory::shared_ptr<GameObject> m_pE;
+
+		Engine::Memory::shared_ptr<GameObject> m_pTarget;
+
+		bool bOnMove_Q = false;
+		bool bOnMove_W = false;
+		bool bOnMove_E = false;
 	};
 }

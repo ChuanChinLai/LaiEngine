@@ -7,6 +7,8 @@ Engine::Color Engine::Color::RED	= Engine::Color(255, 0, 0, 0);
 Engine::Color Engine::Color::GREEN	= Engine::Color(0, 255, 0, 0);
 Engine::Color Engine::Color::BLUE	= Engine::Color(0, 0, 255, 0);
 
+Engine::Color Engine::Color::YELLOW = Engine::Color(255, 255, 0, 0);
+
 Engine::Color Engine::Color::BLACK	= Engine::Color(0, 0, 0, 0);
 
 Engine::Color::Color() : R(0), G(0), B(0), A(0)

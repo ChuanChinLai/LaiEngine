@@ -42,7 +42,7 @@ void Gameplay::ICharacterAI::_MoveTo(const Engine::Math::Vector4D<float>& i_Targ
 
 
 	Engine::Math::Vector4D<float> dir = i_TargetPosition - CurrentPosition;
-	dir.normalize();
+	dir.Normalize();
 
 	float v = m_pCharacter->_GetAttribute()->SPEED;
 	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
