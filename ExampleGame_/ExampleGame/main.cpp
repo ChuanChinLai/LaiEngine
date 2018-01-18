@@ -18,7 +18,7 @@
 int main(int argc, char *args[])
 {
 	Engine::Memory::_InitHeapManager();
-	Engine::Memory::HeapManager_UnitTest();
+//	Engine::Memory::HeapManager_UnitTest();
 
 
 	Engine::EngineDemo Game;
@@ -30,6 +30,9 @@ int main(int argc, char *args[])
 	}
 
 	Game._Loop();
+
+
+	Engine::Memory::_ReleaseHeapManager();
 
 #if defined _DEBUG
 	_CrtDumpMemoryLeaks();

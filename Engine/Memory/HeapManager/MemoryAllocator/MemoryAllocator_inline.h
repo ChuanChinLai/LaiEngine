@@ -10,10 +10,7 @@ inline Engine::Memory::MemoryAllocator::MemoryAllocator() : m_pFreeMemoryList(nu
 
 inline Engine::Memory::MemoryAllocator::~MemoryAllocator()
 {
-	_Destroy();
 
-	if (m_pMemoryPool != NULL)
-		_aligned_free(reinterpret_cast<void*>(m_pMemoryPool));
 }
 
 inline Engine::Memory::MemoryAllocator* Engine::Memory::MemoryAllocator::_Get()

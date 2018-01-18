@@ -29,6 +29,7 @@ void Gameplay::AttackState::_Update(const std::list<Engine::Memory::shared_ptr<I
 	}
 
 	float min_distance = 100000.0f;
+
 	Engine::Memory::weak_ptr<ICharacter> pNearestCharacter;
 
 	Engine::Math::Vector4D<float> NowPosition = m_pCharacterAI->_GetPosition();

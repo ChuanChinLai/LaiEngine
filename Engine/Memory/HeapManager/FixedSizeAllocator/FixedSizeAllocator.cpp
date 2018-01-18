@@ -65,12 +65,12 @@ namespace Engine
 				//calculate MemoryBlock Address
 				uintptr_t BlockAddress = m_pMemoryPool + (GetFirstAvailableBit * Type.BlockSize);
 
-				#if defined(_DEBUG)
-					std::cout << std::setw(20) << m_pMemoryPool;
-					std::cout << std::setw(20) << BlockAddress;
-					std::cout << std::setw(20) << Type.BlockSize;
-					std::cout << " - ALLOC MEMORY WITH FIXED SIZE ALLOCATOR" << std::endl;
-				#endif;
+				//#if defined(_DEBUG)
+				//	std::cout << std::setw(20) << m_pMemoryPool;
+				//	std::cout << std::setw(20) << BlockAddress;
+				//	std::cout << std::setw(20) << Type.BlockSize;
+				//	std::cout << " - ALLOC MEMORY WITH FIXED SIZE ALLOCATOR" << std::endl;
+				//#endif;
 
 				return reinterpret_cast<void *>(BlockAddress);
 			}
@@ -100,13 +100,13 @@ namespace Engine
 					return false;
 			}
 
-#if defined(_DEBUG)
-
-			std::cout << std::setw(20) << m_pMemoryPool;
-			std::cout << std::setw(20) << i_pMemory;
-			std::cout << std::setw(20) << Type.BlockSize;
-			std::cout << " -  FREE MEMORY WITH FIXED SIZE ALLOCATOR" << std::endl;
-#endif;
+//#if defined(_DEBUG)
+//
+//			std::cout << std::setw(20) << m_pMemoryPool;
+//			std::cout << std::setw(20) << i_pMemory;
+//			std::cout << std::setw(20) << Type.BlockSize;
+//			std::cout << " -  FREE MEMORY WITH FIXED SIZE ALLOCATOR" << std::endl;
+//#endif;
 
 			m_pState->_ClearBit(BitPosition);
 			return true;

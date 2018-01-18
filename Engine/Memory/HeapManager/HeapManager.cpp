@@ -12,10 +12,14 @@ namespace Engine
 		MemoryAllocator* pHeapManager = nullptr;
 		FixedSizeAllocator* pFSAs[NumFSAs];
 
+		void * pDefaultHeapMemory = nullptr;
+
 		bool _InitHeapManager()
 		{
-			void * pDefaultHeapMemory = _aligned_malloc(SizeHeap, ALIGNMENT_DEFAULT);
+			pDefaultHeapMemory = _aligned_malloc(SizeHeap, ALIGNMENT_DEFAULT);
+
 			pHeapManager = MemoryAllocator::_Create(pDefaultHeapMemory, SizeHeap, NumDescriptors);
+
 			_InitFixedSizeAllocators(pHeapManager);
 
 			return true;
@@ -24,6 +28,11 @@ namespace Engine
 		bool _ReleaseHeapManager()
 		{
 			_ReleaseFixedSizeAllocators();
+
+			pHeapManager->_Release();
+
+			_aligned_free(pDefaultHeapMemory);
+
 			return true;
 		}
 

@@ -19,10 +19,10 @@ Engine::Memory::MemoryAllocator* Engine::Memory::MemoryAllocator::_Create(void *
 
 		s_pHeapManager->_Init(i_pMemoryPool, i_PoolSize, i_NumDescriptors);
 
-#if defined(_DEBUG)
-		std::cout << std::endl;
-		std::cout << "CREATE A NEW HEAP MANAGER:" << std::endl;
-#endif
+//#if defined(_DEBUG)
+//		std::cout << std::endl;
+//		std::cout << "CREATE A NEW HEAP MANAGER:" << std::endl;
+//#endif
 
 	}
 	return s_pHeapManager;
@@ -96,7 +96,7 @@ Engine::Memory::MemoryAllocator* Engine::Memory::MemoryAllocator::_Init(void * i
 	return this;
 }
 
-void  Engine::Memory::MemoryAllocator::_Destroy()
+void  Engine::Memory::MemoryAllocator::_Release()
 {
 	if (s_pHeapManager != nullptr)
 	{
@@ -139,10 +139,10 @@ void* Engine::Memory::MemoryAllocator::_Alloc(const size_t i_Size, const size_t 
 			m_pOutstandingAllocationList = this_Descriptor;
 
 
-#if defined(_DEBUG)
-			this_Descriptor->_Display();
-			std::cout << " - ALLOC MEMORY WITH REGULAR ALLOCATOR" << std::endl;
-#endif;
+//#if defined(_DEBUG)
+//			this_Descriptor->_Display();
+//			std::cout << " - ALLOC MEMORY WITH REGULAR ALLOCATOR" << std::endl;
+//#endif;
 
 			return reinterpret_cast<void *>(this_Descriptor->m_pBlockAddress);
 		}
@@ -177,11 +177,11 @@ void* Engine::Memory::MemoryAllocator::_Alloc(const size_t i_Size, const size_t 
 	prev_Descriptor->m_BlockSize -= size;
 	prev_Descriptor->m_pBlockAddress += size;
 
-#if defined(_DEBUG)
-
-	newDescriptor->_Display();
-	std::cout << " - ALLOC MEMORY WITH REGULAR ALLOCATOR" << std::endl;
-#endif;
+//#if defined(_DEBUG)
+//
+//	newDescriptor->_Display();
+//	std::cout << " - ALLOC MEMORY WITH REGULAR ALLOCATOR" << std::endl;
+//#endif;
 
 	return reinterpret_cast<void*>(newDescriptor->m_pBlockAddress);
 }
@@ -244,10 +244,10 @@ bool Engine::Memory::MemoryAllocator::_Free(const void * i_pMemory)
 		this_Descriptor->m_pNext = pThisDES_FML;
 	}
 
-#if defined(_DEBUG)
-	this_Descriptor->_Display();
-	std::cout << " -  FREE MEMORY WITH REGULAR ALLOCATOR" << std::endl;
-#endif;
+//#if defined(_DEBUG)
+//	this_Descriptor->_Display();
+//	std::cout << " -  FREE MEMORY WITH REGULAR ALLOCATOR" << std::endl;
+//#endif;
 
 	return true;
 }
@@ -257,11 +257,11 @@ void  Engine::Memory::MemoryAllocator::_Recycle()
 	//If FreeMemoryList is NULL or there is only one MemoryBlock: Do nothing...
 	if (m_pFreeMemoryList == nullptr || m_pFreeMemoryList->m_pNext == nullptr)
 	{
-#if defined(_DEBUG)
-		std::cout << std::endl;
-		std::cout << std::setw(60) << "GARBAGE COLLECTION UNNECESSARY";
-		std::cout << std::endl;
-#endif
+//#if defined(_DEBUG)
+//		std::cout << std::endl;
+//		std::cout << std::setw(60) << "GARBAGE COLLECTION UNNECESSARY";
+//		std::cout << std::endl;
+//#endif
 		return;
 	}
 
@@ -313,11 +313,11 @@ void  Engine::Memory::MemoryAllocator::_Recycle()
 			pTarget = pTarget->m_pNext;
 		}
 	}
-#if defined(_DEBUG)
-	std::cout << std::endl;
-	std::cout << std::setw(60) << "GARBAGE COLLECTION SUCCESS" << std::endl;
-	std::cout << std::endl;
-#endif
+//#if defined(_DEBUG)
+//	std::cout << std::endl;
+//	std::cout << std::setw(60) << "GARBAGE COLLECTION SUCCESS" << std::endl;
+//	std::cout << std::endl;
+//#endif
 	Sort(m_pFreeMemoryList);
 }
 

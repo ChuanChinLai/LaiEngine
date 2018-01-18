@@ -13,9 +13,10 @@ namespace Engine
 		{
 		public:
 
-			static MemoryAllocator* _Create(void* i_pMemoryPool, const size_t i_PoolSize, const size_t i_NumDescriptors);
 			static inline MemoryAllocator* _Get();
-			void  _Destroy();
+
+			static MemoryAllocator* _Create(void* i_pMemoryPool, const size_t i_PoolSize, const size_t i_NumDescriptors);
+			void  _Release();
 
 			void* _Alloc(const size_t i_Size, const size_t i_AlignmentSize = 4);
 			bool  _Free(const void* i_pMemory);
@@ -31,7 +32,7 @@ namespace Engine
 
 
 			MemoryAllocator* _Init(void* i_pMemoryPool, const size_t i_PoolSize, const size_t i_NumDescriptors);
-			void		 _Display(const BlockDescriptor* i_pList) const;
+			void			 _Display(const BlockDescriptor* i_pList) const;
 
 			size_t				m_SIZE;
 			uintptr_t			m_pMemoryPool;
