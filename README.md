@@ -18,11 +18,11 @@ A Tower Defense Game made by the engine.
 
 * Source code in LaiEngine/Engine
 
-* Customize static library, including Scene, Math, Physics, etc...
+* Customize Static Library, including Scene, Math, Physics, etc...
 
-* Smart Pointer for gameobjects management
+* Smart Pointer for Gameobject Management
 
-* One-click Asset Builder
+* One-click Asset Builder Tool
 
 ## Gameplay Programming
 
@@ -30,6 +30,6 @@ A Tower Defense Game made by the engine.
 
 * Using LaiEngine to make a TowerDefenseGame
 
-* Design and implement the gameplay with design patterns, including Facade, Mediator, Observer, etc...
+* Design and implement gameplay with design patterns, including Facade, Mediator, Observer, etc...
 
 * Using Lua table for data input
