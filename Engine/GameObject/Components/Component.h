@@ -19,6 +19,7 @@ namespace Engine
 			{
 				Sprite,
 				Text,
+				Rigidbody,
 				Null,
 			};
 

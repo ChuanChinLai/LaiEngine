@@ -21,8 +21,7 @@ void Engine::MainMenuScene::_Init()
 		Engine::Component::Text* pText = m_pTitle->_GetComponent<Engine::Component::Text>();
 		pText->_Create("Tower Defense Game", Engine::Color::RED, 40, "Fonts/Font.ttf");
 
-		m_pTitle->Transform->Position->x = 400;
-		m_pTitle->Transform->Position->y = 200;
+		m_pTitle->Transform->Position = Engine::Math::Vector4D<float>(400, 200, 0);
 	}
 
 	{
@@ -31,8 +30,7 @@ void Engine::MainMenuScene::_Init()
 		Engine::Component::Text* pText = m_pStart->_GetComponent<Engine::Component::Text>();
 		pText->_Create("Enter To Start", Engine::Color::RED, 40, "Fonts/Font.ttf");
 
-		m_pStart->Transform->Position->x = 400;
-		m_pStart->Transform->Position->y = 500;
+		m_pStart->Transform->Position = Engine::Math::Vector4D<float>(400, 500, 0);
 	}
 
 
@@ -40,8 +38,7 @@ void Engine::MainMenuScene::_Init()
 		m_pObject = Engine::GameObject::_Create();
 		m_pObject->_AddComponent<Engine::Component::Text>();
 		m_pObject->_AddComponent<Engine::Component::Sprite>();
-		m_pObject->Transform->Position->x = 0;
-		m_pObject->Transform->Position->y = 0;
+		m_pObject->Transform->Position = Engine::Math::Vector4D<float>(0, 0, 0);
 
 		Engine::Component::Text* pText = m_pObject->_GetComponent<Engine::Component::Text>();
 		pText->_Create("Lai", Engine::Color::YELLOW, 40, "Fonts/Font.ttf");
@@ -59,12 +56,12 @@ void Engine::MainMenuScene::_Update()
 
 	float t = Engine::_Timer()->_GetLastFrameTime() / 1000.0f;
 
-	*(m_pObject->Transform->Position) += v * t;
+	m_pObject->Transform->Position += v * t;
 
-	if (m_pObject->Transform->Position->x > 800 || m_pObject->Transform->Position->x < 0)
+	if (m_pObject->Transform->Position.x > 800 || m_pObject->Transform->Position.x < 0)
 		v.x = -v.x;
 
-	if (m_pObject->Transform->Position->y > 600 || m_pObject->Transform->Position->y < 0)
+	if (m_pObject->Transform->Position.y > 600 || m_pObject->Transform->Position.y < 0)
 		v.y = -v.y;
 
 

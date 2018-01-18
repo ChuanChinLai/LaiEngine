@@ -30,7 +30,7 @@ namespace Engine
 
 		~GameObject();
 
-		const Component::Transform* const Transform;
+		Component::Transform* const Transform;
 
 		template<typename T>
 		inline void _AddComponent();

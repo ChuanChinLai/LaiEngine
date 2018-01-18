@@ -22,9 +22,7 @@ void Gameplay::GameStateInfoUI::_Init()
 		m_pPlayerHP->_AddComponent<Engine::Component::Text>();
 		Engine::Component::Text* pText = m_pPlayerHP->_GetComponent<Engine::Component::Text>();
 		pText->_SetAlignment(Engine::GameObject::Alignment::Left, Engine::GameObject::Alignment::Up);
-
-		m_pPlayerHP->Transform->Position->x = 0;
-		m_pPlayerHP->Transform->Position->y = 0;
+		m_pPlayerHP->Transform->Position = Engine::Math::Vector4D<float>(0, 0, 0);
 	}
 
 	{
@@ -33,8 +31,7 @@ void Gameplay::GameStateInfoUI::_Init()
 		Engine::Component::Text* pText = m_pEnemyHP->_GetComponent<Engine::Component::Text>();
 		pText->_SetAlignment(Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Up);
 
-		m_pEnemyHP->Transform->Position->x = 800;
-		m_pEnemyHP->Transform->Position->y = 0;
+		m_pEnemyHP->Transform->Position = Engine::Math::Vector4D<float>(800, 0, 0);
 	}
 
 	{
@@ -42,9 +39,7 @@ void Gameplay::GameStateInfoUI::_Init()
 		m_pFPS->_AddComponent<Engine::Component::Text>();
 		Engine::Component::Text* pText = m_pFPS->_GetComponent<Engine::Component::Text>();
 		pText->_SetAlignment(Engine::GameObject::Alignment::Right, Engine::GameObject::Alignment::Down);
-
-		m_pFPS->Transform->Position->x = 800;
-		m_pFPS->Transform->Position->y = 600;
+		m_pFPS->Transform->Position = Engine::Math::Vector4D<float>(800, 600, 0);
 	}
 }
 

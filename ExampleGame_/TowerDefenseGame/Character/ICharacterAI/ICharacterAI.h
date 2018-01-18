@@ -27,6 +27,7 @@ namespace Gameplay
 		void _Killed();
 		bool _IsKilled();
 
+		Engine::Memory::weak_ptr<ICharacter> _GetCharacter();
 		Engine::Math::Vector4D<float> _GetPosition();
 
 	protected:

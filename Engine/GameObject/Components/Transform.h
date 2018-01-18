@@ -14,8 +14,8 @@ namespace Engine
 			Transform(GameObject* i_GameObject);
 			~Transform();
 
-			Engine::Math::Vector4D<float>* const Position;
-			Engine::Math::Vector4D<float>* const Rotation;
+			Engine::Math::Vector4D<float> Position;
+			Engine::Math::Vector4D<float> Rotation;
 		};
 	}
 }

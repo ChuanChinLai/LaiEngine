@@ -63,6 +63,10 @@ namespace Engine
 
 		template <class T>
 		inline T distance (const Vector4D<T>& v1, const Vector4D<T>& v2);
+
+		template<class T>
+		T dot(const Vector4D<T>& i_lhs, const Vector4D<T>& i_rhs);
+
 	}
 }
 

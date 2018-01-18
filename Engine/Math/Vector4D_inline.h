@@ -217,6 +217,12 @@ namespace Engine
 			return sqrt(dx * dx + dy * dy + dz * dz);
 		}
 
+		template<class T>
+		T dot(const Vector4D<T>& i_lhs, const Vector4D<T>& i_rhs)
+		{
+			return (i_lhs.x * i_rhs.x) + (i_lhs.y * i_rhs.y) + (i_lhs.z * i_rhs.z);
+		}
+
 	}
 }
 

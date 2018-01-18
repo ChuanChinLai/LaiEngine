@@ -27,6 +27,12 @@
     <ClInclude Include="Components\Transform_inline.h">
       <Filter>Components\Transform</Filter>
     </ClInclude>
+    <ClInclude Include="Components\Rigidbody.h">
+      <Filter>Components\Rigidbody</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Rigidbody_inline.h">
+      <Filter>Components\Rigidbody</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameObject.cpp" />
@@ -49,6 +55,9 @@
     </Filter>
     <Filter Include="Components\Transform">
       <UniqueIdentifier>{0d39b360-22f3-4d87-9e1b-35d3cb06a725}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Rigidbody">
+      <UniqueIdentifier>{9372704c-bb5f-41cb-9559-c0ec8088a13a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

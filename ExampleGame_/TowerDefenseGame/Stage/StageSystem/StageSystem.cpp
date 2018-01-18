@@ -18,12 +18,11 @@ void Gameplay::StageSystem::_Init()
 	m_pTower_Soldier = Engine::GameObject::_Create();
 	m_pTower_Enemy	 = Engine::GameObject::_Create();
 
-
 	m_AttackPos_Soldier = Engine::Math::Vector4D<float>(550, 300, 0);
 	m_AttackPos_Enemy   = Engine::Math::Vector4D<float>(250, 300, 0);
 
-	*(m_pTower_Soldier->Transform->Position) = m_AttackPos_Enemy;
-	*(m_pTower_Enemy->Transform->Position)   = m_AttackPos_Soldier;
+	m_pTower_Soldier->Transform->Position = m_AttackPos_Enemy;
+	m_pTower_Enemy->Transform->Position   = m_AttackPos_Soldier;
 
 	{
 		m_pTower_Soldier->_AddComponent<Engine::Component::Sprite>();

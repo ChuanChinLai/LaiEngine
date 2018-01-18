@@ -46,9 +46,17 @@ void Gameplay::AttackState::_Update(const std::list<Engine::Memory::shared_ptr<I
 
 	if (pNearestCharacter._IsValid())
 	{
-		if(Engine::Math::distance(NowPosition, pNearestCharacter->_GetPosition()) >= 48.0f)
+		Engine::GameObject* pThisObject = m_pCharacterAI->_GetCharacter()->_GetGameObject();
+
+//		if (!Engine::Physics::TestCollision(pThisObject, pNearestCharacter->_GetGameObject()))
+
+		if (Engine::Math::distance(NowPosition, pNearestCharacter->_GetPosition()) > 48.0f)
+		{
 			m_pCharacterAI->_MoveTo(pNearestCharacter->_GetPosition());
+		}
 		else
+		{
 			m_pCharacterAI->_Attack(pNearestCharacter);
+		}
 	}
 }

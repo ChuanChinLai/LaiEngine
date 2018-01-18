@@ -72,12 +72,12 @@ Engine::GameObject* Gameplay::ICharacter::_GetGameObject()
 
 Engine::Math::Vector4D<float> Gameplay::ICharacter::_GetPosition()
 {
-	return *(m_pGameObject->Transform->Position);
+	return m_pGameObject->Transform->Position;
 }
 
 void Gameplay::ICharacter::_SetPosition(const Engine::Math::Vector4D<float>& i_Position)
 {
-	*(m_pGameObject->Transform->Position) = i_Position;
+	m_pGameObject->Transform->Position = i_Position;
 }
 
 Engine::Memory::weak_ptr<Gameplay::ICharacterAI> Gameplay::ICharacter::_GetCharacterAI()

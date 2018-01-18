@@ -6,8 +6,8 @@
 
 void Engine::Component::Sprite::_Update()
 {
-	int x = static_cast<int>(m_pGameObject->Transform->Position->x);
-	int y = static_cast<int>(m_pGameObject->Transform->Position->y);
+	int x = static_cast<int>(m_pGameObject->Transform->Position.x);
+	int y = static_cast<int>(m_pGameObject->Transform->Position.y);
 
 	x = (x_align == GameObject::Alignment::Left) ? x : (x_align == GameObject::Alignment::Right) ? x - w : x - w / 2;
 	y = (y_align == GameObject::Alignment::Up)   ? y : (y_align == GameObject::Alignment::Down)  ? y - h : y - h / 2;

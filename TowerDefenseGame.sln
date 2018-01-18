@@ -130,6 +130,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tool", "Engine\Tool\Tool.vc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TutorialScene", "ExampleGame_\TowerDefenseGame\Scene\TutorialScene\TutorialScene.vcxproj", "{BE77385A-ED85-4583-B052-6ABE21067D30}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Physics", "Engine\Physics\Physics.vcxproj", "{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -474,6 +476,14 @@ Global
 		{BE77385A-ED85-4583-B052-6ABE21067D30}.Release|x64.Build.0 = Release|x64
 		{BE77385A-ED85-4583-B052-6ABE21067D30}.Release|x86.ActiveCfg = Release|Win32
 		{BE77385A-ED85-4583-B052-6ABE21067D30}.Release|x86.Build.0 = Release|Win32
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Debug|x64.ActiveCfg = Debug|x64
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Debug|x64.Build.0 = Debug|x64
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Debug|x86.ActiveCfg = Debug|Win32
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Debug|x86.Build.0 = Debug|Win32
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Release|x64.ActiveCfg = Release|x64
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Release|x64.Build.0 = Release|x64
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Release|x86.ActiveCfg = Release|Win32
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -534,6 +544,7 @@ Global
 		{3B571B02-7B4A-470C-A6F3-84271634A086} = {EE765260-81EF-44CE-B12E-D19EB69B0BEF}
 		{A21E3C47-6601-4CCB-B1C0-33AEA87F9F68} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
 		{BE77385A-ED85-4583-B052-6ABE21067D30} = {EE765260-81EF-44CE-B12E-D19EB69B0BEF}
+		{A3CFE41F-EAAF-480D-BACE-5FCCB434CF14} = {90AF76B1-37E5-425D-A748-54F71C361DA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF7EB555-DE90-443E-9226-38579C9AA7CC}

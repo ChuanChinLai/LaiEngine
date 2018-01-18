@@ -15,8 +15,7 @@ void Engine::EndingScene::_Init()
 	{
 		m_pTitle = Engine::GameObject::_Create();
 		m_pTitle->_AddComponent<Engine::Component::Text>();
-		m_pTitle->Transform->Position->x = 400;
-		m_pTitle->Transform->Position->y = 200;
+		m_pTitle->Transform->Position = Engine::Math::Vector4D<float>(400, 200, 0);
 
 		Engine::Component::Text* pText = m_pTitle->_GetComponent<Engine::Component::Text>();
 
@@ -34,8 +33,7 @@ void Engine::EndingScene::_Init()
 	{
 		m_pStart = Engine::GameObject::_Create();
 		m_pStart->_AddComponent<Engine::Component::Text>();
-		m_pStart->Transform->Position->x = 400;
-		m_pStart->Transform->Position->y = 500;
+		m_pStart->Transform->Position = Engine::Math::Vector4D<float>(400, 500, 0);
 
 		Engine::Component::Text* pText = m_pStart->_GetComponent<Engine::Component::Text>();
 		pText->_Create("Press Enter To Play Again", Engine::Color::RED, 40, "Fonts/Font.ttf");
