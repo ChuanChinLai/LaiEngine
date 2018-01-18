@@ -22,21 +22,19 @@ namespace Engine
 		const unsigned int 	NumDescriptors = 2048;
 		const unsigned int	NumFSAs = 4;
 
-		const FSA_INFO FSAInitDATA[NumFSAs] = { FSA_INFO(ALIGNMENT_8,  48),
-												FSA_INFO(ALIGNMENT_16, 48),
-												FSA_INFO(ALIGNMENT_32, 48),
-												FSA_INFO(ALIGNMENT_64, 48) };
+		const FixedSizeAllocator::FType FSAInitDATA[NumFSAs] = { FixedSizeAllocator::FType(ALIGNMENT_8,  48),
+																 FixedSizeAllocator::FType(ALIGNMENT_16, 48),
+			                                                     FixedSizeAllocator::FType(ALIGNMENT_32, 48),
+			                                                     FixedSizeAllocator::FType(ALIGNMENT_64, 48)};
 
 		extern MemoryAllocator*	   pHeapManager;
 		extern FixedSizeAllocator* pFSAs[];
-
 
 		bool  _InitHeapManager();
 		bool  _ReleaseHeapManager();
 
 		bool  _InitFixedSizeAllocators(MemoryAllocator* i_pHeapManager);
 		void  _ReleaseFixedSizeAllocators();
-
 
 		void* _AllocFromFixedSizeAllocators(const size_t i_Size);
 		bool  _FreeFromFixedSizeAllocators(const void* i_pMemory);

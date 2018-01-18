@@ -9,27 +9,20 @@ namespace Engine
 		class MemoryAllocator;
 		class BitArray;
 
-		class FSA_INFO
-		{
-		public:
-			FSA_INFO()
-			{
-
-			}
-			FSA_INFO(size_t i_BlockSize, size_t i_NumBlocks) : BlockSize(i_BlockSize), NumBlocks(i_NumBlocks)
-			{
-
-			}
-
-			size_t BlockSize;
-			size_t NumBlocks;
-		};
-
 		class FixedSizeAllocator
 		{
 		public:
 
-			static FixedSizeAllocator* _Create(const FSA_INFO i_INFO, MemoryAllocator* i_pHeapManager);
+			struct FType
+			{
+				FType() : BlockSize(0), NumBlocks(0) {}
+				FType(size_t i_size, size_t i_Num) : BlockSize(i_size), NumBlocks(i_Num) {}
+
+				size_t BlockSize;
+				size_t NumBlocks;
+			};
+
+			static FixedSizeAllocator* _Create(const FType i_Type, MemoryAllocator* i_pHeapManager);
 
 			void* _Alloc();
 			bool  _Free(const void* i_pMemory);
@@ -38,17 +31,17 @@ namespace Engine
 			inline void  _Destroy();
 			inline bool  _IsAvailable() const;
 
-			inline const FSA_INFO& _GetINFO() const;
+			FType Type;
 
 		private:
 
 			FixedSizeAllocator(void* i_pMemoryPool, const size_t i_NumBlocks, const size_t i_BlockSize);
+			FixedSizeAllocator(const FixedSizeAllocator&);
+			FixedSizeAllocator& operator = (const FixedSizeAllocator&);
 
-			size_t				m_Size;				//Total SIZE
-			FSA_INFO			m_INFO;
-			uintptr_t			m_pMemoryPool;
-			BitArray*			m_pState;
-
+			size_t		m_Size;				//Total SIZE
+			uintptr_t	m_pMemoryPool;
+			BitArray*	m_pState;
 		};
 	}
 }

@@ -9,7 +9,7 @@ namespace Engine
 {
 	namespace Memory
 	{
-		MemoryAllocator*		pHeapManager = nullptr;
+		MemoryAllocator* pHeapManager = nullptr;
 		FixedSizeAllocator* pFSAs[NumFSAs];
 
 		bool _InitHeapManager()
@@ -74,7 +74,7 @@ namespace Engine
 		{
 			for (int i = 0; i < NumFSAs; i++)
 			{
-				if (pFSAs[i] != nullptr && pFSAs[i]->_IsAvailable() && pFSAs[i]->_GetINFO().BlockSize >= i_Size)
+				if (pFSAs[i] != nullptr && pFSAs[i]->_IsAvailable() && pFSAs[i]->Type.BlockSize >= i_Size)
 				{
 					return pFSAs[i];
 				}

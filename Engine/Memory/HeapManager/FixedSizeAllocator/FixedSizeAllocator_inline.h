@@ -20,8 +20,3 @@ inline bool Engine::Memory::FixedSizeAllocator::FixedSizeAllocator::_IsAvailable
 {
 	return !m_pState->_AreAllSet();
 }
-
-inline const Engine::Memory::FSA_INFO & Engine::Memory::FixedSizeAllocator::FixedSizeAllocator::_GetINFO() const
-{
-	return m_INFO;
-}

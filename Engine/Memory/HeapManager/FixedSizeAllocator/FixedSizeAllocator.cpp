@@ -19,29 +19,29 @@ namespace Engine
 			m_Size = i_NumBlocks * i_BlockSize;
 
 			//calculate number of memory block
-			m_INFO.NumBlocks = i_NumBlocks;
+			Type.NumBlocks = i_NumBlocks;
 
 			//calculate size of memory block
 //			m_INFO.BlockSize = (i_BlockSize + (ALIGNMENT_8 - 1) / ALIGNMENT_8);
+			// 8 = 8 bits in a byte
+			Type.BlockSize = (i_BlockSize + (8 - 1) / 8);
 
-			m_INFO.BlockSize = (i_BlockSize + (8 - 1) / 8);
-
-			assert(m_Size >= m_INFO.BlockSize);
+			assert(m_Size >= Type.BlockSize);
 
 			//create a BitArray for FixedSizeAllocator
 
-			m_pState = BitArray::_Create(m_INFO.NumBlocks, MemoryAllocator::_Get());
+			m_pState = BitArray::_Create(Type.NumBlocks, MemoryAllocator::_Get());
 
 			assert(m_pState);
 		}
 
-		FixedSizeAllocator* FixedSizeAllocator::_Create(const FSA_INFO i_INFO, MemoryAllocator * i_pHeapManager)
+		FixedSizeAllocator* FixedSizeAllocator::_Create(const FType i_Type, MemoryAllocator * i_pHeapManager)
 		{
 			assert(i_pHeapManager != nullptr);
-			assert(i_INFO.NumBlocks > 0);
-			assert(i_INFO.BlockSize > 0);
+			assert(i_Type.NumBlocks > 0);
+			assert(i_Type.BlockSize > 0);
 
-			size_t MemorySize = sizeof(FixedSizeAllocator) + i_INFO.NumBlocks * i_INFO.BlockSize;
+			size_t MemorySize = sizeof(FixedSizeAllocator) + i_Type.NumBlocks * i_Type.BlockSize;
 
 			void* pFSA = i_pHeapManager->_Alloc(MemorySize);
 
@@ -50,7 +50,7 @@ namespace Engine
 			uintptr_t pMemory = reinterpret_cast<uintptr_t>(pFSA) + sizeof(FixedSizeAllocator);
 
 
-			return new (pFSA) FixedSizeAllocator(reinterpret_cast<void*>(pMemory), i_INFO.NumBlocks, i_INFO.BlockSize);
+			return new (pFSA) FixedSizeAllocator(reinterpret_cast<void*>(pMemory), i_Type.NumBlocks, i_Type.BlockSize);
 		}
 
 		void * FixedSizeAllocator::_Alloc()
@@ -63,12 +63,12 @@ namespace Engine
 				m_pState->_SetBit(GetFirstAvailableBit);
 
 				//calculate MemoryBlock Address
-				uintptr_t BlockAddress = m_pMemoryPool + (GetFirstAvailableBit * m_INFO.BlockSize);
+				uintptr_t BlockAddress = m_pMemoryPool + (GetFirstAvailableBit * Type.BlockSize);
 
 				#if defined(_DEBUG)
 					std::cout << std::setw(20) << m_pMemoryPool;
 					std::cout << std::setw(20) << BlockAddress;
-					std::cout << std::setw(20) << m_INFO.BlockSize;
+					std::cout << std::setw(20) << Type.BlockSize;
 					std::cout << " - ALLOC MEMORY WITH FIXED SIZE ALLOCATOR" << std::endl;
 				#endif;
 
@@ -94,9 +94,9 @@ namespace Engine
 
 			while (BlockAddress != FreeMemoryAddress)
 			{
-				BlockAddress += m_INFO.BlockSize;
+				BlockAddress += Type.BlockSize;
 
-				if (++BitPosition == m_INFO.NumBlocks)
+				if (++BitPosition == Type.NumBlocks)
 					return false;
 			}
 
@@ -104,7 +104,7 @@ namespace Engine
 
 			std::cout << std::setw(20) << m_pMemoryPool;
 			std::cout << std::setw(20) << i_pMemory;
-			std::cout << std::setw(20) << m_INFO.BlockSize;
+			std::cout << std::setw(20) << Type.BlockSize;
 			std::cout << " -  FREE MEMORY WITH FIXED SIZE ALLOCATOR" << std::endl;
 #endif;
 
