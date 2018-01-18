@@ -153,13 +153,13 @@ void* Engine::Memory::MemoryAllocator::_Alloc(const size_t i_Size, const size_t 
 
 	if (m_pFreeDescriptorList == nullptr)
 	{
-		std::cout << "BLOCK DESCRIPTOR NOT ENOUGH FOR USE" << std::endl;
+//		std::cout << "BLOCK DESCRIPTOR NOT ENOUGH FOR USE" << std::endl;
 		return nullptr;
 	}
 
 	if (size > prev_Descriptor->m_BlockSize)
 	{
-		std::cout << "HEAP MEMORY NOT ENOUGH FOR USE" << std::endl;
+//		std::cout << "HEAP MEMORY NOT ENOUGH FOR USE" << std::endl;
 		return nullptr;
 	}
 

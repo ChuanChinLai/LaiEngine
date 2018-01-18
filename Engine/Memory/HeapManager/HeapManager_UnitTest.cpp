@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <iostream>
 
 bool Engine::Memory::HeapManager_UnitTest()
 {
@@ -139,8 +140,8 @@ bool Engine::Memory::HeapManager_UnitTest()
 
 	} while (1);
 
-	printf("After exhausting allocations:\n");
-	printf("\n");
+//	printf("After exhausting allocations:\n");
+//	printf("\n");
 
 	// now free those blocks in a random order
 	if (!AllocatedAddresses.empty())
@@ -162,13 +163,13 @@ bool Engine::Memory::HeapManager_UnitTest()
 			//					assert(success, "Could not free memory");
 		}
 
-		printf("After freeing allocations:\n");
+//		printf("After freeing allocations:\n");
 
 		// do garbage collection
 		pHeap->_Recycle();
 		// our heap should be one single block, all the memory it started with
 
-		printf("After garbage collection:\n");
+//		printf("After garbage collection:\n");
 
 		printf("\n");		// do a large test allocation to see if garbage collection worked
 		void * pPtr = pHeap->_Alloc(sizeHeap / 2);
@@ -179,9 +180,11 @@ bool Engine::Memory::HeapManager_UnitTest()
 		}
 	}
 
-	pHeap->_Display();
+//	pHeap->_Display();
 
 	pHeap->_Recycle();
+
+	std::cout << "Pass the Heap Manager Unit Test" << std::endl;
 
 	// we succeeded
 	return true;

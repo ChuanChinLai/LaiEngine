@@ -18,9 +18,11 @@ A Tower Defense Game made by the engine.
 
 * Source code in LaiEngine/Engine
 
-* Customize Static Library, including Scene, Math, Physics, etc...
+* Customize Engine Library, including Scene, Math, Physics, etc...
 
-* Smart Pointer for Gameobject Management
+* High Speed Memory Allocator, reducing average dynamic allocation time by 60%
+
+* Smart Pointer for GameObject Management
 
 * One-click Asset Builder Tool
 
