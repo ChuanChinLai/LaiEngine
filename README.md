@@ -30,6 +30,6 @@ A Tower Defense Game made by the engine.
 
 * Using LaiEngine to make a TowerDefenseGame
 
-* Implement the game with design patterns, including Facade, Mediator, Observer, etc...
+* Design and implement the gameplay with design patterns, including Facade, Mediator, Observer, etc...
 
 * Using Lua table for data input
