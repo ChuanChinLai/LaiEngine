@@ -14,6 +14,11 @@ void Gameplay::Enemy::_Init()
 {
 	m_pGameObject->_AddComponent<Engine::Component::Text>();
 	m_pGameObject->_AddComponent<Engine::Component::Sprite>();
+
+	m_pGameObject->_AddComponent<Engine::Component::Rigidbody>();
+
+	Engine::Component::Rigidbody* pRigidbody = m_pGameObject->_GetComponent<Engine::Component::Rigidbody>();
+	pRigidbody->SphereCollider->Radius = 24.0f;
 }
 
 void Gameplay::Enemy::_Update()
