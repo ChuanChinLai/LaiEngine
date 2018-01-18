@@ -1,5 +1,7 @@
 #include "BitArray.h"
 
+#include <Engine\Memory\HeapManager\MemoryAllocator\MemoryAllocator.h>
+
 #include <iostream>
 #include <cassert>
 
@@ -26,7 +28,7 @@ namespace Engine
 			delete (m_pBitArray - sizeof(BitArray));
 		}
 
-		BitArray* BitArray::_Create(const size_t i_NumBits, HeapManager* i_pHeapManager)
+		BitArray* BitArray::_Create(const size_t i_NumBits, MemoryAllocator* i_pHeapManager)
 		{
 			assert(i_pHeapManager);
 			size_t NumBytes = (i_NumBits + (BitsPerBytes - 1) / BitsPerBytes);
@@ -35,8 +37,7 @@ namespace Engine
 			size_t TotalMemory = sizeof(BitArray) + NumBytes * sizeof(uint8_t);
 
 			//allocate a memory block for BitArray
-//			uint8_t* pMemory = reinterpret_cast<uint8_t*>(i_pHeapManager->_Alloc(TotalMemory));
-			uint8_t* pMemory = nullptr;
+			uint8_t* pMemory = reinterpret_cast<uint8_t*>(i_pHeapManager->_Alloc(TotalMemory));
 			assert(pMemory);
 
 			//pointer to BitArray

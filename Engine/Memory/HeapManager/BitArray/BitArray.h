@@ -6,14 +6,14 @@ namespace Engine
 {
 	namespace Memory
 	{
-		class HeapManager;
+		class MemoryAllocator;
 		class BitArray
 		{
 		public:
 
 			~BitArray();
 
-			static BitArray* _Create(const size_t i_NumBits, HeapManager* i_pHeapManager);
+			static BitArray* _Create(const size_t i_NumBits, MemoryAllocator* i_pHeapManager);
 
 			//Support Function for BitArray:
 			inline void _ClearAll(void);

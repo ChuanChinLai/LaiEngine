@@ -1,52 +1,54 @@
 #pragma once
 
-#include <stdint.h>
+#include <Engine\Memory\HeapManager\FixedSizeAllocator\FixedSizeAllocator.h>
 
 namespace Engine
 {
 	namespace Memory
 	{
-		class BlockDescriptor;
+		class MemoryAllocator;
 		class FixedSizeAllocator;
 
-		class HeapManager
+		enum AlignmentType
 		{
-		public:
-
-			static HeapManager* _Create(void* i_pMemoryPool, const size_t i_PoolSize, const size_t i_NumDescriptors);
-			static inline HeapManager* _Get();
-			void  _Destroy();
-
-			void* _Alloc(const size_t i_Size, const size_t i_AlignmentSize = 4);
-			bool  _Free(const void* i_pMemory);
-			void  _Recycle();
-			void  _Display() const;
-
-		private:
-
-			HeapManager();
-			~HeapManager();
-			HeapManager(const HeapManager&);
-			HeapManager& operator = (const HeapManager&);
-
-
-			HeapManager* _Init(void* i_pMemoryPool, const size_t i_PoolSize, const size_t i_NumDescriptors);
-			void		 _Display(const BlockDescriptor* i_pList) const;
-
-			size_t				m_SIZE;
-			uintptr_t			m_pMemoryPool;
-
-			BlockDescriptor*	m_pFreeMemoryList;
-			BlockDescriptor*	m_pFreeDescriptorList;
-			BlockDescriptor*	m_pOutstandingAllocationList;
-
-			static HeapManager* s_pHeapManager;
+			ALIGNMENT_DEFAULT = 4,
+			ALIGNMENT_8  =  8,
+			ALIGNMENT_16 = 16,
+			ALIGNMENT_32 = 32,
+			ALIGNMENT_64 = 64,
 		};
 
+		const unsigned int 	SizeHeap = 1024 * 1024;
+		const unsigned int 	NumDescriptors = 2048;
+		const unsigned int	NumFSAs = 4;
 
-		void Swap(BlockDescriptor *descriptor_1, BlockDescriptor *descriptor_2);
-		void Sort(BlockDescriptor *DescriptorList);
+		const FSA_INFO FSAInitDATA[NumFSAs] = { FSA_INFO(ALIGNMENT_8,  48),
+												FSA_INFO(ALIGNMENT_16, 48),
+												FSA_INFO(ALIGNMENT_32, 48),
+												FSA_INFO(ALIGNMENT_64, 48) };
+
+		extern MemoryAllocator*	   pHeapManager;
+		extern FixedSizeAllocator* pFSAs[];
+
+
+		bool  _InitHeapManager();
+		bool  _ReleaseHeapManager();
+
+		bool  _InitFixedSizeAllocators(MemoryAllocator* i_pHeapManager);
+		void  _ReleaseFixedSizeAllocators();
+
+
+		void* _AllocFromFixedSizeAllocators(const size_t i_Size);
+		bool  _FreeFromFixedSizeAllocators(const void* i_pMemory);
+		FixedSizeAllocator* _SearchAvailableFixedSizeAllocators(const size_t i_Size);
+
+		bool HeapManager_UnitTest();
 	}
 }
 
-#include "HeapManager_inline.h"
+
+void* operator new(const size_t i_size);
+void  operator delete(void * i_ptr);
+
+void* operator new[](const size_t i_size);
+void  operator delete[](void * i_ptr);

@@ -10,8 +10,17 @@
 #include <ExampleGame_\TowerDefenseGame\Camp\CampSystem\CampSystem.h>
 #include <list>
 
+#include <Engine\Memory\HeapManager\HeapManager.h>
+
+
+
+
 int main(int argc, char *args[])
 {
+	Engine::Memory::_InitHeapManager();
+	Engine::Memory::HeapManager_UnitTest();
+
+
 	Engine::EngineDemo Game;
 
 	if (!Game._Init())
