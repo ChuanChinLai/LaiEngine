@@ -15,5 +15,7 @@
 #include "Engine\Physics\Physics.h"
 #include "Engine\Math\Vector4D.h"
 
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
+
 #include "Engine\Scene\IGameScene.h"
 #include "Engine\Tool\Tool.h"

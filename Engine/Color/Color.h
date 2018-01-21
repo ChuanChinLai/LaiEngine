@@ -14,14 +14,14 @@ namespace Engine
 
 		SDL_Color _SDL_Color();
 
+		uint8_t R, G, B, A;
+
+
 		static Color RED;
 		static Color GREEN;
 		static Color BLUE;
 
 		static Color YELLOW;
 		static Color BLACK;
-
-
-		uint8_t R, G, B, A;
 	};
 }

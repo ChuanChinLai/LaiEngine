@@ -3,7 +3,7 @@
 //#include <ExampleGame_\TowerDefenseGame\Character\CharacterAttr\CharacterAttr.h>
 
 #include <Engine\Math\Vector4D.h>
-#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
 
 #include <list>
 

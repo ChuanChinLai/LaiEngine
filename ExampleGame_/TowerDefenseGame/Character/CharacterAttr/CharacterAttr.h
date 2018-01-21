@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Engine\SmartPointer\WeakPointer.h>
+#include <Engine\Memory\SmartPtr\WeakPointer.h>
 
 namespace Gameplay
 {

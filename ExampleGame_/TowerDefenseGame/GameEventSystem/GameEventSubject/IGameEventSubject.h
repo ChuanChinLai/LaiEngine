@@ -15,7 +15,7 @@ namespace Gameplay
 
 		}
 
-		~IGameEventSubject();
+		virtual ~IGameEventSubject();
 
 
 		inline void _Attach(IGameEventObserver* i_Observer);

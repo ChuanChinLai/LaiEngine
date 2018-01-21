@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Engine\Math\Vector4D.h>
-#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
 #include <list>
 
 namespace Gameplay

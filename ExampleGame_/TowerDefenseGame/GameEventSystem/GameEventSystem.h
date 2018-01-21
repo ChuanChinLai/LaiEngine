@@ -28,6 +28,11 @@ namespace Gameplay
 
 		}
 
+		virtual ~GameEventSystem()
+		{
+
+		}
+
 		virtual void _Release() override;
 
 		void _RegisterObserver(ENUM_GameEvent emGameEvnet, IGameEventObserver* i_pObserver);

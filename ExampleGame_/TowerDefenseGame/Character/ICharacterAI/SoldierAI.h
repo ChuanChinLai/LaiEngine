@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacterAI\ICharacterAI.h>
-#include <Engine\SmartPointer\WeakPointer.h>
+#include <Engine\Memory\SmartPtr\WeakPointer.h>
 
 namespace Gameplay
 {

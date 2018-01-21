@@ -2,7 +2,7 @@
 
 #include <Engine\GameEngine\GameEngine.h>
 #include <Engine\Color\Color.h>
-#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
 #include <Engine\GameObject\Components\Transform.h>
 
 #include <External\SDL2\Includes.h>

@@ -1,7 +1,7 @@
 #include "GameStateInfoUI.h"
 
 #include <ExampleGame_\TowerDefenseGame\TowerDefenseGame.h>
-#include <Engine\SmartPointer\SharedPointer.h>
+
 #include <Engine\GameEngine\Includes.h>
 
 

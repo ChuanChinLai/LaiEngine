@@ -4,8 +4,7 @@
 
 #include <ExampleGame_\TowerDefenseGame\Character\ICharacter\ICharacter.h>
 
-#include <Engine\SmartPointer\SharedPointer.h>
-#include <Engine\SmartPointer\WeakPointer.h>
+#include <Engine\Memory\SmartPtr\WeakPointer.h>
 
 inline Gameplay::CharacterAttr::CharacterAttr() : HP(0), ATK(0), DEF(0), SPEED(0)
 {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <Engine\Scene\IGameScene.h>
-#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
 
 namespace Engine
 {

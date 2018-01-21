@@ -6,9 +6,6 @@
 #include <Engine\Timer\Timer.h>
 #include <Engine\Scene\SceneManager.h>
 
-#include <Engine\SmartPointer\SharedPointer.h>
-#include <Engine\SmartPointer\WeakPointer.h>
-
 #include <External\SDL2\Includes.h>
 
 namespace Engine

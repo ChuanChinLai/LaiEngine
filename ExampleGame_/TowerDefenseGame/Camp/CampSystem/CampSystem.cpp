@@ -18,7 +18,8 @@ void Gameplay::CampSystem::_Init()
 {
 	if(_LoadCampDataFromLua("Gameplay/CampData.lua") == false)
 	{
-		Engine::Tool::Debug::ASSERT(false, "Gameplay/CampData.lua Not Exist");
+		std::cout << "File Not Exist" << std::endl;
+		assert(false);
 	}
 }
 
@@ -77,7 +78,10 @@ SDL_Scancode Gameplay::CampSystem::SoldierCommandFactory(Soldier::TYPE emSoldier
 		CommandCode = SDL_SCANCODE_E;
 		break;
 	default:
-		Engine::Tool::Debug::ASSERT(false, "ERROR TYPE");
+		
+		std::cout << "Type Error" << std::endl;
+		assert(false);
+		
 		break;
 	}
 	return CommandCode;

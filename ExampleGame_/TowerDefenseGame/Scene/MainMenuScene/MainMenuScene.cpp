@@ -37,14 +37,10 @@ void Engine::MainMenuScene::_Init()
 	{
 		m_pObject = Engine::GameObject::_Create();
 		m_pObject->_AddComponent<Engine::Component::Text>();
-		m_pObject->_AddComponent<Engine::Component::Sprite>();
 		m_pObject->Transform->Position = Engine::Math::Vector4D<float>(0, 0, 0);
 
 		Engine::Component::Text* pText = m_pObject->_GetComponent<Engine::Component::Text>();
-		pText->_Create("Lai", Engine::Color::YELLOW, 40, "Fonts/Font.ttf");
-
-		Engine::Component::Sprite* pSprite = m_pObject->_GetComponent<Engine::Component::Sprite>();
-		pSprite->_Create("Textures/Dot_Blue.png");
+		pText->_Create("Powered by LaiEngine", Engine::Color::YELLOW, 24, "Fonts/Font.ttf");
 	}
 }
 

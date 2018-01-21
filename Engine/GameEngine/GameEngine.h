@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
 
 namespace Engine
 {

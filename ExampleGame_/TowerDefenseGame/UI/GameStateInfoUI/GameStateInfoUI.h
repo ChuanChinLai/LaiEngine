@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IUserInterface\IUserInterface.h>
-#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
 
 namespace Engine
 {

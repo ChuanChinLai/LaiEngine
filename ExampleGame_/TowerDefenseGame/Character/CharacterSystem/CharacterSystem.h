@@ -3,7 +3,7 @@
 #include <ExampleGame_\TowerDefenseGame\BaseClass\IGameSystem\IGameSystem.h>
 #include <ExampleGame_\TowerDefenseGame\GameEventSystem\GameEventSystem.h>
 
-#include <Engine\SmartPointer\SharedPointer.h>
+#include <Engine\Memory\SmartPtr\SharedPointer.h>
 
 #include <list>
 
