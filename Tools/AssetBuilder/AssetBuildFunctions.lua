@@ -1,12 +1,4 @@
 
--- All of the following functions have been registered in C,
--- which means that they can be called here just like regular Lua functions.
--- (Note that this script can _not_ be run on its own from the stand-alone interpreter
--- because it will try to call functions that don't exist.
--- It will only work properly when it is run after the functions have been added to the environment
--- like the CFunctionsFromLua example project does.)
-
-
 -- Environment Variables
 local EngineSourceContentDir, GameInstallDir, ExternalDir, SDLBinDir
 

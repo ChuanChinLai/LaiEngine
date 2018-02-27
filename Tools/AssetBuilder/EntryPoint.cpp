@@ -90,9 +90,6 @@ OnExit:
 
 	if (luaState)
 	{
-		// If I haven't made any mistakes
-		// there shouldn't be anything on the stack
-		// regardless of any errors
 		assert(lua_gettop(luaState) == 0);
 
 		lua_close(luaState);
