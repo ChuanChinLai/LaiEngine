@@ -6,11 +6,11 @@ namespace Engine
 {
     namespace Memory
     {
-		//Forward declaration
-		template<class T> class weak_ptr;
+        //Forward declaration
+        template<class T> class weak_ptr;
 
         template<class T> 
-		class shared_ptr
+        class shared_ptr
         {
         public:
             
@@ -52,6 +52,7 @@ namespace Engine
 			inline T& operator* () const;
 			inline T* operator->() const;
 
+			//Operators:
 			inline operator bool() const;
 
 			inline bool operator==(const shared_ptr& i_SharedPtr) const;

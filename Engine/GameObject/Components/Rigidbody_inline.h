@@ -3,6 +3,7 @@
 #include "Rigidbody.h"
 #include <Engine\GameObject\GameObject.h>
 #include <Engine\GameEngine\GameEngine.h>
+#include <Engine\Timer\Timer.h>
 #include <Engine\GameObject\Components\Transform.h>
 #include <Engine\Physics\Physics.h>
 

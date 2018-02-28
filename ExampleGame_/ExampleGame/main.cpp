@@ -1,6 +1,8 @@
 #include <ExampleGame_\ExampleGame\EngineDemo.h>
 #include <Engine\Memory\HeapManager\HeapManager.h>
 
+#include <stdlib.h>
+#include <crtdbg.h>  
 
 int main(int argc, char *args[])
 {

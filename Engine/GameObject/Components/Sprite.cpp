@@ -2,6 +2,8 @@
 
 #include <Engine\GameEngine\GameEngine.h>
 #include <Engine\GameObject\Components\Transform.h>
+#include <Engine\Graphics\Graphics.h>
+
 #include <cassert>
 
 void Engine::Component::Sprite::_Update()

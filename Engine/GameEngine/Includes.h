@@ -5,6 +5,9 @@
 #include "Engine\Color\Color.h"
 
 #include "Engine\GameObject\GameObject.h"
+#include "Engine\Timer\Timer.h"
+#include "Engine\Input\Input.h"
+#include "Engine\Graphics\Graphics.h"
 
 #include "Engine\GameObject\Components\Component.h"
 #include "Engine\GameObject\Components\Transform.h"
