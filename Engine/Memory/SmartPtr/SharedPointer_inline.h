@@ -60,7 +60,7 @@ namespace Engine
         }
 
         template<class T>
-        inline bool shared_ptr<T>::operator!=(const shared_ptr& i_SharedPtr) const
+        inline bool shared_ptr<T>::operator != (const shared_ptr& i_SharedPtr) const
         {
             return m_ptr != i_SharedPtr.m_ptr;
         }
