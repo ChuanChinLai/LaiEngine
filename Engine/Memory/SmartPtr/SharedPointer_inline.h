@@ -83,24 +83,24 @@ namespace Engine
         template<class T>
         inline void shared_ptr<T>::_Release()
         {
-            if (m_pRefCounter != nullptr)
+            if (m_pRefCounter == nullptr) return;
+
+            m_pRefCounter->SharedCount--;
+
+            if (m_pRefCounter->SharedCount <= 0 && m_pRefCounter->WeakCount <= 0)
             {
-                m_pRefCounter->SharedCount--;
+                delete m_ptr;
+                m_ptr = nullptr;
 
-                if (m_pRefCounter->SharedCount <= 0 && m_pRefCounter->WeakCount <= 0)
-                {
-                    delete m_ptr;
-                    m_ptr = nullptr;
-
-                    delete m_pRefCounter;
-                    m_pRefCounter = nullptr;
-                }
-                else if (m_pRefCounter->SharedCount <= 0)
-                {
-                    delete m_ptr;
-                    m_ptr = nullptr;
-                }
+                delete m_pRefCounter;
+                m_pRefCounter = nullptr;
+            }
+            else if (m_pRefCounter->SharedCount <= 0)
+            {
+                delete m_ptr;
+                m_ptr = nullptr;
             }
         }
+
     }
 }
