@@ -1,8 +1,8 @@
 # The LaiEngine
 
-LaiEngine is a 2D game engine built from the ground up using C++ with [Simple DirectMedia Layer](https://www.libsdl.org/) (SDL 2.0). LaiEngine’s features include: GameObjects, Heap Manager, Smart Pointers, Mathematics Library, and Asset Builder. Also available in the project is an example game I built with the LaiEngine to showcase 
-the engine’s features.  
+LaiEngine is a 2D game engine built from the ground up using C++ with [Simple DirectMedia Layer](https://www.libsdl.org/) (SDL 2.0).
 
+Also available in the project is an example game I built with the LaiEngine to showcase the engine’s features.  
 
 ### How to:
 
