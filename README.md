@@ -18,11 +18,13 @@ A Tower Defense Game made by the engine.
 
 * Source code in LaiEngine/Engine
 
+* Component-based GameObjects, allowing users to add component classes to their GameObjects
+
 * Customize Engine Library, including Scene, Math, Physics, etc...
 
 * High Speed Memory Allocator, reducing average dynamic allocation time by 60%
 
-* Smart Pointer for GameObject Management
+* Shared_ptr and Weak_ptr for resource management and avoiding memory leaks
 
 * One-click Asset Builder Tool
 
@@ -30,8 +32,10 @@ A Tower Defense Game made by the engine.
 
 * Source code in LaiEngine/ExampleGame_
 
-* Using LaiEngine to make a TowerDefenseGame
+* Custom event system with Observer pattern, improving performance for GameObjects spawning and destroying
 
-* Design and implement gameplay with design patterns, including Facade, Mediator, Observer, etc...
+* Implemented artificial intelligence with State pattern, facilitating changes to the GameObjects’ behaviors based on the project requirements 
+ 
+* Implemented game subsystems with Mediator pattern and Façade pattern, making it easier to maintain gameplay features  
 
-* Using Lua table for data input
+* Created a Lua-driven balance sheet system, to help facilitate the game design workflow and rapid iteration
